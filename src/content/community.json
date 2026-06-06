@@ -1,0 +1,104 @@
+{
+  "badge": { "es": "Nuestra comunidad", "en": "Our community" },
+  "title": { "es": "Más que una tienda — una comunidad", "en": "More than a store — a community" },
+  "subtitle": {
+    "es": "JMarkets conecta personas que quieren comerciar localmente, apoyarse mutuamente y construir juntos una economía más justa.",
+    "en": "JMarkets connects people who want to trade locally, support each other, and build a fairer economy together."
+  },
+  "valuesTitle": { "es": "Lo que nos guía", "en": "What we stand for" },
+  "valuesSubtitle": { "es": "Seis principios que guían todo lo que construimos", "en": "Six principles that guide everything we build" },
+  "values": [
+    {
+      "title": { "es": "Comercio justo", "en": "Fair trade" },
+      "description": { "es": "Precios justos y condiciones dignas para cada participante.", "en": "Fair prices and dignified conditions for every participant." }
+    },
+    {
+      "title": { "es": "Producción local", "en": "Local production" },
+      "description": { "es": "Celebramos lo que se hace cerca, por personas reales.", "en": "We celebrate what is made nearby, by real people." }
+    },
+    {
+      "title": { "es": "Consumo consciente", "en": "Conscious consumption" },
+      "description": { "es": "Compramos lo que realmente necesitamos, de personas que conocemos.", "en": "We buy what we truly need, from people we know." }
+    },
+    {
+      "title": { "es": "Transparencia", "en": "Transparency" },
+      "description": { "es": "Sin costos ocultos. Abiertos y honestos en cada paso.", "en": "No hidden costs. Open and honest at every step." }
+    },
+    {
+      "title": { "es": "Colaboración", "en": "Collaboration" },
+      "description": { "es": "Crecemos juntos, no a expensas del otro.", "en": "We grow together, not at each other's expense." }
+    },
+    {
+      "title": { "es": "Intercambio", "en": "Exchange" },
+      "description": { "es": "El valor no siempre necesita dinero. El trueque es bienvenido aquí.", "en": "Value doesn't always need money. Barter is welcome here." }
+    }
+  ],
+  "barter": {
+    "title": { "es": "Trueque e intercambio", "en": "Barter & exchange" },
+    "description": {
+      "es": "Nuestro sistema de trueque permite a los miembros de la comunidad intercambiar productos o servicios sin dinero. Habilidades, tiempo, bienes — todo tiene valor.",
+      "en": "Our barter system lets community members exchange products or services without money. Skills, time, goods — all have value."
+    },
+    "how": [
+      { "es": "Lista lo que ofreces", "en": "List what you offer" },
+      { "es": "Encuentra lo que necesitas", "en": "Find what you need" },
+      { "es": "Acuerda e intercambia", "en": "Agree and exchange" }
+    ],
+    "exampleCards": [
+      {
+        "avatar": "M",
+        "offers": { "es": "María ofrece: Mermeladas", "en": "María ofrece: Mermeladas" },
+        "seeks": { "es": "Busca: Clases de yoga", "en": "Busca: Clases de yoga" }
+      },
+      {
+        "avatar": "L",
+        "offers": { "es": "Laura ofrece: Yoga", "en": "Laura ofrece: Yoga" },
+        "seeks": { "es": "Busca: Alimentos locales", "en": "Busca: Alimentos locales" }
+      }
+    ],
+    "perfectExchange": { "es": "¡Intercambio perfecto sin dinero!", "en": "¡Intercambio perfecto sin dinero!" }
+  },
+  "mutual": {
+    "title": { "es": "Redes de apoyo mutuo", "en": "Mutual support networks" },
+    "description": {
+      "es": "Conecta con emprendedores que comparten tus valores. Encuentra colaboradores, mentores y clientes que creen en el comercio local.",
+      "en": "Connect with entrepreneurs who share your values. Find collaborators, mentors, and customers who believe in local commerce."
+    }
+  },
+  "storiesTitle": { "es": "Historias reales de nuestra comunidad", "en": "Real stories from our community" },
+  "storiesSubtitle": { "es": "Personas que cambiaron su forma de vender y conectar", "en": "People who changed how they sell and connect" },
+  "stories": [
+    {
+      "quote": {
+        "es": "\"Empecé vendiendo mermeladas caseras y gracias a JMarkets ahora tengo 200 clientes fieles en mi barrio.\"",
+        "en": "\"I started selling homemade jams and thanks to JMarkets I now have 200 loyal customers in my neighborhood.\""
+      },
+      "name": { "es": "María González", "en": "María González" },
+      "business": { "es": "Conservas artesanales · Buenos Aires", "en": "Homemade preserves · Buenos Aires" }
+    },
+    {
+      "quote": {
+        "es": "\"El sistema de trueque me permitió intercambiar diseño gráfico por servicios legales. Eso es economía real — humana y justa.\"",
+        "en": "\"The barter system let me exchange graphic design for legal services. That is real economy — human and fair.\""
+      },
+      "name": { "es": "Carlos Ruiz", "en": "Carlos Ruiz" },
+      "business": { "es": "Diseñador gráfico · Medellín", "en": "Graphic designer · Medellín" }
+    },
+    {
+      "quote": {
+        "es": "\"Nuestra cooperativa finalmente tiene presencia digital sin necesitar un programador ni pagar una fortuna.\"",
+        "en": "\"Our cooperative finally has a digital presence without needing a programmer or paying a fortune.\""
+      },
+      "name": { "es": "Ana Morales", "en": "Ana Morales" },
+      "business": { "es": "Cooperativa agrícola · Oaxaca", "en": "Agricultural cooperative · Oaxaca" }
+    }
+  ],
+  "cta": {
+    "title": { "es": "Sé parte de la comunidad", "en": "Become part of the community" },
+    "subtitle": {
+      "es": "Crea tu tienda gratis y conecta con personas que comparten tus valores.",
+      "en": "Create your store for free and connect with people who share your values."
+    },
+    "button": { "es": "Unirme hoy", "en": "Join today" }
+  }
+}

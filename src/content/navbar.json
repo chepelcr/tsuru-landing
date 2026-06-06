@@ -1,0 +1,15 @@
+{
+  "brand": { "es": "JMarkets", "en": "JMarkets" },
+  "links": {
+    "features": { "es": "Funcionalidades", "en": "Features" },
+    "fairs": { "es": "Ferias", "en": "Fairs" },
+    "community": { "es": "Comunidad", "en": "Community" },
+    "examples": { "es": "Ejemplos", "en": "Examples" },
+    "nosotros": { "es": "Nosotros", "en": "About us" },
+    "about": { "es": "Quiénes somos", "en": "Who we are" },
+    "contact": { "es": "Contacto", "en": "Contact" },
+    "blog": { "es": "Blog", "en": "Blog" }
+  },
+  "login": { "es": "Iniciar sesión", "en": "Sign in" },
+  "register": { "es": "Únete a la comunidad", "en": "Join the community" }
+}

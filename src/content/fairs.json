@@ -1,0 +1,71 @@
+{
+  "badge": { "es": "Ferias activas", "en": "Active fairs" },
+  "title": { "es": "Ferias: donde la comunidad se reúne", "en": "Ferias: where community gathers" },
+  "subtitle": {
+    "es": "Ferias virtuales y presenciales que conectan compradores y vendedores en un espacio compartido.",
+    "en": "Virtual and local fairs that bring buyers and sellers together in a shared space."
+  },
+  "what": {
+    "title": { "es": "¿Qué son las ferias de JMarkets?", "en": "What are JMarkets fairs?" },
+    "description": {
+      "es": "Las ferias son eventos organizados — virtuales o presenciales — donde múltiples vendedores se reúnen en un espacio compartido. Los compradores pueden descubrir muchos productores locales a la vez, y los vendedores ganan visibilidad como parte de una comunidad.",
+      "en": "Fairs are organized events — virtual or in-person — where multiple sellers come together in one shared space. Buyers can discover many local producers at once, and sellers gain visibility as part of a community."
+    }
+  },
+  "typesTitle": { "es": "Tipos de ferias", "en": "Types of fairs" },
+  "types": [
+    {
+      "title": { "es": "Ferias virtuales", "en": "Virtual fairs" },
+      "description": {
+        "es": "Eventos en línea donde los vendedores comparten sus tiendas bajo un tema común. Promovidos en toda la comunidad JMarkets.",
+        "en": "Online events where sellers share their stores under a common theme. Promoted across the JMarkets community."
+      }
+    },
+    {
+      "title": { "es": "Ferias locales y presenciales", "en": "Local & physical fairs" },
+      "description": {
+        "es": "Eventos de mercado presencial organizados por comunidades locales. Usa JMarkets como tu presencia digital en la feria.",
+        "en": "In-person market events organized by local communities. Use JMarkets as your digital presence at the fair."
+      }
+    },
+    {
+      "title": { "es": "Ferias de trueque e intercambio", "en": "Barter & exchange fairs" },
+      "description": {
+        "es": "Eventos especiales dedicados al intercambio de productos o servicios sin dinero. Economía Social Solidaria pura.",
+        "en": "Special events dedicated to swapping products or services without money. Pure Social Solidarity Economy."
+      }
+    }
+  ],
+  "howJoinTitle": { "es": "Cómo participar", "en": "How to participate" },
+  "howJoin": [
+    {
+      "title": { "es": "Configura tu tienda", "en": "Set up your store" },
+      "description": {
+        "es": "Crea o actualiza tu tienda con tus productos e información de contacto.",
+        "en": "Create or update your store with your products and contact info."
+      }
+    },
+    {
+      "title": { "es": "Inscríbete en una feria", "en": "Register for a fair" },
+      "description": {
+        "es": "Explora las próximas ferias y solicita participar como vendedor.",
+        "en": "Browse upcoming fairs and apply to participate as a seller."
+      }
+    },
+    {
+      "title": { "es": "Vende y conecta", "en": "Sell and connect" },
+      "description": {
+        "es": "Recibe pedidos y conecta con compradores y otros vendedores de tu comunidad.",
+        "en": "Receive orders and connect with buyers and other sellers in your community."
+      }
+    }
+  ],
+  "cta": {
+    "title": { "es": "¿Listo para mostrar tus productos en una feria?", "en": "Ready to show your products at a fair?" },
+    "subtitle": {
+      "es": "Crea tu tienda y únete a la próxima feria de tu comunidad.",
+      "en": "Create your store and join the next fair in your community."
+    },
+    "button": { "es": "Únete a la comunidad", "en": "Join the community" }
+  }
+}

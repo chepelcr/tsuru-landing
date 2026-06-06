@@ -1,0 +1,74 @@
+{
+  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "badge": { "es": "Política de Privacidad", "en": "Privacy Policy" },
+  "title": { "es": "Política de Privacidad", "en": "Privacy Policy" },
+  "subtitle": {
+    "es": "Cómo recopilamos, usamos y protegemos tu información",
+    "en": "How we collect, use, and protect your information"
+  },
+  "lastUpdated": { "es": "Última actualización", "en": "Last updated" },
+  "lastUpdatedDate": { "es": "1 de enero de 2026", "en": "January 1, 2026" },
+  "sections": [
+    {
+      "title": { "es": "1. Información que Recopilamos", "en": "1. Information We Collect" },
+      "content": {
+        "es": "Recopilamos información que nos proporcionas directamente, como cuando creas una cuenta, realizas una compra o nos contactas. Esto incluye tu nombre, dirección de correo electrónico, contraseña e información de pago. También recopilamos información automáticamente cuando usas nuestra plataforma, incluyendo datos de registro, cookies e información del dispositivo.",
+        "en": "We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us. This includes your name, email address, password, and payment information. We also collect information automatically when you use our platform, including log data, cookies, and device information."
+      }
+    },
+    {
+      "title": { "es": "2. Cómo Usamos tu Información", "en": "2. How We Use Your Information" },
+      "content": {
+        "es": "Utilizamos tu información para proporcionar, mantener y mejorar nuestros servicios, procesar transacciones, enviar correos electrónicos transaccionales y promocionales, responder a tus consultas y cumplir con obligaciones legales. Utilizamos datos de análisis para entender cómo interactúas con nuestra plataforma y para optimizar la experiencia del usuario.",
+        "en": "We use your information to provide, maintain, and improve our services, process transactions, send transactional and promotional emails, respond to your inquiries, and comply with legal obligations. We use analytics data to understand how users interact with our platform and to optimize the user experience."
+      }
+    },
+    {
+      "title": { "es": "3. Almacenamiento y Seguridad de Datos", "en": "3. Data Storage and Security" },
+      "content": {
+        "es": "Tus datos se almacenan en servidores seguros con tecnología de cifrado. Implementamos salvaguardas físicas, electrónicas y procedimentales apropiadas para proteger tu información contra acceso, alteración, divulgación o destrucción no autorizados. Sin embargo, ningún método de transmisión a través de Internet es completamente seguro.",
+        "en": "Your data is stored on secure servers with encryption technology. We implement appropriate physical, electronic, and procedural safeguards to protect your information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is completely secure."
+      }
+    },
+    {
+      "title": { "es": "4. Cookies y Seguimiento", "en": "4. Cookies and Tracking" },
+      "content": {
+        "es": "Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestra plataforma y retener cierta información. Puedes instruir a tu navegador para rechazar todas las cookies o para alertarte cuando se envíe una cookie. Sin embargo, algunas características de la plataforma pueden no funcionar correctamente sin cookies.",
+        "en": "We use cookies and similar tracking technologies to track activity on our platform and hold certain information. You can instruct your browser to refuse all cookies or to alert you when cookies are being sent. However, some features of the platform may not function properly without cookies."
+      }
+    },
+    {
+      "title": { "es": "5. Servicios de Terceros", "en": "5. Third-Party Services" },
+      "content": {
+        "es": "Podemos compartir tu información con proveedores de servicios de terceros que nos ayudan a operar nuestra plataforma y conducir nuestro negocio. Estos proveedores están obligados contractualmente a usar tu información solo según sea necesario para proporcionarnos servicios.",
+        "en": "We may share your information with third-party service providers who assist us in operating our platform and conducting our business. These providers are contractually obligated to use your information only as necessary to provide services to us."
+      }
+    },
+    {
+      "title": { "es": "6. Tus Derechos", "en": "6. Your Rights" },
+      "content": {
+        "es": "Dependiendo de tu ubicación, puedes tener ciertos derechos con respecto a tus datos personales, incluido el derecho a acceder, corregir, eliminar o transferir tu información. Para ejercer cualquiera de estos derechos, contáctanos en privacy@jmarkets.com.",
+        "en": "Depending on your location, you may have certain rights regarding your personal data, including the right to access, correct, delete, or port your information. To exercise any of these rights, please contact us at privacy@jmarkets.com."
+      }
+    },
+    {
+      "title": { "es": "7. Protección de Datos", "en": "7. Data Protection" },
+      "content": {
+        "es": "Cumplimos con las regulaciones de protección de datos aplicables, incluyendo el GDPR y leyes similares. Mantenemos salvaguardas apropiadas para proteger tus datos y solo retenemos información por el tiempo necesario para proporcionar nuestros servicios y cumplir con obligaciones legales.",
+        "en": "We comply with applicable data protection regulations, including GDPR and similar laws. We maintain appropriate safeguards to protect your data and only retain information for as long as necessary to provide our services and comply with legal obligations."
+      }
+    },
+    {
+      "title": { "es": "8. Información de Contacto", "en": "8. Contact Information" },
+      "content": {
+        "es": "Si tienes preguntas sobre esta política de privacidad o nuestras prácticas de privacidad, contáctanos en privacy@jmarkets.com o visita nuestra página de contacto. Estamos comprometidos a trabajar contigo para resolver cualquier preocupación sobre privacidad.",
+        "en": "If you have questions about this privacy policy or our privacy practices, please contact us at privacy@jmarkets.com or visit our contact page. We are committed to working with you to resolve any privacy concerns."
+      }
+    }
+  ],
+  "notice": { "es": "Tu Privacidad es Importante", "en": "Your Privacy Matters" },
+  "noticeDesc": {
+    "es": "Estamos comprometidos a proteger tu privacidad y asegurar que tengas una experiencia positiva en nuestra plataforma. Si tienes preguntas sobre cómo manejamos tus datos, no dudes en contactarnos.",
+    "en": "We are committed to protecting your privacy and ensuring you have a positive experience on our platform. If you have any questions about how we handle your data, please don't hesitate to contact us."
+  }
+}

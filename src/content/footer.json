@@ -1,0 +1,28 @@
+{
+  "brand": { "es": "JMarkets", "en": "JMarkets" },
+  "description": {
+    "es": "Plataforma de Economía Social Solidaria para emprendedores, comercios locales y comunidades organizadas.",
+    "en": "Social Solidarity Economy platform for entrepreneurs, local businesses, and organized communities."
+  },
+  "groups": {
+    "product": { "es": "Plataforma", "en": "Platform" },
+    "company": { "es": "Empresa", "en": "Company" },
+    "legal": { "es": "Legal", "en": "Legal" }
+  },
+  "links": {
+    "features": { "es": "Funcionalidades", "en": "Features" },
+    "fairs": { "es": "Ferias", "en": "Fairs" },
+    "community": { "es": "Comunidad", "en": "Community" },
+    "examples": { "es": "Ejemplos", "en": "Examples" },
+    "about": { "es": "Quiénes somos", "en": "Who we are" },
+    "blog": { "es": "Blog", "en": "Blog" },
+    "contact": { "es": "Contacto", "en": "Contact" },
+    "terms": { "es": "Términos", "en": "Terms" },
+    "privacy": { "es": "Privacidad", "en": "Privacy" },
+    "cookies": { "es": "Cookies", "en": "Cookies" }
+  },
+  "copyright": {
+    "es": "© 2026 JMarkets. Todos los derechos reservados.",
+    "en": "© 2026 JMarkets. All rights reserved."
+  }
+}

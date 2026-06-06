@@ -1,0 +1,82 @@
+{
+  "badge": { "es": "Quiénes somos", "en": "Who we are" },
+  "title": { "es": "Nacidos de la comunidad, construidos para la comunidad", "en": "Born from community, built for community" },
+  "subtitle": {
+    "es": "JMarkets nació en Guápiles, Costa Rica, como un proyecto universitario comunitario en tiempos de pandemia para reconectar comunidades aisladas a través de sus ferias y redes de trueque.",
+    "en": "JMarkets was born in Guápiles, Costa Rica, from a university community project during the pandemic to reconnect isolated communities through their local fairs and barter networks."
+  },
+  "queEs": {
+    "badge": { "es": "¿Qué es JMarkets?", "en": "What is JMarkets?" },
+    "title": { "es": "No solo una tienda — un movimiento", "en": "Not just a store — a movement" },
+    "description": {
+      "es": "JMarkets es una plataforma nacida del TCU \"Comer Orgánico\" de la Universidad de Costa Rica, en alianza con la Feria del Trueque Verde Manantial en Guápiles. Permite a emprendedores, comercios locales y comunidades crear su propio espacio en línea, publicar productos, vender (principalmente por WhatsApp) y participar en ferias y trueques — igual que antes de la pandemia, pero ahora con el alcance de internet.",
+      "en": "JMarkets is a platform born from the TCU \"Comer Orgánico\" at the Universidad de Costa Rica, in partnership with the Feria del Trueque Verde Manantial in Guápiles. It lets entrepreneurs, local businesses, and communities create their own space online, publish products, sell (mainly via WhatsApp), and participate in fairs and barter — just like before the pandemic, but now with the reach of the internet."
+    },
+    "points": [
+      { "es": "Vende e intercambia productos en tu comunidad", "en": "Sell and exchange products in your community" },
+      { "es": "Reconecta vecinos que se aislaron durante la pandemia", "en": "Connect neighbors who were isolated during the pandemic" },
+      { "es": "Participa en ferias virtuales, locales y de trueque", "en": "Participate in virtual and local fairs and barter events" },
+      { "es": "Preserva y documenta la cultura de ferias comunitarias", "en": "Preserve and document community fair culture" }
+    ]
+  },
+  "decorative": {
+    "tagline": { "es": "Economía comunitaria", "en": "Economía comunitaria" },
+    "tags": [
+      { "es": "Trueque", "en": "Trueque" },
+      { "es": "Ferias", "en": "Ferias" },
+      { "es": "WhatsApp", "en": "WhatsApp" },
+      { "es": "Local", "en": "Local" }
+    ]
+  },
+  "mission": {
+    "title": { "es": "Nuestra Misión", "en": "Our Mission" },
+    "description": {
+      "es": "Dar a las comunidades las herramientas digitales para mantenerse conectadas, comerciar de forma justa y mantener vivas sus tradiciones de ferias y trueque locales — sin importar lo que el mundo les depare.",
+      "en": "To give communities the digital tools to stay connected, trade fairly, and keep their local fair and barter traditions alive — no matter what the world throws at them."
+    }
+  },
+  "story": {
+    "title": { "es": "Nuestra Historia", "en": "Our Story" },
+    "paras": [
+      {
+        "es": "JMarkets nació durante la pandemia de COVID-19 como parte del TCU (Trabajo Comunal Universitario) \"Comer Orgánico\" de la Universidad de Costa Rica. Trabajábamos junto a la Feria del Trueque Verde Manantial en Guápiles, Costa Rica — un espacio comunitario vibrante donde la gente se reunía para intercambiar productos, servicios e historias.",
+        "en": "JMarkets was born during the COVID-19 pandemic as part of the TCU (Trabajo Comunal Universitario) \"Comer Orgánico\" at the Universidad de Costa Rica. We were working alongside the Feria del Trueque Verde Manantial in Guápiles, Costa Rica — a vibrant community space where people gathered to exchange products, services, and stories."
+      },
+      {
+        "es": "Cuando llegó la pandemia, las comunidades quedaron solas y desconectadas. Las ferias que durante años habían unido a las personas enmudecieron. Vimos a vecinos que siempre se encontraban en el mercado ahora sin poder conectarse — y supimos que la tecnología podía ayudar a tender ese puente. Así nació JMarkets: una recreación digital de las ferias que existían antes, diseñada para que la gente pueda mostrar lo que tiene, lo que vende y lo que está dispuesta a trocar.",
+        "en": "When the pandemic hit, communities were suddenly alone and disconnected. The fairs that had brought people together for years went silent. We saw neighbors who had always found each other at the market now unable to connect — and we knew technology could help bridge that gap. So we built JMarkets: a digital recreation of the fairs that existed before, designed to let people show what they have, what they sell, and what they're willing to trade."
+      },
+      {
+        "es": "Desde el principio, documentamos cada paso de este proceso — las necesidades comunitarias, las dinámicas del trueque, los lazos sociales que hacen de una feria algo más que un simple mercado. Esa documentación vive en JMarkets. Hoy este proyecto sigue creciendo como una herramienta para cualquier comunidad que quiera preservar su economía local y mantener a su gente conectada.",
+        "en": "From the beginning, we documented every step of this process — the community needs, the barter dynamics, the social bonds that make a fair more than just a market. That documentation lives in JMarkets. Today, this project continues growing as a tool for any community that wants to preserve its local economy and keep its people connected."
+      }
+    ]
+  },
+  "valuesTitle": { "es": "Nuestros Valores", "en": "Our Values" },
+  "values": [
+    {
+      "title": { "es": "Comercio Justo", "en": "Fair Trade" },
+      "description": { "es": "Precios justos y condiciones dignas para todos los participantes", "en": "Fair prices and dignified conditions for all participants" }
+    },
+    {
+      "title": { "es": "Consumo Consciente", "en": "Conscious Consumption" },
+      "description": { "es": "Promovemos decisiones de compra locales y sostenibles", "en": "Promoting local and sustainable purchasing decisions" }
+    },
+    {
+      "title": { "es": "Comunidad Local", "en": "Local Community" },
+      "description": { "es": "Cada compra fortalece la economía local y los lazos del barrio", "en": "Every purchase strengthens local economy and neighborhood bonds" }
+    },
+    {
+      "title": { "es": "Transparencia", "en": "Transparency" },
+      "description": { "es": "Sin cargos ocultos. Abiertos y honestos en cada paso.", "en": "No hidden fees. Open and honest at every step." }
+    }
+  ],
+  "team": {
+    "title": { "es": "Un proyecto con raíces comunitarias", "en": "A project rooted in community" },
+    "description": {
+      "es": "JMarkets comenzó como un proyecto universitario comunitario y creció hasta convertirse en una plataforma usada por personas reales. Somos investigadores, desarrolladores y defensores de la comunidad que creemos que la tecnología debe servir a las personas — y no al revés.",
+      "en": "JMarkets started as a university community project and grew into a platform used by real people. We are researchers, builders, and community advocates who believe that technology should serve people — not the other way around."
+    },
+    "button": { "es": "Empezar gratis", "en": "Start for free" }
+  }
+}

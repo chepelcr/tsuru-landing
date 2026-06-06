@@ -1,0 +1,41 @@
+{
+  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "badge": { "es": "Contacto", "en": "Contact Us" },
+  "title": { "es": "Ponte en contacto", "en": "Get in touch" },
+  "subtitle": {
+    "es": "Nos encantaría escucharte. Envíanos un mensaje y te responderemos lo antes posible.",
+    "en": "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+  },
+  "sendMessage": { "es": "Envíanos un mensaje", "en": "Send us a message" },
+  "form": {
+    "name": { "es": "Nombre Completo", "en": "Full Name" },
+    "namePlaceholder": { "es": "Juan Pérez", "en": "John Doe" },
+    "email": { "es": "Email", "en": "Email" },
+    "emailPlaceholder": { "es": "juan@ejemplo.com", "en": "john@example.com" },
+    "subject": { "es": "Asunto", "en": "Subject" },
+    "subjectPlaceholder": { "es": "¿Cómo podemos ayudarte?", "en": "How can we help?" },
+    "message": { "es": "Mensaje", "en": "Message" },
+    "messagePlaceholder": { "es": "Tu mensaje aquí...", "en": "Your message here..." },
+    "submit": { "es": "Enviar Mensaje", "en": "Send Message" },
+    "sending": { "es": "Enviando...", "en": "Sending..." },
+    "success": { "es": "¡Mensaje enviado exitosamente!", "en": "Message sent successfully!" }
+  },
+  "error": { "es": "Error", "en": "Error" },
+  "tryAgain": { "es": "Por favor, inténtalo de nuevo.", "en": "Please try again." },
+  "otherWays": { "es": "Otras formas de contactarnos", "en": "Other ways to reach us" },
+  "info": {
+    "email": { "es": "Email", "en": "Email" },
+    "phone": { "es": "Teléfono", "en": "Phone" },
+    "address": { "es": "Dirección", "en": "Address" }
+  },
+  "contactInfo": {
+    "email": "hola@jmarkets.com",
+    "phone": "+506 XXXX-XXXX",
+    "address": "San José, Costa Rica"
+  },
+  "responseTime": { "es": "Tiempo de Respuesta", "en": "Response Time" },
+  "responseTimeDesc": {
+    "es": "¡Generalmente respondemos a todas las consultas dentro de 24 horas durante los días laborales. ¡Gracias por tu paciencia!",
+    "en": "We typically respond to all inquiries within 24 hours during business days. Thank you for your patience!"
+  }
+}

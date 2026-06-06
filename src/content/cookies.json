@@ -1,0 +1,68 @@
+{
+  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "badge": { "es": "Política de Cookies", "en": "Cookie Policy" },
+  "title": { "es": "Política de Cookies", "en": "Cookie Policy" },
+  "subtitle": { "es": "Información sobre cómo utilizamos las cookies", "en": "Information about how we use cookies" },
+  "what": { "es": "¿Qué son las Cookies?", "en": "What are Cookies?" },
+  "explanation": {
+    "es": "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Ayudan a los sitios web a recordar información sobre tu visita, como tus preferencias y actividad. Las cookies pueden ser esenciales para la funcionalidad básica del sitio web o se pueden usar para mejorar la experiencia del usuario a través del seguimiento y personalización.",
+    "en": "Cookies are small text files that are stored on your device when you visit a website. They help websites remember information about your visit, such as your preferences and activity. Cookies can be essential for basic website functionality or used to enhance user experience through tracking and personalization."
+  },
+  "browser": {
+    "es": "La mayoría de navegadores web te permiten controlar las cookies a través de su configuración. Puedes elegir aceptar todas las cookies, rechazar todas o ser notificado cuando se establezca una cookie.",
+    "en": "Most web browsers allow you to control cookies through their settings. You can choose to accept all cookies, reject all cookies, or be notified when a cookie is being set."
+  },
+  "typesTitle": { "es": "Tipos de Cookies", "en": "Types of Cookies" },
+  "examplesLabel": { "es": "Ejemplos", "en": "Examples" },
+  "types": [
+    {
+      "name": { "es": "Cookies Esenciales", "en": "Essential Cookies" },
+      "description": { "es": "Necesarias para la funcionalidad básica", "en": "Necessary for basic functionality" },
+      "examples": { "es": "Session tokens, security tokens, Español", "en": "Session tokens, security tokens, Español" }
+    },
+    {
+      "name": { "es": "Cookies de Análisis", "en": "Analytics Cookies" },
+      "description": { "es": "Nos ayudan a entender cómo usas nuestra plataforma", "en": "Help us understand how you use our platform" },
+      "examples": { "es": "Google Analytics, seguimiento de interacciones", "en": "Google Analytics, seguimiento de interacciones" }
+    },
+    {
+      "name": { "es": "Cookies de Marketing", "en": "Marketing Cookies" },
+      "description": { "es": "Se utilizan para personalizar contenido y anuncios", "en": "Used to personalize content and ads" },
+      "examples": { "es": "Seguimiento de conversiones, anuncios personalizados", "en": "Seguimiento de conversiones, anuncios personalizados" }
+    },
+    {
+      "name": { "es": "Cookies de Preferencia", "en": "Preference Cookies" },
+      "description": { "es": "Recuerdan tus opciones y configuración", "en": "Remember your choices and settings" },
+      "examples": { "es": "Tema visual, idioma, preferencias del usuario", "en": "Tema visual, idioma, preferencias del usuario" }
+    }
+  ],
+  "manage": { "es": "Gestionar Preferencias de Cookies", "en": "Manage Cookie Preferences" },
+  "manageSections": [
+    {
+      "title": { "es": "Usando tu Navegador", "en": "Using Your Browser" },
+      "desc": {
+        "es": "La mayoría de navegadores modernos incluyen herramientas de gestión de cookies en su configuración. Generalmente puedes encontrarlas bajo \"Privacidad\" o configuración de \"Seguridad\". Diferentes navegadores (Chrome, Firefox, Safari, Edge) tienen diferentes procesos, pero todos te permiten ver, eliminar y gestionar cookies.",
+        "en": "Most modern browsers include cookie management tools in their settings. You can typically find these under \"Privacy\" or \"Security\" settings. Different browsers (Chrome, Firefox, Safari, Edge) have different processes, but all allow you to view, delete, and manage cookies."
+      }
+    },
+    {
+      "title": { "es": "Consentimiento de Cookies", "en": "Cookie Consent" },
+      "desc": {
+        "es": "Cuando visitas JMarkets por primera vez, mostramos un banner de consentimiento de cookies. Puedes aceptar todas las cookies, rechazar las no esenciales o personalizar tus preferencias. Puedes cambiar tus preferencias de cookies en cualquier momento a través de la configuración de tu cuenta.",
+        "en": "When you first visit JMarkets, we display a cookie consent banner. You can accept all cookies, reject non-essential cookies, or customize your preferences. You can change your cookie preferences at any time through your account settings."
+      }
+    },
+    {
+      "title": { "es": "Cookies de Terceros", "en": "Third-Party Cookies" },
+      "desc": {
+        "es": "Algunas cookies pueden ser establecidas por servicios de terceros (como proveedores de análisis). Estos servicios tienen sus propias políticas de privacidad y opciones de gestión de cookies. A menudo puedes gestionar estas preferencias a través del sitio web del tercero.",
+        "en": "Some cookies may be set by third-party services (like analytics providers). These services have their own privacy policies and cookie management options. You can often manage these preferences through the third-party's website."
+      }
+    }
+  ],
+  "important": { "es": "Nota Importante", "en": "Important Note" },
+  "importantDesc": {
+    "es": "Deshabilitar las cookies esenciales puede afectar la funcionalidad de nuestra plataforma. Recomendamos mantener las cookies esenciales habilitadas para garantizar la mejor experiencia. Las cookies no esenciales se pueden deshabilitar sin afectar la funcionalidad principal.",
+    "en": "Disabling essential cookies may affect the functionality of our platform. We recommend keeping essential cookies enabled to ensure the best experience. Non-essential cookies can be disabled without affecting core functionality."
+  }
+}

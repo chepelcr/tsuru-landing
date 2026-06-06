@@ -1,0 +1,104 @@
+{
+  "page": {
+    "badge": { "es": "Funcionalidades de la plataforma", "en": "Platform features" },
+    "title": { "es": "Todo lo que necesitas para vender con propósito", "en": "Everything you need to sell with purpose" },
+    "subtitle": {
+      "es": "Herramientas simples y poderosas diseñadas para emprendedores que valoran la comunidad sobre la complejidad.",
+      "en": "Simple, powerful tools designed for entrepreneurs who value community over complexity."
+    }
+  },
+  "featureCards": [
+    {
+      "iconName": "Palette",
+      "color": "green",
+      "title": { "es": "Diseña tu tienda", "en": "Design your store" },
+      "description": {
+        "es": "Elige entre plantillas profesionales adaptadas a tu tipo de negocio. Sin programación.",
+        "en": "Choose from professional templates adapted to your type of business. No coding needed."
+      }
+    },
+    {
+      "iconName": "MessageCircle",
+      "color": "green",
+      "title": { "es": "Vende por WhatsApp", "en": "Sell via WhatsApp" },
+      "description": {
+        "es": "Comparte el enlace de tu catálogo y recibe pedidos directamente por WhatsApp. Rápido y familiar.",
+        "en": "Share your catalog link and receive orders directly through WhatsApp. Fast and familiar."
+      }
+    },
+    {
+      "iconName": "Package",
+      "color": "green",
+      "title": { "es": "Gestión de productos", "en": "Product management" },
+      "description": {
+        "es": "Sube, organiza y gestiona tu catálogo fácilmente. Fotos, descripciones, precios — todo en un lugar.",
+        "en": "Upload, organize, and manage your catalog easily. Photos, descriptions, prices — all in one place."
+      }
+    },
+    {
+      "iconName": "QrCode",
+      "color": "earth",
+      "title": { "es": "Catálogo digital compartible", "en": "Shareable digital catalog" },
+      "description": {
+        "es": "Código QR y enlace compartible listo para usar en cualquier lugar — redes sociales, apps de mensajería, impreso.",
+        "en": "QR code and shareable link ready to share anywhere — social media, messaging apps, print."
+      }
+    },
+    {
+      "iconName": "ClipboardList",
+      "color": "earth",
+      "title": { "es": "Seguimiento de pedidos", "en": "Order tracking" },
+      "description": {
+        "es": "Gestiona tus pedidos y mantén informados a tus clientes en cada paso del proceso.",
+        "en": "Manage your orders and keep your customers informed at every step of the process."
+      }
+    },
+    {
+      "iconName": "Globe",
+      "color": "earth",
+      "title": { "es": "Tu propio espacio en línea", "en": "Your own space online" },
+      "description": {
+        "es": "Tu tienda tiene una dirección única desde el primer día — fácil de compartir, fácil de recordar.",
+        "en": "Your store gets a unique address from day one — easy to share, easy to remember."
+      }
+    }
+  ],
+  "useCasesSection": {
+    "title": { "es": "¿Quién usa JMarkets?", "en": "Who uses JMarkets?" },
+    "subtitle": { "es": "Emprendedores reales, historias reales", "en": "Real entrepreneurs, real stories" }
+  },
+  "useCases": [
+    {
+      "iconName": "Hammer",
+      "title": { "es": "Artesanos y makers", "en": "Artisan makers" },
+      "description": {
+        "es": "Vendedores de artesanías que necesitan un catálogo digital bonito para compartir en ferias locales y en línea.",
+        "en": "Craft sellers who need a beautiful digital catalog to share at local markets and online."
+      }
+    },
+    {
+      "iconName": "UtensilsCrossed",
+      "title": { "es": "Emprendedores de alimentos", "en": "Food entrepreneurs" },
+      "description": {
+        "es": "Cocineros caseros y productores de alimentos que venden sus productos por WhatsApp y redes sociales.",
+        "en": "Home cooks and food producers selling their products through WhatsApp and social media."
+      }
+    },
+    {
+      "iconName": "Users",
+      "title": { "es": "Cooperativas locales", "en": "Local cooperatives" },
+      "description": {
+        "es": "Grupos comunitarios que gestionan ventas colectivas, trueque y proyectos económicos compartidos.",
+        "en": "Community groups managing collective sales, barter, and shared economic projects."
+      }
+    }
+  ],
+  "cta": {
+    "title": { "es": "Empieza a construir tu espacio hoy", "en": "Start building your space today" },
+    "subtitle": {
+      "es": "Únete a miles de emprendedores que ya venden con propósito.",
+      "en": "Join thousands of entrepreneurs already selling with purpose."
+    },
+    "button": { "es": "Crear tu tienda gratis", "en": "Create your store for free" }
+  }
+}

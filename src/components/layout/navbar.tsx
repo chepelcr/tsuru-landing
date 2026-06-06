@@ -5,13 +5,15 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Leaf, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef } from "react";
+import navbar from "@/content/navbar.json";
 
 interface LandingNavbarProps {
   transitionStage?: string;
 }
 
 export default function LandingNavbar({ transitionStage = '' }: LandingNavbarProps) {
-  const { t } = useLanguage();
+  const { language: lang } = useLanguage();
+  const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [nosotrosDropdownOpen, setNosotrosDropdownOpen] = useState(false);
   const [location] = useLocation();
@@ -38,25 +40,25 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
               href="/funcionalidades"
               className={`text-sm transition-colors hover:text-primary ${location === '/funcionalidades' ? 'text-primary font-medium' : 'text-muted-foreground'}`}
             >
-              {t('nav.features')}
+              {pick(navbar.links.features)}
             </Link>
             <Link
               href="/ferias"
               className={`text-sm transition-colors hover:text-primary ${location === '/ferias' ? 'text-primary font-medium' : 'text-muted-foreground'}`}
             >
-              {t('nav.fairs')}
+              {pick(navbar.links.fairs)}
             </Link>
             <Link
               href="/comunidad"
               className={`text-sm transition-colors hover:text-primary ${location === '/comunidad' ? 'text-primary font-medium' : 'text-muted-foreground'}`}
             >
-              {t('nav.community')}
+              {pick(navbar.links.community)}
             </Link>
             <Link
               href="/ejemplos"
               className={`text-sm transition-colors hover:text-primary ${location === '/ejemplos' || location === '/examples' ? 'text-primary font-medium' : 'text-muted-foreground'}`}
             >
-              {t('nav.examples')}
+              {pick(navbar.links.examples)}
             </Link>
 
             {/* Nosotros Dropdown */}
@@ -76,7 +78,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                 onClick={() => setNosotrosDropdownOpen(!nosotrosDropdownOpen)}
                 className="text-sm text-muted-foreground hover:text-primary flex items-center gap-1 transition-colors"
               >
-                {t('nav.nosotros')}
+                {pick(navbar.links.nosotros)}
                 <ChevronDown className={`h-4 w-4 transition-transform ${nosotrosDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -90,14 +92,14 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                   className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted/50"
                   onClick={() => setNosotrosDropdownOpen(false)}
                 >
-                  {t('nav.about')}
+                  {pick(navbar.links.about)}
                 </Link>
                 <Link
                   href="/contacto"
                   className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted/50"
                   onClick={() => setNosotrosDropdownOpen(false)}
                 >
-                  {t('nav.contact')}
+                  {pick(navbar.links.contact)}
                 </Link>
               </div>
             </div>
@@ -106,7 +108,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
               href="/blog"
               className={`text-sm transition-colors hover:text-primary ${location === '/blog' ? 'text-primary font-medium' : 'text-muted-foreground'}`}
             >
-              {t('nav.blog')}
+              {pick(navbar.links.blog)}
             </Link>
           </nav>
 
@@ -116,12 +118,12 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
             <ThemeToggle />
             <a href="https://admin.j-markets.jcampos.dev" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
-                {t('nav.login')}
+                {pick(navbar.login)}
               </Button>
             </a>
             <a href="https://admin.j-markets.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5">
-                {t('nav.register')}
+                {pick(navbar.register)}
               </Button>
             </a>
           </div>
@@ -152,28 +154,28 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                 className="text-sm text-muted-foreground hover:text-primary"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {t('nav.features')}
+                {pick(navbar.links.features)}
               </Link>
               <Link
                 href="/ferias"
                 className="text-sm text-muted-foreground hover:text-primary"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {t('nav.fairs')}
+                {pick(navbar.links.fairs)}
               </Link>
               <Link
                 href="/comunidad"
                 className="text-sm text-muted-foreground hover:text-primary"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {t('nav.community')}
+                {pick(navbar.links.community)}
               </Link>
               <Link
                 href="/ejemplos"
                 className="text-sm text-muted-foreground hover:text-primary"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {t('nav.examples')}
+                {pick(navbar.links.examples)}
               </Link>
 
               {/* Mobile Nosotros */}
@@ -182,7 +184,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                   className="text-sm text-muted-foreground text-left font-medium mb-2 hover:text-primary"
                   onClick={() => setNosotrosDropdownOpen(!nosotrosDropdownOpen)}
                 >
-                  {t('nav.nosotros')}
+                  {pick(navbar.links.nosotros)}
                 </button>
                 {nosotrosDropdownOpen && (
                   <div className="flex flex-col gap-2 pl-4">
@@ -191,14 +193,14 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                       className="text-sm text-muted-foreground hover:text-primary"
                       onClick={() => { setMobileMenuOpen(false); setNosotrosDropdownOpen(false); }}
                     >
-                      {t('nav.about')}
+                      {pick(navbar.links.about)}
                     </Link>
                     <Link
                       href="/contacto"
                       className="text-sm text-muted-foreground hover:text-primary"
                       onClick={() => { setMobileMenuOpen(false); setNosotrosDropdownOpen(false); }}
                     >
-                      {t('nav.contact')}
+                      {pick(navbar.links.contact)}
                     </Link>
                   </div>
                 )}
@@ -209,18 +211,18 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                 className="text-sm text-muted-foreground hover:text-primary"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {t('nav.blog')}
+                {pick(navbar.links.blog)}
               </Link>
 
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <a href="https://admin.j-markets.jcampos.dev" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
-                    {t('nav.login')}
+                    {pick(navbar.login)}
                   </Button>
                 </a>
                 <a href="https://admin.j-markets.jcampos.dev/register" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    {t('nav.register')}
+                    {pick(navbar.register)}
                   </Button>
                 </a>
               </div>

@@ -1,0 +1,7 @@
+{
+  "pills": {
+    "transparency": { "es": "Transparencia", "en": "Transparency" },
+    "fairTrade": { "es": "Comercio justo", "en": "Fair trade" },
+    "local": { "es": "Comunidad local", "en": "Local community" }
+  }
+}
