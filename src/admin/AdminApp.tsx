@@ -10,7 +10,7 @@ import { AdminLayout } from "@/components/admin/AdminLayout";
 const DashboardPage = lazy(() => import("@/admin/pages/DashboardPage"));
 const SiteIdentityPage = lazy(() => import("@/admin/pages/SiteIdentityPage"));
 const NavigationPage = lazy(() => import("@/admin/pages/NavigationPage"));
-const ExamplesPage = lazy(() => import("@/admin/pages/ExamplesPage"));
+const TemplatesPage = lazy(() => import("@/admin/pages/TemplatesPage"));
 const BlogPage = lazy(() => import("@/admin/pages/BlogPage"));
 const MediaPage = lazy(() => import("@/admin/pages/MediaPage"));
 const TranslationsPage = lazy(() => import("@/admin/pages/TranslationsPage"));
@@ -31,7 +31,7 @@ export default function AdminApp() {
           <Route path="/admin/branding" component={() => <Redirect to="/admin/identity" />} />
           <Route path="/admin/themes" component={() => <Redirect to="/admin/identity" />} />
           <Route path="/admin/navigation" component={NavigationPage} />
-          <Route path="/admin/examples" component={ExamplesPage} />
+          <Route path="/admin/templates" component={TemplatesPage} />
           <Route path="/admin/blog" component={BlogPage} />
           <Route path="/admin/media" component={MediaPage} />
           <Route path="/admin/translations" component={TranslationsPage} />

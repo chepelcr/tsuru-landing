@@ -10,13 +10,11 @@ export default function DashboardPage() {
   const { language, t } = useLanguage();
   const lang = language as Lang;
   const [, navigate] = useLocation();
-  const examples = useAdminStore((s) => s.examples);
   const blog = useAdminStore((s) => s.blog);
   const navigation = useAdminStore((s) => s.navigation);
   const media = useAdminStore((s) => s.media);
 
   const counts: Record<string, number> = {
-    "examples.json": examples.stores.length,
     "blog.json": blog.articles.length,
     "navigation.json": navigation.primary.length,
     "media.json": media.items.length,
@@ -32,7 +30,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {PAGES.map((p) => {
           const Icon = resolveIcon(p.icon);
-          const count = counts[p.file];
+          const count = p.file ? counts[p.file] : undefined;
           return (
             <button
               key={p.route}

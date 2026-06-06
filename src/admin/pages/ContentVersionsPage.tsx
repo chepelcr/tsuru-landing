@@ -5,7 +5,7 @@ import { Download } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAdminStore, downloadJson } from "@/lib/admin-store";
 import { PageHeader } from "@/components/admin/PageHeader";
-import { PAGES, filesForPage, type Lang } from "@/admin/manifest";
+import { CONTENT_PAGES, filesForPage, type Lang } from "@/admin/manifest";
 
 // filename → live store value for export.
 function useFileValues(): Record<string, unknown> {
@@ -16,7 +16,6 @@ function useFileValues(): Record<string, unknown> {
     "navigation.json": s.navigation,
     "media.json": s.media,
     "settings.json": s.settings,
-    "examples.json": s.examples,
     "blog.json": s.blog,
     "seo.json": s.seo,
     "translations/en.json": s.translationsEn,
@@ -29,7 +28,7 @@ export default function ContentVersionsPage() {
   const lang = language as Lang;
   const values = useFileValues();
 
-  const rows = PAGES.flatMap((p) =>
+  const rows = CONTENT_PAGES.flatMap((p) =>
     filesForPage(p).map((file) => ({ file, label: p.label[lang] })),
   );
 

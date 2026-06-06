@@ -17,7 +17,6 @@ import themesData from "@/content/themes.json";
 import navigationData from "@/content/navigation.json";
 import mediaData from "@/content/media.json";
 import settingsData from "@/content/settings.json";
-import examplesData from "@/content/examples.json";
 import blogData from "@/content/blog.json";
 import seoData from "@/content/seo.json";
 import enData from "@/translations/en.json";
@@ -28,7 +27,6 @@ type Themes = typeof themesData;
 type Navigation = typeof navigationData;
 type Media = { items: MediaItem[] };
 type Settings = typeof settingsData;
-type Examples = typeof examplesData;
 type Blog = typeof blogData;
 type Seo = typeof seoData;
 type Translation = Record<string, string>;
@@ -39,7 +37,6 @@ interface AdminState {
   navigation: Navigation;
   media: Media;
   settings: Settings;
-  examples: Examples;
   blog: Blog;
   seo: Seo;
   translationsEn: Translation;
@@ -50,7 +47,6 @@ interface AdminState {
   setNavigation: (v: Navigation) => void;
   setMedia: (v: Media) => void;
   setSettings: (v: Settings) => void;
-  setExamples: (v: Examples) => void;
   setBlog: (v: Blog) => void;
   setSeo: (v: Seo) => void;
   setTranslationsEn: (v: Translation) => void;
@@ -68,7 +64,6 @@ const ENTITY_BY_FILE: Record<string, keyof AdminState> = {
   "navigation.json": "navigation",
   "media.json": "media",
   "settings.json": "settings",
-  "examples.json": "examples",
   "blog.json": "blog",
   "seo.json": "seo",
   "translations/en.json": "translationsEn",
@@ -81,7 +76,6 @@ const INITIAL: Record<string, unknown> = {
   "navigation.json": navigationData,
   "media.json": mediaData,
   "settings.json": settingsData,
-  "examples.json": examplesData,
   "blog.json": blogData,
   "seo.json": seoData,
   "translations/en.json": enData,
@@ -98,7 +92,6 @@ export const useAdminStore = create<AdminState>((set) => ({
   navigation: navigationData,
   media: mediaData as Media,
   settings: settingsData,
-  examples: examplesData,
   blog: blogData,
   seo: seoData,
   translationsEn: enData as Translation,
@@ -109,7 +102,6 @@ export const useAdminStore = create<AdminState>((set) => ({
   setNavigation: (v) => set({ navigation: v }),
   setMedia: (v) => set({ media: v }),
   setSettings: (v) => set({ settings: v }),
-  setExamples: (v) => set({ examples: v }),
   setBlog: (v) => set({ blog: v }),
   setSeo: (v) => set({ seo: v }),
   setTranslationsEn: (v) => set({ translationsEn: v }),

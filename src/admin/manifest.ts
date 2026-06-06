@@ -13,8 +13,16 @@ export interface BiLabel {
 export type AdminGroup = "content" | "cms" | "platform";
 
 export interface ContentPage {
-  /** Filename used by the store + downloadJson (e.g. "examples.json"). */
-  file: string;
+  /**
+   * Filename used by the store + downloadJson (e.g. "blog.json"). Omitted for
+   * read-only "online" pages that are NOT bundled content entities (e.g. the
+   * live Templates view fetched from the API) — those carry `online: true`,
+   * appear in the sidebar/router, but never in admin-store slices or the
+   * content-versions page.
+   */
+  file?: string;
+  /** True for read-only pages backed by an online API rather than a JSON file. */
+  online?: boolean;
   label: BiLabel;
   route: string;
   icon: IconName;
@@ -52,9 +60,9 @@ export const PAGES: ContentPage[] = [
     group: "content",
   },
   {
-    file: "examples.json",
-    label: { es: "Ejemplos", en: "Examples" },
-    route: "/admin/examples",
+    online: true,
+    label: { es: "Plantillas", en: "Templates" },
+    route: "/admin/templates",
     icon: "store",
     group: "content",
   },
@@ -102,7 +110,11 @@ export const VERSION_FILES: Record<string, string[]> = {
   "translations/en.json": ["translations/en.json", "translations/es.json"],
 };
 
+// Content (file-backed) pages only — excludes read-only online pages.
+export const CONTENT_PAGES: ContentPage[] = PAGES.filter((p) => !!p.file);
+
 export function filesForPage(p: ContentPage): string[] {
+  if (!p.file) return [];
   return VERSION_FILES[p.file] ?? [p.file];
 }
 
