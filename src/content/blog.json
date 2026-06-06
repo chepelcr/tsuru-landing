@@ -1,0 +1,94 @@
+{
+  "articles": [
+    {
+      "id": "article1",
+      "author": "Equipo JMarkets",
+      "date": { "es": "15 de enero de 2026", "en": "January 15, 2026" },
+      "featured": true,
+      "order": 1,
+      "title": {
+        "es": "Cómo el Trueque Reunió a una Comunidad Tras la Pandemia",
+        "en": "How Barter Brought a Community Back Together After the Pandemic"
+      },
+      "excerpt": {
+        "es": "La historia de la Feria del Trueque Verde Manantial en Guápiles — y cómo digitalizarse ayudó a los vecinos a reconectarse cuando las ferias presenciales eran imposibles.",
+        "en": "The story of the Feria del Trueque Verde Manantial in Guápiles — and how going digital helped neighbors reconnect when in-person fairs were impossible."
+      }
+    },
+    {
+      "id": "article2",
+      "author": "TCU Comer Orgánico",
+      "date": { "es": "10 de enero de 2026", "en": "January 10, 2026" },
+      "featured": false,
+      "order": 2,
+      "title": {
+        "es": "¿Qué es la Economía Social y Solidaria?",
+        "en": "What is Social and Solidarity Economy?"
+      },
+      "excerpt": {
+        "es": "Una introducción a los principios de comercio justo, consumo consciente y construcción de comunidad local que inspiran todo lo que hacemos en JMarkets.",
+        "en": "An introduction to the principles of fair trade, conscious consumption, and local community building that inspire everything we do at JMarkets."
+      }
+    },
+    {
+      "id": "article3",
+      "author": "Equipo JMarkets",
+      "date": { "es": "5 de enero de 2026", "en": "January 5, 2026" },
+      "featured": false,
+      "order": 3,
+      "title": {
+        "es": "Cómo Crear Tu Espacio Comunitario en JMarkets",
+        "en": "How to Set Up Your Community Space on JMarkets"
+      },
+      "excerpt": {
+        "es": "Guía paso a paso para crear tu perfil, publicar tus productos o servicios y conectarte con tu comunidad local.",
+        "en": "A step-by-step guide to creating your profile, publishing your products or services, and connecting with your local community."
+      }
+    },
+    {
+      "id": "article4",
+      "author": "Feria Verde Manantial",
+      "date": { "es": "28 de diciembre de 2025", "en": "December 28, 2025" },
+      "featured": false,
+      "order": 4,
+      "title": {
+        "es": "Trueque 101: Cómo Hacer Tu Primer Intercambio",
+        "en": "Barter 101: How to Make Your First Trueque"
+      },
+      "excerpt": {
+        "es": "Todo lo que necesitas saber para proponer, negociar y completar un intercambio justo con otro miembro de la comunidad en la plataforma.",
+        "en": "Everything you need to know to propose, negotiate, and complete a fair exchange with another community member on the platform."
+      }
+    },
+    {
+      "id": "article5",
+      "author": "UCR TCU",
+      "date": { "es": "20 de diciembre de 2025", "en": "December 20, 2025" },
+      "featured": false,
+      "order": 5,
+      "title": {
+        "es": "Las Ferias Locales como Infraestructura Comunitaria",
+        "en": "Local Fairs as Community Infrastructure"
+      },
+      "excerpt": {
+        "es": "Por qué las ferias comunitarias son mucho más que mercados — son espacios de conexión social, intercambio de conocimientos y resiliencia económica.",
+        "en": "Why community fairs are more than just markets — they are spaces for social connection, knowledge sharing, and economic resilience."
+      }
+    },
+    {
+      "id": "article6",
+      "author": "Equipo JMarkets",
+      "date": { "es": "12 de diciembre de 2025", "en": "December 12, 2025" },
+      "featured": false,
+      "order": 6,
+      "title": {
+        "es": "Vender por WhatsApp: Consejos para Emprendedores Locales",
+        "en": "Selling via WhatsApp: Tips for Local Entrepreneurs"
+      },
+      "excerpt": {
+        "es": "Consejos prácticos para gestionar pedidos, comunicarte con compradores y generar confianza por WhatsApp — el canal más usado en nuestra comunidad.",
+        "en": "Practical advice for managing orders, communicating with buyers, and building trust through WhatsApp — the most-used channel in our community."
+      }
+    }
+  ]
+}

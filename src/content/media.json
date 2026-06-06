@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "id": "media-flag-cr",
+      "kind": "image",
+      "source": "external",
+      "url": "https://flagcdn.com/w20/cr.png",
+      "filename": "cr.png",
+      "mime": "image/png",
+      "size": 0,
+      "alt": { "es": "Bandera de Costa Rica", "en": "Costa Rica flag" },
+      "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "media-flag-us",
+      "kind": "image",
+      "source": "external",
+      "url": "https://flagcdn.com/w20/us.png",
+      "filename": "us.png",
+      "mime": "image/png",
+      "size": 0,
+      "alt": { "es": "Bandera de Estados Unidos", "en": "United States flag" },
+      "createdAt": "2026-01-01T00:00:00Z"
+    }
+  ]
+}

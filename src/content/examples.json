@@ -1,0 +1,95 @@
+{
+  "stores": [
+    {
+      "id": "demo",
+      "iconName": "store",
+      "category": { "es": "Demo", "en": "Demo" },
+      "title": { "es": "JMarkets Demo", "en": "JMarkets Demo" },
+      "description": {
+        "es": "Tienda de ejemplo completa con productos, carrito de compras, checkout y todas las funcionalidades de la plataforma.",
+        "en": "Complete example store with products, shopping cart, checkout and all platform features."
+      },
+      "storeUrl": "https://jmarkets-demo-example.j-markets.jcampos.dev",
+      "featured": true,
+      "order": 1
+    },
+    {
+      "id": "bellaNatural",
+      "iconName": "smartphone",
+      "category": { "es": "Electrónica", "en": "Electronics" },
+      "title": { "es": "Tech Gadgets Pro", "en": "Tech Gadgets Pro" },
+      "description": {
+        "es": "Últimos gadgets y accesorios electrónicos. Smartphones, laptops, tablets y dispositivos innovadores para la vida moderna.",
+        "en": "Latest electronics and tech accessories. Smartphones, laptops, tablets, and innovative gadgets for modern life."
+      },
+      "storeUrl": "https://tech-gadgets-example.j-markets.jcampos.dev",
+      "featured": false,
+      "order": 2
+    },
+    {
+      "id": "glamStudio",
+      "iconName": "shirt",
+      "category": { "es": "Moda", "en": "Fashion" },
+      "title": { "es": "Vintage Fashion Co", "en": "Vintage Fashion Co" },
+      "description": {
+        "es": "Colección curada de ropa vintage y retro. Piezas únicas de décadas pasadas con estilo atemporal.",
+        "en": "Curated vintage and retro clothing collection. Unique pieces from decades past with timeless style."
+      },
+      "storeUrl": "https://vintage-fashion-example.j-markets.jcampos.dev",
+      "featured": false,
+      "order": 3
+    },
+    {
+      "id": "royalHair",
+      "iconName": "paintbrush",
+      "category": { "es": "Artesanías", "en": "Crafts" },
+      "title": { "es": "Artisan Crafts Studio", "en": "Artisan Crafts Studio" },
+      "description": {
+        "es": "Manualidades y suministros para DIY. Materiales para tejer, pintar, trabajar la madera y artículos únicos hechos a mano.",
+        "en": "Handmade crafts and DIY supplies. Knitting, painting, woodworking materials and unique handcrafted items."
+      },
+      "storeUrl": "https://artisan-crafts-example.j-markets.jcampos.dev",
+      "featured": false,
+      "order": 4
+    },
+    {
+      "id": "skinLove",
+      "iconName": "utensils-crossed",
+      "category": { "es": "Alimentos", "en": "Food" },
+      "title": { "es": "Gourmet Foods Market", "en": "Gourmet Foods Market" },
+      "description": {
+        "es": "Alimentos orgánicos y especiales premium. Quesos artesanales, especias exóticas, bebidas artesanales y productos especiales.",
+        "en": "Premium organic and specialty foods. Artisan cheeses, exotic spices, craft beverages and specialty products."
+      },
+      "storeUrl": "https://gourmet-foods-example.j-markets.jcampos.dev",
+      "featured": false,
+      "order": 5
+    },
+    {
+      "id": "proNails",
+      "iconName": "dumbbell",
+      "category": { "es": "Deportes", "en": "Sports" },
+      "title": { "es": "Fitness Equipment Hub", "en": "Fitness Equipment Hub" },
+      "description": {
+        "es": "Equipamiento de fitness para hogar y gimnasio. Mancuernas, tapetes de yoga, bandas de resistencia y accesorios de entrenamiento.",
+        "en": "Home and gym fitness equipment. Dumbbells, yoga mats, resistance bands and training accessories."
+      },
+      "storeUrl": "https://fitness-hub-example.j-markets.jcampos.dev",
+      "featured": false,
+      "order": 6
+    },
+    {
+      "id": "beautySalon",
+      "iconName": "paw-print",
+      "category": { "es": "Mascotas", "en": "Pets" },
+      "title": { "es": "Pet Care Supplies", "en": "Pet Care Supplies" },
+      "description": {
+        "es": "Todo para tus mascotas. Juguetes, productos de aseo, nutrición y camas cómodas para gatos y perros.",
+        "en": "Everything for your pets. Pet toys, grooming products, nutrition, and comfortable beds for cats and dogs."
+      },
+      "storeUrl": "https://pet-care-example.j-markets.jcampos.dev",
+      "featured": false,
+      "order": 7
+    }
+  ]
+}

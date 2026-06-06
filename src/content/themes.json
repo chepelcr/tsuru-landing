@@ -1,0 +1,18 @@
+[
+  {
+    "id": "default",
+    "name": "Default",
+    "isActive": true,
+    "colors": {
+      "primary": "123 46% 34%",
+      "accent": "15 25% 34%",
+      "secondary": "123 33% 64%",
+      "background": "60 30% 97%",
+      "foreground": "20 14% 16%",
+      "muted": "60 20% 94%",
+      "ring": "123 46% 34%",
+      "card": "0 0% 100%",
+      "border": "60 20% 86%"
+    }
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "primary": [
+    { "id": "features", "labelKey": "nav.features", "href": "/funcionalidades", "order": 1 },
+    { "id": "fairs", "labelKey": "nav.fairs", "href": "/ferias", "order": 2 },
+    { "id": "community", "labelKey": "nav.community", "href": "/comunidad", "order": 3 },
+    { "id": "examples", "labelKey": "nav.examples", "href": "/ejemplos", "order": 4 },
+    { "id": "about", "labelKey": "nav.about", "href": "/quienes-somos", "order": 5 },
+    { "id": "contact", "labelKey": "nav.contact", "href": "/contacto", "order": 6 },
+    { "id": "blog", "labelKey": "nav.blog", "href": "/blog", "order": 7 }
+  ],
+  "footerGroups": [
+    {
+      "titleKey": "footer.product",
+      "links": [
+        { "labelKey": "footer.links.features", "href": "/funcionalidades" },
+        { "labelKey": "footer.links.fairs", "href": "/ferias" },
+        { "labelKey": "footer.links.community", "href": "/comunidad" },
+        { "labelKey": "footer.links.examples", "href": "/ejemplos" }
+      ]
+    },
+    {
+      "titleKey": "footer.company",
+      "links": [
+        { "labelKey": "footer.links.about", "href": "/quienes-somos" },
+        { "labelKey": "footer.links.blog", "href": "/blog" },
+        { "labelKey": "footer.links.contact", "href": "/contacto" }
+      ]
+    },
+    {
+      "titleKey": "footer.legal",
+      "links": [
+        { "labelKey": "footer.links.terms", "href": "/terminos" },
+        { "labelKey": "footer.links.privacy", "href": "/privacidad" },
+        { "labelKey": "footer.links.cookies", "href": "/cookies" }
+      ]
+    }
+  ]
+}

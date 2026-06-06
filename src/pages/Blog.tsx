@@ -2,26 +2,18 @@ import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Calendar, User } from "lucide-react";
+import { getFeaturedArticle, listOtherArticles } from "@/services/blog.service";
 
 export default function Blog() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     document.title = t('blog.title') + " | JMarkets";
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, [t]);
 
-  const articles = [
-    { id: 1, title: t('blog.article1.title'), excerpt: t('blog.article1.excerpt'), date: t('blog.article1.date'), author: t('blog.article1.author'), featured: true },
-    { id: 2, title: t('blog.article2.title'), excerpt: t('blog.article2.excerpt'), date: t('blog.article2.date'), author: t('blog.article2.author') },
-    { id: 3, title: t('blog.article3.title'), excerpt: t('blog.article3.excerpt'), date: t('blog.article3.date'), author: t('blog.article3.author') },
-    { id: 4, title: t('blog.article4.title'), excerpt: t('blog.article4.excerpt'), date: t('blog.article4.date'), author: t('blog.article4.author') },
-    { id: 5, title: t('blog.article5.title'), excerpt: t('blog.article5.excerpt'), date: t('blog.article5.date'), author: t('blog.article5.author') },
-    { id: 6, title: t('blog.article6.title'), excerpt: t('blog.article6.excerpt'), date: t('blog.article6.date'), author: t('blog.article6.author') },
-  ];
-
-  const featuredArticle = articles.find(a => a.featured);
-  const otherArticles = articles.filter(a => !a.featured);
+  const featuredArticle = getFeaturedArticle();
+  const otherArticles = listOtherArticles();
 
   return (
     <div className="min-h-screen bg-background">
@@ -50,11 +42,11 @@ export default function Blog() {
             <h2 className="text-2xl font-bold text-foreground mb-8">{t('blog.featured')}</h2>
             <div className="rounded-2xl p-8 bg-card border-2 border-primary/30 hover:border-primary/50 transition-all">
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" />{featuredArticle.date}</span>
+                <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" />{featuredArticle.date[language] ?? featuredArticle.date.es}</span>
                 <span className="flex items-center gap-1.5"><User className="h-4 w-4" />{featuredArticle.author}</span>
               </div>
-              <h3 className="font-serif text-3xl font-bold text-foreground mb-3">{featuredArticle.title}</h3>
-              <p className="text-muted-foreground text-justify mb-6 max-w-3xl">{featuredArticle.excerpt}</p>
+              <h3 className="font-serif text-3xl font-bold text-foreground mb-3">{featuredArticle.title[language] ?? featuredArticle.title.es}</h3>
+              <p className="text-muted-foreground text-justify mb-6 max-w-3xl">{featuredArticle.excerpt[language] ?? featuredArticle.excerpt.es}</p>
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2">
                 {t('blog.readMore')}
                 <ArrowRight className="h-4 w-4" />
@@ -72,10 +64,10 @@ export default function Blog() {
             {otherArticles.map((article) => (
               <div key={article.id} className="rounded-2xl bg-card border border-border hover:border-primary/20 hover:-translate-y-1 hover:shadow-md transition-all flex flex-col p-6">
                 <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-3">
-                  <Calendar className="h-4 w-4" />{article.date}
+                  <Calendar className="h-4 w-4" />{article.date[language] ?? article.date.es}
                 </div>
-                <h3 className="font-serif text-lg font-bold text-foreground mb-2">{article.title}</h3>
-                <p className="text-sm text-muted-foreground text-justify flex-1 mb-4">{article.excerpt}</p>
+                <h3 className="font-serif text-lg font-bold text-foreground mb-2">{article.title[language] ?? article.title.es}</h3>
+                <p className="text-sm text-muted-foreground text-justify flex-1 mb-4">{article.excerpt[language] ?? article.excerpt.es}</p>
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-border">
                   <span className="text-xs text-muted-foreground flex items-center gap-1.5">
                     <User className="h-3.5 w-3.5" />{article.author}

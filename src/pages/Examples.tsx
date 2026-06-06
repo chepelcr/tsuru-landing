@@ -1,63 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { CTASecuritySection } from "@/components/sections/cta-security-section";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useQuery } from "@tanstack/react-query";
-import {
-  ExternalLink,
-  Store,
-  Smartphone,
-  Shirt,
-  Paintbrush,
-  UtensilsCrossed,
-  Dumbbell,
-  PawPrint,
-  Sparkles,
-  Loader2,
-  AlertCircle,
-  Palette,
-} from "lucide-react";
-
-interface Template {
-  id: string;
-  name: string;
-  displayName: string;
-  description: string;
-  category: string;
-  thumbnailUrl?: string;
-  isActive: boolean;
-  sortOrder: number;
-}
-
-interface ExampleStore {
-  id: string;
-  displayName: string;
-  description: string;
-  category: string;
-  url: string;
-  icon: React.ReactNode;
-  featured: boolean;
-}
-
-const getCategoryIcon = (category: string): React.ReactNode => {
-  const iconMap: Record<string, React.ReactNode> = {
-    demo: <Store className="h-6 w-6" />,
-    electronics: <Smartphone className="h-6 w-6" />,
-    fashion: <Shirt className="h-6 w-6" />,
-    crafts: <Paintbrush className="h-6 w-6" />,
-    food: <UtensilsCrossed className="h-6 w-6" />,
-    sports: <Dumbbell className="h-6 w-6" />,
-    pets: <PawPrint className="h-6 w-6" />,
-    beauty: <Sparkles className="h-6 w-6" />,
-  };
-  return iconMap[category] || <Store className="h-6 w-6" />;
-};
-
-const featuredTemplateNames = ['jmarkets-demo', 'artisan-crafts', 'gourmet-foods'];
+import { listExampleStores, type ExampleStore } from "@/services/examples.service";
+import { resolveIcon } from "@/lib/icons";
+import { ExternalLink, Palette } from "lucide-react";
 
 // ─── ExampleCard ─────────────────────────────────────────────────────────────
 
 function ExampleCard({ store }: { store: ExampleStore }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const Icon = resolveIcon(store.iconName);
+  const category = store.category[language] ?? store.category.es;
+  const title = store.title[language] ?? store.title.es;
+  const description = store.description[language] ?? store.description.es;
 
   return (
     <div className={`relative group rounded-2xl bg-card border transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col overflow-hidden ${
@@ -75,20 +30,20 @@ function ExampleCard({ store }: { store: ExampleStore }) {
       <div className="p-6 pb-0">
         <div className="flex items-start justify-between mb-4">
           <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-            {store.icon}
+            <Icon className="h-6 w-6" />
           </div>
           <span className="text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full capitalize border border-border">
-            {store.category}
+            {category}
           </span>
         </div>
-        <h3 className="font-serif text-lg font-bold text-foreground mb-2">{store.displayName}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{store.description}</p>
+        <h3 className="font-serif text-lg font-bold text-foreground mb-2">{title}</h3>
+        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{description}</p>
       </div>
 
       {/* Action */}
       <div className="p-6 pt-4 mt-auto">
         <Button
-          onClick={() => window.open(store.url, '_blank', 'noopener,noreferrer')}
+          onClick={() => window.open(store.storeUrl, '_blank', 'noopener,noreferrer')}
           className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl gap-2"
         >
           {t('examples.viewStore')}
@@ -103,21 +58,7 @@ function ExampleCard({ store }: { store: ExampleStore }) {
 
 export default function Examples() {
   const { t } = useLanguage();
-  const API_BASE_URL = import.meta.env.VITE_API_URL || '';
-
-  const { data: templates, isLoading, isError, error } = useQuery<Template[]>({
-    queryKey: [`${API_BASE_URL}/api/templates?activeOnly=true`],
-  });
-
-  const exampleStores: ExampleStore[] = (templates || []).map((template) => ({
-    id: template.id,
-    displayName: template.displayName,
-    description: template.description,
-    category: template.category,
-    url: `https://${template.name}-example.j-markets.jcampos.dev`,
-    icon: getCategoryIcon(template.category),
-    featured: featuredTemplateNames.includes(template.name),
-  }));
+  const exampleStores = listExampleStores();
 
   return (
     <div className="min-h-screen bg-background">
@@ -142,42 +83,11 @@ export default function Examples() {
       {/* Grid */}
       <section className="py-12 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {isLoading && (
-            <div className="flex justify-center items-center py-20 gap-3 text-muted-foreground">
-              <Loader2 className="h-6 w-6 animate-spin text-primary" />
-              <span>{t('common.loading')}</span>
-            </div>
-          )}
-
-          {isError && (
-            <div className="flex flex-col justify-center items-center py-20 text-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-destructive/10 flex items-center justify-center">
-                <AlertCircle className="h-7 w-7 text-destructive" />
-              </div>
-              <p className="text-muted-foreground max-w-md">
-                {error instanceof Error ? error.message : 'Error loading templates.'}
-              </p>
-            </div>
-          )}
-
-          {!isLoading && !isError && exampleStores.length > 0 && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {exampleStores.map((store) => (
-                <ExampleCard key={store.id} store={store} />
-              ))}
-            </div>
-          )}
-
-          {!isLoading && !isError && exampleStores.length === 0 && (
-            <div className="flex flex-col justify-center items-center py-20 text-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center">
-                <Store className="h-7 w-7 text-muted-foreground" />
-              </div>
-              <p className="text-muted-foreground">No hay plantillas disponibles por el momento.</p>
-            </div>
-          )}
-
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {exampleStores.map((store) => (
+              <ExampleCard key={store.id} store={store} />
+            ))}
+          </div>
         </div>
       </section>
 
