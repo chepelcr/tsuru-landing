@@ -1,5 +1,13 @@
 {
   "siteUrl": "https://j-markets.jcampos.dev",
-  "defaultTitle": { "es": "", "en": "" },
-  "defaultDescription": { "es": "", "en": "" }
+  "defaultTitle": {
+    "es": "JMarkets - Tu comunidad, tu mercado",
+    "en": "JMarkets - Your community, your market"
+  },
+  "defaultDescription": {
+    "es": "JMarkets es una plataforma de economía comunitaria y solidaria. Conecta con productores locales, participa en ferias, intercambia en trueque y construye comunidad.",
+    "en": "JMarkets is a community and solidarity economy platform. Connect with local producers, join markets, trade by barter, and build community."
+  },
+  "ogImage": "",
+  "pages": {}
 }
