@@ -42,7 +42,9 @@ const ROUTES = [
 ];
 
 const seo = JSON.parse(await fs.readFile(path.resolve(ROOT, "src/content/seo.json"), "utf8"));
-const SITE = (seo.siteUrl || "").replace(/\/$/, "");
+// SITE_URL env overrides seo.json.siteUrl so the deploy target (e.g. the GitHub
+// Pages project host) controls canonical/sitemap URLs without editing content.
+const SITE = (process.env.SITE_URL || seo.siteUrl || "").replace(/\/$/, "");
 
 const routeKey = (p) => (p === "/" ? "home" : p.replace(/^\/+/, "").replace(/\/+$/, ""));
 

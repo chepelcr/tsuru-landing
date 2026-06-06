@@ -1,0 +1,83 @@
+name: Deploy to GitHub Pages
+
+# Builds the static landing site and deploys it to GitHub Pages.
+# The dev-only admin CMS is tree-shaken out because VITE_ENABLE_ADMIN is left
+# UNSET here (never set it to "true" in CI).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      base_path:
+        description: 'Vite base path ("/" for the tsuru.jcampos.dev custom domain)'
+        required: false
+        default: '/'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress production deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Served at the custom domain tsuru.jcampos.dev (root), set via public/CNAME
+      # + repo Pages config. Overridable via workflow_dispatch input.
+      BASE_PATH: ${{ github.event.inputs.base_path || '/' }}
+      # Canonical/sitemap host the prerender emits — matches the custom domain.
+      SITE_URL: 'https://tsuru.jcampos.dev'
+      # Public build params (seeded from the monorepo buildspec). Non-sensitive.
+      VITE_API_URL: ${{ secrets.VITE_API_URL }}
+      VITE_APP_URL: ${{ secrets.VITE_APP_URL }}
+      VITE_BASE_DOMAIN: ${{ secrets.VITE_BASE_DOMAIN }}
+      VITE_AWS_REGION: ${{ secrets.VITE_AWS_REGION }}
+      # Optional — only needed if the landing ever uses Cognito auth. Absent →
+      # amplify.ts skips configure (see src/lib/amplify.ts).
+      VITE_AWS_COGNITO_USER_POOL_ID: ${{ secrets.VITE_AWS_COGNITO_USER_POOL_ID }}
+      VITE_AWS_COGNITO_CLIENT_ID: ${{ secrets.VITE_AWS_COGNITO_CLIENT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build (admin tree-shaken; VITE_ENABLE_ADMIN unset)
+        run: pnpm run build:seo
+
+      - name: Verify admin + local-CMS are absent from the bundle
+        run: |
+          if grep -rl "__local" ../dist/landing/assets; then
+            echo "::error::dev-CMS code leaked into the production bundle"; exit 1
+          fi
+          echo "ok: no /__local in dist"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ../dist/landing
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

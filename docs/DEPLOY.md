@@ -46,22 +46,62 @@ grep -rl "__local" ../dist/landing/assets   # must print nothing
 
 URLs use `seo.json.siteUrl` + `BASE_PATH`.
 
-## Upload
+## Hosting: GitHub Pages (current)
 
-This repo was split from the BeautyMarket monorepo, which deploys frontends via
-`deploys/setup-template-bucket.js` to **`j-markets.jcampos.dev`** (S3 +
-CloudFront + Route53, per-app bucket, CloudFront invalidation after upload).
+The site is deployed by **`.github/workflows/deploy.yml`** on every push to
+`main` (and via manual `workflow_dispatch`). The job: `pnpm install --frozen-lockfile`
+→ `pnpm run build:seo` (with `VITE_ENABLE_ADMIN` unset, so the admin is
+tree-shaken) → `upload-pages-artifact` (`../dist/landing`) → `deploy-pages`.
 
-To deploy this landing site to the same target, upload the contents of
-`dist/landing/` to its S3 bucket and invalidate the CloudFront distribution:
+Live URL: **https://tsuru.jcampos.dev** (custom domain). `public/CNAME` holds
+`tsuru.jcampos.dev`, the repo Pages config has it as the custom domain, and the
+workflow sets `BASE_PATH=/` + `SITE_URL=https://tsuru.jcampos.dev` so asset paths,
+canonical tags, and the sitemap match. DNS: a `CNAME` record
+`tsuru.jcampos.dev → chepelcr.github.io` (or A/AAAA to GitHub Pages IPs) in
+Route53.
 
-- HTML files: `Cache-Control: no-cache`.
-- Images/fonts: `max-age=31536000`.
-- Other assets: `max-age=86400`.
-- The SPA fallback (`404.html`) must stay `noindex` — do not overwrite it with
-  an indexable copy of `index.html`.
+### Required GitHub repo secrets
 
-The standalone repo (`github.com/chepelcr/tsuru-landing`) can run the same build
-in CI and push `dist/landing` to the bucket, or to GitHub Pages (write a `CNAME`
-and copy `index.html`→`404.html` for deep-link fallback, preserving the noindex
-meta the prerender added).
+Seeded from the monorepo's `buildspec-frontend-landing.yml` / SSM. Set via
+`gh secret set <NAME> --repo chepelcr/tsuru-landing`:
+
+| Secret | Value | Required? |
+|---|---|---|
+| `VITE_API_URL` | `https://markets-api.jcampos.dev` | yes (templates API) |
+| `VITE_APP_URL` | `https://j-markets.jcampos.dev` | yes (display/links) |
+| `VITE_BASE_DOMAIN` | `j-markets.jcampos.dev` | yes (display) |
+| `VITE_AWS_REGION` | `us-east-1` | yes |
+| `VITE_AWS_COGNITO_USER_POOL_ID` | from SSM `/jcampos/dev/jmarkets/cognito/user-pool-id` | optional* |
+| `VITE_AWS_COGNITO_CLIENT_ID` | from SSM `/jcampos/dev/jmarkets/cognito/client-id` | optional* |
+
+\* The public landing only uses the unauthenticated templates API, and
+`src/lib/amplify.ts` skips `Amplify.configure` when the Cognito pool id is
+absent. Add these two only if the landing ever needs Cognito auth. They were not
+auto-seeded (decrypted SSM read was intentionally not performed).
+
+`VITE_ENABLE_ADMIN` is deliberately **never** set in CI — that keeps the dev-only
+admin CMS and `/__local` client tree-shaken out of the published bundle.
+
+### Custom domain mechanics (already configured for tsuru.jcampos.dev)
+
+- `public/CNAME` (`tsuru.jcampos.dev`) — Vite copies it into `dist/landing`, which
+  is what GitHub Pages reads to bind the domain.
+- Repo Pages config has the custom domain set (`gh api -X PUT
+  repos/chepelcr/tsuru-landing/pages -f cname=tsuru.jcampos.dev`).
+- Route53: `tsuru.jcampos.dev` CNAME → `chepelcr.github.io` (Pages enforces HTTPS
+  once the cert provisions).
+
+To move to a different domain, change `public/CNAME`, the workflow
+`BASE_PATH`/`SITE_URL`, the repo Pages cname, and DNS.
+
+The prerender already emits a `noindex` `404.html`, which GitHub Pages serves as
+the SPA deep-link fallback — no manual `index.html`→`404.html` copy needed.
+
+## Alternative: S3/CloudFront (legacy)
+
+This repo was split from the BeautyMarket monorepo, which deployed the landing via
+`deploys/setup-template-bucket.js` / `buildspec-frontend-landing.yml` to
+**`j-markets.jcampos.dev`** (S3 + CloudFront + Route53). To use that path instead,
+build with `BASE_PATH=/`, upload `dist/landing/` to the bucket (HTML `no-cache`,
+images/fonts `max-age=31536000`, other assets `max-age=86400`), keep `404.html`
+`noindex`, and invalidate CloudFront.
