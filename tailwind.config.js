@@ -43,6 +43,18 @@ export default {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
 
+        // Sidebar surface family (admin chrome)
+        sidebar: {
+          DEFAULT: 'hsl(var(--sidebar))',
+          foreground: 'hsl(var(--sidebar-foreground))',
+          border: 'hsl(var(--sidebar-border))',
+          primary: 'hsl(var(--sidebar-primary))',
+          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+          accent: 'hsl(var(--sidebar-accent))',
+          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+          ring: 'hsl(var(--sidebar-ring))',
+        },
+
         // Brand color scales for explicit control
         green: {
           50: 'hsl(var(--brand-green-50))',

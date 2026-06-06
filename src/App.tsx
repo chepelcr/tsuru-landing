@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { useLocation } from "wouter";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import LandingNavbar from "@/components/layout/navbar";
@@ -6,9 +7,26 @@ import { Toaster } from "@/components/ui/toaster";
 import { PageTransition } from "@/components/PageTransition";
 import { Router } from "@/components/Router";
 import { TransitionOverlay } from "@/components/TransitionOverlay";
+import { ADMIN_ENABLED } from "@/lib/admin-enabled";
+
+// Lazy + gated: the admin chunk is only ever imported when ADMIN_ENABLED is
+// true, so a normal prod build tree-shakes it out entirely.
+const AdminApp = ADMIN_ENABLED ? lazy(() => import("@/admin/AdminApp")) : null;
 
 export default function App() {
   const [location] = useLocation();
+
+  // Admin shell renders full-screen, outside the public navbar/footer chrome.
+  if (ADMIN_ENABLED && AdminApp && location.startsWith("/admin")) {
+    return (
+      <ThemeProvider>
+        <Suspense fallback={null}>
+          <AdminApp />
+        </Suspense>
+        <Toaster />
+      </ThemeProvider>
+    );
+  }
 
   return (
     <>
