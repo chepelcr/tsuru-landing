@@ -32,6 +32,7 @@ function useFileValues(): Record<string, unknown> {
     "footer.json": s.footer,
     "ui.json": s.ui,
     "cta-security.json": s.ctaSecurity,
+    "inventory.json": s.inventory,
   };
 }
 

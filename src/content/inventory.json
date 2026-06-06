@@ -1,0 +1,2181 @@
+{
+  "generatedAt": "2026-06-06T20:57:31.779Z",
+  "counts": {
+    "content": 24,
+    "repository": 1,
+    "service": 1,
+    "lib": 20,
+    "hook": 4,
+    "component": 28,
+    "admin": 30,
+    "page": 11
+  },
+  "nodes": [
+    {
+      "id": "content/about",
+      "label": "about",
+      "type": "content",
+      "path": "src/content/about.json"
+    },
+    {
+      "id": "content/blog",
+      "label": "blog",
+      "type": "content",
+      "path": "src/content/blog.json"
+    },
+    {
+      "id": "content/blog-chrome",
+      "label": "blog-chrome",
+      "type": "content",
+      "path": "src/content/blog-chrome.json"
+    },
+    {
+      "id": "content/branding",
+      "label": "branding",
+      "type": "content",
+      "path": "src/content/branding.json"
+    },
+    {
+      "id": "content/community",
+      "label": "community",
+      "type": "content",
+      "path": "src/content/community.json"
+    },
+    {
+      "id": "content/contact",
+      "label": "contact",
+      "type": "content",
+      "path": "src/content/contact.json"
+    },
+    {
+      "id": "content/cookies",
+      "label": "cookies",
+      "type": "content",
+      "path": "src/content/cookies.json"
+    },
+    {
+      "id": "content/cta-security",
+      "label": "cta-security",
+      "type": "content",
+      "path": "src/content/cta-security.json"
+    },
+    {
+      "id": "content/fairs",
+      "label": "fairs",
+      "type": "content",
+      "path": "src/content/fairs.json"
+    },
+    {
+      "id": "content/features",
+      "label": "features",
+      "type": "content",
+      "path": "src/content/features.json"
+    },
+    {
+      "id": "content/footer",
+      "label": "footer",
+      "type": "content",
+      "path": "src/content/footer.json"
+    },
+    {
+      "id": "content/inventory",
+      "label": "inventory",
+      "type": "content",
+      "path": "src/content/inventory.json"
+    },
+    {
+      "id": "content/landing",
+      "label": "landing",
+      "type": "content",
+      "path": "src/content/landing.json"
+    },
+    {
+      "id": "content/media",
+      "label": "media",
+      "type": "content",
+      "path": "src/content/media.json"
+    },
+    {
+      "id": "content/navbar",
+      "label": "navbar",
+      "type": "content",
+      "path": "src/content/navbar.json"
+    },
+    {
+      "id": "content/navigation",
+      "label": "navigation",
+      "type": "content",
+      "path": "src/content/navigation.json"
+    },
+    {
+      "id": "content/privacy",
+      "label": "privacy",
+      "type": "content",
+      "path": "src/content/privacy.json"
+    },
+    {
+      "id": "content/seo",
+      "label": "seo",
+      "type": "content",
+      "path": "src/content/seo.json"
+    },
+    {
+      "id": "content/settings",
+      "label": "settings",
+      "type": "content",
+      "path": "src/content/settings.json"
+    },
+    {
+      "id": "content/terms",
+      "label": "terms",
+      "type": "content",
+      "path": "src/content/terms.json"
+    },
+    {
+      "id": "content/themes",
+      "label": "themes",
+      "type": "content",
+      "path": "src/content/themes.json"
+    },
+    {
+      "id": "content/ui",
+      "label": "ui",
+      "type": "content",
+      "path": "src/content/ui.json"
+    },
+    {
+      "id": "translations/en",
+      "label": "en",
+      "type": "content",
+      "path": "src/translations/en.json"
+    },
+    {
+      "id": "translations/es",
+      "label": "es",
+      "type": "content",
+      "path": "src/translations/es.json"
+    },
+    {
+      "id": "repositories/blog.repository",
+      "label": "blog.repository",
+      "type": "repository",
+      "path": "src/repositories/blog.repository.ts"
+    },
+    {
+      "id": "services/blog.service",
+      "label": "blog.service",
+      "type": "service",
+      "path": "src/services/blog.service.ts"
+    },
+    {
+      "id": "App",
+      "label": "App",
+      "type": "lib",
+      "path": "src/App.tsx"
+    },
+    {
+      "id": "contexts/LanguageContext",
+      "label": "LanguageContext",
+      "type": "lib",
+      "path": "src/contexts/LanguageContext.tsx"
+    },
+    {
+      "id": "contexts/ThemeContext",
+      "label": "ThemeContext",
+      "type": "lib",
+      "path": "src/contexts/ThemeContext.tsx"
+    },
+    {
+      "id": "lib/admin-enabled",
+      "label": "admin-enabled",
+      "type": "lib",
+      "path": "src/lib/admin-enabled.ts"
+    },
+    {
+      "id": "lib/admin-store",
+      "label": "admin-store",
+      "type": "lib",
+      "path": "src/lib/admin-store.ts"
+    },
+    {
+      "id": "lib/admin-ui",
+      "label": "admin-ui",
+      "type": "lib",
+      "path": "src/lib/admin-ui.ts"
+    },
+    {
+      "id": "lib/amplify",
+      "label": "amplify",
+      "type": "lib",
+      "path": "src/lib/amplify.ts"
+    },
+    {
+      "id": "lib/apiUtils",
+      "label": "apiUtils",
+      "type": "lib",
+      "path": "src/lib/apiUtils.ts"
+    },
+    {
+      "id": "lib/brand-theme",
+      "label": "brand-theme",
+      "type": "lib",
+      "path": "src/lib/brand-theme.ts"
+    },
+    {
+      "id": "lib/icons",
+      "label": "icons",
+      "type": "lib",
+      "path": "src/lib/icons.ts"
+    },
+    {
+      "id": "lib/local-cms",
+      "label": "local-cms",
+      "type": "lib",
+      "path": "src/lib/local-cms.ts"
+    },
+    {
+      "id": "lib/media",
+      "label": "media",
+      "type": "lib",
+      "path": "src/lib/media.ts"
+    },
+    {
+      "id": "lib/media-upload",
+      "label": "media-upload",
+      "type": "lib",
+      "path": "src/lib/media-upload.ts"
+    },
+    {
+      "id": "lib/queryClient",
+      "label": "queryClient",
+      "type": "lib",
+      "path": "src/lib/queryClient.ts"
+    },
+    {
+      "id": "lib/rich-text",
+      "label": "rich-text",
+      "type": "lib",
+      "path": "src/lib/rich-text.tsx"
+    },
+    {
+      "id": "lib/seo",
+      "label": "seo",
+      "type": "lib",
+      "path": "src/lib/seo.ts"
+    },
+    {
+      "id": "lib/utils",
+      "label": "utils",
+      "type": "lib",
+      "path": "src/lib/utils.ts"
+    },
+    {
+      "id": "main",
+      "label": "main",
+      "type": "lib",
+      "path": "src/main.tsx"
+    },
+    {
+      "id": "types/organization",
+      "label": "organization",
+      "type": "lib",
+      "path": "src/types/organization.ts"
+    },
+    {
+      "id": "vite-env.d",
+      "label": "vite-env.d",
+      "type": "lib",
+      "path": "src/vite-env.d.ts"
+    },
+    {
+      "id": "hooks/use-toast",
+      "label": "use-toast",
+      "type": "hook",
+      "path": "src/hooks/use-toast.ts"
+    },
+    {
+      "id": "hooks/useAuth",
+      "label": "useAuth",
+      "type": "hook",
+      "path": "src/hooks/useAuth.ts"
+    },
+    {
+      "id": "hooks/useHeadTags",
+      "label": "useHeadTags",
+      "type": "hook",
+      "path": "src/hooks/useHeadTags.ts"
+    },
+    {
+      "id": "hooks/useOrganization",
+      "label": "useOrganization",
+      "type": "hook",
+      "path": "src/hooks/useOrganization.ts"
+    },
+    {
+      "id": "components/admin/AdminLayout",
+      "label": "AdminLayout",
+      "type": "component",
+      "path": "src/components/admin/AdminLayout.tsx"
+    },
+    {
+      "id": "components/admin/AdminSidebar",
+      "label": "AdminSidebar",
+      "type": "component",
+      "path": "src/components/admin/AdminSidebar.tsx"
+    },
+    {
+      "id": "components/admin/AdminTopbar",
+      "label": "AdminTopbar",
+      "type": "component",
+      "path": "src/components/admin/AdminTopbar.tsx"
+    },
+    {
+      "id": "components/admin/AdminUI",
+      "label": "AdminUI",
+      "type": "component",
+      "path": "src/components/admin/AdminUI.tsx"
+    },
+    {
+      "id": "components/admin/MediaPicker",
+      "label": "MediaPicker",
+      "type": "component",
+      "path": "src/components/admin/MediaPicker.tsx"
+    },
+    {
+      "id": "components/admin/PageHeader",
+      "label": "PageHeader",
+      "type": "component",
+      "path": "src/components/admin/PageHeader.tsx"
+    },
+    {
+      "id": "components/language-switcher",
+      "label": "language-switcher",
+      "type": "component",
+      "path": "src/components/language-switcher.tsx"
+    },
+    {
+      "id": "components/layout/auth-navbar",
+      "label": "auth-navbar",
+      "type": "component",
+      "path": "src/components/layout/auth-navbar.tsx"
+    },
+    {
+      "id": "components/layout/footer",
+      "label": "footer",
+      "type": "component",
+      "path": "src/components/layout/footer.tsx"
+    },
+    {
+      "id": "components/layout/navbar",
+      "label": "navbar",
+      "type": "component",
+      "path": "src/components/layout/navbar.tsx"
+    },
+    {
+      "id": "components/PageTransition",
+      "label": "PageTransition",
+      "type": "component",
+      "path": "src/components/PageTransition.tsx"
+    },
+    {
+      "id": "components/PasswordStrengthIndicator",
+      "label": "PasswordStrengthIndicator",
+      "type": "component",
+      "path": "src/components/PasswordStrengthIndicator.tsx"
+    },
+    {
+      "id": "components/Router",
+      "label": "Router",
+      "type": "component",
+      "path": "src/components/Router.tsx"
+    },
+    {
+      "id": "components/sections/cta-security-section",
+      "label": "cta-security-section",
+      "type": "component",
+      "path": "src/components/sections/cta-security-section.tsx"
+    },
+    {
+      "id": "components/theme-toggle",
+      "label": "theme-toggle",
+      "type": "component",
+      "path": "src/components/theme-toggle.tsx"
+    },
+    {
+      "id": "components/TransitionOverlay",
+      "label": "TransitionOverlay",
+      "type": "component",
+      "path": "src/components/TransitionOverlay.tsx"
+    },
+    {
+      "id": "components/ui/badge",
+      "label": "badge",
+      "type": "component",
+      "path": "src/components/ui/badge.tsx"
+    },
+    {
+      "id": "components/ui/button",
+      "label": "button",
+      "type": "component",
+      "path": "src/components/ui/button.tsx"
+    },
+    {
+      "id": "components/ui/card",
+      "label": "card",
+      "type": "component",
+      "path": "src/components/ui/card.tsx"
+    },
+    {
+      "id": "components/ui/dropdown-menu",
+      "label": "dropdown-menu",
+      "type": "component",
+      "path": "src/components/ui/dropdown-menu.tsx"
+    },
+    {
+      "id": "components/ui/form",
+      "label": "form",
+      "type": "component",
+      "path": "src/components/ui/form.tsx"
+    },
+    {
+      "id": "components/ui/input",
+      "label": "input",
+      "type": "component",
+      "path": "src/components/ui/input.tsx"
+    },
+    {
+      "id": "components/ui/input-otp",
+      "label": "input-otp",
+      "type": "component",
+      "path": "src/components/ui/input-otp.tsx"
+    },
+    {
+      "id": "components/ui/label",
+      "label": "label",
+      "type": "component",
+      "path": "src/components/ui/label.tsx"
+    },
+    {
+      "id": "components/ui/progress-steps",
+      "label": "progress-steps",
+      "type": "component",
+      "path": "src/components/ui/progress-steps.tsx"
+    },
+    {
+      "id": "components/ui/select",
+      "label": "select",
+      "type": "component",
+      "path": "src/components/ui/select.tsx"
+    },
+    {
+      "id": "components/ui/toast",
+      "label": "toast",
+      "type": "component",
+      "path": "src/components/ui/toast.tsx"
+    },
+    {
+      "id": "components/ui/toaster",
+      "label": "toaster",
+      "type": "component",
+      "path": "src/components/ui/toaster.tsx"
+    },
+    {
+      "id": "admin/AdminApp",
+      "label": "AdminApp",
+      "type": "admin",
+      "path": "src/admin/AdminApp.tsx"
+    },
+    {
+      "id": "admin/manifest",
+      "label": "manifest",
+      "type": "admin",
+      "path": "src/admin/manifest.ts"
+    },
+    {
+      "id": "admin/pages/AboutPage",
+      "label": "AboutPage",
+      "type": "admin",
+      "path": "src/admin/pages/AboutPage.tsx"
+    },
+    {
+      "id": "admin/pages/BlogChromePage",
+      "label": "BlogChromePage",
+      "type": "admin",
+      "path": "src/admin/pages/BlogChromePage.tsx"
+    },
+    {
+      "id": "admin/pages/BlogPage",
+      "label": "BlogPage",
+      "type": "admin",
+      "path": "src/admin/pages/BlogPage.tsx"
+    },
+    {
+      "id": "admin/pages/CommunityPage",
+      "label": "CommunityPage",
+      "type": "admin",
+      "path": "src/admin/pages/CommunityPage.tsx"
+    },
+    {
+      "id": "admin/pages/ContactPage",
+      "label": "ContactPage",
+      "type": "admin",
+      "path": "src/admin/pages/ContactPage.tsx"
+    },
+    {
+      "id": "admin/pages/ContentExplorerPage",
+      "label": "ContentExplorerPage",
+      "type": "admin",
+      "path": "src/admin/pages/ContentExplorerPage.tsx"
+    },
+    {
+      "id": "admin/pages/ContentVersionsPage",
+      "label": "ContentVersionsPage",
+      "type": "admin",
+      "path": "src/admin/pages/ContentVersionsPage.tsx"
+    },
+    {
+      "id": "admin/pages/CookiesPage",
+      "label": "CookiesPage",
+      "type": "admin",
+      "path": "src/admin/pages/CookiesPage.tsx"
+    },
+    {
+      "id": "admin/pages/CtaSecurityPage",
+      "label": "CtaSecurityPage",
+      "type": "admin",
+      "path": "src/admin/pages/CtaSecurityPage.tsx"
+    },
+    {
+      "id": "admin/pages/DashboardPage",
+      "label": "DashboardPage",
+      "type": "admin",
+      "path": "src/admin/pages/DashboardPage.tsx"
+    },
+    {
+      "id": "admin/pages/DiagnosticsPage",
+      "label": "DiagnosticsPage",
+      "type": "admin",
+      "path": "src/admin/pages/DiagnosticsPage.tsx"
+    },
+    {
+      "id": "admin/pages/FairsPage",
+      "label": "FairsPage",
+      "type": "admin",
+      "path": "src/admin/pages/FairsPage.tsx"
+    },
+    {
+      "id": "admin/pages/FeaturesPage",
+      "label": "FeaturesPage",
+      "type": "admin",
+      "path": "src/admin/pages/FeaturesPage.tsx"
+    },
+    {
+      "id": "admin/pages/FooterPage",
+      "label": "FooterPage",
+      "type": "admin",
+      "path": "src/admin/pages/FooterPage.tsx"
+    },
+    {
+      "id": "admin/pages/InventoryPage",
+      "label": "InventoryPage",
+      "type": "admin",
+      "path": "src/admin/pages/InventoryPage.tsx"
+    },
+    {
+      "id": "admin/pages/LandingPage",
+      "label": "LandingPage",
+      "type": "admin",
+      "path": "src/admin/pages/LandingPage.tsx"
+    },
+    {
+      "id": "admin/pages/LegalEditor",
+      "label": "LegalEditor",
+      "type": "admin",
+      "path": "src/admin/pages/LegalEditor.tsx"
+    },
+    {
+      "id": "admin/pages/MediaPage",
+      "label": "MediaPage",
+      "type": "admin",
+      "path": "src/admin/pages/MediaPage.tsx"
+    },
+    {
+      "id": "admin/pages/NavbarPage",
+      "label": "NavbarPage",
+      "type": "admin",
+      "path": "src/admin/pages/NavbarPage.tsx"
+    },
+    {
+      "id": "admin/pages/NavigationPage",
+      "label": "NavigationPage",
+      "type": "admin",
+      "path": "src/admin/pages/NavigationPage.tsx"
+    },
+    {
+      "id": "admin/pages/PrivacyPage",
+      "label": "PrivacyPage",
+      "type": "admin",
+      "path": "src/admin/pages/PrivacyPage.tsx"
+    },
+    {
+      "id": "admin/pages/SeoPage",
+      "label": "SeoPage",
+      "type": "admin",
+      "path": "src/admin/pages/SeoPage.tsx"
+    },
+    {
+      "id": "admin/pages/SettingsPage",
+      "label": "SettingsPage",
+      "type": "admin",
+      "path": "src/admin/pages/SettingsPage.tsx"
+    },
+    {
+      "id": "admin/pages/SiteIdentityPage",
+      "label": "SiteIdentityPage",
+      "type": "admin",
+      "path": "src/admin/pages/SiteIdentityPage.tsx"
+    },
+    {
+      "id": "admin/pages/TemplatesPage",
+      "label": "TemplatesPage",
+      "type": "admin",
+      "path": "src/admin/pages/TemplatesPage.tsx"
+    },
+    {
+      "id": "admin/pages/TermsPage",
+      "label": "TermsPage",
+      "type": "admin",
+      "path": "src/admin/pages/TermsPage.tsx"
+    },
+    {
+      "id": "admin/pages/UiStringsPage",
+      "label": "UiStringsPage",
+      "type": "admin",
+      "path": "src/admin/pages/UiStringsPage.tsx"
+    },
+    {
+      "id": "admin/useSingletonDraft",
+      "label": "useSingletonDraft",
+      "type": "admin",
+      "path": "src/admin/useSingletonDraft.ts"
+    },
+    {
+      "id": "pages/About",
+      "label": "About",
+      "type": "page",
+      "path": "src/pages/About.tsx"
+    },
+    {
+      "id": "pages/Blog",
+      "label": "Blog",
+      "type": "page",
+      "path": "src/pages/Blog.tsx"
+    },
+    {
+      "id": "pages/Comunidad",
+      "label": "Comunidad",
+      "type": "page",
+      "path": "src/pages/Comunidad.tsx"
+    },
+    {
+      "id": "pages/Contact",
+      "label": "Contact",
+      "type": "page",
+      "path": "src/pages/Contact.tsx"
+    },
+    {
+      "id": "pages/Cookies",
+      "label": "Cookies",
+      "type": "page",
+      "path": "src/pages/Cookies.tsx"
+    },
+    {
+      "id": "pages/Examples",
+      "label": "Examples",
+      "type": "page",
+      "path": "src/pages/Examples.tsx"
+    },
+    {
+      "id": "pages/Ferias",
+      "label": "Ferias",
+      "type": "page",
+      "path": "src/pages/Ferias.tsx"
+    },
+    {
+      "id": "pages/Funcionalidades",
+      "label": "Funcionalidades",
+      "type": "page",
+      "path": "src/pages/Funcionalidades.tsx"
+    },
+    {
+      "id": "pages/Landing",
+      "label": "Landing",
+      "type": "page",
+      "path": "src/pages/Landing.tsx"
+    },
+    {
+      "id": "pages/Privacy",
+      "label": "Privacy",
+      "type": "page",
+      "path": "src/pages/Privacy.tsx"
+    },
+    {
+      "id": "pages/Terms",
+      "label": "Terms",
+      "type": "page",
+      "path": "src/pages/Terms.tsx"
+    }
+  ],
+  "edges": [
+    {
+      "from": "admin/AdminApp",
+      "to": "components/admin/AdminLayout",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/AdminApp",
+      "to": "lib/admin-enabled",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/manifest",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/AboutPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/AboutPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/AboutPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/AboutPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/AboutPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/AboutPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogChromePage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogChromePage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogChromePage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogChromePage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogChromePage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogChromePage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BlogPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CommunityPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CommunityPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CommunityPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CommunityPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CommunityPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CommunityPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContactPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContactPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContactPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContactPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContactPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContactPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentExplorerPage",
+      "to": "admin/manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentExplorerPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentExplorerPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentExplorerPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentExplorerPage",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentVersionsPage",
+      "to": "admin/manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentVersionsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentVersionsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/ContentVersionsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CookiesPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CookiesPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CookiesPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CookiesPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CookiesPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CookiesPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CtaSecurityPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CtaSecurityPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CtaSecurityPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CtaSecurityPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/CtaSecurityPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DashboardPage",
+      "to": "admin/manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DashboardPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DashboardPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DashboardPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DashboardPage",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DashboardPage",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DiagnosticsPage",
+      "to": "admin/manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DiagnosticsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DiagnosticsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DiagnosticsPage",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DiagnosticsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/DiagnosticsPage",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FairsPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FairsPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FairsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FairsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FairsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FairsPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FeaturesPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FeaturesPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FeaturesPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FeaturesPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FeaturesPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FeaturesPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FooterPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FooterPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FooterPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FooterPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FooterPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/FooterPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/InventoryPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/InventoryPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/InventoryPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LandingPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LandingPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LandingPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LandingPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LandingPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LandingPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LegalEditor",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LegalEditor",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LegalEditor",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LegalEditor",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LegalEditor",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/LegalEditor",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/MediaPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/MediaPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/MediaPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/MediaPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/MediaPage",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/MediaPage",
+      "to": "lib/media-upload",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavbarPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavbarPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavbarPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavbarPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavbarPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavigationPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavigationPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavigationPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavigationPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/NavigationPage",
+      "to": "translations/en",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PrivacyPage",
+      "to": "admin/pages/LegalEditor",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PrivacyPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PrivacyPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SeoPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SeoPage",
+      "to": "components/admin/MediaPicker",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SeoPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SeoPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SeoPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SettingsPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SettingsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SettingsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SettingsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SiteIdentityPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SiteIdentityPage",
+      "to": "components/admin/MediaPicker",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SiteIdentityPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SiteIdentityPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SiteIdentityPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SiteIdentityPage",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/SiteIdentityPage",
+      "to": "lib/brand-theme",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/TemplatesPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/TemplatesPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/TermsPage",
+      "to": "admin/pages/LegalEditor",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/TermsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/TermsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/UiStringsPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/UiStringsPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/UiStringsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/UiStringsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/UiStringsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/useSingletonDraft",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/layout/footer",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/layout/navbar",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/PageTransition",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/Router",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/TransitionOverlay",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/ui/toaster",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "hooks/useHeadTags",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "lib/admin-enabled",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminLayout",
+      "to": "components/admin/AdminSidebar",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminLayout",
+      "to": "components/admin/AdminTopbar",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminLayout",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "admin/manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "lib/media-upload",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/PageHeader",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/PageHeader",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/PageHeader",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/language-switcher",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/language-switcher",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/auth-navbar",
+      "to": "components/language-switcher",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/auth-navbar",
+      "to": "components/theme-toggle",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/auth-navbar",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/auth-navbar",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/auth-navbar",
+      "to": "hooks/useAuth",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/footer",
+      "to": "content/footer",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/footer",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/navbar",
+      "to": "components/language-switcher",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/navbar",
+      "to": "components/theme-toggle",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/navbar",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/navbar",
+      "to": "content/navbar",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/navbar",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/PasswordStrengthIndicator",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/PasswordStrengthIndicator",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/Router",
+      "to": "content/ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/Router",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/sections/cta-security-section",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/sections/cta-security-section",
+      "to": "content/cta-security",
+      "kind": "imports"
+    },
+    {
+      "from": "components/sections/cta-security-section",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/theme-toggle",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/theme-toggle",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/badge",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/button",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/card",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/dropdown-menu",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/form",
+      "to": "components/ui/label",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/form",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input-otp",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/label",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/progress-steps",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/select",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toast",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toaster",
+      "to": "components/ui/toast",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toaster",
+      "to": "hooks/use-toast",
+      "kind": "imports"
+    },
+    {
+      "from": "contexts/LanguageContext",
+      "to": "translations/en",
+      "kind": "imports"
+    },
+    {
+      "from": "contexts/LanguageContext",
+      "to": "translations/es",
+      "kind": "imports"
+    },
+    {
+      "from": "hooks/use-toast",
+      "to": "components/ui/toast",
+      "kind": "imports"
+    },
+    {
+      "from": "hooks/useAuth",
+      "to": "lib/amplify",
+      "kind": "imports"
+    },
+    {
+      "from": "hooks/useAuth",
+      "to": "lib/apiUtils",
+      "kind": "imports"
+    },
+    {
+      "from": "hooks/useHeadTags",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "hooks/useOrganization",
+      "to": "lib/apiUtils",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/about",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/blog",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/blog-chrome",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/branding",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/community",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/contact",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/cookies",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/cta-security",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/fairs",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/features",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/footer",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/inventory",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/landing",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/navbar",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/navigation",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/privacy",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/settings",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/terms",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/themes",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/ui",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-ui",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/brand-theme",
+      "to": "content/branding",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/brand-theme",
+      "to": "content/themes",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/brand-theme",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media",
+      "to": "content/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media-upload",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media-upload",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media-upload",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/seo",
+      "to": "content/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/seo",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "main",
+      "to": "App",
+      "kind": "imports"
+    },
+    {
+      "from": "main",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "main",
+      "to": "lib/amplify",
+      "kind": "imports"
+    },
+    {
+      "from": "main",
+      "to": "lib/brand-theme",
+      "kind": "imports"
+    },
+    {
+      "from": "main",
+      "to": "lib/queryClient",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/About",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/About",
+      "to": "content/about",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/About",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Blog",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Blog",
+      "to": "content/blog-chrome",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Blog",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Blog",
+      "to": "services/blog.service",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Comunidad",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Comunidad",
+      "to": "content/community",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Comunidad",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "content/contact",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Cookies",
+      "to": "content/cookies",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Cookies",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Examples",
+      "to": "components/sections/cta-security-section",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Examples",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Examples",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Ferias",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Ferias",
+      "to": "content/fairs",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Ferias",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Funcionalidades",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Funcionalidades",
+      "to": "content/features",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Funcionalidades",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Landing",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Landing",
+      "to": "content/landing",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Landing",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Privacy",
+      "to": "content/privacy",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Privacy",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Terms",
+      "to": "content/terms",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Terms",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/blog.repository",
+      "to": "content/blog",
+      "kind": "imports"
+    },
+    {
+      "from": "services/blog.service",
+      "to": "repositories/blog.repository",
+      "kind": "imports"
+    }
+  ]
+}

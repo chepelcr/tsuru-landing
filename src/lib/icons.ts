@@ -65,6 +65,11 @@ import {
   Menu,
   X,
   ChevronDown,
+  // platform / tooling
+  Network,
+  Database,
+  Activity,
+  GitCommit,
   type LucideIcon,
 } from "lucide-react";
 
@@ -119,6 +124,10 @@ export const ICONS = {
   menu: Menu,
   x: X,
   "chevron-down": ChevronDown,
+  network: Network,
+  database: Database,
+  activity: Activity,
+  "git-commit": GitCommit,
 } as const satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof ICONS;

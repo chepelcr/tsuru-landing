@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "check": "tsc --noEmit",
+    "inventory": "node scripts/build-inventory.mjs",
     "prerender": "node scripts/prerender.mjs",
     "build:seo": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview"

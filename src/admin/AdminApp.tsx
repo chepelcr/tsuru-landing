@@ -16,6 +16,9 @@ const MediaPage = lazy(() => import("@/admin/pages/MediaPage"));
 const SeoPage = lazy(() => import("@/admin/pages/SeoPage"));
 const SettingsPage = lazy(() => import("@/admin/pages/SettingsPage"));
 const ContentVersionsPage = lazy(() => import("@/admin/pages/ContentVersionsPage"));
+const InventoryPage = lazy(() => import("@/admin/pages/InventoryPage"));
+const ContentExplorerPage = lazy(() => import("@/admin/pages/ContentExplorerPage"));
+const DiagnosticsPage = lazy(() => import("@/admin/pages/DiagnosticsPage"));
 
 // Per-page content editors.
 const LandingPage = lazy(() => import("@/admin/pages/LandingPage"));
@@ -74,6 +77,11 @@ export default function AdminApp() {
           <Route path="/admin/seo" component={SeoPage} />
           <Route path="/admin/settings" component={SettingsPage} />
           <Route path="/admin/content-versions" component={ContentVersionsPage} />
+
+          {/* Platform / tooling */}
+          <Route path="/admin/inventory" component={InventoryPage} />
+          <Route path="/admin/content-explorer" component={ContentExplorerPage} />
+          <Route path="/admin/diagnostics" component={DiagnosticsPage} />
 
           {/* /admin/translations removed with the global Translations page */}
           <Route>

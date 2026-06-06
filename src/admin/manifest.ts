@@ -207,6 +207,39 @@ export const PAGES: ContentPage[] = [
     icon: "settings",
     group: "cms",
   },
+
+  // Platform / tooling. inventory is a real content entity (file-backed);
+  // content-explorer, diagnostics and content-versions are read-only fileless
+  // views (online: true) — they appear in the sidebar/router but never as a
+  // content slice or a versions row.
+  {
+    file: "inventory.json",
+    label: { es: "Inventario", en: "Inventory" },
+    route: "/admin/inventory",
+    icon: "network",
+    group: "platform",
+  },
+  {
+    online: true,
+    label: { es: "Explorador de contenido", en: "Content explorer" },
+    route: "/admin/content-explorer",
+    icon: "database",
+    group: "platform",
+  },
+  {
+    online: true,
+    label: { es: "Diagnóstico", en: "Diagnostics" },
+    route: "/admin/diagnostics",
+    icon: "activity",
+    group: "platform",
+  },
+  {
+    online: true,
+    label: { es: "Versiones de contenido", en: "Content versions" },
+    route: "/admin/content-versions",
+    icon: "file-text",
+    group: "platform",
+  },
 ];
 
 // The full set of content files an entity touches, for ContentVersionsPage.

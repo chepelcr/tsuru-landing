@@ -33,6 +33,7 @@ import navbarData from "@/content/navbar.json";
 import footerData from "@/content/footer.json";
 import uiData from "@/content/ui.json";
 import ctaSecurityData from "@/content/cta-security.json";
+import inventoryData from "@/content/inventory.json";
 
 type Branding = typeof brandingData;
 type Themes = typeof themesData;
@@ -55,6 +56,7 @@ type Navbar = typeof navbarData;
 type Footer = typeof footerData;
 type Ui = typeof uiData;
 type CtaSecurity = typeof ctaSecurityData;
+type Inventory = typeof inventoryData;
 
 interface AdminState {
   branding: Branding;
@@ -78,6 +80,7 @@ interface AdminState {
   footer: Footer;
   ui: Ui;
   ctaSecurity: CtaSecurity;
+  inventory: Inventory;
 
   setBranding: (v: Branding) => void;
   setThemes: (v: Themes) => void;
@@ -100,6 +103,7 @@ interface AdminState {
   setFooter: (v: Footer) => void;
   setUi: (v: Ui) => void;
   setCtaSecurity: (v: CtaSecurity) => void;
+  setInventory: (v: Inventory) => void;
 
   savedSnapshots: Record<string, string>;
   markSaved: (file: string, value: unknown) => void;
@@ -129,6 +133,7 @@ const ENTITY_BY_FILE: Record<string, keyof AdminState> = {
   "footer.json": "footer",
   "ui.json": "ui",
   "cta-security.json": "ctaSecurity",
+  "inventory.json": "inventory",
 };
 
 const INITIAL: Record<string, unknown> = {
@@ -153,6 +158,7 @@ const INITIAL: Record<string, unknown> = {
   "footer.json": footerData,
   "ui.json": uiData,
   "cta-security.json": ctaSecurityData,
+  "inventory.json": inventoryData,
 };
 
 const INITIAL_SNAPSHOTS: Record<string, string> = Object.fromEntries(
@@ -181,6 +187,7 @@ export const useAdminStore = create<AdminState>((set) => ({
   footer: footerData,
   ui: uiData,
   ctaSecurity: ctaSecurityData,
+  inventory: inventoryData,
 
   setBranding: (v) => set({ branding: v }),
   setThemes: (v) => set({ themes: v }),
@@ -203,6 +210,7 @@ export const useAdminStore = create<AdminState>((set) => ({
   setFooter: (v) => set({ footer: v }),
   setUi: (v) => set({ ui: v }),
   setCtaSecurity: (v) => set({ ctaSecurity: v }),
+  setInventory: (v) => set({ inventory: v }),
 
   savedSnapshots: INITIAL_SNAPSHOTS,
   markSaved: (file, value) =>

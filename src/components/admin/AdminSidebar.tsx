@@ -21,8 +21,6 @@ const GROUP_ORDER: AdminGroup[] = ["content", "pages", "legal", "chrome", "cms",
 function activeGroupFor(location: string): AdminGroup | "" {
   const page = PAGES.find((p) => location === p.route || location.startsWith(p.route + "/"));
   if (page) return page.group;
-  // Platform pages (versions) live under their own group.
-  if (location.startsWith("/admin/content-versions")) return "platform";
   return "";
 }
 
@@ -105,18 +103,7 @@ export function AdminSidebar({
         </button>
 
         {GROUP_ORDER.map((group) => {
-          const pages =
-            group === "platform"
-              ? [
-                  {
-                    file: "__versions",
-                    route: "/admin/content-versions",
-                    icon: "file-text" as const,
-                    label: { es: "Versiones de contenido", en: "Content versions" },
-                    group,
-                  },
-                ]
-              : PAGES.filter((p) => p.group === group);
+          const pages = PAGES.filter((p) => p.group === group);
           if (pages.length === 0) return null;
           const open = collapsed || openGroup === group;
           const groupSelected = open || group === activeGroup;
