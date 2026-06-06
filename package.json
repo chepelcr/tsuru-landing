@@ -4,8 +4,10 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "vite build",
+    "check": "tsc --noEmit",
     "prerender": "node scripts/prerender.mjs",
     "build:seo": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview"
@@ -41,5 +43,8 @@
     "tailwindcss": "^3.4.17",
     "typescript": "5.6.3",
     "vite": "^5.4.19"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
   }
 }

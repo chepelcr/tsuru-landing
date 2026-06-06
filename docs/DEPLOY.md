@@ -9,11 +9,11 @@ dev server (`apply: "serve"`) and are never part of a build.
 
 ```bash
 # CI build — admin tree-shaken OUT (gate folds to false), SEO prerendered.
-BASE_PATH=/ npm run build:seo
+BASE_PATH=/ pnpm run build:seo
 ```
 
 - `build:seo` = `vite build && node scripts/prerender.mjs`.
-- Plain `npm run build` still works unchanged (no prerender). Use `build:seo`
+- Plain `pnpm run build` still works unchanged (no prerender). Use `build:seo`
   for the deployable artifact.
 - Output: `../dist/landing` (relative to this package — i.e. `dist/landing/` at
   the monorepo root layout this was split from).
@@ -28,7 +28,7 @@ BASE_PATH=/ npm run build:seo
 Verify a CI build is admin-free:
 
 ```bash
-BASE_PATH=/ npm run build:seo
+BASE_PATH=/ pnpm run build:seo
 grep -rl "__local" ../dist/landing/assets   # must print nothing
 ```
 

@@ -11,8 +11,9 @@ a **local, dev-only admin CMS**. It is driven entirely by bundled JSON content
 files with **NO runtime backend** — it deploys 100% static.
 
 - Path alias: `@` → `src`.
-- Package manager: **npm** (NOT pnpm). This is a deliberate deviation from the
-  landing-dxp-builder skill's pnpm default — all scripts/docs use `npm`.
+- Package manager: **pnpm** (enforced by a `preinstall: only-allow pnpm` guard).
+  Lockfile `pnpm-lock.yaml`; `package.json#pnpm.onlyBuiltDependencies` whitelists
+  `esbuild`'s install script. Use `pnpm install` / `pnpm run <script>`.
 - Dev server port: `3001`. Build output: `../dist/landing`.
 - `BASE_PATH` env sets Vite `base` (`/` for custom domain, `/<repo>/` for a
   subpath).
@@ -130,10 +131,10 @@ authentication** — this gate is the only thing keeping it off the public site.
 ## Build & deploy
 
 ```bash
-npm run dev          # dev server on :3001 (admin enabled via import.meta.env.DEV)
-npm run build        # vite build only (unchanged)
-npm run build:seo    # vite build + prerender (deployable artifact)
-npm run prerender    # prerender only (run after a build)
+pnpm run dev          # dev server on :3001 (admin enabled via import.meta.env.DEV)
+pnpm run build        # vite build only (unchanged)
+pnpm run build:seo    # vite build + prerender (deployable artifact)
+pnpm run prerender    # prerender only (run after a build)
 ```
 
 Deploy: see `docs/DEPLOY.md`. Build with `VITE_ENABLE_ADMIN` **unset** and
@@ -164,7 +165,7 @@ Deploy: see `docs/DEPLOY.md`. Build with `VITE_ENABLE_ADMIN` **unset** and
 ## Verify
 
 ```bash
-npx tsc --noEmit
-npm run build && grep -rl "__local" ../dist/landing/assets   # second cmd: no output
+pnpm run check   # tsc --noEmit
+pnpm run build && grep -rl "__local" ../dist/landing/assets   # second cmd: no output
 node scripts/prerender.mjs                                   # after a build
 ```
