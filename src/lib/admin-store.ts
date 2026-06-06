@@ -19,8 +19,20 @@ import mediaData from "@/content/media.json";
 import settingsData from "@/content/settings.json";
 import blogData from "@/content/blog.json";
 import seoData from "@/content/seo.json";
-import enData from "@/translations/en.json";
-import esData from "@/translations/es.json";
+import landingData from "@/content/landing.json";
+import featuresData from "@/content/features.json";
+import fairsData from "@/content/fairs.json";
+import communityData from "@/content/community.json";
+import aboutData from "@/content/about.json";
+import contactData from "@/content/contact.json";
+import termsData from "@/content/terms.json";
+import privacyData from "@/content/privacy.json";
+import cookiesData from "@/content/cookies.json";
+import blogChromeData from "@/content/blog-chrome.json";
+import navbarData from "@/content/navbar.json";
+import footerData from "@/content/footer.json";
+import uiData from "@/content/ui.json";
+import ctaSecurityData from "@/content/cta-security.json";
 
 type Branding = typeof brandingData;
 type Themes = typeof themesData;
@@ -29,7 +41,20 @@ type Media = { items: MediaItem[] };
 type Settings = typeof settingsData;
 type Blog = typeof blogData;
 type Seo = typeof seoData;
-type Translation = Record<string, string>;
+type Landing = typeof landingData;
+type Features = typeof featuresData;
+type Fairs = typeof fairsData;
+type Community = typeof communityData;
+type About = typeof aboutData;
+type Contact = typeof contactData;
+type Terms = typeof termsData;
+type Privacy = typeof privacyData;
+type Cookies = typeof cookiesData;
+type BlogChrome = typeof blogChromeData;
+type Navbar = typeof navbarData;
+type Footer = typeof footerData;
+type Ui = typeof uiData;
+type CtaSecurity = typeof ctaSecurityData;
 
 interface AdminState {
   branding: Branding;
@@ -39,8 +64,20 @@ interface AdminState {
   settings: Settings;
   blog: Blog;
   seo: Seo;
-  translationsEn: Translation;
-  translationsEs: Translation;
+  landing: Landing;
+  features: Features;
+  fairs: Fairs;
+  community: Community;
+  about: About;
+  contact: Contact;
+  terms: Terms;
+  privacy: Privacy;
+  cookies: Cookies;
+  blogChrome: BlogChrome;
+  navbar: Navbar;
+  footer: Footer;
+  ui: Ui;
+  ctaSecurity: CtaSecurity;
 
   setBranding: (v: Branding) => void;
   setThemes: (v: Themes) => void;
@@ -49,8 +86,20 @@ interface AdminState {
   setSettings: (v: Settings) => void;
   setBlog: (v: Blog) => void;
   setSeo: (v: Seo) => void;
-  setTranslationsEn: (v: Translation) => void;
-  setTranslationsEs: (v: Translation) => void;
+  setLanding: (v: Landing) => void;
+  setFeatures: (v: Features) => void;
+  setFairs: (v: Fairs) => void;
+  setCommunity: (v: Community) => void;
+  setAbout: (v: About) => void;
+  setContact: (v: Contact) => void;
+  setTerms: (v: Terms) => void;
+  setPrivacy: (v: Privacy) => void;
+  setCookies: (v: Cookies) => void;
+  setBlogChrome: (v: BlogChrome) => void;
+  setNavbar: (v: Navbar) => void;
+  setFooter: (v: Footer) => void;
+  setUi: (v: Ui) => void;
+  setCtaSecurity: (v: CtaSecurity) => void;
 
   savedSnapshots: Record<string, string>;
   markSaved: (file: string, value: unknown) => void;
@@ -66,8 +115,20 @@ const ENTITY_BY_FILE: Record<string, keyof AdminState> = {
   "settings.json": "settings",
   "blog.json": "blog",
   "seo.json": "seo",
-  "translations/en.json": "translationsEn",
-  "translations/es.json": "translationsEs",
+  "landing.json": "landing",
+  "features.json": "features",
+  "fairs.json": "fairs",
+  "community.json": "community",
+  "about.json": "about",
+  "contact.json": "contact",
+  "terms.json": "terms",
+  "privacy.json": "privacy",
+  "cookies.json": "cookies",
+  "blog-chrome.json": "blogChrome",
+  "navbar.json": "navbar",
+  "footer.json": "footer",
+  "ui.json": "ui",
+  "cta-security.json": "ctaSecurity",
 };
 
 const INITIAL: Record<string, unknown> = {
@@ -78,8 +139,20 @@ const INITIAL: Record<string, unknown> = {
   "settings.json": settingsData,
   "blog.json": blogData,
   "seo.json": seoData,
-  "translations/en.json": enData,
-  "translations/es.json": esData,
+  "landing.json": landingData,
+  "features.json": featuresData,
+  "fairs.json": fairsData,
+  "community.json": communityData,
+  "about.json": aboutData,
+  "contact.json": contactData,
+  "terms.json": termsData,
+  "privacy.json": privacyData,
+  "cookies.json": cookiesData,
+  "blog-chrome.json": blogChromeData,
+  "navbar.json": navbarData,
+  "footer.json": footerData,
+  "ui.json": uiData,
+  "cta-security.json": ctaSecurityData,
 };
 
 const INITIAL_SNAPSHOTS: Record<string, string> = Object.fromEntries(
@@ -94,8 +167,20 @@ export const useAdminStore = create<AdminState>((set) => ({
   settings: settingsData,
   blog: blogData,
   seo: seoData,
-  translationsEn: enData as Translation,
-  translationsEs: esData as Translation,
+  landing: landingData,
+  features: featuresData,
+  fairs: fairsData,
+  community: communityData,
+  about: aboutData,
+  contact: contactData,
+  terms: termsData,
+  privacy: privacyData,
+  cookies: cookiesData,
+  blogChrome: blogChromeData,
+  navbar: navbarData,
+  footer: footerData,
+  ui: uiData,
+  ctaSecurity: ctaSecurityData,
 
   setBranding: (v) => set({ branding: v }),
   setThemes: (v) => set({ themes: v }),
@@ -104,8 +189,20 @@ export const useAdminStore = create<AdminState>((set) => ({
   setSettings: (v) => set({ settings: v }),
   setBlog: (v) => set({ blog: v }),
   setSeo: (v) => set({ seo: v }),
-  setTranslationsEn: (v) => set({ translationsEn: v }),
-  setTranslationsEs: (v) => set({ translationsEs: v }),
+  setLanding: (v) => set({ landing: v }),
+  setFeatures: (v) => set({ features: v }),
+  setFairs: (v) => set({ fairs: v }),
+  setCommunity: (v) => set({ community: v }),
+  setAbout: (v) => set({ about: v }),
+  setContact: (v) => set({ contact: v }),
+  setTerms: (v) => set({ terms: v }),
+  setPrivacy: (v) => set({ privacy: v }),
+  setCookies: (v) => set({ cookies: v }),
+  setBlogChrome: (v) => set({ blogChrome: v }),
+  setNavbar: (v) => set({ navbar: v }),
+  setFooter: (v) => set({ footer: v }),
+  setUi: (v) => set({ ui: v }),
+  setCtaSecurity: (v) => set({ ctaSecurity: v }),
 
   savedSnapshots: INITIAL_SNAPSHOTS,
   markSaved: (file, value) =>

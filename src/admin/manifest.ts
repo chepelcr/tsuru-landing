@@ -10,7 +10,7 @@ export interface BiLabel {
   en: string;
 }
 
-export type AdminGroup = "content" | "cms" | "platform";
+export type AdminGroup = "content" | "pages" | "legal" | "chrome" | "cms" | "platform";
 
 export interface ContentPage {
   /**
@@ -30,13 +30,19 @@ export interface ContentPage {
 }
 
 export const GROUP_LABELS: Record<AdminGroup, BiLabel> = {
-  content: { es: "Contenido", en: "Content" },
+  content: { es: "Estructura", en: "Structure" },
+  pages: { es: "Páginas", en: "Pages" },
+  legal: { es: "Legal", en: "Legal" },
+  chrome: { es: "Interfaz", en: "Chrome" },
   cms: { es: "CMS", en: "CMS" },
   platform: { es: "Plataforma", en: "Platform" },
 };
 
 export const GROUP_ICONS: Record<AdminGroup, IconName> = {
-  content: "store",
+  content: "palette",
+  pages: "store",
+  legal: "shield",
+  chrome: "menu",
   cms: "settings",
   platform: "globe",
 };
@@ -45,6 +51,7 @@ export const GROUP_ICONS: Record<AdminGroup, IconName> = {
 // themes) under a single page, so it carries branding.json as its primary file
 // and themes.json is handled by the same page.
 export const PAGES: ContentPage[] = [
+  // Structure
   {
     file: "branding.json",
     label: { es: "Identidad del sitio", en: "Site identity" },
@@ -59,32 +66,131 @@ export const PAGES: ContentPage[] = [
     icon: "menu",
     group: "content",
   },
+
+  // Pages
   {
-    online: true,
-    label: { es: "Plantillas", en: "Templates" },
-    route: "/admin/templates",
-    icon: "store",
-    group: "content",
+    file: "landing.json",
+    label: { es: "Inicio", en: "Home" },
+    route: "/admin/landing",
+    icon: "home",
+    group: "pages",
+  },
+  {
+    file: "features.json",
+    label: { es: "Funcionalidades", en: "Features" },
+    route: "/admin/features",
+    icon: "sparkles",
+    group: "pages",
+  },
+  {
+    file: "fairs.json",
+    label: { es: "Ferias", en: "Fairs" },
+    route: "/admin/fairs",
+    icon: "calendar",
+    group: "pages",
+  },
+  {
+    file: "community.json",
+    label: { es: "Comunidad", en: "Community" },
+    route: "/admin/community",
+    icon: "users",
+    group: "pages",
+  },
+  {
+    file: "about.json",
+    label: { es: "Quiénes somos", en: "About" },
+    route: "/admin/about",
+    icon: "heart",
+    group: "pages",
+  },
+  {
+    file: "contact.json",
+    label: { es: "Contacto", en: "Contact" },
+    route: "/admin/contact",
+    icon: "mail",
+    group: "pages",
   },
   {
     file: "blog.json",
     label: { es: "Blog", en: "Blog" },
     route: "/admin/blog",
     icon: "book-open",
-    group: "content",
+    group: "pages",
   },
+  {
+    file: "blog-chrome.json",
+    label: { es: "Blog (textos)", en: "Blog (chrome)" },
+    route: "/admin/blog-chrome",
+    icon: "file-text",
+    group: "pages",
+  },
+  {
+    online: true,
+    label: { es: "Plantillas", en: "Templates" },
+    route: "/admin/templates",
+    icon: "store",
+    group: "pages",
+  },
+
+  // Legal
+  {
+    file: "terms.json",
+    label: { es: "Términos", en: "Terms" },
+    route: "/admin/terms",
+    icon: "file-text",
+    group: "legal",
+  },
+  {
+    file: "privacy.json",
+    label: { es: "Privacidad", en: "Privacy" },
+    route: "/admin/privacy",
+    icon: "shield",
+    group: "legal",
+  },
+  {
+    file: "cookies.json",
+    label: { es: "Cookies", en: "Cookies" },
+    route: "/admin/cookies",
+    icon: "settings",
+    group: "legal",
+  },
+
+  // Chrome
+  {
+    file: "navbar.json",
+    label: { es: "Barra de navegación", en: "Navbar" },
+    route: "/admin/navbar",
+    icon: "menu",
+    group: "chrome",
+  },
+  {
+    file: "footer.json",
+    label: { es: "Pie de página", en: "Footer" },
+    route: "/admin/footer",
+    icon: "building-2",
+    group: "chrome",
+  },
+  {
+    file: "ui.json",
+    label: { es: "Textos de interfaz", en: "UI strings" },
+    route: "/admin/ui",
+    icon: "message-square",
+    group: "chrome",
+  },
+  {
+    file: "cta-security.json",
+    label: { es: "CTA / Seguridad", en: "CTA / Security" },
+    route: "/admin/cta-security",
+    icon: "shield",
+    group: "chrome",
+  },
+
+  // CMS
   {
     file: "media.json",
     label: { es: "Medios", en: "Media" },
     route: "/admin/media",
     icon: "package",
-    group: "cms",
-  },
-  {
-    file: "translations/en.json",
-    label: { es: "Traducciones", en: "Translations" },
-    route: "/admin/translations",
-    icon: "globe",
     group: "cms",
   },
   {
@@ -104,10 +210,9 @@ export const PAGES: ContentPage[] = [
 ];
 
 // The full set of content files an entity touches, for ContentVersionsPage.
-// Site identity bundles branding + themes; translations bundles en + es.
+// Site identity bundles branding + themes.
 export const VERSION_FILES: Record<string, string[]> = {
   "branding.json": ["branding.json", "themes.json"],
-  "translations/en.json": ["translations/en.json", "translations/es.json"],
 };
 
 // Content (file-backed) pages only — excludes read-only online pages.

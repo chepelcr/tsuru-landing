@@ -18,8 +18,20 @@ function useFileValues(): Record<string, unknown> {
     "settings.json": s.settings,
     "blog.json": s.blog,
     "seo.json": s.seo,
-    "translations/en.json": s.translationsEn,
-    "translations/es.json": s.translationsEs,
+    "landing.json": s.landing,
+    "features.json": s.features,
+    "fairs.json": s.fairs,
+    "community.json": s.community,
+    "about.json": s.about,
+    "contact.json": s.contact,
+    "terms.json": s.terms,
+    "privacy.json": s.privacy,
+    "cookies.json": s.cookies,
+    "blog-chrome.json": s.blogChrome,
+    "navbar.json": s.navbar,
+    "footer.json": s.footer,
+    "ui.json": s.ui,
+    "cta-security.json": s.ctaSecurity,
   };
 }
 

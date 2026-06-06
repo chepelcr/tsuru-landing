@@ -5,7 +5,7 @@
 // except generic ES/EN placeholders.
 
 import { useState, type ReactNode } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Plus, Trash2, ArrowUp, ArrowDown } from "lucide-react";
 
 export const inputCls =
   "w-full h-10 rounded-xl border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors";
@@ -235,6 +235,79 @@ export function ColorField({
         />
       </div>
     </div>
+  );
+}
+
+/**
+ * Repeatable list of bilingual-object items inside an AdminCard. Each item gets
+ * Up / Down / Remove controls; the card header carries an Add button. The caller
+ * renders each item's fields via `renderItem`. Pure presentation — all chrome
+ * strings (title, add/empty labels) come from the caller already localized.
+ */
+export function RepeatableList<T>({
+  title,
+  items,
+  addLabel,
+  emptyLabel,
+  onAdd,
+  onRemove,
+  onMove,
+  renderItem,
+}: {
+  title: string;
+  items: T[];
+  addLabel: string;
+  emptyLabel: string;
+  onAdd: () => void;
+  onRemove: (index: number) => void;
+  onMove: (index: number, dir: -1 | 1) => void;
+  renderItem: (item: T, index: number) => ReactNode;
+}) {
+  return (
+    <AdminCard
+      title={title}
+      action={
+        <button
+          type="button"
+          onClick={onAdd}
+          className="flex items-center gap-1 rounded-lg bg-primary px-2.5 py-1 text-xs font-semibold text-primary-foreground hover:bg-primary/90"
+        >
+          <Plus className="h-3.5 w-3.5" /> {addLabel}
+        </button>
+      }
+    >
+      {items.length === 0 && (
+        <p className="py-6 text-center text-sm text-muted-foreground">{emptyLabel}</p>
+      )}
+      {items.map((item, i) => (
+        <div key={i} className="space-y-3 rounded-xl border border-border bg-background/40 p-4">
+          <div className="flex justify-end gap-1">
+            <button
+              type="button"
+              onClick={() => onMove(i, -1)}
+              className="rounded-lg border border-border p-1.5 text-muted-foreground hover:text-foreground"
+            >
+              <ArrowUp className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => onMove(i, 1)}
+              className="rounded-lg border border-border p-1.5 text-muted-foreground hover:text-foreground"
+            >
+              <ArrowDown className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => onRemove(i)}
+              className="rounded-lg border border-border p-1.5 text-destructive hover:bg-destructive/10"
+            >
+              <Trash2 className="h-4 w-4" />
+            </button>
+          </div>
+          {renderItem(item, i)}
+        </div>
+      ))}
+    </AdminCard>
   );
 }
 
