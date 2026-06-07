@@ -111,8 +111,8 @@ export function FloatingSaveButton({
       type="button"
       onClick={handle}
       title={saved ? savedLabel : saveLabel}
-      className={`fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg transition-colors ${
-        saved ? "bg-emerald-600" : "bg-primary hover:bg-primary/90"
+      className={`fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-colors ${
+        saved ? "bg-success text-success-foreground" : "bg-primary text-primary-foreground hover:bg-primary/90"
       }`}
     >
       {state === "saving" ? (

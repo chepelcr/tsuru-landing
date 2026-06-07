@@ -1,4 +1,8 @@
 {
   "loading": { "es": "Cargando...", "en": "Loading..." },
-  "notFound": { "es": "404 - Page not found", "en": "404 - Page not found" }
+  "notFound": {
+    "title": { "es": "Página no encontrada", "en": "Page not found" },
+    "description": { "es": "Lo sentimos, la página que buscas no existe o fue movida.", "en": "Sorry, the page you are looking for doesn't exist or was moved." },
+    "home": { "es": "Volver al inicio", "en": "Back to home" }
+  }
 }

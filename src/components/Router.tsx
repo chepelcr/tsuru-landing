@@ -16,6 +16,7 @@ const Contact = lazy(() => import("@/pages/Contact"));
 const Terms = lazy(() => import("@/pages/Terms"));
 const Privacy = lazy(() => import("@/pages/Privacy"));
 const Cookies = lazy(() => import("@/pages/Cookies"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 interface RouterProps {
   displayLocation: string;
@@ -32,11 +33,6 @@ function LoadingFallback() {
       </div>
     </div>
   );
-}
-
-function NotFound() {
-  const { language: lang } = useLanguage();
-  return <>{ui.notFound[lang] ?? ui.notFound.es}</>;
 }
 
 export function Router({ displayLocation }: RouterProps) {

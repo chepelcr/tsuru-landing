@@ -34,6 +34,8 @@ const COLOR_KEYS = [
   "ring",
   "card",
   "border",
+  "success",
+  "warning",
 ];
 
 export default function SiteIdentityPage() {

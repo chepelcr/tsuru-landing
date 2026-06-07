@@ -29,6 +29,8 @@ const SEMANTIC_VARS: Record<string, string> = {
   ring: "--ring",
   card: "--card",
   border: "--border",
+  success: "--success",
+  warning: "--warning",
 };
 
 /** "#2f7f33" (or "#abc") -> "123 46% 34%" — the bare H S% L% triplet HSL vars expect. */

@@ -51,7 +51,7 @@ export function AdminTopbar({ onMenu }: { onMenu: () => void }) {
       ? "bg-primary text-primary-foreground hover:bg-primary/90"
       : "bg-muted text-muted-foreground cursor-not-allowed",
     publishing: "bg-primary/80 text-primary-foreground cursor-wait",
-    success: "bg-emerald-600 text-white",
+    success: "bg-success text-success-foreground",
     nothing: "bg-muted text-muted-foreground",
     error: "bg-destructive text-destructive-foreground",
   };

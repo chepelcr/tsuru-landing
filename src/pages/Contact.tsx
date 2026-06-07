@@ -113,8 +113,8 @@ export default function Contact() {
                 </Button>
 
                 {submitStatus === 'success' && (
-                  <div className="p-3 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg">
-                    <p className="text-sm text-green-800 dark:text-green-300">{pick(contact.form.success)}</p>
+                  <div className="p-3 bg-success/10 border border-success/30 rounded-lg">
+                    <p className="text-sm text-success">{pick(contact.form.success)}</p>
                   </div>
                 )}
                 {submitStatus === 'error' && (

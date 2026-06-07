@@ -139,7 +139,7 @@ export function MediaPicker({ value, onChange, label, kinds = ["image"] }: Props
                 {t("admin.media.addUrl")}
               </button>
             </div>
-            {hint && <p className="text-xs text-amber-500">{hint}</p>}
+            {hint && <p className="text-xs text-warning">{hint}</p>}
           </div>
 
           {/* Gallery */}

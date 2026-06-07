@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-06T20:57:31.779Z",
+  "generatedAt": "2026-06-07T01:33:19.243Z",
   "counts": {
     "content": 24,
     "repository": 1,
@@ -8,7 +8,7 @@
     "hook": 4,
     "component": 28,
     "admin": 30,
-    "page": 11
+    "page": 12
   },
   "nodes": [
     {
@@ -712,6 +712,12 @@
       "label": "Landing",
       "type": "page",
       "path": "src/pages/Landing.tsx"
+    },
+    {
+      "id": "pages/NotFound",
+      "label": "NotFound",
+      "type": "page",
+      "path": "src/pages/NotFound.tsx"
     },
     {
       "id": "pages/Privacy",
@@ -2145,6 +2151,31 @@
     {
       "from": "pages/Landing",
       "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/NotFound",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/NotFound",
+      "to": "components/ui/card",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/NotFound",
+      "to": "content/ui",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/NotFound",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/NotFound",
+      "to": "lib/icons",
       "kind": "imports"
     },
     {
