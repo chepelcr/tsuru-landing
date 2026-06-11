@@ -7,6 +7,6 @@
   "logoUrl": "",
   "logoUrlDark": "",
   "faviconUrl": "",
-  "adminLoginUrl": "https://admin.j-markets.jcampos.dev",
-  "adminRegisterUrl": "https://admin.j-markets.jcampos.dev/register"
+  "adminLoginUrl": "https://pos.j-markets.jcampos.dev",
+  "adminRegisterUrl": "https://pos.j-markets.jcampos.dev/register"
 }
