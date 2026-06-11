@@ -10,7 +10,7 @@ export interface BiLabel {
   en: string;
 }
 
-export type AdminGroup = "content" | "pages" | "legal" | "chrome" | "cms" | "platform";
+export type AdminGroup = "content" | "pages" | "legal" | "chrome" | "cms" | "platform" | "rbac";
 
 export interface ContentPage {
   /**
@@ -36,6 +36,7 @@ export const GROUP_LABELS: Record<AdminGroup, BiLabel> = {
   chrome: { es: "Interfaz", en: "Chrome" },
   cms: { es: "CMS", en: "CMS" },
   platform: { es: "Plataforma", en: "Platform" },
+  rbac: { es: "RBAC / Plataforma", en: "RBAC / Platform" },
 };
 
 export const GROUP_ICONS: Record<AdminGroup, IconName> = {
@@ -45,6 +46,7 @@ export const GROUP_ICONS: Record<AdminGroup, IconName> = {
   chrome: "menu",
   cms: "settings",
   platform: "globe",
+  rbac: "shield",
 };
 
 // One row per editable entity. site-identity edits TWO files (branding +
@@ -239,6 +241,39 @@ export const PAGES: ContentPage[] = [
     route: "/admin/content-versions",
     icon: "file-text",
     group: "platform",
+  },
+
+  // RBAC / Platform — the FIRST BE-connected admin section (hybrid model: the
+  // public site stays static; these pages talk to the markets API /api/admin
+  // group behind a Cognito platform_admin gate). All rows are `online: true`:
+  // no content slice, no versions row.
+  {
+    online: true,
+    label: { es: "Organizaciones", en: "Organizations" },
+    route: "/admin/rbac/organizations",
+    icon: "building-2",
+    group: "rbac",
+  },
+  {
+    online: true,
+    label: { es: "Catálogo de módulos", en: "Module catalog" },
+    route: "/admin/rbac/catalog",
+    icon: "package",
+    group: "rbac",
+  },
+  {
+    online: true,
+    label: { es: "Acciones", en: "Actions" },
+    route: "/admin/rbac/actions",
+    icon: "clipboard-list",
+    group: "rbac",
+  },
+  {
+    online: true,
+    label: { es: "Matriz de acciones", en: "Action matrix" },
+    route: "/admin/rbac/matrix",
+    icon: "network",
+    group: "rbac",
   },
 ];
 

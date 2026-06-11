@@ -16,7 +16,7 @@ import {
   type Lang,
 } from "@/admin/manifest";
 
-const GROUP_ORDER: AdminGroup[] = ["content", "pages", "legal", "chrome", "cms", "platform"];
+const GROUP_ORDER: AdminGroup[] = ["content", "pages", "legal", "chrome", "cms", "platform", "rbac"];
 
 function activeGroupFor(location: string): AdminGroup | "" {
   const page = PAGES.find((p) => location === p.route || location.startsWith(p.route + "/"));

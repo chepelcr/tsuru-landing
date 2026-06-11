@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-07T01:33:19.243Z",
+  "generatedAt": "2026-06-11T19:22:17.613Z",
   "counts": {
     "content": 24,
-    "repository": 1,
-    "service": 1,
-    "lib": 20,
+    "repository": 2,
+    "service": 2,
+    "lib": 22,
     "hook": 4,
     "component": 28,
-    "admin": 30,
+    "admin": 37,
     "page": 12
   },
   "nodes": [
@@ -162,10 +162,22 @@
       "path": "src/repositories/blog.repository.ts"
     },
     {
+      "id": "repositories/platform-rbac.repository",
+      "label": "platform-rbac.repository",
+      "type": "repository",
+      "path": "src/repositories/platform-rbac.repository.ts"
+    },
+    {
       "id": "services/blog.service",
       "label": "blog.service",
       "type": "service",
       "path": "src/services/blog.service.ts"
+    },
+    {
+      "id": "services/platform-rbac.service",
+      "label": "platform-rbac.service",
+      "type": "service",
+      "path": "src/services/platform-rbac.service.ts"
     },
     {
       "id": "App",
@@ -184,6 +196,12 @@
       "label": "ThemeContext",
       "type": "lib",
       "path": "src/contexts/ThemeContext.tsx"
+    },
+    {
+      "id": "lib/admin-api",
+      "label": "admin-api",
+      "type": "lib",
+      "path": "src/lib/admin-api.ts"
     },
     {
       "id": "lib/admin-enabled",
@@ -280,6 +298,12 @@
       "label": "organization",
       "type": "lib",
       "path": "src/types/organization.ts"
+    },
+    {
+      "id": "types/platform-rbac",
+      "label": "platform-rbac",
+      "type": "lib",
+      "path": "src/types/platform-rbac.ts"
     },
     {
       "id": "vite-env.d",
@@ -618,6 +642,36 @@
       "path": "src/admin/pages/PrivacyPage.tsx"
     },
     {
+      "id": "admin/pages/RbacActionsPage",
+      "label": "RbacActionsPage",
+      "type": "admin",
+      "path": "src/admin/pages/RbacActionsPage.tsx"
+    },
+    {
+      "id": "admin/pages/RbacCatalogPage",
+      "label": "RbacCatalogPage",
+      "type": "admin",
+      "path": "src/admin/pages/RbacCatalogPage.tsx"
+    },
+    {
+      "id": "admin/pages/RbacMatrixPage",
+      "label": "RbacMatrixPage",
+      "type": "admin",
+      "path": "src/admin/pages/RbacMatrixPage.tsx"
+    },
+    {
+      "id": "admin/pages/RbacOrganizationsPage",
+      "label": "RbacOrganizationsPage",
+      "type": "admin",
+      "path": "src/admin/pages/RbacOrganizationsPage.tsx"
+    },
+    {
+      "id": "admin/pages/RbacOrgDetailPage",
+      "label": "RbacOrgDetailPage",
+      "type": "admin",
+      "path": "src/admin/pages/RbacOrgDetailPage.tsx"
+    },
+    {
       "id": "admin/pages/SeoPage",
       "label": "SeoPage",
       "type": "admin",
@@ -652,6 +706,18 @@
       "label": "UiStringsPage",
       "type": "admin",
       "path": "src/admin/pages/UiStringsPage.tsx"
+    },
+    {
+      "id": "admin/rbac/PlatformAdminGate",
+      "label": "PlatformAdminGate",
+      "type": "admin",
+      "path": "src/admin/rbac/PlatformAdminGate.tsx"
+    },
+    {
+      "id": "admin/rbac/widgets",
+      "label": "widgets",
+      "type": "admin",
+      "path": "src/admin/rbac/widgets.tsx"
     },
     {
       "id": "admin/useSingletonDraft",
@@ -1314,6 +1380,151 @@
       "kind": "imports"
     },
     {
+      "from": "admin/pages/RbacActionsPage",
+      "to": "admin/rbac/PlatformAdminGate",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacActionsPage",
+      "to": "admin/rbac/widgets",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacActionsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacActionsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacActionsPage",
+      "to": "services/platform-rbac.service",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacActionsPage",
+      "to": "types/platform-rbac",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacCatalogPage",
+      "to": "admin/rbac/PlatformAdminGate",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacCatalogPage",
+      "to": "admin/rbac/widgets",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacCatalogPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacCatalogPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacCatalogPage",
+      "to": "services/platform-rbac.service",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacCatalogPage",
+      "to": "types/platform-rbac",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacMatrixPage",
+      "to": "admin/rbac/PlatformAdminGate",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacMatrixPage",
+      "to": "admin/rbac/widgets",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacMatrixPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacMatrixPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacMatrixPage",
+      "to": "services/platform-rbac.service",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrganizationsPage",
+      "to": "admin/rbac/PlatformAdminGate",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrganizationsPage",
+      "to": "admin/rbac/widgets",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrganizationsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrganizationsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrganizationsPage",
+      "to": "services/platform-rbac.service",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrganizationsPage",
+      "to": "types/platform-rbac",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrgDetailPage",
+      "to": "admin/rbac/PlatformAdminGate",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrgDetailPage",
+      "to": "admin/rbac/widgets",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrgDetailPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrgDetailPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrgDetailPage",
+      "to": "services/platform-rbac.service",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/RbacOrgDetailPage",
+      "to": "types/platform-rbac",
+      "kind": "imports"
+    },
+    {
       "from": "admin/pages/SeoPage",
       "to": "components/admin/AdminUI",
       "kind": "imports"
@@ -1441,6 +1652,31 @@
     {
       "from": "admin/pages/UiStringsPage",
       "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/rbac/PlatformAdminGate",
+      "to": "admin/rbac/widgets",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/rbac/PlatformAdminGate",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/rbac/PlatformAdminGate",
+      "to": "lib/admin-api",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/rbac/PlatformAdminGate",
+      "to": "lib/amplify",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/rbac/PlatformAdminGate",
+      "to": "services/platform-rbac.service",
       "kind": "imports"
     },
     {
@@ -2204,8 +2440,28 @@
       "kind": "imports"
     },
     {
+      "from": "repositories/platform-rbac.repository",
+      "to": "lib/admin-api",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/platform-rbac.repository",
+      "to": "types/platform-rbac",
+      "kind": "imports"
+    },
+    {
       "from": "services/blog.service",
       "to": "repositories/blog.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/platform-rbac.service",
+      "to": "repositories/platform-rbac.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/platform-rbac.service",
+      "to": "types/platform-rbac",
       "kind": "imports"
     }
   ]

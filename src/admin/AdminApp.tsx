@@ -32,6 +32,14 @@ const TermsPage = lazy(() => import("@/admin/pages/TermsPage"));
 const PrivacyPage = lazy(() => import("@/admin/pages/PrivacyPage"));
 const CookiesPage = lazy(() => import("@/admin/pages/CookiesPage"));
 const NavbarPage = lazy(() => import("@/admin/pages/NavbarPage"));
+
+// RBAC / Platform — BE-connected section (markets API /api/admin, Cognito
+// platform_admin gate inside each page via PlatformAdminGate).
+const RbacOrganizationsPage = lazy(() => import("@/admin/pages/RbacOrganizationsPage"));
+const RbacOrgDetailPage = lazy(() => import("@/admin/pages/RbacOrgDetailPage"));
+const RbacCatalogPage = lazy(() => import("@/admin/pages/RbacCatalogPage"));
+const RbacActionsPage = lazy(() => import("@/admin/pages/RbacActionsPage"));
+const RbacMatrixPage = lazy(() => import("@/admin/pages/RbacMatrixPage"));
 const FooterPage = lazy(() => import("@/admin/pages/FooterPage"));
 const UiStringsPage = lazy(() => import("@/admin/pages/UiStringsPage"));
 const CtaSecurityPage = lazy(() => import("@/admin/pages/CtaSecurityPage"));
@@ -77,6 +85,13 @@ export default function AdminApp() {
           <Route path="/admin/seo" component={SeoPage} />
           <Route path="/admin/settings" component={SettingsPage} />
           <Route path="/admin/content-versions" component={ContentVersionsPage} />
+
+          {/* RBAC / Platform (BE-connected) */}
+          <Route path="/admin/rbac/organizations/:orgId" component={RbacOrgDetailPage} />
+          <Route path="/admin/rbac/organizations" component={RbacOrganizationsPage} />
+          <Route path="/admin/rbac/catalog" component={RbacCatalogPage} />
+          <Route path="/admin/rbac/actions" component={RbacActionsPage} />
+          <Route path="/admin/rbac/matrix" component={RbacMatrixPage} />
 
           {/* Platform / tooling */}
           <Route path="/admin/inventory" component={InventoryPage} />
