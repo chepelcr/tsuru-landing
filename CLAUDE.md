@@ -2,6 +2,12 @@
 
 Guidance for Claude Code when working in this repository.
 
+> 📍 **Roadmap tracking:** the whole Tsuru ecosystem (this landing included) is
+> tracked in the monorepo at `E:/dev/BeautyMarket/docs/roadmap/tsuru_roadmap.md`
+> (TSR-### board, pending manual steps, changelog). When you complete or start
+> work here, **update that roadmap in the same session** (status cells + §8
+> changelog) so a fresh session can pick up from it.
+
 ## What this is
 
 The **standalone `tsuru-landing` repo** (`github.com/chepelcr/tsuru-landing`),
