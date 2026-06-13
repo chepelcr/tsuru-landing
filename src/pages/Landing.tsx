@@ -48,18 +48,20 @@ function ValueCard({ icon: Icon, title, description, accent }: {
   accent?: boolean;
 }) {
   return (
-    <div className={`group rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
+    <div className={`group flex gap-4 rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
       accent
         ? 'bg-accent/5 border-accent/20 hover:border-accent/40'
         : 'bg-card border-border hover:border-primary/30'
     }`}>
-      <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${
+      <div className={`flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center ${
         accent ? 'bg-accent/10' : 'bg-primary/10'
       }`}>
         <Icon className={`h-5 w-5 ${accent ? 'text-accent' : 'text-primary'}`} />
       </div>
-      <h3 className="font-semibold text-foreground mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <div>
+        <h3 className="font-semibold text-foreground mb-2">{title}</h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+      </div>
     </div>
   );
 }

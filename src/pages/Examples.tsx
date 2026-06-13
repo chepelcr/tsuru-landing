@@ -12,7 +12,6 @@ import {
   Dumbbell,
   PawPrint,
   Sparkles,
-  Loader2,
   AlertCircle,
   Palette,
 } from "lucide-react";
@@ -60,26 +59,25 @@ function ExampleCard({ store }: { store: ExampleStore }) {
   const { t } = useLanguage();
 
   return (
-    <div className={`relative group rounded-2xl bg-card border transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col overflow-hidden ${
+    <div className={`group rounded-2xl bg-card border transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col overflow-hidden ${
       store.featured ? 'border-primary/40 shadow-sm shadow-primary/10' : 'border-border hover:border-primary/30'
     }`}>
-      {store.featured && (
-        <div className="absolute top-3 right-3 z-10">
-          <span className="px-2.5 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
-            {t('examples.featured')}
-          </span>
-        </div>
-      )}
-
       {/* Icon area */}
       <div className="p-6 pb-0">
-        <div className="flex items-start justify-between mb-4">
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+        <div className="flex items-start justify-between gap-2 mb-4">
+          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
             {store.icon}
           </div>
-          <span className="text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full capitalize border border-border">
-            {store.category}
-          </span>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            {store.featured && (
+              <span className="px-2.5 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold whitespace-nowrap">
+                {t('examples.featured')}
+              </span>
+            )}
+            <span className="text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full capitalize border border-border whitespace-nowrap">
+              {store.category}
+            </span>
+          </div>
         </div>
         <h3 className="font-serif text-lg font-bold text-foreground mb-2">{store.displayName}</h3>
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{store.description}</p>
@@ -94,6 +92,30 @@ function ExampleCard({ store }: { store: ExampleStore }) {
           {t('examples.viewStore')}
           <ExternalLink className="h-4 w-4" />
         </Button>
+      </div>
+    </div>
+  );
+}
+
+// ─── Skeleton (loading state) ───────────────────────────────────────────────
+
+function ExampleCardSkeleton() {
+  return (
+    <div className="rounded-2xl bg-card border border-border flex flex-col overflow-hidden animate-pulse">
+      <div className="p-6 pb-0">
+        <div className="flex items-start justify-between gap-2 mb-4">
+          <div className="w-12 h-12 rounded-xl bg-muted" />
+          <div className="h-6 w-20 rounded-full bg-muted" />
+        </div>
+        <div className="h-5 w-3/4 rounded bg-muted mb-3" />
+        <div className="space-y-2">
+          <div className="h-3 w-full rounded bg-muted" />
+          <div className="h-3 w-5/6 rounded bg-muted" />
+          <div className="h-3 w-2/3 rounded bg-muted" />
+        </div>
+      </div>
+      <div className="p-6 pt-4 mt-auto">
+        <div className="h-10 w-full rounded-xl bg-muted" />
       </div>
     </div>
   );
@@ -144,9 +166,10 @@ export default function Examples() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {isLoading && (
-            <div className="flex justify-center items-center py-20 gap-3 text-muted-foreground">
-              <Loader2 className="h-6 w-6 animate-spin text-primary" />
-              <span>{t('common.loading')}</span>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <ExampleCardSkeleton key={i} />
+              ))}
             </div>
           )}
 

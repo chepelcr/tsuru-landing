@@ -22,16 +22,18 @@ function FeatureCard({ icon: Icon, title, description, color = 'green' }: {
 }) {
   const isEarth = color === 'earth';
   return (
-    <div className={`group rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
+    <div className={`group flex gap-4 rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
       isEarth ? 'bg-accent/5 border-accent/20 hover:border-accent/40' : 'bg-card border-border hover:border-primary/30'
     }`}>
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
         isEarth ? 'bg-accent/10' : 'bg-primary/10'
       }`}>
         <Icon className={`h-6 w-6 ${isEarth ? 'text-accent' : 'text-primary'}`} />
       </div>
-      <h3 className="font-semibold text-foreground mb-2 text-lg">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <div>
+        <h3 className="font-semibold text-foreground mb-2 text-lg">{title}</h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+      </div>
     </div>
   );
 }

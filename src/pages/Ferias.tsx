@@ -17,23 +17,25 @@ function FairTypeCard({ icon: Icon, title, status, description, accent }: {
   accent?: boolean;
 }) {
   return (
-    <div className={`rounded-2xl p-7 border transition-all hover:-translate-y-1 hover:shadow-md ${
+    <div className={`flex gap-4 rounded-2xl p-7 border transition-all hover:-translate-y-1 hover:shadow-md ${
       accent ? 'bg-accent/5 border-accent/20 hover:border-accent/40' : 'bg-card border-border hover:border-primary/30'
     }`}>
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
+      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
         accent ? 'bg-accent/10' : 'bg-primary/10'
       }`}>
         <Icon className={`h-6 w-6 ${accent ? 'text-accent' : 'text-primary'}`} />
       </div>
-      <div className="flex items-center gap-2 mb-3 flex-wrap">
-        <h3 className="font-serif text-xl font-bold text-foreground">{title}</h3>
-        {status && (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
-            {status}
-          </span>
-        )}
+      <div>
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
+          <h3 className="font-serif text-xl font-bold text-foreground">{title}</h3>
+          {status && (
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
+              {status}
+            </span>
+          )}
+        </div>
+        <p className="text-muted-foreground leading-relaxed">{description}</p>
       </div>
-      <p className="text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
 }
