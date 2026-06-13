@@ -1,5 +1,5 @@
 {
-  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "docTitleSuffix": { "es": " | Tsuru", "en": " | Tsuru" },
   "badge": { "es": "Política de Cookies", "en": "Cookie Policy" },
   "title": { "es": "Política de Cookies", "en": "Cookie Policy" },
   "subtitle": { "es": "Información sobre cómo utilizamos las cookies", "en": "Information about how we use cookies" },
@@ -46,10 +46,10 @@
       }
     },
     {
-      "title": { "es": "Consentimiento de Cookies", "en": "Cookie Consent" },
+      "title": { "es": "Control de Cookies", "en": "Cookie Control" },
       "desc": {
-        "es": "Cuando visitas JMarkets por primera vez, mostramos un banner de consentimiento de cookies. Puedes aceptar todas las cookies, rechazar las no esenciales o personalizar tus preferencias. Puedes cambiar tus preferencias de cookies en cualquier momento a través de la configuración de tu cuenta.",
-        "en": "When you first visit JMarkets, we display a cookie consent banner. You can accept all cookies, reject non-essential cookies, or customize your preferences. You can change your cookie preferences at any time through your account settings."
+        "es": "Hoy Tsuru usa principalmente cookies esenciales para que la plataforma funcione, además de tus preferencias de idioma y tema. Puedes controlar o eliminar las cookies en cualquier momento desde la configuración de tu navegador. Si más adelante incorporamos cookies opcionales de análisis o marketing, actualizaremos esta página y te daremos una forma de gestionarlas.",
+        "en": "Today Tsuru mainly uses essential cookies to keep the platform working, along with your language and theme preferences. You can control or delete cookies at any time from your browser settings. If we later add optional analytics or marketing cookies, we will update this page and give you a way to manage them."
       }
     },
     {

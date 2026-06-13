@@ -75,13 +75,6 @@ export default function BlogChromePage() {
           <BilingualField label={T.posted} es={draft.posted.es} en={draft.posted.en} onChange={(l, v) => update((d) => (d.posted[l] = v))} />
           <BilingualField label={T.latestArticles} es={draft.latestArticles.es} en={draft.latestArticles.en} onChange={(l, v) => update((d) => (d.latestArticles[l] = v))} />
         </AdminCard>
-
-        <AdminCard title={T.newsletter}>
-          <BilingualField label={T.stayUpdated} es={draft.stayUpdated.es} en={draft.stayUpdated.en} onChange={(l, v) => update((d) => (d.stayUpdated[l] = v))} />
-          <BilingualTextArea label={T.newsletterText} es={draft.newsletter.es} en={draft.newsletter.en} onChange={(l, v) => update((d) => (d.newsletter[l] = v))} hint={RICH_TEXT_HINT} />
-          <BilingualField label={T.subscribe} es={draft.subscribe.es} en={draft.subscribe.en} onChange={(l, v) => update((d) => (d.subscribe[l] = v))} />
-          <BilingualField label={T.privacyNote} es={draft.privacyNote.es} en={draft.privacyNote.en} onChange={(l, v) => update((d) => (d.privacyNote[l] = v))} />
-        </AdminCard>
       </div>
     </div>
   );

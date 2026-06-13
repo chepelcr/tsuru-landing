@@ -9,7 +9,6 @@ import {
   Users,
   ArrowLeftRight,
   ArrowRight,
-  Star,
   Heart,
 } from "lucide-react";
 
@@ -26,35 +25,6 @@ function ValuePill({ icon: Icon, title, description }: {
       <div>
         <h3 className="font-semibold text-foreground mb-1">{title}</h3>
         <p className="text-sm text-muted-foreground">{description}</p>
-      </div>
-    </div>
-  );
-}
-
-function TestimonialCard({ quote, name, business }: {
-  quote: string;
-  name: string;
-  business: string;
-}) {
-  return (
-    <div className="rounded-2xl p-7 bg-card border border-border hover:border-primary/20 transition-all flex flex-col gap-4">
-      {/* Stars */}
-      <div className="flex gap-1">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} className="h-4 w-4 text-primary fill-primary" />
-        ))}
-      </div>
-      {/* Quote */}
-      <p className="text-muted-foreground leading-relaxed italic flex-1">{quote}</p>
-      {/* Author */}
-      <div className="flex items-center gap-3 pt-2 border-t border-border">
-        <div className="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
-          <span className="text-primary font-bold text-sm">{name[0]}</span>
-        </div>
-        <div>
-          <p className="font-semibold text-foreground text-sm">{name}</p>
-          <p className="text-xs text-muted-foreground">{business}</p>
-        </div>
       </div>
     </div>
   );
@@ -112,9 +82,16 @@ export default function Comunidad() {
               <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-5">
                 <ArrowLeftRight className="h-7 w-7 text-accent" />
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                {pick(community.barter.title)}
-              </h2>
+              <div className="flex items-center gap-3 mb-4 flex-wrap">
+                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground">
+                  {pick(community.barter.title)}
+                </h2>
+                {community.barter.status && (
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
+                    {pick(community.barter.status)}
+                  </span>
+                )}
+              </div>
               <p className="text-muted-foreground leading-relaxed text-lg mb-6">
                 {pick(community.barter.description)}
               </p>
@@ -167,35 +144,20 @@ export default function Comunidad() {
               <Users className="h-9 w-9 text-primary" />
             </div>
             <div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mb-3">
-                {pick(community.mutual.title)}
-              </h2>
+              <div className="flex items-center gap-3 mb-3 flex-wrap justify-center md:justify-start">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
+                  {pick(community.mutual.title)}
+                </h2>
+                {community.mutual.status && (
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
+                    {pick(community.mutual.status)}
+                  </span>
+                )}
+              </div>
               <p className="text-muted-foreground leading-relaxed text-lg">
                 {pick(community.mutual.description)}
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-3">
-              {pick(community.storiesTitle)}
-            </h2>
-            <p className="text-muted-foreground">{pick(community.storiesSubtitle)}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {community.stories.map((story, i) => (
-              <TestimonialCard
-                key={i}
-                quote={pick(story.quote)}
-                name={pick(story.name)}
-                business={pick(story.business)}
-              />
-            ))}
           </div>
         </div>
       </section>

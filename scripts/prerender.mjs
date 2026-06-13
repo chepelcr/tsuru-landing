@@ -25,6 +25,7 @@ const BASE = (process.env.BASE_PATH || "/").replace(/\/$/, ""); // "" for "/", "
 // excluded). "/" is the home route.
 const ROUTES = [
   "/",
+  "/facturacion",
   "/funcionalidades",
   "/ferias",
   "/comunidad",

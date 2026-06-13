@@ -19,15 +19,13 @@ const STRINGS = {
     what: "¿Qué son las ferias?",
     sectionTitle: "Título de sección",
     desc: "Descripción",
-    typesTitle: "Título «tipos de ferias»",
-    types: "Tipos de ferias",
-    addType: "Agregar tipo",
-    noTypes: "Sin tipos",
+    typesTitle: "Título «lo que estamos construyendo»",
+    types: "Elementos del roadmap",
+    addType: "Agregar elemento",
+    noTypes: "Sin elementos",
     itemTitle: "Título",
-    howJoinTitle: "Título «cómo participar»",
-    howJoin: "Cómo participar",
-    addStep: "Agregar paso",
-    noSteps: "Sin pasos",
+    itemStatus: "Estado (p. ej. «En desarrollo», «Muy pronto»)",
+    note: "Nota honesta",
     cta: "Llamado a la acción",
     button: "Botón",
   },
@@ -41,15 +39,13 @@ const STRINGS = {
     what: "What are fairs?",
     sectionTitle: "Section title",
     desc: "Description",
-    typesTitle: "“Types of fairs” heading",
-    types: "Fair types",
-    addType: "Add type",
-    noTypes: "No types",
+    typesTitle: "“What we're building” heading",
+    types: "Roadmap items",
+    addType: "Add item",
+    noTypes: "No items",
     itemTitle: "Title",
-    howJoinTitle: "“How to participate” heading",
-    howJoin: "How to participate",
-    addStep: "Add step",
-    noSteps: "No steps",
+    itemStatus: "Status (e.g. “In development”, “Coming soon”)",
+    note: "Honest note",
     cta: "Call to action",
     button: "Button",
   },
@@ -87,36 +83,21 @@ export default function FairsPage() {
           items={draft.types}
           addLabel={T.addType}
           emptyLabel={T.noTypes}
-          onAdd={() => update((d) => d.types.push({ title: { es: "", en: "" }, description: { es: "", en: "" } }))}
+          onAdd={() => update((d) => d.types.push({ title: { es: "", en: "" }, status: { es: "", en: "" }, description: { es: "", en: "" } }))}
           onRemove={(i) => update((d) => d.types.splice(i, 1))}
           onMove={(i, dir) => update((d) => moveItem(d.types, i, dir))}
           renderItem={(item, i) => (
             <>
               <BilingualField label={T.itemTitle} es={item.title.es} en={item.title.en} onChange={(l, v) => update((d) => (d.types[i].title[l] = v))} />
+              <BilingualField label={T.itemStatus} es={item.status?.es ?? ""} en={item.status?.en ?? ""} onChange={(l, v) => update((d) => { if (!d.types[i].status) d.types[i].status = { es: "", en: "" }; d.types[i].status[l] = v; })} />
               <BilingualTextArea label={T.desc} es={item.description.es} en={item.description.en} onChange={(l, v) => update((d) => (d.types[i].description[l] = v))} hint={RICH_TEXT_HINT} />
             </>
           )}
         />
 
-        <AdminCard title={T.howJoinTitle}>
-          <BilingualField label={T.sectionTitle} es={draft.howJoinTitle.es} en={draft.howJoinTitle.en} onChange={(l, v) => update((d) => (d.howJoinTitle[l] = v))} />
+        <AdminCard title={T.note}>
+          <BilingualTextArea label={T.note} es={draft.note.es} en={draft.note.en} onChange={(l, v) => update((d) => (d.note[l] = v))} hint={RICH_TEXT_HINT} />
         </AdminCard>
-
-        <RepeatableList
-          title={T.howJoin}
-          items={draft.howJoin}
-          addLabel={T.addStep}
-          emptyLabel={T.noSteps}
-          onAdd={() => update((d) => d.howJoin.push({ title: { es: "", en: "" }, description: { es: "", en: "" } }))}
-          onRemove={(i) => update((d) => d.howJoin.splice(i, 1))}
-          onMove={(i, dir) => update((d) => moveItem(d.howJoin, i, dir))}
-          renderItem={(item, i) => (
-            <>
-              <BilingualField label={T.itemTitle} es={item.title.es} en={item.title.en} onChange={(l, v) => update((d) => (d.howJoin[i].title[l] = v))} />
-              <BilingualTextArea label={T.desc} es={item.description.es} en={item.description.en} onChange={(l, v) => update((d) => (d.howJoin[i].description[l] = v))} hint={RICH_TEXT_HINT} />
-            </>
-          )}
-        />
 
         <AdminCard title={T.cta}>
           <BilingualField label={T.sectionTitle} es={draft.cta.title.es} en={draft.cta.title.en} onChange={(l, v) => update((d) => (d.cta.title[l] = v))} />

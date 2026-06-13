@@ -1,5 +1,5 @@
 {
-  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "docTitleSuffix": { "es": " | Tsuru", "en": " | Tsuru" },
   "badge": { "es": "Términos de Servicio", "en": "Terms of Service" },
   "title": { "es": "Términos y Condiciones", "en": "Terms and Conditions" },
   "subtitle": {
@@ -12,8 +12,8 @@
     {
       "title": { "es": "1. Aceptación de Términos", "en": "1. Acceptance of Terms" },
       "content": {
-        "es": "Al acceder y utilizar JMarkets, aceptas y te comprometes a cumplir estos términos. JMarkets es una plataforma de Economía Social Solidaria nacida del TCU \"Comer Orgánico\" de la Universidad de Costa Rica. Si no estás de acuerdo con estos términos, por favor no uses esta plataforma.",
-        "en": "By accessing and using JMarkets, you accept and agree to be bound by these terms. JMarkets is a Social Solidarity Economy platform born from the TCU \"Comer Orgánico\" at the Universidad de Costa Rica. If you do not agree with these terms, please do not use this platform."
+        "es": "Al acceder y utilizar Tsuru, aceptas y te comprometes a cumplir estos términos. Tsuru es una plataforma de Economía Social Solidaria nacida del TCU \"Comer Orgánico\" de la Universidad de Costa Rica. Si no estás de acuerdo con estos términos, por favor no uses esta plataforma.",
+        "en": "By accessing and using Tsuru, you accept and agree to be bound by these terms. Tsuru is a Social Solidarity Economy platform born from the TCU \"Comer Orgánico\" at the Universidad de Costa Rica. If you do not agree with these terms, please do not use this platform."
       }
     },
     {
@@ -26,49 +26,49 @@
     {
       "title": { "es": "3. Descripción de la Plataforma", "en": "3. Platform Description" },
       "content": {
-        "es": "JMarkets es una plataforma digital para ferias comunitarias, comercio local y trueque. Los usuarios pueden crear su propio espacio, publicar productos y servicios, conectarse con su comunidad y participar en ferias virtuales o locales. La plataforma fue diseñada para preservar y extender la cultura de las ferias comunitarias como la Feria del Trueque Verde Manantial en Guápiles, Costa Rica.",
-        "en": "JMarkets provides a digital platform for community fairs, local trade, and barter (trueque). Users can create their own space, publish products and services, connect with their community, and participate in virtual or local fairs. The platform was designed to preserve and extend the culture of community fairs like the Feria del Trueque Verde Manantial in Guápiles, Costa Rica."
+        "es": "Tsuru es un punto de venta gratuito con facturación electrónica y catálogo digital para emprendedores, comercios locales y cooperativas en Costa Rica. Estamos construyendo —en público— las ferias digitales y el trueque con los que nació este proyecto; esas funciones se anunciarán cuando estén disponibles. La plataforma se inspira en la cultura de las ferias comunitarias como la Feria del Trueque Verde Manantial en Guápiles, Costa Rica, y busca preservarla y extenderla.",
+        "en": "Tsuru is a free point of sale with electronic invoicing and a digital catalog for entrepreneurs, local businesses, and cooperatives in Costa Rica. We are building —in the open— the digital fairs and barter (trueque) where this project began; those features will be announced when they are available. The platform draws on the culture of community fairs like the Feria del Trueque Verde Manantial in Guápiles, Costa Rica, and seeks to preserve and extend it."
       }
     },
     {
       "title": { "es": "4. Participación Comunitaria", "en": "4. Community Participation" },
       "content": {
-        "es": "JMarkets es una plataforma comunitaria. Cualquier transacción, intercambio o acuerdo de trueque entre usuarios es responsabilidad de las partes involucradas. JMarkets actúa como facilitador y no interviene en transacciones privadas entre miembros de la comunidad. Se invita a los usuarios a operar bajo los principios de comercio justo e intercambio honesto.",
-        "en": "JMarkets is a community platform. Any transactions, exchanges, or barter agreements made between users are the responsibility of the parties involved. JMarkets acts as a facilitator and does not intervene in private transactions between community members. Users are encouraged to operate under the principles of fair trade and honest exchange."
+        "es": "Tsuru es una plataforma comunitaria. Cualquier transacción, intercambio o acuerdo de trueque entre usuarios es responsabilidad de las partes involucradas. Tsuru actúa como facilitador y no interviene en transacciones privadas entre miembros de la comunidad. Se invita a los usuarios a operar bajo los principios de comercio justo e intercambio honesto.",
+        "en": "Tsuru is a community platform. Any transactions, exchanges, or barter agreements made between users are the responsibility of the parties involved. Tsuru acts as a facilitator and does not intervene in private transactions between community members. Users are encouraged to operate under the principles of fair trade and honest exchange."
       }
     },
     {
       "title": { "es": "5. Propiedad Intelectual", "en": "5. Intellectual Property" },
       "content": {
-        "es": "El contenido publicado por los usuarios en JMarkets sigue siendo propiedad de cada usuario. La plataforma JMarkets en sí — desarrollada como parte del TCU \"Comer Orgánico\" de la Universidad de Costa Rica — está protegida por las leyes de propiedad intelectual aplicables. Los usuarios otorgan a JMarkets una licencia no exclusiva para mostrar su contenido dentro de la plataforma.",
-        "en": "Content published by users on JMarkets remains the property of each user. The JMarkets platform itself — produced as part of the TCU \"Comer Orgánico\" at the Universidad de Costa Rica — is protected under applicable intellectual property laws. Users grant JMarkets a non-exclusive license to display their content within the platform."
+        "es": "El contenido publicado por los usuarios en Tsuru sigue siendo propiedad de cada usuario. La plataforma Tsuru en sí — desarrollada como parte del TCU \"Comer Orgánico\" de la Universidad de Costa Rica — está protegida por las leyes de propiedad intelectual aplicables. Los usuarios otorgan a Tsuru una licencia no exclusiva para mostrar su contenido dentro de la plataforma.",
+        "en": "Content published by users on Tsuru remains the property of each user. The Tsuru platform itself — produced as part of the TCU \"Comer Orgánico\" at the Universidad de Costa Rica — is protected under applicable intellectual property laws. Users grant Tsuru a non-exclusive license to display their content within the platform."
       }
     },
     {
       "title": { "es": "6. Limitación de Responsabilidad", "en": "6. Limitation of Liability" },
       "content": {
-        "es": "JMarkets se ofrece como herramienta comunitaria tal cual está. No somos responsables del contenido, productos o servicios ofrecidos por usuarios individuales. Las transacciones y acuerdos entre miembros de la comunidad son responsabilidad exclusiva de las partes involucradas. Animamos a todos los usuarios a interactuar con honestidad y respeto.",
-        "en": "JMarkets is provided as a community tool on an \"as is\" basis. We are not responsible for the content, products, or services offered by individual users. Transactions and agreements between community members are the sole responsibility of the parties involved. We encourage all users to interact with honesty and respect."
+        "es": "Tsuru se ofrece como herramienta comunitaria tal cual está. No somos responsables del contenido, productos o servicios ofrecidos por usuarios individuales. Las transacciones y acuerdos entre miembros de la comunidad son responsabilidad exclusiva de las partes involucradas. Animamos a todos los usuarios a interactuar con honestidad y respeto.",
+        "en": "Tsuru is provided as a community tool on an \"as is\" basis. We are not responsible for the content, products, or services offered by individual users. Transactions and agreements between community members are the sole responsibility of the parties involved. We encourage all users to interact with honesty and respect."
       }
     },
     {
       "title": { "es": "7. Cambios en los Términos", "en": "7. Changes to Terms" },
       "content": {
-        "es": "JMarkets se reserva el derecho de actualizar estos términos en cualquier momento. Los usuarios serán notificados de cambios significativos por correo electrónico o aviso destacado en la plataforma. El uso continuado de la plataforma tras los cambios implica la aceptación de los nuevos términos.",
-        "en": "JMarkets reserves the right to update these terms at any time. Users will be notified of significant changes via email or a prominent notice on the platform. Continued use of the platform after changes constitutes acceptance of the new terms."
+        "es": "Tsuru se reserva el derecho de actualizar estos términos en cualquier momento. Los usuarios serán notificados de cambios significativos por correo electrónico o aviso destacado en la plataforma. El uso continuado de la plataforma tras los cambios implica la aceptación de los nuevos términos.",
+        "en": "Tsuru reserves the right to update these terms at any time. Users will be notified of significant changes via email or a prominent notice on the platform. Continued use of the platform after changes constitutes acceptance of the new terms."
       }
     },
     {
       "title": { "es": "8. Información de Contacto", "en": "8. Contact Information" },
       "content": {
-        "es": "Si tienes preguntas sobre estos términos, contáctanos en hola@jmarkets.com o visita nuestra página de contacto en /contacto.",
-        "en": "If you have any questions about these terms, please contact us at hola@jmarkets.com or visit our contact page."
+        "es": "Si tienes preguntas sobre estos términos, contáctanos en hola@tsuru-markets.org o visita nuestra página de contacto en /contacto.",
+        "en": "If you have any questions about these terms, please contact us at hola@tsuru-markets.org or visit our contact page."
       }
     }
   ],
   "importantNotice": { "es": "Compromiso Comunitario", "en": "Community Commitment" },
   "acceptanceNotice": {
-    "es": "Al usar JMarkets, te comprometes a participar en la comunidad con respeto, honestidad y solidaridad. Esta plataforma fue construida para reconectar comunidades — pedimos a cada usuario que honre ese espíritu en cada interacción.",
-    "en": "By using JMarkets, you commit to participating in the community with respect, honesty, and solidarity. This platform was built to reconnect communities — we ask every user to honor that spirit in every interaction."
+    "es": "Al usar Tsuru, te comprometes a participar en la comunidad con respeto, honestidad y solidaridad. Esta plataforma fue construida para reconectar comunidades — pedimos a cada usuario que honre ese espíritu en cada interacción.",
+    "en": "By using Tsuru, you commit to participating in the community with respect, honesty, and solidarity. This platform was built to reconnect communities — we ask every user to honor that spirit in every interaction."
   }
 }

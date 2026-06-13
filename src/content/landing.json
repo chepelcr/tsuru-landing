@@ -1,12 +1,12 @@
 {
   "hero": {
-    "badge": { "es": "Economía Social Solidaria", "en": "Social Solidarity Economy" },
-    "title": { "es": "Tu comunidad, tu mercado", "en": "Your community, your market" },
+    "badge": { "es": "Hecho en Costa Rica · Economía Social Solidaria", "en": "Made in Costa Rica · Social Solidarity Economy" },
+    "title": { "es": "Vende legal. Vende fácil. Vende en comunidad.", "en": "Sell legally. Sell easily. Sell in community." },
     "subtitle": {
-      "es": "Conecta con emprendedores locales, publica tus productos y participa en una economía que pone a las personas primero.",
-      "en": "Connect with local entrepreneurs, publish your products, and participate in an economy that puts people first."
+      "es": "Tsuru es el punto de venta gratuito con facturación electrónica de Hacienda para los emprendedores más pequeños de Costa Rica. Crea tu catálogo, recibe pedidos por WhatsApp y emite facturas legales — sin pagar nada.",
+      "en": "Tsuru is the free point of sale with Hacienda electronic invoicing for Costa Rica's smallest entrepreneurs. Build your catalog, take orders over WhatsApp, and issue legal invoices — at no cost."
     },
-    "cta": { "es": "Únete a la comunidad", "en": "Join the community" },
+    "cta": { "es": "Crear mi cuenta gratis", "en": "Create my free account" },
     "secondary": { "es": "Ver ejemplos", "en": "See examples" }
   },
   "howItWorks": {
@@ -40,15 +40,15 @@
   "values": {
     "title": { "es": "Nuestros principios", "en": "Our principles" },
     "subtitle": {
-      "es": "JMarkets está construido sobre valores que ponen a las personas y la comunidad primero",
-      "en": "JMarkets is built on values that put people and community first"
+      "es": "Tsuru está construido sobre valores que ponen a las personas y la comunidad primero",
+      "en": "Tsuru is built on values that put people and community first"
     },
     "items": [
       {
         "title": { "es": "Comercio justo", "en": "Fair trade" },
         "description": {
-          "es": "Garantizamos condiciones justas y precios transparentes para todos los participantes del ecosistema.",
-          "en": "We ensure fair conditions and transparent prices for every participant in the ecosystem."
+          "es": "Trabajamos por condiciones justas y precios transparentes para todos los participantes del ecosistema.",
+          "en": "We work for fair conditions and transparent prices for every participant in the ecosystem."
         }
       },
       {
@@ -75,10 +75,10 @@
     ]
   },
   "finalCta": {
-    "title": { "es": "¿Listo para unirte a la comunidad?", "en": "Ready to join the community?" },
+    "title": { "es": "¿Listo para vender legal y en comunidad?", "en": "Ready to sell legally and in community?" },
     "subtitle": {
-      "es": "Crea tu espacio gratis y empieza a vender con propósito hoy.",
-      "en": "Create your space for free and start selling with purpose today."
+      "es": "Crea tu cuenta gratis: punto de venta, catálogo y facturación electrónica incluidos. Sin comisiones sobre tus ventas.",
+      "en": "Create your free account: point of sale, catalog, and e-invoicing included. No commissions on your sales."
     },
     "button": { "es": "Empezar gratis", "en": "Start for free" }
   }

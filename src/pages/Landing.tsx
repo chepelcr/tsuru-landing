@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import landing from "@/content/landing.json";
+import billing from "@/content/billing.json";
 import {
   UserPlus,
   Package,
@@ -12,6 +13,8 @@ import {
   Eye,
   ArrowRight,
   Sprout,
+  ReceiptText,
+  Check,
 } from "lucide-react";
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -179,6 +182,50 @@ export default function Landing() {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════ FACTURACIÓN ELECTRÓNICA */}
+      <section id="facturacion" className="py-20 lg:py-28 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
+                <ReceiptText className="h-3.5 w-3.5" />
+                {pick(billing.badge)}
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-5">
+                {pick(billing.title)}
+              </h2>
+
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                {pick(billing.subtitle)}
+              </p>
+
+              <p className="text-sm text-foreground/80 italic border-l-2 border-accent/40 pl-4">
+                {pick(billing.note)}
+              </p>
+            </div>
+
+            <ul className="space-y-4">
+              {billing.points.map((point, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-4 rounded-2xl p-5 bg-card border border-border"
+                >
+                  <span className="flex-shrink-0 w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Check className="h-5 w-5 text-primary" />
+                  </span>
+                  <span className="text-foreground font-medium leading-snug pt-1">
+                    {pick(point)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+          </div>
         </div>
       </section>
 

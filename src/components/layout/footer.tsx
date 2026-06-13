@@ -19,7 +19,7 @@ export default function LandingFooter() {
                 <Leaf className="h-4 w-4 text-primary" />
               </div>
               <span className="font-serif text-xl font-bold text-foreground">
-                JMarkets
+                {pick(footer.brand)}
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">

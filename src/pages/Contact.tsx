@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 
 export default function Contact() {
   const { language: lang } = useLanguage();
-  const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
+  const pick = (f?: { es: string; en: string }) => (f ? (f[lang] ?? f.es) : "");
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -37,11 +37,13 @@ export default function Contact() {
     }
   };
 
+  const info = contact.info as Record<string, { es: string; en: string }>;
+  const contactInfoData = contact.contactInfo as Record<string, string>;
   const contactInfo = [
-    { icon: Mail,   label: pick(contact.info.email),   value: contact.contactInfo.email },
-    { icon: Phone,  label: pick(contact.info.phone),   value: contact.contactInfo.phone },
-    { icon: MapPin, label: pick(contact.info.address), value: contact.contactInfo.address },
-  ];
+    { icon: Mail,   label: pick(info.email),   value: contactInfoData.email },
+    { icon: Phone,  label: pick(info.phone),   value: contactInfoData.phone },
+    { icon: MapPin, label: pick(info.address), value: contactInfoData.address },
+  ].filter((row) => row.value);
 
   const inputClass = "w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors";
 
@@ -141,10 +143,12 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-              <div className="mt-8 p-6 bg-primary/10 rounded-xl border border-primary/20">
-                <h3 className="font-semibold text-foreground mb-2">{pick(contact.responseTime)}</h3>
-                <p className="text-sm text-muted-foreground text-justify">{pick(contact.responseTimeDesc)}</p>
-              </div>
+              {"responseTime" in contact && (
+                <div className="mt-8 p-6 bg-primary/10 rounded-xl border border-primary/20">
+                  <h3 className="font-semibold text-foreground mb-2">{pick((contact as { responseTime?: { es: string; en: string } }).responseTime)}</h3>
+                  <p className="text-sm text-muted-foreground text-justify">{pick((contact as { responseTimeDesc?: { es: string; en: string } }).responseTimeDesc)}</p>
+                </div>
+              )}
             </div>
 
           </div>

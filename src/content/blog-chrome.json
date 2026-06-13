@@ -1,5 +1,5 @@
 {
-  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "docTitleSuffix": { "es": " | Tsuru", "en": " | Tsuru" },
   "badge": { "es": "Blog", "en": "Blog" },
   "title": { "es": "Últimas noticias y actualizaciones", "en": "Latest news and updates" },
   "subtitle": {
@@ -9,15 +9,5 @@
   "featured": { "es": "Artículo Destacado", "en": "Featured Article" },
   "readMore": { "es": "Leer Más", "en": "Read More" },
   "posted": { "es": "Publicado", "en": "Posted" },
-  "latestArticles": { "es": "Artículos Más Recientes", "en": "Latest Articles" },
-  "stayUpdated": { "es": "Mantente Actualizado", "en": "Stay Updated" },
-  "newsletter": {
-    "es": "Suscríbete a nuestro boletín y recibe los últimos artículos, consejos y actualizaciones en tu bandeja de entrada.",
-    "en": "Subscribe to our newsletter and get the latest articles, tips, and updates delivered to your inbox."
-  },
-  "subscribe": { "es": "Suscribirse", "en": "Subscribe" },
-  "privacyNote": {
-    "es": "Respetamos tu privacidad. Puedes desuscribirte en cualquier momento.",
-    "en": "We respect your privacy. Unsubscribe at any time."
-  }
+  "latestArticles": { "es": "Artículos Más Recientes", "en": "Latest Articles" }
 }

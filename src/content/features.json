@@ -9,48 +9,39 @@
   },
   "featureCards": [
     {
+      "iconName": "FileCheck",
+      "color": "green",
+      "title": { "es": "Facturación electrónica gratis", "en": "Free electronic invoicing" },
+      "description": {
+        "es": "Emite comprobantes electrónicos v4.4 firmados y enviados a Hacienda automáticamente. Lo que otros cobran caro, aquí es gratis.",
+        "en": "Issue v4.4 e-invoices, digitally signed and submitted to Hacienda automatically. What others charge dearly for, here is free."
+      }
+    },
+    {
+      "iconName": "WifiOff",
+      "color": "green",
+      "title": { "es": "Vende aunque no haya internet", "en": "Sell even with no internet" },
+      "description": {
+        "es": "Registra ventas sin conexión; cuando vuelve la señal, todo se sincroniza y factura solo.",
+        "en": "Record sales offline; when the signal returns, everything syncs and invoices itself."
+      }
+    },
+    {
       "iconName": "Palette",
       "color": "green",
-      "title": { "es": "Diseña tu tienda", "en": "Design your store" },
+      "title": { "es": "Diseña tu tienda sin programar", "en": "Design your store without coding" },
       "description": {
         "es": "Elige entre plantillas profesionales adaptadas a tu tipo de negocio. Sin programación.",
         "en": "Choose from professional templates adapted to your type of business. No coding needed."
       }
     },
     {
-      "iconName": "MessageCircle",
-      "color": "green",
-      "title": { "es": "Vende por WhatsApp", "en": "Sell via WhatsApp" },
-      "description": {
-        "es": "Comparte el enlace de tu catálogo y recibe pedidos directamente por WhatsApp. Rápido y familiar.",
-        "en": "Share your catalog link and receive orders directly through WhatsApp. Fast and familiar."
-      }
-    },
-    {
-      "iconName": "Package",
-      "color": "green",
-      "title": { "es": "Gestión de productos", "en": "Product management" },
-      "description": {
-        "es": "Sube, organiza y gestiona tu catálogo fácilmente. Fotos, descripciones, precios — todo en un lugar.",
-        "en": "Upload, organize, and manage your catalog easily. Photos, descriptions, prices — all in one place."
-      }
-    },
-    {
       "iconName": "QrCode",
       "color": "earth",
-      "title": { "es": "Catálogo digital compartible", "en": "Shareable digital catalog" },
+      "title": { "es": "Catálogo digital con QR y WhatsApp", "en": "Digital catalog with QR and WhatsApp" },
       "description": {
-        "es": "Código QR y enlace compartible listo para usar en cualquier lugar — redes sociales, apps de mensajería, impreso.",
-        "en": "QR code and shareable link ready to share anywhere — social media, messaging apps, print."
-      }
-    },
-    {
-      "iconName": "ClipboardList",
-      "color": "earth",
-      "title": { "es": "Seguimiento de pedidos", "en": "Order tracking" },
-      "description": {
-        "es": "Gestiona tus pedidos y mantén informados a tus clientes en cada paso del proceso.",
-        "en": "Manage your orders and keep your customers informed at every step of the process."
+        "es": "Comparte tu catálogo con un enlace y código QR; los pedidos te llegan directo por WhatsApp.",
+        "en": "Share your catalog with a link and QR code; orders reach you directly on WhatsApp."
       }
     },
     {
@@ -61,10 +52,19 @@
         "es": "Tu tienda tiene una dirección única desde el primer día — fácil de compartir, fácil de recordar.",
         "en": "Your store gets a unique address from day one — easy to share, easy to remember."
       }
+    },
+    {
+      "iconName": "Users",
+      "color": "earth",
+      "title": { "es": "Tu equipo, dentro", "en": "Your team, inside" },
+      "description": {
+        "es": "Invita a cajeros y colaboradores con roles y permisos. Hecho para cooperativas y negocios familiares.",
+        "en": "Invite cashiers and collaborators with roles and permissions. Built for cooperatives and family businesses."
+      }
     }
   ],
   "useCasesSection": {
-    "title": { "es": "¿Quién usa JMarkets?", "en": "Who uses JMarkets?" },
+    "title": { "es": "¿Quién usa Tsuru?", "en": "Who uses Tsuru?" },
     "subtitle": { "es": "Emprendedores reales, historias reales", "en": "Real entrepreneurs, real stories" }
   },
   "useCases": [
@@ -88,16 +88,16 @@
       "iconName": "Users",
       "title": { "es": "Cooperativas locales", "en": "Local cooperatives" },
       "description": {
-        "es": "Grupos comunitarios que gestionan ventas colectivas, trueque y proyectos económicos compartidos.",
-        "en": "Community groups managing collective sales, barter, and shared economic projects."
+        "es": "Grupos comunitarios que gestionan ventas colectivas y proyectos económicos compartidos.",
+        "en": "Community groups managing collective sales and shared economic projects."
       }
     }
   ],
   "cta": {
     "title": { "es": "Empieza a construir tu espacio hoy", "en": "Start building your space today" },
     "subtitle": {
-      "es": "Únete a miles de emprendedores que ya venden con propósito.",
-      "en": "Join thousands of entrepreneurs already selling with purpose."
+      "es": "Nacido de un proyecto comunitario de la UCR — construido para vender con propósito.",
+      "en": "Born from a UCR community project — built for selling with purpose."
     },
     "button": { "es": "Crear tu tienda gratis", "en": "Create your store for free" }
   }

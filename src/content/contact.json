@@ -1,5 +1,5 @@
 {
-  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "docTitleSuffix": { "es": " | Tsuru", "en": " | Tsuru" },
   "badge": { "es": "Contacto", "en": "Contact Us" },
   "title": { "es": "Ponte en contacto", "en": "Get in touch" },
   "subtitle": {
@@ -25,17 +25,10 @@
   "otherWays": { "es": "Otras formas de contactarnos", "en": "Other ways to reach us" },
   "info": {
     "email": { "es": "Email", "en": "Email" },
-    "phone": { "es": "Teléfono", "en": "Phone" },
     "address": { "es": "Dirección", "en": "Address" }
   },
   "contactInfo": {
-    "email": "hola@jmarkets.com",
-    "phone": "+506 XXXX-XXXX",
+    "email": "hola@tsuru-markets.org",
     "address": "San José, Costa Rica"
-  },
-  "responseTime": { "es": "Tiempo de Respuesta", "en": "Response Time" },
-  "responseTimeDesc": {
-    "es": "¡Generalmente respondemos a todas las consultas dentro de 24 horas durante los días laborales. ¡Gracias por tu paciencia!",
-    "en": "We typically respond to all inquiries within 24 hours during business days. Thank you for your patience!"
   }
 }

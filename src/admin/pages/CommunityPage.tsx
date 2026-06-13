@@ -34,6 +34,7 @@ const STRINGS = {
     itemTitle: "Título",
     desc: "Descripción",
     barter: "Trueque e intercambio",
+    status: "Estado (p. ej. «Muy pronto»)",
     barterSteps: "Pasos del trueque",
     addStep: "Agregar paso",
     noSteps: "Sin pasos",
@@ -76,6 +77,7 @@ const STRINGS = {
     itemTitle: "Title",
     desc: "Description",
     barter: "Barter & exchange",
+    status: "Status (e.g. “Coming soon”)",
     barterSteps: "Barter steps",
     addStep: "Add step",
     noSteps: "No steps",
@@ -143,6 +145,7 @@ export default function CommunityPage() {
 
         <AdminCard title={T.barter}>
           <BilingualField label={T.sectionTitle} es={draft.barter.title.es} en={draft.barter.title.en} onChange={(l, v) => update((d) => (d.barter.title[l] = v))} />
+          <BilingualField label={T.status} es={draft.barter.status?.es ?? ""} en={draft.barter.status?.en ?? ""} onChange={(l, v) => update((d) => { if (!d.barter.status) d.barter.status = { es: "", en: "" }; d.barter.status[l] = v; })} />
           <BilingualTextArea label={T.desc} es={draft.barter.description.es} en={draft.barter.description.en} onChange={(l, v) => update((d) => (d.barter.description[l] = v))} hint={RICH_TEXT_HINT} />
           <BilingualField label={T.perfectExchange} es={draft.barter.perfectExchange.es} en={draft.barter.perfectExchange.en} onChange={(l, v) => update((d) => (d.barter.perfectExchange[l] = v))} />
         </AdminCard>
@@ -179,30 +182,9 @@ export default function CommunityPage() {
 
         <AdminCard title={T.mutual}>
           <BilingualField label={T.sectionTitle} es={draft.mutual.title.es} en={draft.mutual.title.en} onChange={(l, v) => update((d) => (d.mutual.title[l] = v))} />
+          <BilingualField label={T.status} es={draft.mutual.status?.es ?? ""} en={draft.mutual.status?.en ?? ""} onChange={(l, v) => update((d) => { if (!d.mutual.status) d.mutual.status = { es: "", en: "" }; d.mutual.status[l] = v; })} />
           <BilingualTextArea label={T.desc} es={draft.mutual.description.es} en={draft.mutual.description.en} onChange={(l, v) => update((d) => (d.mutual.description[l] = v))} hint={RICH_TEXT_HINT} />
         </AdminCard>
-
-        <AdminCard title={T.storiesHeads}>
-          <BilingualField label={T.storiesTitle} es={draft.storiesTitle.es} en={draft.storiesTitle.en} onChange={(l, v) => update((d) => (d.storiesTitle[l] = v))} />
-          <BilingualField label={T.storiesSubtitle} es={draft.storiesSubtitle.es} en={draft.storiesSubtitle.en} onChange={(l, v) => update((d) => (d.storiesSubtitle[l] = v))} />
-        </AdminCard>
-
-        <RepeatableList
-          title={T.stories}
-          items={draft.stories}
-          addLabel={T.addStory}
-          emptyLabel={T.noStories}
-          onAdd={() => update((d) => d.stories.push({ quote: { es: "", en: "" }, name: { es: "", en: "" }, business: { es: "", en: "" } }))}
-          onRemove={(i) => update((d) => d.stories.splice(i, 1))}
-          onMove={(i, dir) => update((d) => moveItem(d.stories, i, dir))}
-          renderItem={(story, i) => (
-            <>
-              <BilingualTextArea label={T.quote} es={story.quote.es} en={story.quote.en} onChange={(l, v) => update((d) => (d.stories[i].quote[l] = v))} hint={RICH_TEXT_HINT} />
-              <BilingualField label={T.name} es={story.name.es} en={story.name.en} onChange={(l, v) => update((d) => (d.stories[i].name[l] = v))} />
-              <BilingualField label={T.business} es={story.business.es} en={story.business.en} onChange={(l, v) => update((d) => (d.stories[i].business[l] = v))} />
-            </>
-          )}
-        />
 
         <AdminCard title={T.cta}>
           <BilingualField label={T.sectionTitle} es={draft.cta.title.es} en={draft.cta.title.en} onChange={(l, v) => update((d) => (d.cta.title[l] = v))} />

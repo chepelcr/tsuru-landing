@@ -85,25 +85,6 @@ export default function Blog() {
           </div>
         </div>
       </section>
-
-      {/* Newsletter */}
-      <section className="py-16 bg-card border-t border-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl font-bold text-foreground mb-4">{pick(chrome.stayUpdated)}</h2>
-          <p className="text-lg text-muted-foreground mb-8">{pick(chrome.newsletter)}</p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="tu@email.com"
-              className="flex-grow px-4 py-3 border border-border rounded-xl bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl px-6 whitespace-nowrap">
-              {pick(chrome.subscribe)}
-            </Button>
-          </div>
-          <p className="text-xs text-muted-foreground mt-4">{pick(chrome.privacyNote)}</p>
-        </div>
-      </section>
     </div>
   );
 }

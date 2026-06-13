@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-11T19:22:17.613Z",
+  "generatedAt": "2026-06-13T05:58:24.389Z",
   "counts": {
-    "content": 24,
+    "content": 25,
     "repository": 2,
     "service": 2,
     "lib": 22,
     "hook": 4,
     "component": 28,
-    "admin": 37,
+    "admin": 38,
     "page": 12
   },
   "nodes": [
@@ -16,6 +16,12 @@
       "label": "about",
       "type": "content",
       "path": "src/content/about.json"
+    },
+    {
+      "id": "content/billing",
+      "label": "billing",
+      "type": "content",
+      "path": "src/content/billing.json"
     },
     {
       "id": "content/blog",
@@ -522,6 +528,12 @@
       "path": "src/admin/pages/AboutPage.tsx"
     },
     {
+      "id": "admin/pages/BillingPage",
+      "label": "BillingPage",
+      "type": "admin",
+      "path": "src/admin/pages/BillingPage.tsx"
+    },
+    {
       "id": "admin/pages/BlogChromePage",
       "label": "BlogChromePage",
       "type": "admin",
@@ -841,6 +853,36 @@
     },
     {
       "from": "admin/pages/AboutPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BillingPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BillingPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BillingPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BillingPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BillingPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/BillingPage",
       "to": "lib/rich-text",
       "kind": "imports"
     },
@@ -2066,6 +2108,11 @@
     },
     {
       "from": "lib/admin-store",
+      "to": "content/billing",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
       "to": "content/blog",
       "kind": "imports"
     },
@@ -2377,6 +2424,11 @@
     {
       "from": "pages/Landing",
       "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Landing",
+      "to": "content/billing",
       "kind": "imports"
     },
     {

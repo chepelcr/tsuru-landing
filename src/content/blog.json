@@ -2,7 +2,7 @@
   "articles": [
     {
       "id": "article1",
-      "author": "Equipo JMarkets",
+      "author": "Equipo Tsuru",
       "date": { "es": "15 de enero de 2026", "en": "January 15, 2026" },
       "featured": true,
       "order": 1,
@@ -26,19 +26,19 @@
         "en": "What is Social and Solidarity Economy?"
       },
       "excerpt": {
-        "es": "Una introducción a los principios de comercio justo, consumo consciente y construcción de comunidad local que inspiran todo lo que hacemos en JMarkets.",
-        "en": "An introduction to the principles of fair trade, conscious consumption, and local community building that inspire everything we do at JMarkets."
+        "es": "Una introducción a los principios de comercio justo, consumo consciente y construcción de comunidad local que inspiran todo lo que hacemos en Tsuru.",
+        "en": "An introduction to the principles of fair trade, conscious consumption, and local community building that inspire everything we do at Tsuru."
       }
     },
     {
       "id": "article3",
-      "author": "Equipo JMarkets",
+      "author": "Equipo Tsuru",
       "date": { "es": "5 de enero de 2026", "en": "January 5, 2026" },
       "featured": false,
       "order": 3,
       "title": {
-        "es": "Cómo Crear Tu Espacio Comunitario en JMarkets",
-        "en": "How to Set Up Your Community Space on JMarkets"
+        "es": "Cómo Crear Tu Espacio Comunitario en Tsuru",
+        "en": "How to Set Up Your Community Space on Tsuru"
       },
       "excerpt": {
         "es": "Guía paso a paso para crear tu perfil, publicar tus productos o servicios y conectarte con tu comunidad local.",
@@ -52,12 +52,12 @@
       "featured": false,
       "order": 4,
       "title": {
-        "es": "Trueque 101: Cómo Hacer Tu Primer Intercambio",
-        "en": "Barter 101: How to Make Your First Trueque"
+        "es": "Trueque 101: La Cultura del Intercambio Justo",
+        "en": "Barter 101: The Culture of Fair Exchange"
       },
       "excerpt": {
-        "es": "Todo lo que necesitas saber para proponer, negociar y completar un intercambio justo con otro miembro de la comunidad en la plataforma.",
-        "en": "Everything you need to know to propose, negotiate, and complete a fair exchange with another community member on the platform."
+        "es": "Qué es el trueque, por qué ha sostenido a las comunidades durante generaciones y cómo proponer, negociar y cerrar un intercambio justo entre vecinos.",
+        "en": "What barter is, why it has sustained communities for generations, and how to propose, negotiate, and close a fair exchange between neighbors."
       }
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "id": "article6",
-      "author": "Equipo JMarkets",
+      "author": "Equipo Tsuru",
       "date": { "es": "12 de diciembre de 2025", "en": "December 12, 2025" },
       "featured": false,
       "order": 6,

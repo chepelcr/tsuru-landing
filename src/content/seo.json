@@ -1,13 +1,24 @@
 {
   "siteUrl": "https://j-markets.jcampos.dev",
   "defaultTitle": {
-    "es": "JMarkets - Tu comunidad, tu mercado",
-    "en": "JMarkets - Your community, your market"
+    "es": "Tsuru — Vende legal, vende fácil",
+    "en": "Tsuru — Sell legally, sell easily"
   },
   "defaultDescription": {
-    "es": "JMarkets es una plataforma de economía comunitaria y solidaria. Conecta con productores locales, participa en ferias, intercambia en trueque y construye comunidad.",
-    "en": "JMarkets is a community and solidarity economy platform. Connect with local producers, join markets, trade by barter, and build community."
+    "es": "Tsuru es el punto de venta gratuito con facturación electrónica de Hacienda para los emprendedores más pequeños de Costa Rica. Crea tu catálogo, recibe pedidos por WhatsApp y emite facturas legales — sin pagar nada.",
+    "en": "Tsuru is the free point of sale with Hacienda electronic invoicing for Costa Rica's smallest entrepreneurs. Build your catalog, take orders over WhatsApp, and issue legal invoices — at no cost."
   },
   "ogImage": "",
-  "pages": {}
+  "pages": {
+    "facturacion": {
+      "es": {
+        "title": "Facturación electrónica gratis — Tsuru",
+        "description": "Tsuru firma y envía tus comprobantes electrónicos v4.4 a Hacienda automáticamente — gratis. Factura legal desde el celular, incluso sin conexión."
+      },
+      "en": {
+        "title": "Free electronic invoicing — Tsuru",
+        "description": "Tsuru signs and submits your v4.4 e-invoices to Hacienda automatically — for free. Invoice legally from your phone, even offline."
+      }
+    }
+  }
 }

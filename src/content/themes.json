@@ -4,17 +4,17 @@
     "name": "Default",
     "isActive": true,
     "colors": {
-      "primary": "123 46% 34%",
-      "accent": "15 25% 34%",
-      "secondary": "123 33% 64%",
-      "background": "60 30% 97%",
-      "foreground": "20 14% 16%",
-      "muted": "60 20% 94%",
-      "ring": "123 46% 34%",
+      "primary": "7 52% 28%",
+      "accent": "8 76% 48%",
+      "secondary": "129 27% 25%",
+      "background": "38 39% 93%",
+      "foreground": "217 6% 26%",
+      "muted": "38 30% 88%",
+      "ring": "8 76% 48%",
       "card": "0 0% 100%",
-      "border": "60 20% 86%",
-      "success": "142 71% 40%",
-      "warning": "38 92% 50%"
+      "border": "38 25% 82%",
+      "success": "129 27% 25%",
+      "warning": "44 79% 57%"
     }
   }
 ]

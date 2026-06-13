@@ -121,19 +121,12 @@ export default function ContactPage() {
         <AdminCard title={T.infoLabels}>
           <BilingualField label={T.otherWays} es={draft.otherWays.es} en={draft.otherWays.en} onChange={(l, v) => update((d) => (d.otherWays[l] = v))} />
           <BilingualField label={T.infoEmail} es={draft.info.email.es} en={draft.info.email.en} onChange={(l, v) => update((d) => (d.info.email[l] = v))} />
-          <BilingualField label={T.infoPhone} es={draft.info.phone.es} en={draft.info.phone.en} onChange={(l, v) => update((d) => (d.info.phone[l] = v))} />
           <BilingualField label={T.infoAddress} es={draft.info.address.es} en={draft.info.address.en} onChange={(l, v) => update((d) => (d.info.address[l] = v))} />
         </AdminCard>
 
         <AdminCard title={T.contactInfo}>
           <TextField label={T.valEmail} value={draft.contactInfo.email} onChange={(v) => update((d) => (d.contactInfo.email = v))} />
-          <TextField label={T.valPhone} value={draft.contactInfo.phone} onChange={(v) => update((d) => (d.contactInfo.phone = v))} />
           <TextField label={T.valAddress} value={draft.contactInfo.address} onChange={(v) => update((d) => (d.contactInfo.address = v))} />
-        </AdminCard>
-
-        <AdminCard title={T.responseTime}>
-          <BilingualField label={T.responseTime} es={draft.responseTime.es} en={draft.responseTime.en} onChange={(l, v) => update((d) => (d.responseTime[l] = v))} />
-          <BilingualTextArea label={T.responseTimeDesc} es={draft.responseTimeDesc.es} en={draft.responseTimeDesc.en} onChange={(l, v) => update((d) => (d.responseTimeDesc[l] = v))} hint={RICH_TEXT_HINT} />
         </AdminCard>
       </div>
     </div>

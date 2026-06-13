@@ -60,7 +60,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
               <Leaf className="h-4 w-4 text-primary" />
             </div>
             <span className="font-serif text-xl font-bold text-foreground">
-              JMarkets
+              {pick(navbar.brand)}
             </span>
           </Link>
 

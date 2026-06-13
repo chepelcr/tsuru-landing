@@ -37,7 +37,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Qué es JMarkets */}
+      {/* Qué es Tsuru */}
       <section className="py-16 lg:py-20 bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -67,7 +67,7 @@ export default function About() {
                   <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-5">
                     <Sprout className="h-10 w-10 text-primary" />
                   </div>
-                  <p className="font-serif text-2xl font-bold text-foreground mb-2">JMarkets</p>
+                  <p className="font-serif text-2xl font-bold text-foreground mb-2">{pick(about.decorative.brandName)}</p>
                   <p className="text-sm text-muted-foreground">{pick(about.decorative.tagline)}</p>
                   <div className="flex flex-wrap gap-2 justify-center mt-4">
                     {about.decorative.tags.map((tag, i) => (

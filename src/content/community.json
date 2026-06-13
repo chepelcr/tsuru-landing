@@ -2,8 +2,8 @@
   "badge": { "es": "Nuestra comunidad", "en": "Our community" },
   "title": { "es": "Más que una tienda — una comunidad", "en": "More than a store — a community" },
   "subtitle": {
-    "es": "JMarkets conecta personas que quieren comerciar localmente, apoyarse mutuamente y construir juntos una economía más justa.",
-    "en": "JMarkets connects people who want to trade locally, support each other, and build a fairer economy together."
+    "es": "Tsuru conecta personas que quieren comerciar localmente, apoyarse mutuamente y construir juntos una economía más justa.",
+    "en": "Tsuru connects people who want to trade locally, support each other, and build a fairer economy together."
   },
   "valuesTitle": { "es": "Lo que nos guía", "en": "What we stand for" },
   "valuesSubtitle": { "es": "Seis principios que guían todo lo que construimos", "en": "Six principles that guide everything we build" },
@@ -35,9 +35,10 @@
   ],
   "barter": {
     "title": { "es": "Trueque e intercambio", "en": "Barter & exchange" },
+    "status": { "es": "Muy pronto", "en": "Coming soon" },
     "description": {
-      "es": "Nuestro sistema de trueque permite a los miembros de la comunidad intercambiar productos o servicios sin dinero. Habilidades, tiempo, bienes — todo tiene valor.",
-      "en": "Our barter system lets community members exchange products or services without money. Skills, time, goods — all have value."
+      "es": "Estamos construyendo un sistema de trueque para que los miembros de la comunidad intercambien productos o servicios sin dinero. Habilidades, tiempo, bienes — todo tiene valor.",
+      "en": "We're building a barter system so community members can exchange products or services without money. Skills, time, goods — all have value."
     },
     "how": [
       { "es": "Lista lo que ofreces", "en": "List what you offer" },
@@ -60,39 +61,12 @@
   },
   "mutual": {
     "title": { "es": "Redes de apoyo mutuo", "en": "Mutual support networks" },
+    "status": { "es": "Muy pronto", "en": "Coming soon" },
     "description": {
-      "es": "Conecta con emprendedores que comparten tus valores. Encuentra colaboradores, mentores y clientes que creen en el comercio local.",
-      "en": "Connect with entrepreneurs who share your values. Find collaborators, mentors, and customers who believe in local commerce."
+      "es": "Estamos construyendo un espacio para conectar con emprendedores que comparten tus valores: colaboradores, mentores y clientes que creen en el comercio local.",
+      "en": "We're building a space to connect with entrepreneurs who share your values: collaborators, mentors, and customers who believe in local commerce."
     }
   },
-  "storiesTitle": { "es": "Historias reales de nuestra comunidad", "en": "Real stories from our community" },
-  "storiesSubtitle": { "es": "Personas que cambiaron su forma de vender y conectar", "en": "People who changed how they sell and connect" },
-  "stories": [
-    {
-      "quote": {
-        "es": "\"Empecé vendiendo mermeladas caseras y gracias a JMarkets ahora tengo 200 clientes fieles en mi barrio.\"",
-        "en": "\"I started selling homemade jams and thanks to JMarkets I now have 200 loyal customers in my neighborhood.\""
-      },
-      "name": { "es": "María González", "en": "María González" },
-      "business": { "es": "Conservas artesanales · Buenos Aires", "en": "Homemade preserves · Buenos Aires" }
-    },
-    {
-      "quote": {
-        "es": "\"El sistema de trueque me permitió intercambiar diseño gráfico por servicios legales. Eso es economía real — humana y justa.\"",
-        "en": "\"The barter system let me exchange graphic design for legal services. That is real economy — human and fair.\""
-      },
-      "name": { "es": "Carlos Ruiz", "en": "Carlos Ruiz" },
-      "business": { "es": "Diseñador gráfico · Medellín", "en": "Graphic designer · Medellín" }
-    },
-    {
-      "quote": {
-        "es": "\"Nuestra cooperativa finalmente tiene presencia digital sin necesitar un programador ni pagar una fortuna.\"",
-        "en": "\"Our cooperative finally has a digital presence without needing a programmer or paying a fortune.\""
-      },
-      "name": { "es": "Ana Morales", "en": "Ana Morales" },
-      "business": { "es": "Cooperativa agrícola · Oaxaca", "en": "Agricultural cooperative · Oaxaca" }
-    }
-  ],
   "cta": {
     "title": { "es": "Sé parte de la comunidad", "en": "Become part of the community" },
     "subtitle": {

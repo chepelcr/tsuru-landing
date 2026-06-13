@@ -78,6 +78,13 @@ export const PAGES: ContentPage[] = [
     group: "pages",
   },
   {
+    file: "billing.json",
+    label: { es: "Facturación", en: "Billing" },
+    route: "/admin/billing",
+    icon: "file-text",
+    group: "pages",
+  },
+  {
     file: "features.json",
     label: { es: "Funcionalidades", en: "Features" },
     route: "/admin/features",

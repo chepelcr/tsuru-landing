@@ -1,5 +1,5 @@
 {
-  "docTitleSuffix": { "es": " | JMarkets", "en": " | JMarkets" },
+  "docTitleSuffix": { "es": " | Tsuru", "en": " | Tsuru" },
   "badge": { "es": "Política de Privacidad", "en": "Privacy Policy" },
   "title": { "es": "Política de Privacidad", "en": "Privacy Policy" },
   "subtitle": {
@@ -24,10 +24,10 @@
       }
     },
     {
-      "title": { "es": "3. Almacenamiento y Seguridad de Datos", "en": "3. Data Storage and Security" },
+      "title": { "es": "3. Almacenamiento de Datos", "en": "3. Data Storage" },
       "content": {
-        "es": "Tus datos se almacenan en servidores seguros con tecnología de cifrado. Implementamos salvaguardas físicas, electrónicas y procedimentales apropiadas para proteger tu información contra acceso, alteración, divulgación o destrucción no autorizados. Sin embargo, ningún método de transmisión a través de Internet es completamente seguro.",
-        "en": "Your data is stored on secure servers with encryption technology. We implement appropriate physical, electronic, and procedural safeguards to protect your information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is completely secure."
+        "es": "Tus datos se almacenan en infraestructura de proveedores de nube reconocidos. Procuramos limitar el acceso a tu información a quienes lo necesitan para operar la plataforma. Ten en cuenta que ningún método de transmisión a través de Internet es completamente seguro, por lo que no podemos garantizar la seguridad absoluta de tu información.",
+        "en": "Your data is stored on infrastructure provided by established cloud providers. We seek to limit access to your information to those who need it to operate the platform. Please note that no method of transmission over the Internet is completely secure, so we cannot guarantee the absolute security of your information."
       }
     },
     {
@@ -47,22 +47,22 @@
     {
       "title": { "es": "6. Tus Derechos", "en": "6. Your Rights" },
       "content": {
-        "es": "Dependiendo de tu ubicación, puedes tener ciertos derechos con respecto a tus datos personales, incluido el derecho a acceder, corregir, eliminar o transferir tu información. Para ejercer cualquiera de estos derechos, contáctanos en privacy@jmarkets.com.",
-        "en": "Depending on your location, you may have certain rights regarding your personal data, including the right to access, correct, delete, or port your information. To exercise any of these rights, please contact us at privacy@jmarkets.com."
+        "es": "Dependiendo de tu ubicación, puedes tener ciertos derechos con respecto a tus datos personales, incluido el derecho a acceder, corregir, eliminar o transferir tu información. Para ejercer cualquiera de estos derechos, contáctanos en privacy@tsuru-markets.org.",
+        "en": "Depending on your location, you may have certain rights regarding your personal data, including the right to access, correct, delete, or port your information. To exercise any of these rights, please contact us at privacy@tsuru-markets.org."
       }
     },
     {
-      "title": { "es": "7. Protección de Datos", "en": "7. Data Protection" },
+      "title": { "es": "7. Retención de Datos", "en": "7. Data Retention" },
       "content": {
-        "es": "Cumplimos con las regulaciones de protección de datos aplicables, incluyendo el GDPR y leyes similares. Mantenemos salvaguardas apropiadas para proteger tus datos y solo retenemos información por el tiempo necesario para proporcionar nuestros servicios y cumplir con obligaciones legales.",
-        "en": "We comply with applicable data protection regulations, including GDPR and similar laws. We maintain appropriate safeguards to protect your data and only retain information for as long as necessary to provide our services and comply with legal obligations."
+        "es": "Solo retenemos tu información por el tiempo necesario para proporcionar nuestros servicios y cumplir con las obligaciones legales que nos correspondan. Cuando ya no necesitemos tus datos, procuramos eliminarlos o anonimizarlos.",
+        "en": "We only retain your information for as long as necessary to provide our services and to meet the legal obligations that apply to us. When we no longer need your data, we seek to delete or anonymize it."
       }
     },
     {
       "title": { "es": "8. Información de Contacto", "en": "8. Contact Information" },
       "content": {
-        "es": "Si tienes preguntas sobre esta política de privacidad o nuestras prácticas de privacidad, contáctanos en privacy@jmarkets.com o visita nuestra página de contacto. Estamos comprometidos a trabajar contigo para resolver cualquier preocupación sobre privacidad.",
-        "en": "If you have questions about this privacy policy or our privacy practices, please contact us at privacy@jmarkets.com or visit our contact page. We are committed to working with you to resolve any privacy concerns."
+        "es": "Si tienes preguntas sobre esta política de privacidad o nuestras prácticas de privacidad, contáctanos en privacy@tsuru-markets.org o visita nuestra página de contacto. Estamos comprometidos a trabajar contigo para resolver cualquier preocupación sobre privacidad.",
+        "en": "If you have questions about this privacy policy or our privacy practices, please contact us at privacy@tsuru-markets.org or visit our contact page. We are committed to working with you to resolve any privacy concerns."
       }
     }
   ],

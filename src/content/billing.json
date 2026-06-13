@@ -1,0 +1,21 @@
+{
+  "badge": { "es": "Facturación electrónica", "en": "Electronic invoicing" },
+  "title": {
+    "es": "Factura legal ante Hacienda — gratis, de verdad",
+    "en": "Legal Hacienda invoicing — genuinely free"
+  },
+  "subtitle": {
+    "es": "Formalizarse no debería costar. Tsuru firma y envía tus comprobantes electrónicos a Hacienda automáticamente, para que el negocio más pequeño pueda vender legal desde el primer día.",
+    "en": "Going formal shouldn't cost money. Tsuru signs and submits your e-invoices to Hacienda automatically, so even the smallest business can sell legally from day one."
+  },
+  "points": [
+    { "es": "Comprobantes v4.4 firmados digitalmente (XAdES)", "en": "Digitally signed v4.4 receipts (XAdES)" },
+    { "es": "Envío y validación automática ante Hacienda (ATV)", "en": "Automatic submission and validation with Hacienda (ATV)" },
+    { "es": "PDF y correo al cliente, sin pasos extra", "en": "PDF and customer email, no extra steps" },
+    { "es": "Funciona desde el celular, incluso sin conexión", "en": "Works from your phone, even offline" }
+  ],
+  "note": {
+    "es": "Para nosotros, que el vendedor más pequeño pueda facturar legal es economía solidaria en la práctica.",
+    "en": "To us, letting the smallest seller invoice legally is solidarity economy in practice."
+  }
+}

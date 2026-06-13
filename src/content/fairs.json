@@ -1,71 +1,54 @@
 {
-  "badge": { "es": "Ferias activas", "en": "Active fairs" },
-  "title": { "es": "Ferias: donde la comunidad se reúne", "en": "Ferias: where community gathers" },
+  "badge": { "es": "En construcción", "en": "In the making" },
+  "title": { "es": "Lo que viene: ferias y trueque", "en": "What's next: fairs and barter" },
   "subtitle": {
-    "es": "Ferias virtuales y presenciales que conectan compradores y vendedores en un espacio compartido.",
-    "en": "Virtual and local fairs that bring buyers and sellers together in a shared space."
+    "es": "Tsuru nació de una feria de trueque, y hacia ahí vamos: estamos construyendo las ferias digitales — con stands, descubrimiento de productores y ofertas de trueque — y lo hacemos en público.",
+    "en": "Tsuru was born at a barter fair, and that's where we're headed: we're building digital fairs — with stands, producer discovery, and barter offers — and we're building them in the open."
   },
   "what": {
-    "title": { "es": "¿Qué son las ferias de JMarkets?", "en": "What are JMarkets fairs?" },
+    "title": { "es": "¿Qué serán las ferias de Tsuru?", "en": "What will Tsuru fairs be?" },
     "description": {
-      "es": "Las ferias son eventos organizados — virtuales o presenciales — donde múltiples vendedores se reúnen en un espacio compartido. Los compradores pueden descubrir muchos productores locales a la vez, y los vendedores ganan visibilidad como parte de una comunidad.",
-      "en": "Fairs are organized events — virtual or in-person — where multiple sellers come together in one shared space. Buyers can discover many local producers at once, and sellers gain visibility as part of a community."
+      "es": "Las ferias serán eventos organizados — virtuales o presenciales — donde múltiples vendedores se reúnan en un espacio compartido. Los compradores podrán descubrir muchos productores locales a la vez, y los vendedores ganarán visibilidad como parte de una comunidad. Aún no están disponibles: las estamos construyendo.",
+      "en": "Fairs will be organized events — virtual or in-person — where multiple sellers come together in one shared space. Buyers will discover many local producers at once, and sellers will gain visibility as part of a community. They're not available yet: we're building them."
     }
   },
-  "typesTitle": { "es": "Tipos de ferias", "en": "Types of fairs" },
+  "typesTitle": { "es": "Lo que estamos construyendo", "en": "What we're building" },
   "types": [
     {
-      "title": { "es": "Ferias virtuales", "en": "Virtual fairs" },
+      "title": { "es": "Ferias digitales", "en": "Digital fairs" },
+      "status": { "es": "En desarrollo", "en": "In development" },
       "description": {
-        "es": "Eventos en línea donde los vendedores comparten sus tiendas bajo un tema común. Promovidos en toda la comunidad JMarkets.",
-        "en": "Online events where sellers share their stores under a common theme. Promoted across the JMarkets community."
+        "es": "Ferias con stands virtuales donde los negocios mostrarán sus productos juntos, como en la feria del barrio.",
+        "en": "Fairs with virtual stands where businesses show their products together, just like the neighborhood fair."
       }
     },
     {
       "title": { "es": "Ferias locales y presenciales", "en": "Local & physical fairs" },
+      "status": { "es": "Muy pronto", "en": "Coming soon" },
       "description": {
-        "es": "Eventos de mercado presencial organizados por comunidades locales. Usa JMarkets como tu presencia digital en la feria.",
-        "en": "In-person market events organized by local communities. Use JMarkets as your digital presence at the fair."
+        "es": "Apoyo a eventos de mercado presencial organizados por comunidades locales, con Tsuru como tu presencia digital en la feria.",
+        "en": "Support for in-person market events organized by local communities, with Tsuru as your digital presence at the fair."
       }
     },
     {
-      "title": { "es": "Ferias de trueque e intercambio", "en": "Barter & exchange fairs" },
+      "title": { "es": "Trueque", "en": "Barter (trueque)" },
+      "status": { "es": "Muy pronto", "en": "Coming soon" },
       "description": {
-        "es": "Eventos especiales dedicados al intercambio de productos o servicios sin dinero. Economía Social Solidaria pura.",
-        "en": "Special events dedicated to swapping products or services without money. Pure Social Solidarity Economy."
+        "es": "Publica ofertas de intercambio producto-por-producto desde tu stand y cierra el trato por WhatsApp.",
+        "en": "Publish product-for-product exchange offers from your stand and close the deal over WhatsApp."
       }
     }
   ],
-  "howJoinTitle": { "es": "Cómo participar", "en": "How to participate" },
-  "howJoin": [
-    {
-      "title": { "es": "Configura tu tienda", "en": "Set up your store" },
-      "description": {
-        "es": "Crea o actualiza tu tienda con tus productos e información de contacto.",
-        "en": "Create or update your store with your products and contact info."
-      }
-    },
-    {
-      "title": { "es": "Inscríbete en una feria", "en": "Register for a fair" },
-      "description": {
-        "es": "Explora las próximas ferias y solicita participar como vendedor.",
-        "en": "Browse upcoming fairs and apply to participate as a seller."
-      }
-    },
-    {
-      "title": { "es": "Vende y conecta", "en": "Sell and connect" },
-      "description": {
-        "es": "Recibe pedidos y conecta con compradores y otros vendedores de tu comunidad.",
-        "en": "Receive orders and connect with buyers and other sellers in your community."
-      }
-    }
-  ],
+  "note": {
+    "es": "Sin promesas infladas: cuando cada pieza esté lista, la verás aquí primero.",
+    "en": "No inflated promises: when each piece is ready, you'll see it here first."
+  },
   "cta": {
-    "title": { "es": "¿Listo para mostrar tus productos en una feria?", "en": "Ready to show your products at a fair?" },
+    "title": { "es": "¿Quieres que te avisemos cuando lleguen las ferias?", "en": "Want us to let you know when fairs arrive?" },
     "subtitle": {
-      "es": "Crea tu tienda y únete a la próxima feria de tu comunidad.",
-      "en": "Create your store and join the next fair in your community."
+      "es": "Crea tu cuenta gratis y empieza a vender hoy; las ferias y el trueque llegarán a tu negocio cuando estén listos.",
+      "en": "Create your free account and start selling today; fairs and barter will reach your business as soon as they're ready."
     },
-    "button": { "es": "Únete a la comunidad", "en": "Join the community" }
+    "button": { "es": "Crear mi cuenta gratis", "en": "Create my free account" }
   }
 }
