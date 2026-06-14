@@ -59,27 +59,28 @@ function ExampleCard({ store }: { store: ExampleStore }) {
   const { t } = useLanguage();
 
   return (
-    <div className={`group rounded-2xl bg-card border transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col overflow-hidden ${
+    <div className={`group relative rounded-2xl bg-card border transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col overflow-hidden ${
       store.featured ? 'border-primary/40 shadow-sm shadow-primary/10' : 'border-border hover:border-primary/30'
     }`}>
+      {/* Featured badge — pinned to the card corner */}
+      {store.featured && (
+        <span className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold whitespace-nowrap">
+          {t('examples.featured')}
+        </span>
+      )}
+
       {/* Icon area */}
       <div className="p-6 pb-0">
-        <div className="flex items-start justify-between gap-2 mb-4">
+        {/* Title in the same row as the icon */}
+        <div className={`flex items-center gap-3 mb-3 ${store.featured ? 'pr-20' : ''}`}>
           <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
             {store.icon}
           </div>
-          <div className="flex flex-wrap items-center justify-end gap-2">
-            {store.featured && (
-              <span className="px-2.5 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold whitespace-nowrap">
-                {t('examples.featured')}
-              </span>
-            )}
-            <span className="text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full capitalize border border-border whitespace-nowrap">
-              {store.category}
-            </span>
-          </div>
+          <h3 className="font-serif text-lg font-bold text-foreground leading-tight">{store.displayName}</h3>
         </div>
-        <h3 className="font-serif text-lg font-bold text-foreground mb-2">{store.displayName}</h3>
+        <span className="inline-block text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full capitalize border border-border whitespace-nowrap mb-3">
+          {store.category}
+        </span>
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{store.description}</p>
       </div>
 
@@ -103,11 +104,11 @@ function ExampleCardSkeleton() {
   return (
     <div className="rounded-2xl bg-card border border-border flex flex-col overflow-hidden animate-pulse">
       <div className="p-6 pb-0">
-        <div className="flex items-start justify-between gap-2 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-muted" />
-          <div className="h-6 w-20 rounded-full bg-muted" />
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-12 h-12 rounded-xl bg-muted flex-shrink-0" />
+          <div className="h-5 w-2/3 rounded bg-muted" />
         </div>
-        <div className="h-5 w-3/4 rounded bg-muted mb-3" />
+        <div className="h-6 w-20 rounded-full bg-muted mb-3" />
         <div className="space-y-2">
           <div className="h-3 w-full rounded bg-muted" />
           <div className="h-3 w-5/6 rounded bg-muted" />
