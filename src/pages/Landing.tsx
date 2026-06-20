@@ -108,7 +108,7 @@ export default function Landing() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://pos.j-markets.jcampos.dev/register"
+                href="https://app.tsuru.jcampos.dev/register"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -267,7 +267,7 @@ export default function Landing() {
             {pick(landing.finalCta.subtitle)}
           </p>
           <a
-            href="https://pos.j-markets.jcampos.dev/register"
+            href="https://app.tsuru.jcampos.dev/register"
             target="_blank"
             rel="noopener noreferrer"
           >
