@@ -51,6 +51,7 @@ export interface Template {
   description: string;
   category: string;
   thumbnailUrl?: string;
+  previewUrl?: string;
   isActive: boolean;
   sortOrder: number;
 }

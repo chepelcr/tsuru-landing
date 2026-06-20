@@ -137,7 +137,7 @@ export default function Examples() {
     displayName: template.displayName,
     description: template.description,
     category: template.category,
-    url: `https://${template.name}.examples.tsuru.jcampos.dev`,
+    url: template.previewUrl ?? `https://${template.name}.examples.tsuru.jcampos.dev`,
     icon: getCategoryIcon(template.category),
     featured: featuredTemplateNames.includes(template.name),
   }));
