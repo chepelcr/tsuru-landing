@@ -5,6 +5,25 @@
     "es": "Tsuru conecta personas que quieren comerciar localmente, apoyarse mutuamente y construir juntos una economía más justa.",
     "en": "Tsuru connects people who want to trade locally, support each other, and build a fairer economy together."
   },
+  "todaySoon": {
+    "title": { "es": "Hoy y muy pronto", "en": "Today and very soon" },
+    "subtitle": {
+      "es": "Construimos la comunidad en público. Esto es lo que ya puedes hacer y lo que estamos preparando.",
+      "en": "We're building the community in the open. Here's what you can already do and what we're preparing."
+    },
+    "todayLabel": { "es": "Disponible hoy", "en": "Available today" },
+    "soonLabel": { "es": "Muy pronto", "en": "Coming soon" },
+    "today": [
+      { "es": "Crea tu tienda y publica tu catálogo", "en": "Create your store and publish your catalog" },
+      { "es": "Recibe pedidos directo por WhatsApp", "en": "Take orders directly over WhatsApp" },
+      { "es": "Emite facturas electrónicas legales gratis", "en": "Issue legal electronic invoices for free" }
+    ],
+    "soon": [
+      { "es": "Ferias digitales para mostrar lo que ofreces", "en": "Digital fairs to show what you offer" },
+      { "es": "Trueque e intercambio entre vecinos", "en": "Barter and exchange between neighbors" },
+      { "es": "Redes de apoyo mutuo con tu comunidad", "en": "Mutual-support networks with your community" }
+    ]
+  },
   "valuesTitle": { "es": "Lo que nos guía", "en": "What we stand for" },
   "valuesSubtitle": { "es": "Seis principios que guían todo lo que construimos", "en": "Six principles that guide everything we build" },
   "values": [

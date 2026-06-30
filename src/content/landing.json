@@ -3,8 +3,8 @@
     "badge": { "es": "Hecho en Costa Rica · Economía Social Solidaria", "en": "Made in Costa Rica · Social Solidarity Economy" },
     "title": { "es": "Vende legal. Vende fácil. Vende en comunidad.", "en": "Sell legally. Sell easily. Sell in community." },
     "subtitle": {
-      "es": "Tsuru es el punto de venta gratuito con facturación electrónica de Hacienda para los emprendedores más pequeños de Costa Rica. Crea tu catálogo, recibe pedidos por WhatsApp y emite facturas legales — sin pagar nada.",
-      "en": "Tsuru is the free point of sale with Hacienda electronic invoicing for Costa Rica's smallest entrepreneurs. Build your catalog, take orders over WhatsApp, and issue legal invoices — at no cost."
+      "es": "Tsuru reúne tres cosas para el emprendedor más pequeño de Costa Rica: un punto de venta con facturación electrónica de Hacienda gratis, tu tienda en línea para vender por WhatsApp, y una comunidad de ferias y trueque que estamos construyendo. Hoy facturas y vendes; muy pronto, te conectas.",
+      "en": "Tsuru brings three things together for Costa Rica's smallest entrepreneurs: a point of sale with free Hacienda electronic invoicing, your online store to sell over WhatsApp, and a community of fairs and barter we're building. Today you invoice and sell; very soon, you connect."
     },
     "cta": { "es": "Crear mi cuenta gratis", "en": "Create my free account" },
     "secondary": { "es": "Ver ejemplos", "en": "See examples" }
@@ -29,13 +29,51 @@
         }
       },
       {
-        "title": { "es": "Comparte y vende", "en": "Share and sell" },
+        "title": { "es": "Comparte, vende y súmate", "en": "Share, sell and join in" },
         "description": {
-          "es": "Comparte tu enlace por WhatsApp, redes sociales y empieza a recibir pedidos de tu comunidad.",
-          "en": "Share your link on WhatsApp, social media, and start receiving orders from your community."
+          "es": "Comparte tu enlace por WhatsApp y redes, empieza a recibir pedidos — y prepárate para sumarte a las ferias y el trueque de la comunidad, que vienen muy pronto.",
+          "en": "Share your link on WhatsApp and social media, start receiving orders — and get ready to join the community's fairs and barter, coming very soon."
         }
       }
     ]
+  },
+  "communitySpotlight": {
+    "badge": { "es": "Comunidad · En construcción", "en": "Community · Coming soon" },
+    "title": { "es": "Tres pilares, un mismo movimiento", "en": "Three pillars, one movement" },
+    "subtitle": {
+      "es": "Tsuru no es solo vender: es vender legal, vender en línea y vender en comunidad. Dos pilares ya funcionan hoy; el tercero lo construimos en público.",
+      "en": "Tsuru isn't only about selling: it's selling legally, selling online, and selling in community. Two pillars already work today; the third we're building in the open."
+    },
+    "pillars": [
+      {
+        "iconName": "ReceiptText",
+        "status": { "es": "Disponible hoy", "en": "Available today" },
+        "title": { "es": "Punto de venta y facturación gratis", "en": "Free point of sale & invoicing" },
+        "description": {
+          "es": "Cobra, lleva tu inventario y emite comprobantes electrónicos legales a Hacienda — sin pagar nada.",
+          "en": "Take payments, track inventory, and issue legal e-invoices to Hacienda — at no cost."
+        }
+      },
+      {
+        "iconName": "Store",
+        "status": { "es": "Disponible hoy", "en": "Available today" },
+        "title": { "es": "Tu tienda en línea", "en": "Your online store" },
+        "description": {
+          "es": "Tu catálogo con dirección propia, listo para compartir y recibir pedidos directo por WhatsApp.",
+          "en": "Your catalog with its own address, ready to share and take orders straight over WhatsApp."
+        }
+      },
+      {
+        "iconName": "Users",
+        "status": { "es": "Muy pronto", "en": "Coming soon" },
+        "title": { "es": "Ferias, trueque y comunidad", "en": "Fairs, barter & community" },
+        "description": {
+          "es": "Estamos construyendo las ferias digitales, el trueque y las redes de apoyo mutuo con los que nació esta historia.",
+          "en": "We're building the digital fairs, barter, and mutual-support networks where this story began."
+        }
+      }
+    ],
+    "link": { "es": "Conocer la comunidad", "en": "Explore the community" }
   },
   "values": {
     "title": { "es": "Nuestros principios", "en": "Our principles" },

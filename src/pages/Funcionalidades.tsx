@@ -9,16 +9,18 @@ import {
   ClipboardList,
   Globe,
   ArrowRight,
+  ArrowLeftRight,
   Hammer,
   UtensilsCrossed,
   Users,
 } from "lucide-react";
 
-function FeatureCard({ icon: Icon, title, description, color = 'green' }: {
+function FeatureCard({ icon: Icon, title, description, color = 'green', status }: {
   icon: React.ElementType;
   title: string;
   description: string;
   color?: 'green' | 'earth';
+  status?: string;
 }) {
   const isEarth = color === 'earth';
   return (
@@ -31,7 +33,14 @@ function FeatureCard({ icon: Icon, title, description, color = 'green' }: {
         <Icon className={`h-6 w-6 ${isEarth ? 'text-accent' : 'text-primary'}`} />
       </div>
       <div>
-        <h3 className="font-semibold text-foreground mb-2 text-lg">{title}</h3>
+        <div className="flex items-center gap-2 mb-2 flex-wrap">
+          <h3 className="font-semibold text-foreground text-lg">{title}</h3>
+          {status && (
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
+              {status}
+            </span>
+          )}
+        </div>
         <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
       </div>
     </div>
@@ -56,7 +65,7 @@ function UseCaseCard({ icon: Icon, title, description }: {
   );
 }
 
-const FEATURE_ICONS = [Palette, MessageCircle, Package, QrCode, ClipboardList, Globe];
+const FEATURE_ICONS = [Palette, MessageCircle, Package, QrCode, ClipboardList, Globe, ArrowLeftRight];
 const USE_CASE_ICONS = [Hammer, UtensilsCrossed, Users];
 
 export default function Funcionalidades() {
@@ -86,15 +95,19 @@ export default function Funcionalidades() {
       <section className="py-16 bg-muted/20 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.featureCards.map((card, i) => (
-              <FeatureCard
-                key={i}
-                icon={FEATURE_ICONS[i]}
-                title={pick(card.title)}
-                description={pick(card.description)}
-                color={card.color as 'green' | 'earth'}
-              />
-            ))}
+            {features.featureCards.map((card, i) => {
+              const status = (card as { status?: { es: string; en: string } }).status;
+              return (
+                <FeatureCard
+                  key={i}
+                  icon={FEATURE_ICONS[i]}
+                  title={pick(card.title)}
+                  description={pick(card.description)}
+                  color={card.color as 'green' | 'earth'}
+                  status={status ? pick(status) : undefined}
+                />
+              );
+            })}
           </div>
         </div>
       </section>

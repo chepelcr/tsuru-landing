@@ -31,6 +31,7 @@ const STRINGS = {
     noCards: "Sin tarjetas",
     iconName: "Nombre del ícono",
     color: "Color",
+    status: "Estado (opcional, p. ej. «Muy pronto»)",
     itemTitle: "Título",
     itemDesc: "Descripción",
     useCasesSection: "Sección de casos de uso",
@@ -54,6 +55,7 @@ const STRINGS = {
     noCards: "No cards",
     iconName: "Icon name",
     color: "Color",
+    status: "Status (optional, e.g. “Coming soon”)",
     itemTitle: "Title",
     itemDesc: "Description",
     useCasesSection: "Use cases section",
@@ -93,16 +95,34 @@ export default function FeaturesPage() {
           onAdd={() => update((d) => d.featureCards.push({ iconName: "", color: "green", title: { es: "", en: "" }, description: { es: "", en: "" } }))}
           onRemove={(i) => update((d) => d.featureCards.splice(i, 1))}
           onMove={(i, dir) => update((d) => moveItem(d.featureCards, i, dir))}
-          renderItem={(card, i) => (
-            <>
-              <div className="grid grid-cols-2 gap-2">
-                <TextField label={T.iconName} value={card.iconName} onChange={(v) => update((d) => (d.featureCards[i].iconName = v))} />
-                <SelectField label={T.color} value={card.color} options={COLOR_TOKENS} onChange={(v) => update((d) => (d.featureCards[i].color = v))} />
-              </div>
-              <BilingualField label={T.itemTitle} es={card.title.es} en={card.title.en} onChange={(l, v) => update((d) => (d.featureCards[i].title[l] = v))} />
-              <BilingualTextArea label={T.itemDesc} es={card.description.es} en={card.description.en} onChange={(l, v) => update((d) => (d.featureCards[i].description[l] = v))} hint={RICH_TEXT_HINT} />
-            </>
-          )}
+          renderItem={(card, i) => {
+            // `status` is optional (only roadmap cards carry it). Read/write it
+            // through a narrow cast so the editor can flag any card as roadmap.
+            const status = (card as { status?: { es: string; en: string } }).status;
+            return (
+              <>
+                <div className="grid grid-cols-2 gap-2">
+                  <TextField label={T.iconName} value={card.iconName} onChange={(v) => update((d) => (d.featureCards[i].iconName = v))} />
+                  <SelectField label={T.color} value={card.color} options={COLOR_TOKENS} onChange={(v) => update((d) => (d.featureCards[i].color = v))} />
+                </div>
+                <BilingualField label={T.itemTitle} es={card.title.es} en={card.title.en} onChange={(l, v) => update((d) => (d.featureCards[i].title[l] = v))} />
+                <BilingualTextArea label={T.itemDesc} es={card.description.es} en={card.description.en} onChange={(l, v) => update((d) => (d.featureCards[i].description[l] = v))} hint={RICH_TEXT_HINT} />
+                <BilingualField
+                  label={T.status}
+                  es={status?.es ?? ""}
+                  en={status?.en ?? ""}
+                  onChange={(l, v) =>
+                    update((d) => {
+                      const c = d.featureCards[i] as { status?: { es: string; en: string }; roadmap?: boolean };
+                      if (!c.status) c.status = { es: "", en: "" };
+                      c.status[l] = v;
+                      c.roadmap = Boolean(c.status.es || c.status.en);
+                    })
+                  }
+                />
+              </>
+            );
+          }}
         />
 
         <AdminCard title={T.useCasesSection}>

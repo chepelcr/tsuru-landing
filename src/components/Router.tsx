@@ -12,6 +12,7 @@ const Funcionalidades = lazy(() => import("@/pages/Funcionalidades"));
 const Ferias = lazy(() => import("@/pages/Ferias"));
 const Comunidad = lazy(() => import("@/pages/Comunidad"));
 const Blog = lazy(() => import("@/pages/Blog"));
+const BlogDetail = lazy(() => import("@/pages/BlogDetail"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const Terms = lazy(() => import("@/pages/Terms"));
 const Privacy = lazy(() => import("@/pages/Privacy"));
@@ -51,6 +52,7 @@ export function Router({ displayLocation }: RouterProps) {
         <Route path="/ejemplos" component={Examples} />
         <Route path="/examples" component={Examples} />
         <Route path="/blog" component={Blog} />
+        <Route path="/blog/:slug" component={BlogDetail} />
         <Route path="/contacto" component={Contact} />
         <Route path="/contact" component={Contact} />
         <Route path="/terminos" component={Terms} />

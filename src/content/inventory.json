@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T05:58:24.389Z",
+  "generatedAt": "2026-06-21T02:18:17.122Z",
   "counts": {
     "content": 25,
     "repository": 2,
@@ -8,7 +8,7 @@
     "hook": 4,
     "component": 28,
     "admin": 38,
-    "page": 12
+    "page": 13
   },
   "nodes": [
     {
@@ -748,6 +748,12 @@
       "label": "Blog",
       "type": "page",
       "path": "src/pages/Blog.tsx"
+    },
+    {
+      "id": "pages/BlogDetail",
+      "label": "BlogDetail",
+      "type": "page",
+      "path": "src/pages/BlogDetail.tsx"
     },
     {
       "id": "pages/Comunidad",
@@ -2333,6 +2339,31 @@
     },
     {
       "from": "pages/Blog",
+      "to": "services/blog.service",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/BlogDetail",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/BlogDetail",
+      "to": "content/blog-chrome",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/BlogDetail",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/BlogDetail",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/BlogDetail",
       "to": "services/blog.service",
       "kind": "imports"
     },

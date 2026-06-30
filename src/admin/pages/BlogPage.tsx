@@ -20,12 +20,14 @@ type Lang = "es" | "en";
 
 const empty = (n: number): Article => ({
   id: `article-${Date.now()}`,
+  slug: "",
   author: "",
   date: { es: "", en: "" },
   featured: false,
   order: n + 1,
   title: { es: "", en: "" },
   excerpt: { es: "", en: "" },
+  content: { es: "", en: "" },
 });
 
 export default function BlogPage() {
@@ -54,7 +56,7 @@ export default function BlogPage() {
     setArticles((arr) => arr.filter((a) => a.id !== id));
   };
 
-  const setTr = (field: "date" | "title" | "excerpt", l: Lang, v: string) =>
+  const setTr = (field: "date" | "title" | "excerpt" | "content", l: Lang, v: string) =>
     setEditing((e) => (e ? { ...e, [field]: { ...e[field], [l]: v } } : e));
 
   return (
@@ -132,8 +134,10 @@ export default function BlogPage() {
           <BilingualSection>
             <BilingualField label={t("admin.blog.title")} es={editing.title.es} en={editing.title.en} onChange={(l, v) => setTr("title", l, v)} />
             <BilingualTextArea label={t("admin.blog.excerpt")} es={editing.excerpt.es} en={editing.excerpt.en} onChange={(l, v) => setTr("excerpt", l, v)} hint={RICH_TEXT_HINT} />
+            <BilingualTextArea label={t("admin.blog.content")} es={editing.content.es} en={editing.content.en} onChange={(l, v) => setTr("content", l, v)} hint={RICH_TEXT_HINT} />
             <BilingualField label={t("admin.blog.date")} es={editing.date.es} en={editing.date.en} onChange={(l, v) => setTr("date", l, v)} />
           </BilingualSection>
+          <TextField label={t("admin.blog.slug")} value={editing.slug} onChange={(v) => setEditing((e) => (e ? { ...e, slug: v } : e))} />
           <TextField label={t("admin.blog.author")} value={editing.author} onChange={(v) => setEditing((e) => (e ? { ...e, author: v } : e))} />
           <TextField label={t("admin.blog.order")} value={String(editing.order)} onChange={(v) => setEditing((e) => (e ? { ...e, order: Number(v) || 0 } : e))} />
           <Toggle label={t("admin.blog.featured")} checked={editing.featured} onChange={(v) => setEditing((e) => (e ? { ...e, featured: v } : e))} />

@@ -25,6 +25,13 @@ const STRINGS = {
     pageSubtitle: "Subtítulo",
     sectionTitle: "Título de sección",
     sectionSubtitle: "Subtítulo de sección",
+    todaySoon: "Hoy vs. muy pronto",
+    todayLabel: "Etiqueta «hoy»",
+    soonLabel: "Etiqueta «muy pronto»",
+    todayItems: "Elementos «hoy»",
+    soonItems: "Elementos «muy pronto»",
+    addItem: "Agregar elemento",
+    noItems: "Sin elementos",
     valuesHeads: "Encabezados de valores",
     valuesTitle: "Título de valores",
     valuesSubtitle: "Subtítulo de valores",
@@ -68,6 +75,13 @@ const STRINGS = {
     pageSubtitle: "Subtitle",
     sectionTitle: "Section title",
     sectionSubtitle: "Section subtitle",
+    todaySoon: "Today vs. coming soon",
+    todayLabel: "“Today” label",
+    soonLabel: "“Coming soon” label",
+    todayItems: "“Today” items",
+    soonItems: "“Coming soon” items",
+    addItem: "Add item",
+    noItems: "No items",
     valuesHeads: "Values headings",
     valuesTitle: "Values title",
     valuesSubtitle: "Values subtitle",
@@ -121,6 +135,39 @@ export default function CommunityPage() {
           <BilingualField label={T.pageTitle} es={draft.title.es} en={draft.title.en} onChange={(l, v) => update((d) => (d.title[l] = v))} />
           <BilingualTextArea label={T.pageSubtitle} es={draft.subtitle.es} en={draft.subtitle.en} onChange={(l, v) => update((d) => (d.subtitle[l] = v))} hint={RICH_TEXT_HINT} />
         </AdminCard>
+
+        <AdminCard title={T.todaySoon}>
+          <BilingualField label={T.sectionTitle} es={draft.todaySoon.title.es} en={draft.todaySoon.title.en} onChange={(l, v) => update((d) => (d.todaySoon.title[l] = v))} />
+          <BilingualTextArea label={T.sectionSubtitle} es={draft.todaySoon.subtitle.es} en={draft.todaySoon.subtitle.en} onChange={(l, v) => update((d) => (d.todaySoon.subtitle[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualField label={T.todayLabel} es={draft.todaySoon.todayLabel.es} en={draft.todaySoon.todayLabel.en} onChange={(l, v) => update((d) => (d.todaySoon.todayLabel[l] = v))} />
+          <BilingualField label={T.soonLabel} es={draft.todaySoon.soonLabel.es} en={draft.todaySoon.soonLabel.en} onChange={(l, v) => update((d) => (d.todaySoon.soonLabel[l] = v))} />
+        </AdminCard>
+
+        <RepeatableList
+          title={T.todayItems}
+          items={draft.todaySoon.today}
+          addLabel={T.addItem}
+          emptyLabel={T.noItems}
+          onAdd={() => update((d) => d.todaySoon.today.push({ es: "", en: "" }))}
+          onRemove={(i) => update((d) => d.todaySoon.today.splice(i, 1))}
+          onMove={(i, dir) => update((d) => moveItem(d.todaySoon.today, i, dir))}
+          renderItem={(item, i) => (
+            <BilingualField label={`${T.todayLabel} ${i + 1}`} es={item.es} en={item.en} onChange={(l, v) => update((d) => (d.todaySoon.today[i][l] = v))} />
+          )}
+        />
+
+        <RepeatableList
+          title={T.soonItems}
+          items={draft.todaySoon.soon}
+          addLabel={T.addItem}
+          emptyLabel={T.noItems}
+          onAdd={() => update((d) => d.todaySoon.soon.push({ es: "", en: "" }))}
+          onRemove={(i) => update((d) => d.todaySoon.soon.splice(i, 1))}
+          onMove={(i, dir) => update((d) => moveItem(d.todaySoon.soon, i, dir))}
+          renderItem={(item, i) => (
+            <BilingualField label={`${T.soonLabel} ${i + 1}`} es={item.es} en={item.en} onChange={(l, v) => update((d) => (d.todaySoon.soon[i][l] = v))} />
+          )}
+        />
 
         <AdminCard title={T.valuesHeads}>
           <BilingualField label={T.valuesTitle} es={draft.valuesTitle.es} en={draft.valuesTitle.en} onChange={(l, v) => update((d) => (d.valuesTitle[l] = v))} />

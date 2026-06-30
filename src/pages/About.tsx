@@ -9,6 +9,7 @@ import {
   Sprout,
   ArrowRight,
   CheckCircle2,
+  Clock,
 } from "lucide-react";
 
 const VALUE_ICONS = [Scale, Leaf, MapPin, Eye];
@@ -92,6 +93,53 @@ export default function About() {
           <p className="text-lg text-muted-foreground leading-relaxed">
             {pick(about.mission.description)}
           </p>
+        </div>
+      </section>
+
+      {/* De la visión a la práctica: hoy */}
+      <section className="py-16 lg:py-20 border-t border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 max-w-3xl mx-auto">
+            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wider mb-4">
+              {pick(about.bridge.badge)}
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-5">
+              {pick(about.bridge.title)}
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {pick(about.bridge.description)}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-3xl bg-card border border-primary/20 p-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-5">
+                <CheckCircle2 className="h-3.5 w-3.5" />
+                {pick(about.bridge.todayLabel)}
+              </div>
+              <ul className="space-y-3">
+                {about.bridge.today.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground leading-snug">{pick(item)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-3xl bg-accent/5 border border-accent/20 p-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold mb-5">
+                <Clock className="h-3.5 w-3.5" />
+                {pick(about.bridge.soonLabel)}
+              </div>
+              <ul className="space-y-3">
+                {about.bridge.soon.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Clock className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-muted-foreground leading-snug">{pick(item)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

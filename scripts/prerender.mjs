@@ -23,7 +23,7 @@ const BASE = (process.env.BASE_PATH || "/").replace(/\/$/, ""); // "" for "/", "
 
 // Public routes — keep in sync with src/components/Router.tsx (catch-all 404
 // excluded). "/" is the home route.
-const ROUTES = [
+const STATIC_ROUTES = [
   "/",
   "/facturacion",
   "/funcionalidades",
@@ -42,6 +42,16 @@ const ROUTES = [
   "/cookies",
 ];
 
+// Blog detail routes are derived from blog.json so every published article gets
+// its own static /blog/<slug>/index.html (canonical + per-article SEO).
+const blog = JSON.parse(await fs.readFile(path.resolve(ROOT, "src/content/blog.json"), "utf8"));
+const BLOG_ROUTES = (blog.articles || [])
+  .map((a) => a.slug)
+  .filter(Boolean)
+  .map((slug) => `/blog/${slug}`);
+
+const ROUTES = [...STATIC_ROUTES, ...BLOG_ROUTES];
+
 const seo = JSON.parse(await fs.readFile(path.resolve(ROOT, "src/content/seo.json"), "utf8"));
 // SITE_URL env overrides seo.json.siteUrl so the deploy target (e.g. the GitHub
 // Pages project host) controls canonical/sitemap URLs without editing content.
@@ -55,12 +65,36 @@ function absoluteAssetUrl(ref) {
   return SITE + BASE + (ref.startsWith("/") ? ref : `/${ref}`);
 }
 
+// Strip the rich-text tokens ({{}}, [[]], (()), <<>>, **, \n) so an article's
+// title/excerpt can be reused as plain SEO text.
+function stripRich(s) {
+  return String(s || "")
+    .replace(/\\n/g, " ")
+    .replace(/[{[(]{2}([\s\S]+?)[}\])]{2}/g, "$1")
+    .replace(/<<([\s\S]+?)>>/g, "$1")
+    .replace(/\*\*([\s\S]+?)\*\*/g, "$1")
+    .trim();
+}
+
+// Per-article SEO fallback (title/description) when no seo.pages override exists
+// for a /blog/<slug> route. Keyed off blog.json so new articles need no manual
+// SEO entry.
+const blogBySlug = new Map((blog.articles || []).filter((a) => a.slug).map((a) => [a.slug, a]));
+
 function resolve(routePath, lang) {
   const key = routeKey(routePath);
   const o = seo.pages?.[key] || {};
-  const title = o[lang]?.title || seo.defaultTitle?.[lang] || seo.defaultTitle?.es || "";
+  const article = key.startsWith("blog/") ? blogBySlug.get(key.slice("blog/".length)) : undefined;
+  const articleTitle = article ? `${stripRich(article.title[lang] ?? article.title.es)} | Tsuru` : "";
+  const articleDesc = article ? stripRich(article.excerpt[lang] ?? article.excerpt.es) : "";
+  const title =
+    o[lang]?.title || articleTitle || seo.defaultTitle?.[lang] || seo.defaultTitle?.es || "";
   const description =
-    o[lang]?.description || seo.defaultDescription?.[lang] || seo.defaultDescription?.es || "";
+    o[lang]?.description ||
+    articleDesc ||
+    seo.defaultDescription?.[lang] ||
+    seo.defaultDescription?.es ||
+    "";
   const ogImage = absoluteAssetUrl(o.ogImage || seo.ogImage || "");
   const canonical = SITE + BASE + routePath;
   return { key, title, description, canonical, ogImage };

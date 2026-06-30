@@ -10,6 +10,16 @@
   },
   "ogImage": "",
   "pages": {
+    "blog": {
+      "es": {
+        "title": "Blog — historias de comunidad, trueque y comercio local | Tsuru",
+        "description": "Historias y guías sobre ferias, trueque, economía social solidaria y cómo vender legal por WhatsApp con Tsuru. Cada artículo abre en su propia página."
+      },
+      "en": {
+        "title": "Blog — community, barter, and local commerce stories | Tsuru",
+        "description": "Stories and guides about fairs, barter, social solidarity economy, and how to sell legally over WhatsApp with Tsuru. Each article opens on its own page."
+      }
+    },
     "facturacion": {
       "es": {
         "title": "Facturación electrónica gratis — Tsuru",

@@ -36,6 +36,24 @@
       "en": "Give communities the digital tools to trade fairly and legally — starting with the most concrete thing: letting the smallest seller invoice for free — and keep their local fair and barter traditions alive."
     }
   },
+  "bridge": {
+    "badge": { "es": "De la visión a la práctica", "en": "From vision to practice" },
+    "title": { "es": "Empezamos por lo más concreto: hoy", "en": "We start with the most concrete thing: today" },
+    "description": {
+      "es": "La visión es grande — ferias digitales, trueque y redes de apoyo mutuo para reconectar comunidades. Pero decidimos empezar por lo más útil de inmediato: que el vendedor más pequeño pueda vender legal hoy. Por eso lo primero que entregamos fue el punto de venta, la tienda en línea y la facturación electrónica gratis. La comunidad llega después, construida en público, sobre cimientos que ya funcionan.",
+      "en": "The vision is big — digital fairs, barter, and mutual-support networks to reconnect communities. But we chose to start with what's most useful right away: letting the smallest seller sell legally today. That's why the first things we shipped are the point of sale, the online store, and free electronic invoicing. Community comes next, built in the open, on foundations that already work."
+    },
+    "todayLabel": { "es": "Lo que ya funciona hoy", "en": "What already works today" },
+    "today": [
+      { "es": "Punto de venta y facturación electrónica gratis", "en": "Point of sale and free electronic invoicing" },
+      { "es": "Tu tienda en línea con pedidos por WhatsApp", "en": "Your online store with WhatsApp orders" }
+    ],
+    "soonLabel": { "es": "Lo que estamos construyendo", "en": "What we're building" },
+    "soon": [
+      { "es": "Ferias digitales y trueque entre vecinos", "en": "Digital fairs and barter between neighbors" },
+      { "es": "Redes de apoyo mutuo de la comunidad", "en": "Community mutual-support networks" }
+    ]
+  },
   "story": {
     "title": { "es": "Nuestra Historia", "en": "Our Story" },
     "paras": [

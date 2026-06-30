@@ -10,6 +10,8 @@ import {
   ArrowLeftRight,
   ArrowRight,
   Heart,
+  Check,
+  Clock,
 } from "lucide-react";
 
 function ValuePill({ icon: Icon, title, description }: {
@@ -70,6 +72,54 @@ export default function Comunidad() {
             {community.values.map((value, i) => (
               <ValuePill key={i} icon={VALUE_ICONS[i]} title={pick(value.title)} description={pick(value.description)} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hoy vs. pronto */}
+      <section className="py-20 lg:py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-3">
+              {pick(community.todaySoon.title)}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">{pick(community.todaySoon.subtitle)}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Hoy */}
+            <div className="rounded-3xl bg-card border border-primary/20 p-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-5">
+                <Check className="h-3.5 w-3.5" />
+                {pick(community.todaySoon.todayLabel)}
+              </div>
+              <ul className="space-y-3">
+                {community.todaySoon.today.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                      <Check className="h-3.5 w-3.5 text-primary" />
+                    </span>
+                    <span className="text-sm text-foreground leading-snug">{pick(item)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Muy pronto */}
+            <div className="rounded-3xl bg-accent/5 border border-accent/20 p-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold mb-5">
+                <Clock className="h-3.5 w-3.5" />
+                {pick(community.todaySoon.soonLabel)}
+              </div>
+              <ul className="space-y-3">
+                {community.todaySoon.soon.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5">
+                      <Clock className="h-3.5 w-3.5 text-accent" />
+                    </span>
+                    <span className="text-sm text-muted-foreground leading-snug">{pick(item)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

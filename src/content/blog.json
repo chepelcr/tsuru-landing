@@ -2,6 +2,7 @@
   "articles": [
     {
       "id": "article1",
+      "slug": "trueque-reunio-comunidad-pandemia",
       "author": "Equipo Tsuru",
       "date": { "es": "15 de enero de 2026", "en": "January 15, 2026" },
       "featured": true,
@@ -13,10 +14,15 @@
       "excerpt": {
         "es": "La historia de la Feria del Trueque Verde Manantial en Guápiles — y cómo digitalizarse ayudó a los vecinos a reconectarse cuando las ferias presenciales eran imposibles.",
         "en": "The story of the Feria del Trueque Verde Manantial in Guápiles — and how going digital helped neighbors reconnect when in-person fairs were impossible."
+      },
+      "content": {
+        "es": "Antes de la pandemia, la **Feria del Trueque Verde Manantial** en Guápiles era un punto de encuentro semanal. Los vecinos llegaban con lo que les sobraba — mermeladas, hortalizas, ropa, horas de trabajo — y se iban con lo que necesitaban. No hacía falta dinero: bastaba la confianza y un acuerdo justo.\\nCuando llegó el COVID-19, esa feria enmudeció. Las familias que dependían de esos intercambios quedaron aisladas, y con ellas se apagó una red de apoyo construida durante años.\\nFue ahí donde nació la idea de Tsuru: {{recrear la feria en digital}}. Empezamos documentando quién ofrecía qué, quién buscaba qué, y cómo se cerraba un trueque entre vecinos. Esa documentación es hoy el corazón de la plataforma.\\n**Hoy** Tsuru ya permite a cada emprendedor publicar su catálogo y recibir pedidos por WhatsApp. La feria digital de trueque — el origen de toda esta historia — está [[en construcción]], y la estamos abriendo paso a paso, en público, junto a la misma comunidad que la inspiró.",
+        "en": "Before the pandemic, the **Feria del Trueque Verde Manantial** in Guápiles was a weekly meeting point. Neighbors arrived with what they had to spare — jams, vegetables, clothing, hours of work — and left with what they needed. No money was required: trust and a fair agreement were enough.\\nWhen COVID-19 arrived, that fair went silent. The families who depended on those exchanges were left isolated, and a support network built over years went dark with them.\\nThat is where the idea for Tsuru was born: {{recreate the fair digitally}}. We started by documenting who offered what, who was looking for what, and how a barter was closed between neighbors. That documentation is the heart of the platform today.\\n**Today** Tsuru already lets every entrepreneur publish their catalog and receive orders over WhatsApp. The digital barter fair — the origin of this whole story — is [[under construction]], and we are opening it step by step, in the open, together with the same community that inspired it."
       }
     },
     {
       "id": "article2",
+      "slug": "economia-social-solidaria",
       "author": "TCU Comer Orgánico",
       "date": { "es": "10 de enero de 2026", "en": "January 10, 2026" },
       "featured": false,
@@ -28,10 +34,15 @@
       "excerpt": {
         "es": "Una introducción a los principios de comercio justo, consumo consciente y construcción de comunidad local que inspiran todo lo que hacemos en Tsuru.",
         "en": "An introduction to the principles of fair trade, conscious consumption, and local community building that inspire everything we do at Tsuru."
+      },
+      "content": {
+        "es": "La **economía social y solidaria** parte de una idea simple: la economía debe servir a las personas, no al revés. Frente a un mercado que premia el volumen y la velocidad, propone poner en el centro la {{cooperación}}, la justicia y el arraigo local.\\nEn la práctica, esto significa precios justos para quien produce y para quien compra, transparencia sin costos ocultos, y decisiones de consumo conscientes: comprar lo que de verdad necesitamos, a personas que conocemos.\\nTsuru nació de un proyecto comunitario de la UCR con exactamente estos valores. Por eso ofrecemos el punto de venta y la facturación electrónica [[gratis]] para los emprendedores más pequeños — porque vender legal no debería ser un privilegio.\\nY por eso, además del comercio, estamos construyendo herramientas de comunidad: el trueque, las ferias digitales y las redes de apoyo mutuo, que llegarán ((muy pronto)).",
+        "en": "**Social and solidarity economy** starts from a simple idea: the economy should serve people, not the other way around. Against a market that rewards volume and speed, it proposes putting {{cooperation}}, fairness, and local roots at the center.\\nIn practice, this means fair prices for those who produce and those who buy, transparency with no hidden costs, and conscious consumption decisions: buying what we truly need, from people we know.\\nTsuru was born from a UCR community project built on exactly these values. That is why we offer the point of sale and electronic invoicing [[for free]] to the smallest entrepreneurs — because selling legally should not be a privilege.\\nAnd that is why, beyond commerce, we are building community tools: barter, digital fairs, and mutual support networks, which are ((coming soon))."
       }
     },
     {
       "id": "article3",
+      "slug": "crear-tu-espacio-comunitario",
       "author": "Equipo Tsuru",
       "date": { "es": "5 de enero de 2026", "en": "January 5, 2026" },
       "featured": false,
@@ -43,10 +54,15 @@
       "excerpt": {
         "es": "Guía paso a paso para crear tu perfil, publicar tus productos o servicios y conectarte con tu comunidad local.",
         "en": "A step-by-step guide to creating your profile, publishing your products or services, and connecting with your local community."
+      },
+      "content": {
+        "es": "Empezar en Tsuru toma minutos y no cuesta nada. Aquí va la guía corta.\\n**1. Crea tu perfil.** Regístrate y elige una de las plantillas profesionales según tu tipo de negocio. Tu tienda recibe una dirección única desde el primer día.\\n**2. Publica tus productos.** Sube fotos, descripciones y precios. Puedes gestionar tu catálogo desde el celular, incluso {{sin conexión}}: cuando vuelve la señal, todo se sincroniza solo.\\n**3. Comparte y vende.** Comparte tu enlace y tu código QR por WhatsApp y redes sociales. Los pedidos te llegan directo, y puedes emitir facturas electrónicas legales [[gratis]].\\nMuy pronto podrás además sumar tu espacio a las ferias digitales y proponer trueques con otros vecinos. Esas funciones de comunidad están ((en construcción)) — pero tu tienda ya puede vender hoy.",
+        "en": "Getting started on Tsuru takes minutes and costs nothing. Here is the short guide.\\n**1. Create your profile.** Sign up and pick one of the professional templates for your type of business. Your store gets a unique address from day one.\\n**2. Publish your products.** Upload photos, descriptions, and prices. You can manage your catalog from your phone, even {{offline}}: when the signal returns, everything syncs itself.\\n**3. Share and sell.** Share your link and QR code over WhatsApp and social media. Orders reach you directly, and you can issue legal electronic invoices [[for free]].\\nSoon you will also be able to add your space to the digital fairs and propose barters with other neighbors. Those community features are ((under construction)) — but your store can already sell today."
       }
     },
     {
       "id": "article4",
+      "slug": "trueque-101-intercambio-justo",
       "author": "Feria Verde Manantial",
       "date": { "es": "28 de diciembre de 2025", "en": "December 28, 2025" },
       "featured": false,
@@ -58,10 +74,15 @@
       "excerpt": {
         "es": "Qué es el trueque, por qué ha sostenido a las comunidades durante generaciones y cómo proponer, negociar y cerrar un intercambio justo entre vecinos.",
         "en": "What barter is, why it has sustained communities for generations, and how to propose, negotiate, and close a fair exchange between neighbors."
+      },
+      "content": {
+        "es": "El **trueque** es el intercambio directo de bienes o servicios sin que medie dinero. Mucho antes de las monedas, así se sostenían las comunidades — y en Costa Rica el cacao, {{tsuru}} en bribri, llegó a ser la moneda original.\\nUn buen trueque se construye en tres pasos: primero, **lista lo que ofreces** con claridad; segundo, **encuentra lo que necesitas** entre lo que ofrecen los demás; tercero, **acuerda e intercambia** en condiciones que ambas partes sientan justas.\\nEl valor no siempre necesita dinero: una hora de clases de yoga puede valer un frasco de mermelada artesanal. Lo que cuenta es la confianza y el acuerdo.\\nEn Tsuru estamos llevando esta cultura a lo digital. El sistema de trueque de la plataforma está [[muy pronto]] / en construcción; por ahora puedes vivir esta cultura en las ferias presenciales y preparar tu catálogo para cuando lo abramos.",
+        "en": "**Barter** is the direct exchange of goods or services without money in between. Long before coins, this is how communities sustained themselves — and in Costa Rica cacao, {{tsuru}} in Bribri, became the original currency.\\nA good barter is built in three steps: first, **list what you offer** clearly; second, **find what you need** among what others offer; third, **agree and exchange** on terms both sides feel are fair.\\nValue doesn't always need money: an hour of yoga classes can be worth a jar of artisan jam. What counts is trust and agreement.\\nAt Tsuru we are bringing this culture into the digital world. The platform's barter system is [[coming soon]] / under construction; for now you can live this culture at in-person fairs and prepare your catalog for when we open it."
       }
     },
     {
       "id": "article5",
+      "slug": "ferias-locales-infraestructura-comunitaria",
       "author": "UCR TCU",
       "date": { "es": "20 de diciembre de 2025", "en": "December 20, 2025" },
       "featured": false,
@@ -73,10 +94,15 @@
       "excerpt": {
         "es": "Por qué las ferias comunitarias son mucho más que mercados — son espacios de conexión social, intercambio de conocimientos y resiliencia económica.",
         "en": "Why community fairs are more than just markets — they are spaces for social connection, knowledge sharing, and economic resilience."
+      },
+      "content": {
+        "es": "Una feria local no es solo un lugar para comprar y vender. Es {{infraestructura social}}: donde los vecinos se reconocen, se intercambian recetas y saberes, se enteran de quién necesita ayuda y quién puede darla.\\nCuando la pandemia cerró las ferias, no se perdieron únicamente las ventas — se perdió esa red invisible que hace que una comunidad sea resiliente. Verlo de cerca fue lo que nos empujó a construir Tsuru.\\nNuestra apuesta es que lo digital **complemente** la feria, no que la reemplace: que el catálogo en línea y los pedidos por WhatsApp mantengan viva la conexión entre encuentros presenciales.\\nLa pieza que cierra el círculo — las **ferias digitales** dentro de Tsuru — está ((en construcción)). Mientras tanto, cada tienda que se crea hoy ya es un ladrillo de esa misma infraestructura comunitaria.",
+        "en": "A local fair is not just a place to buy and sell. It is {{social infrastructure}}: where neighbors recognize each other, swap recipes and know-how, and learn who needs help and who can give it.\\nWhen the pandemic closed the fairs, it wasn't only sales that were lost — it was that invisible network that makes a community resilient. Seeing it up close is what pushed us to build Tsuru.\\nOur bet is that the digital should **complement** the fair, not replace it: that the online catalog and WhatsApp orders keep the connection alive between in-person gatherings.\\nThe piece that closes the loop — **digital fairs** inside Tsuru — is ((under construction)). In the meantime, every store created today is already a brick in that same community infrastructure."
       }
     },
     {
       "id": "article6",
+      "slug": "vender-por-whatsapp-consejos",
       "author": "Equipo Tsuru",
       "date": { "es": "12 de diciembre de 2025", "en": "December 12, 2025" },
       "featured": false,
@@ -88,6 +114,10 @@
       "excerpt": {
         "es": "Consejos prácticos para gestionar pedidos, comunicarte con compradores y generar confianza por WhatsApp — el canal más usado en nuestra comunidad.",
         "en": "Practical advice for managing orders, communicating with buyers, and building trust through WhatsApp — the most-used channel in our community."
+      },
+      "content": {
+        "es": "WhatsApp es el canal favorito de nuestra comunidad para vender, y con buenos hábitos se vuelve una herramienta poderosa.\\n**Responde rápido y con calidez.** Un saludo y un tiempo de respuesta corto generan confianza desde el primer mensaje.\\n**Comparte tu catálogo, no una lista interminable.** Con Tsuru envías un {{enlace}} o un código QR a tu tienda: el comprador ve fotos, precios y disponibilidad sin que tengas que reenviar todo a mano.\\n**Confirma cada pedido por escrito.** Repite los productos, la cantidad, el total y la forma de entrega antes de cerrar — evita malentendidos.\\n**Factura legal.** Cuando recibes un pedido por WhatsApp, Tsuru te permite emitir el comprobante electrónico [[gratis]], firmado y enviado a Hacienda automáticamente. Vender por WhatsApp y vender legal ya no están peleados.",
+        "en": "WhatsApp is our community's favorite channel for selling, and with good habits it becomes a powerful tool.\\n**Reply quickly and warmly.** A greeting and a short response time build trust from the very first message.\\n**Share your catalog, not an endless list.** With Tsuru you send a {{link}} or a QR code to your store: the buyer sees photos, prices, and availability without you having to forward everything by hand.\\n**Confirm every order in writing.** Repeat the products, the quantity, the total, and the delivery method before closing — it avoids misunderstandings.\\n**Invoice legally.** When you receive an order over WhatsApp, Tsuru lets you issue the electronic receipt [[for free]], signed and submitted to Hacienda automatically. Selling via WhatsApp and selling legally are no longer at odds."
       }
     }
   ]

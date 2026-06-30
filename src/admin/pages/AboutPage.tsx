@@ -31,6 +31,13 @@ const STRINGS = {
     noTags: "Sin etiquetas",
     tag: "Etiqueta",
     mission: "Misión",
+    bridge: "De la visión a la práctica",
+    todayLabel: "Etiqueta «hoy»",
+    soonLabel: "Etiqueta «pronto»",
+    todayItems: "Elementos «hoy»",
+    soonItems: "Elementos «pronto»",
+    addItem: "Agregar elemento",
+    noItems: "Sin elementos",
     story: "Historia",
     paras: "Párrafos",
     addPara: "Agregar párrafo",
@@ -65,6 +72,13 @@ const STRINGS = {
     noTags: "No tags",
     tag: "Tag",
     mission: "Mission",
+    bridge: "From vision to practice",
+    todayLabel: "“Today” label",
+    soonLabel: "“Soon” label",
+    todayItems: "“Today” items",
+    soonItems: "“Soon” items",
+    addItem: "Add item",
+    noItems: "No items",
     story: "Story",
     paras: "Paragraphs",
     addPara: "Add paragraph",
@@ -138,6 +152,40 @@ export default function AboutPage() {
           <BilingualField label={T.sectionTitle} es={draft.mission.title.es} en={draft.mission.title.en} onChange={(l, v) => update((d) => (d.mission.title[l] = v))} />
           <BilingualTextArea label={T.desc} es={draft.mission.description.es} en={draft.mission.description.en} onChange={(l, v) => update((d) => (d.mission.description[l] = v))} hint={RICH_TEXT_HINT} />
         </AdminCard>
+
+        <AdminCard title={T.bridge}>
+          <BilingualField label={T.badge} es={draft.bridge.badge.es} en={draft.bridge.badge.en} onChange={(l, v) => update((d) => (d.bridge.badge[l] = v))} />
+          <BilingualField label={T.sectionTitle} es={draft.bridge.title.es} en={draft.bridge.title.en} onChange={(l, v) => update((d) => (d.bridge.title[l] = v))} />
+          <BilingualTextArea label={T.desc} es={draft.bridge.description.es} en={draft.bridge.description.en} onChange={(l, v) => update((d) => (d.bridge.description[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualField label={T.todayLabel} es={draft.bridge.todayLabel.es} en={draft.bridge.todayLabel.en} onChange={(l, v) => update((d) => (d.bridge.todayLabel[l] = v))} />
+          <BilingualField label={T.soonLabel} es={draft.bridge.soonLabel.es} en={draft.bridge.soonLabel.en} onChange={(l, v) => update((d) => (d.bridge.soonLabel[l] = v))} />
+        </AdminCard>
+
+        <RepeatableList
+          title={T.todayItems}
+          items={draft.bridge.today}
+          addLabel={T.addItem}
+          emptyLabel={T.noItems}
+          onAdd={() => update((d) => d.bridge.today.push({ es: "", en: "" }))}
+          onRemove={(i) => update((d) => d.bridge.today.splice(i, 1))}
+          onMove={(i, dir) => update((d) => moveItem(d.bridge.today, i, dir))}
+          renderItem={(item, i) => (
+            <BilingualField label={`${T.todayLabel} ${i + 1}`} es={item.es} en={item.en} onChange={(l, v) => update((d) => (d.bridge.today[i][l] = v))} />
+          )}
+        />
+
+        <RepeatableList
+          title={T.soonItems}
+          items={draft.bridge.soon}
+          addLabel={T.addItem}
+          emptyLabel={T.noItems}
+          onAdd={() => update((d) => d.bridge.soon.push({ es: "", en: "" }))}
+          onRemove={(i) => update((d) => d.bridge.soon.splice(i, 1))}
+          onMove={(i, dir) => update((d) => moveItem(d.bridge.soon, i, dir))}
+          renderItem={(item, i) => (
+            <BilingualField label={`${T.soonLabel} ${i + 1}`} es={item.es} en={item.en} onChange={(l, v) => update((d) => (d.bridge.soon[i][l] = v))} />
+          )}
+        />
 
         <AdminCard title={T.story}>
           <BilingualField label={T.sectionTitle} es={draft.story.title.es} en={draft.story.title.en} onChange={(l, v) => update((d) => (d.story.title[l] = v))} />

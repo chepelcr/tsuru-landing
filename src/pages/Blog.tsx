@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Calendar, User } from "lucide-react";
@@ -9,6 +10,7 @@ export default function Blog() {
   const { language } = useLanguage();
   const lang = language;
   const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
+  const [, navigate] = useLocation();
 
   useEffect(() => {
     document.title = pick(chrome.title) + pick(chrome.docTitleSuffix);
@@ -50,7 +52,10 @@ export default function Blog() {
               </div>
               <h3 className="font-serif text-3xl font-bold text-foreground mb-3">{featuredArticle.title[language] ?? featuredArticle.title.es}</h3>
               <p className="text-muted-foreground text-justify mb-6 max-w-3xl">{featuredArticle.excerpt[language] ?? featuredArticle.excerpt.es}</p>
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2">
+              <Button
+                onClick={() => navigate(`/blog/${featuredArticle.slug}`)}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2"
+              >
                 {pick(chrome.readMore)}
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -75,7 +80,12 @@ export default function Blog() {
                   <span className="text-xs text-muted-foreground flex items-center gap-1.5">
                     <User className="h-3.5 w-3.5" />{article.author}
                   </span>
-                  <Button variant="ghost" size="sm" className="text-primary hover:bg-primary/10 gap-1 rounded-full text-xs">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => navigate(`/blog/${article.slug}`)}
+                    className="text-primary hover:bg-primary/10 gap-1 rounded-full text-xs"
+                  >
                     {pick(chrome.readMore)}
                     <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </Button>

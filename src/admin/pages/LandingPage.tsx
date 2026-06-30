@@ -10,6 +10,7 @@ import {
   BilingualField,
   BilingualTextArea,
   RepeatableList,
+  TextField,
 } from "@/components/admin/AdminUI";
 import { RICH_TEXT_HINT } from "@/lib/rich-text";
 import { useSingletonDraft, moveItem } from "@/admin/useSingletonDraft";
@@ -37,6 +38,13 @@ const STRINGS = {
     items: "Principios",
     addValue: "Agregar principio",
     noValues: "Sin principios",
+    spotlight: "Comunidad (3 pilares)",
+    spotlightLink: "Enlace «comunidad»",
+    pillarStatus: "Estado",
+    pillarIcon: "Ícono",
+    pillars: "Pilares",
+    addPillar: "Agregar pilar",
+    noPillars: "Sin pilares",
     finalCta: "Llamado final",
     button: "Botón",
   },
@@ -62,6 +70,13 @@ const STRINGS = {
     items: "Principles",
     addValue: "Add principle",
     noValues: "No principles",
+    spotlight: "Community (3 pillars)",
+    spotlightLink: "“Community” link",
+    pillarStatus: "Status",
+    pillarIcon: "Icon",
+    pillars: "Pillars",
+    addPillar: "Add pillar",
+    noPillars: "No pillars",
     finalCta: "Final call to action",
     button: "Button",
   },
@@ -126,6 +141,31 @@ export default function LandingPage() {
             <>
               <BilingualField label={T.itemTitle} es={item.title.es} en={item.title.en} onChange={(l, v) => update((d) => (d.values.items[i].title[l] = v))} />
               <BilingualTextArea label={T.itemDesc} es={item.description.es} en={item.description.en} onChange={(l, v) => update((d) => (d.values.items[i].description[l] = v))} hint={RICH_TEXT_HINT} />
+            </>
+          )}
+        />
+
+        <AdminCard title={T.spotlight}>
+          <BilingualField label={T.badge} es={draft.communitySpotlight.badge.es} en={draft.communitySpotlight.badge.en} onChange={(l, v) => update((d) => (d.communitySpotlight.badge[l] = v))} />
+          <BilingualField label={T.sectionTitle} es={draft.communitySpotlight.title.es} en={draft.communitySpotlight.title.en} onChange={(l, v) => update((d) => (d.communitySpotlight.title[l] = v))} />
+          <BilingualTextArea label={T.sectionSubtitle} es={draft.communitySpotlight.subtitle.es} en={draft.communitySpotlight.subtitle.en} onChange={(l, v) => update((d) => (d.communitySpotlight.subtitle[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualField label={T.spotlightLink} es={draft.communitySpotlight.link.es} en={draft.communitySpotlight.link.en} onChange={(l, v) => update((d) => (d.communitySpotlight.link[l] = v))} />
+        </AdminCard>
+
+        <RepeatableList
+          title={T.pillars}
+          items={draft.communitySpotlight.pillars}
+          addLabel={T.addPillar}
+          emptyLabel={T.noPillars}
+          onAdd={() => update((d) => d.communitySpotlight.pillars.push({ iconName: "Sprout", status: { es: "", en: "" }, title: { es: "", en: "" }, description: { es: "", en: "" } }))}
+          onRemove={(i) => update((d) => d.communitySpotlight.pillars.splice(i, 1))}
+          onMove={(i, dir) => update((d) => moveItem(d.communitySpotlight.pillars, i, dir))}
+          renderItem={(pillar, i) => (
+            <>
+              <TextField label={T.pillarIcon} value={pillar.iconName} onChange={(v) => update((d) => (d.communitySpotlight.pillars[i].iconName = v))} />
+              <BilingualField label={T.pillarStatus} es={pillar.status.es} en={pillar.status.en} onChange={(l, v) => update((d) => (d.communitySpotlight.pillars[i].status[l] = v))} />
+              <BilingualField label={T.itemTitle} es={pillar.title.es} en={pillar.title.en} onChange={(l, v) => update((d) => (d.communitySpotlight.pillars[i].title[l] = v))} />
+              <BilingualTextArea label={T.itemDesc} es={pillar.description.es} en={pillar.description.en} onChange={(l, v) => update((d) => (d.communitySpotlight.pillars[i].description[l] = v))} hint={RICH_TEXT_HINT} />
             </>
           )}
         />

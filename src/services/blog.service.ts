@@ -14,3 +14,8 @@ export function getFeaturedArticle(): BlogArticle | undefined {
 export function listOtherArticles(): BlogArticle[] {
   return listBlogArticles().filter((a) => !a.featured);
 }
+
+/** A single article by its URL slug, if any. */
+export function getArticleBySlug(slug: string): BlogArticle | undefined {
+  return listBlogArticles().find((a) => a.slug === slug);
+}

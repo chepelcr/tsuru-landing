@@ -14,6 +14,8 @@ import {
   ArrowRight,
   Sprout,
   ReceiptText,
+  Store,
+  Users,
   Check,
 } from "lucide-react";
 
@@ -70,6 +72,12 @@ function ValueCard({ icon: Icon, title, description, accent }: {
 
 const STEP_ICONS = [UserPlus, Package, Share2];
 const VALUE_ICONS = [Scale, Leaf, MapPin, Eye];
+// Community-spotlight pillar icons, keyed by the iconName in landing.json.
+const PILLAR_ICONS: Record<string, React.ElementType> = {
+  ReceiptText,
+  Store,
+  Users,
+};
 
 export default function Landing() {
   const { language: lang } = useLanguage();
@@ -252,6 +260,58 @@ export default function Landing() {
                 accent={i >= 2}
               />
             ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════ COMUNIDAD (3 PILARES) */}
+      <section id="comunidad-spotlight" className="py-20 lg:py-28 bg-card border-y border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-14 max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-5">
+              <Users className="h-3.5 w-3.5" />
+              {pick(landing.communitySpotlight.badge)}
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              {pick(landing.communitySpotlight.title)}
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {pick(landing.communitySpotlight.subtitle)}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {landing.communitySpotlight.pillars.map((pillar, i) => {
+              const Icon = PILLAR_ICONS[pillar.iconName] ?? Sprout;
+              return (
+                <div
+                  key={i}
+                  className="flex flex-col rounded-2xl p-6 bg-background border border-border hover:border-primary/30 transition-all"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
+                      {pick(pillar.status)}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{pick(pillar.title)}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{pick(pillar.description)}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/comunidad">
+              <Button variant="ghost" className="text-primary hover:text-primary hover:bg-primary/10 gap-2 rounded-full">
+                {pick(landing.communitySpotlight.link)}
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
 
         </div>

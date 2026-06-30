@@ -61,6 +61,17 @@
         "es": "Invita a cajeros y colaboradores con roles y permisos. Hecho para cooperativas y negocios familiares.",
         "en": "Invite cashiers and collaborators with roles and permissions. Built for cooperatives and family businesses."
       }
+    },
+    {
+      "iconName": "ArrowLeftRight",
+      "color": "earth",
+      "roadmap": true,
+      "status": { "es": "Muy pronto", "en": "Coming soon" },
+      "title": { "es": "Ferias digitales y trueque", "en": "Digital fairs & barter" },
+      "description": {
+        "es": "Estamos construyendo las ferias en línea, el trueque y las redes de apoyo mutuo para que vendas y te conectes con tu comunidad. En construcción, en público.",
+        "en": "We're building online fairs, barter, and mutual-support networks so you can sell and connect with your community. Under construction, in the open."
+      }
     }
   ],
   "useCasesSection": {

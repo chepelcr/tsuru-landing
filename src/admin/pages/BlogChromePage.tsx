@@ -28,6 +28,11 @@ const STRINGS = {
     newsletterText: "Texto del boletín",
     subscribe: "Suscribirse",
     privacyNote: "Nota de privacidad",
+    detail: "Página de artículo",
+    backToBlog: "Volver al blog",
+    notFoundTitle: "Título — no encontrado",
+    notFoundText: "Texto — no encontrado",
+    notFoundCta: "Botón — no encontrado",
   },
   en: {
     title: "Blog (chrome)",
@@ -47,6 +52,11 @@ const STRINGS = {
     newsletterText: "Newsletter text",
     subscribe: "Subscribe",
     privacyNote: "Privacy note",
+    detail: "Article page",
+    backToBlog: "Back to blog",
+    notFoundTitle: "Not found — title",
+    notFoundText: "Not found — text",
+    notFoundCta: "Not found — button",
   },
 } as const;
 
@@ -74,6 +84,13 @@ export default function BlogChromePage() {
           <BilingualField label={T.readMore} es={draft.readMore.es} en={draft.readMore.en} onChange={(l, v) => update((d) => (d.readMore[l] = v))} />
           <BilingualField label={T.posted} es={draft.posted.es} en={draft.posted.en} onChange={(l, v) => update((d) => (d.posted[l] = v))} />
           <BilingualField label={T.latestArticles} es={draft.latestArticles.es} en={draft.latestArticles.en} onChange={(l, v) => update((d) => (d.latestArticles[l] = v))} />
+        </AdminCard>
+
+        <AdminCard title={T.detail}>
+          <BilingualField label={T.backToBlog} es={draft.backToBlog.es} en={draft.backToBlog.en} onChange={(l, v) => update((d) => (d.backToBlog[l] = v))} />
+          <BilingualField label={T.notFoundTitle} es={draft.notFoundTitle.es} en={draft.notFoundTitle.en} onChange={(l, v) => update((d) => (d.notFoundTitle[l] = v))} />
+          <BilingualTextArea label={T.notFoundText} es={draft.notFoundText.es} en={draft.notFoundText.en} onChange={(l, v) => update((d) => (d.notFoundText[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualField label={T.notFoundCta} es={draft.notFoundCta.es} en={draft.notFoundCta.en} onChange={(l, v) => update((d) => (d.notFoundCta[l] = v))} />
         </AdminCard>
       </div>
     </div>

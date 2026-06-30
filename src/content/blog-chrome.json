@@ -9,5 +9,12 @@
   "featured": { "es": "Artículo Destacado", "en": "Featured Article" },
   "readMore": { "es": "Leer Más", "en": "Read More" },
   "posted": { "es": "Publicado", "en": "Posted" },
-  "latestArticles": { "es": "Artículos Más Recientes", "en": "Latest Articles" }
+  "latestArticles": { "es": "Artículos Más Recientes", "en": "Latest Articles" },
+  "backToBlog": { "es": "Volver al blog", "en": "Back to blog" },
+  "notFoundTitle": { "es": "Artículo no encontrado", "en": "Article not found" },
+  "notFoundText": {
+    "es": "No pudimos encontrar el artículo que buscas. Puede que haya cambiado de dirección.",
+    "en": "We couldn't find the article you're looking for. Its address may have changed."
+  },
+  "notFoundCta": { "es": "Ver todos los artículos", "en": "See all articles" }
 }
