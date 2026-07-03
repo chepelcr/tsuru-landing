@@ -85,7 +85,7 @@ export default function TemplatesPage() {
             </thead>
             <tbody className="divide-y divide-border">
               {rows.map((tpl) => {
-                const url = `https://${tpl.name}-example.j-markets.jcampos.dev`;
+                const url = `https://${tpl.name}.examples.tsuru.jcampos.dev`;
                 return (
                   <tr key={tpl.id} className="hover:bg-muted/40">
                     <td className="px-5 py-3 font-medium text-foreground">{tpl.displayName}</td>
