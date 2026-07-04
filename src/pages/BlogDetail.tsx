@@ -77,7 +77,7 @@ export default function BlogDetail() {
           <p className="text-lg text-muted-foreground leading-relaxed mb-10 text-justify">
             {article.excerpt[language] ?? article.excerpt.es}
           </p>
-          <div className="text-foreground/90 leading-relaxed text-justify space-y-1">
+          <div className="text-foreground/90 leading-relaxed text-justify">
             <RichText>{article.content[language] ?? article.content.es}</RichText>
           </div>
 

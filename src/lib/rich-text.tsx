@@ -3,6 +3,7 @@
 //
 // Tokens (they nest, so styles combine):
 //   \n        line break (<br/>)
+//   \n\n      paragraph break (spaced block — use it so paragraphs don't run together)
 //   {{text}}  brand gradient highlight
 //   [[text]]  accent colour A
 //   ((text))  accent colour B
@@ -51,13 +52,25 @@ function renderLine(line: string, keyPrefix: string): ReactNode[] {
   return out;
 }
 
-export function parseRichText(value: string): ReactNode {
-  if (!value) return value;
+function parseInline(value: string, keyPrefix: string): ReactNode {
   return value.split("\\n").map((line, i, arr) => (
-    <Fragment key={i}>
-      {renderLine(line, String(i))}
+    <Fragment key={`${keyPrefix}${i}`}>
+      {renderLine(line, `${keyPrefix}${i}`)}
       {i < arr.length - 1 && <br />}
     </Fragment>
+  ));
+}
+
+export function parseRichText(value: string): ReactNode {
+  if (!value) return value;
+  // "\n\n" separates paragraphs: each becomes a spaced block (span, so it is
+  // valid inside the existing <p> wrappers), single "\n" stays a line break.
+  const paragraphs = value.split("\\n\\n");
+  if (paragraphs.length === 1) return parseInline(value, "");
+  return paragraphs.map((para, i) => (
+    <span key={i} className={i === 0 ? "block" : "block mt-4"}>
+      {parseInline(para, `p${i}`)}
+    </span>
   ));
 }
 
@@ -66,4 +79,4 @@ export function RichText({ children }: { children: string }) {
 }
 
 export const RICH_TEXT_HINT =
-  "Format: \\n line break · {{gradient}} · [[A]] · ((B)) · <<C>> · **bold** · they combine: [[**A and bold**]]";
+  "Format: \\n line break · \\n\\n paragraph · {{gradient}} · [[A]] · ((B)) · <<C>> · **bold** · they combine: [[**A and bold**]]";

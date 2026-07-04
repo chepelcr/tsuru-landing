@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import contact from "@/content/contact.json";
 import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
@@ -61,7 +62,7 @@ export default function Contact() {
               {pick(contact.title)}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {pick(contact.subtitle)}
+              <RichText>{pick(contact.subtitle)}</RichText>
             </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Calendar, User } from "lucide-react";
 import { getFeaturedArticle, listOtherArticles } from "@/services/blog.service";
@@ -34,7 +35,7 @@ export default function Blog() {
               {pick(chrome.title)}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {pick(chrome.subtitle)}
+              <RichText>{pick(chrome.subtitle)}</RichText>
             </p>
           </div>
         </div>

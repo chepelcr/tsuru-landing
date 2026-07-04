@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import landing from "@/content/landing.json";
 import billing from "@/content/billing.json";
@@ -38,7 +39,7 @@ function StepCard({ number, icon: Icon, title, description }: {
         </span>
       </div>
       <h3 className="font-serif text-lg font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
     </div>
   );
 }
@@ -62,7 +63,7 @@ function ValueCard({ icon: Icon, title, description, accent }: {
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-2">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -111,7 +112,7 @@ export default function Landing() {
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-              {pick(landing.hero.subtitle)}
+              <RichText>{pick(landing.hero.subtitle)}</RichText>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -167,7 +168,7 @@ export default function Landing() {
           <div className="text-center mb-14">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">{pick(landing.howItWorks.title)}</span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mt-2 mb-4">
-              {pick(landing.howItWorks.subtitle)}
+              <RichText>{pick(landing.howItWorks.subtitle)}</RichText>
             </h2>
           </div>
 
@@ -211,11 +212,11 @@ export default function Landing() {
               </h2>
 
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                {pick(billing.subtitle)}
+                <RichText>{pick(billing.subtitle)}</RichText>
               </p>
 
               <p className="text-sm text-foreground/80 italic border-l-2 border-accent/40 pl-4">
-                {pick(billing.note)}
+                <RichText>{pick(billing.note)}</RichText>
               </p>
             </div>
 
@@ -246,7 +247,7 @@ export default function Landing() {
           <div className="text-center mb-14">
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">{pick(landing.values.title)}</span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mt-2 mb-4">
-              {pick(landing.values.subtitle)}
+              <RichText>{pick(landing.values.subtitle)}</RichText>
             </h2>
           </div>
 
@@ -278,7 +279,7 @@ export default function Landing() {
               {pick(landing.communitySpotlight.title)}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {pick(landing.communitySpotlight.subtitle)}
+              <RichText>{pick(landing.communitySpotlight.subtitle)}</RichText>
             </p>
           </div>
 
@@ -299,7 +300,7 @@ export default function Landing() {
                     </span>
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{pick(pillar.title)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{pick(pillar.description)}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{pick(pillar.description)}</RichText></p>
                 </div>
               );
             })}
@@ -324,7 +325,7 @@ export default function Landing() {
             {pick(landing.finalCta.title)}
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            {pick(landing.finalCta.subtitle)}
+            <RichText>{pick(landing.finalCta.subtitle)}</RichText>
           </p>
           <a
             href="https://app.tsuru.jcampos.dev/register"

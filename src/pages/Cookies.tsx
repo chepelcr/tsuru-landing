@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import cookies from "@/content/cookies.json";
 import { Settings } from "lucide-react";
 
@@ -26,7 +27,7 @@ export default function Cookies() {
               {pick(cookies.title)}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {pick(cookies.subtitle)}
+              <RichText>{pick(cookies.subtitle)}</RichText>
             </p>
           </div>
         </div>
@@ -39,8 +40,8 @@ export default function Cookies() {
           {/* What are cookies */}
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">{pick(cookies.what)}</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4 text-justify">{pick(cookies.explanation)}</p>
-            <p className="text-muted-foreground leading-relaxed text-justify">{pick(cookies.browser)}</p>
+            <p className="text-muted-foreground leading-relaxed mb-4 text-justify"><RichText>{pick(cookies.explanation)}</RichText></p>
+            <p className="text-muted-foreground leading-relaxed text-justify"><RichText>{pick(cookies.browser)}</RichText></p>
           </div>
 
           {/* Types */}
@@ -50,7 +51,7 @@ export default function Cookies() {
               {cookies.types.map((cookie, i) => (
                 <div key={i} className="rounded-2xl p-6 bg-card border border-border hover:border-primary/20 transition-all">
                   <h3 className="font-semibold text-foreground mb-2">{pick(cookie.name)}</h3>
-                  <p className="text-sm text-muted-foreground mb-3 text-justify">{pick(cookie.description)}</p>
+                  <p className="text-sm text-muted-foreground mb-3 text-justify"><RichText>{pick(cookie.description)}</RichText></p>
                   <p className="text-xs text-muted-foreground/70">
                     <span className="font-medium text-muted-foreground">{pick(cookies.examplesLabel)}:</span> {pick(cookie.examples)}
                   </p>
@@ -74,7 +75,7 @@ export default function Cookies() {
 
           <div className="p-6 bg-primary/10 rounded-xl border border-primary/20">
             <h3 className="font-semibold text-lg mb-2 text-foreground">{pick(cookies.important)}</h3>
-            <p className="text-sm text-muted-foreground text-justify">{pick(cookies.importantDesc)}</p>
+            <p className="text-sm text-muted-foreground text-justify"><RichText>{pick(cookies.importantDesc)}</RichText></p>
           </div>
         </div>
       </section>

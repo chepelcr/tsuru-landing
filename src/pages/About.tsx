@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import about from "@/content/about.json";
 import {
@@ -33,7 +34,7 @@ export default function About() {
             {pick(about.title)}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {pick(about.subtitle)}
+            <RichText>{pick(about.subtitle)}</RichText>
           </p>
         </div>
       </section>
@@ -50,7 +51,7 @@ export default function About() {
                 {pick(about.queEs.title)}
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-                {pick(about.queEs.description)}
+                <RichText>{pick(about.queEs.description)}</RichText>
               </p>
               <ul className="flex flex-col gap-3">
                 {about.queEs.points.map((point, i) => (
@@ -91,7 +92,7 @@ export default function About() {
             {pick(about.mission.title)}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            {pick(about.mission.description)}
+            <RichText>{pick(about.mission.description)}</RichText>
           </p>
         </div>
       </section>
@@ -107,7 +108,7 @@ export default function About() {
               {pick(about.bridge.title)}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {pick(about.bridge.description)}
+              <RichText>{pick(about.bridge.description)}</RichText>
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -152,7 +153,7 @@ export default function About() {
           <div className="flex flex-col gap-6">
             {about.story.paras.map((para, i) => (
               <p key={i} className="text-muted-foreground leading-relaxed text-lg">
-                {pick(para)}
+                <RichText>{pick(para)}</RichText>
               </p>
             ))}
           </div>
@@ -176,7 +177,7 @@ export default function About() {
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{pick(value.title)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{pick(value.description)}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{pick(value.description)}</RichText></p>
                 </div>
               );
             })}
@@ -191,7 +192,7 @@ export default function About() {
             {pick(about.team.title)}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            {pick(about.team.description)}
+            <RichText>{pick(about.team.description)}</RichText>
           </p>
           <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2">

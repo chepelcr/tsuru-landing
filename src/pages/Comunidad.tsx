@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import community from "@/content/community.json";
 import {
@@ -26,7 +27,7 @@ function ValuePill({ icon: Icon, title, description }: {
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-1">{title}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
+        <p className="text-sm text-muted-foreground"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -54,7 +55,7 @@ export default function Comunidad() {
             {pick(community.title)}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {pick(community.subtitle)}
+            <RichText>{pick(community.subtitle)}</RichText>
           </p>
         </div>
       </section>
@@ -83,7 +84,7 @@ export default function Comunidad() {
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-3">
               {pick(community.todaySoon.title)}
             </h2>
-            <p className="text-muted-foreground leading-relaxed">{pick(community.todaySoon.subtitle)}</p>
+            <p className="text-muted-foreground leading-relaxed"><RichText>{pick(community.todaySoon.subtitle)}</RichText></p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Hoy */}
@@ -143,7 +144,7 @@ export default function Comunidad() {
                 )}
               </div>
               <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-                {pick(community.barter.description)}
+                <RichText>{pick(community.barter.description)}</RichText>
               </p>
               <div className="flex flex-col gap-3">
                 {community.barter.how.map((step, i) => (
@@ -205,7 +206,7 @@ export default function Comunidad() {
                 )}
               </div>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                {pick(community.mutual.description)}
+                <RichText>{pick(community.mutual.description)}</RichText>
               </p>
             </div>
           </div>
@@ -216,7 +217,7 @@ export default function Comunidad() {
       <section className="py-16 bg-gradient-to-br from-primary to-primary/80">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl font-bold text-white mb-4">{pick(community.cta.title)}</h2>
-          <p className="text-white/80 mb-8">{pick(community.cta.subtitle)}</p>
+          <p className="text-white/80 mb-8"><RichText>{pick(community.cta.subtitle)}</RichText></p>
           <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold">
               {pick(community.cta.button)}

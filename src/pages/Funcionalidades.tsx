@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import features from "@/content/features.json";
 import {
@@ -41,7 +42,7 @@ function FeatureCard({ icon: Icon, title, description, color = 'green', status }
             </span>
           )}
         </div>
-        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -59,7 +60,7 @@ function UseCaseCard({ icon: Icon, title, description }: {
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-1">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -86,7 +87,7 @@ export default function Funcionalidades() {
             {pick(features.page.title)}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {pick(features.page.subtitle)}
+            <RichText>{pick(features.page.subtitle)}</RichText>
           </p>
         </div>
       </section>
@@ -119,7 +120,7 @@ export default function Funcionalidades() {
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-3">
               {pick(features.useCasesSection.title)}
             </h2>
-            <p className="text-muted-foreground">{pick(features.useCasesSection.subtitle)}</p>
+            <p className="text-muted-foreground"><RichText>{pick(features.useCasesSection.subtitle)}</RichText></p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {features.useCases.map((uc, i) => (
@@ -133,7 +134,7 @@ export default function Funcionalidades() {
       <section className="py-16 bg-gradient-to-br from-primary to-primary/80">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl font-bold text-white mb-4">{pick(features.cta.title)}</h2>
-          <p className="text-white/80 mb-8">{pick(features.cta.subtitle)}</p>
+          <p className="text-white/80 mb-8"><RichText>{pick(features.cta.subtitle)}</RichText></p>
           <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold">
               {pick(features.cta.button)}

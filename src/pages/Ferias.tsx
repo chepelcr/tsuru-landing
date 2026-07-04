@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import fairs from "@/content/fairs.json";
 import {
@@ -34,7 +35,7 @@ function FairTypeCard({ icon: Icon, title, status, description, accent }: {
             </span>
           )}
         </div>
-        <p className="text-muted-foreground leading-relaxed">{description}</p>
+        <p className="text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -61,7 +62,7 @@ export default function Ferias() {
             {pick(fairs.title)}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {pick(fairs.subtitle)}
+            <RichText>{pick(fairs.subtitle)}</RichText>
           </p>
         </div>
       </section>
@@ -78,7 +79,7 @@ export default function Ferias() {
                 {pick(fairs.what.title)}
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                {pick(fairs.what.description)}
+                <RichText>{pick(fairs.what.description)}</RichText>
               </p>
             </div>
           </div>
@@ -113,7 +114,7 @@ export default function Ferias() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl p-8 bg-primary/5 border border-primary/20 text-center">
             <p className="text-lg text-foreground leading-relaxed">
-              {pick(fairs.note)}
+              <RichText>{pick(fairs.note)}</RichText>
             </p>
           </div>
         </div>
@@ -123,7 +124,7 @@ export default function Ferias() {
       <section className="py-16 bg-gradient-to-br from-primary to-primary/80">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl font-bold text-white mb-4">{pick(fairs.cta.title)}</h2>
-          <p className="text-white/80 mb-8">{pick(fairs.cta.subtitle)}</p>
+          <p className="text-white/80 mb-8"><RichText>{pick(fairs.cta.subtitle)}</RichText></p>
           <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold">
               {pick(fairs.cta.button)}
