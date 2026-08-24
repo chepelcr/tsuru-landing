@@ -18,7 +18,8 @@
     "annualDiscountMonths": 2,
     "moneyBackDays": 30,
     "defaultBillingCycle": "annual",
-    "draftPricing": true
+    "draftPricing": true,
+    "ctaComingSoon": true
   },
   "promise": {
     "title": {
@@ -27,8 +28,8 @@
     },
     "points": [
       {
-        "es": "**La facturación electrónica ante Hacienda es gratis en todos los planes, incluido el gratuito — y con todos los tipos de comprobante.** Emitir lo que la ley te exige nunca va a ser una función de pago en Tsuru.",
-        "en": "**Hacienda electronic invoicing is free on every plan, including the free one — with every receipt type.** Issuing what the law requires of you will never be a paid feature in Tsuru."
+        "es": "**La facturación electrónica ante Hacienda es gratis en todos los planes, incluido el gratuito — con todos los tipos de comprobante y modo contingencia.** Emitir lo que la ley te exige nunca va a ser una función de pago en Tsuru.",
+        "en": "**Hacienda electronic invoicing is free on every plan, including the free one — with every receipt type and contingency mode.** Issuing what the law requires of you will never be a paid feature in Tsuru."
       },
       {
         "es": "**Sin comisiones por venta.** No cobramos un porcentaje de lo que vendés — ni en el plan gratuito ni en los de pago.",
@@ -86,6 +87,10 @@
     "draftNotice": {
       "es": "Precios en revisión — los montos mostrados son preliminares y pueden cambiar antes del lanzamiento.",
       "en": "Pricing under review — the amounts shown are preliminary and may change before launch."
+    },
+    "comingSoon": {
+      "es": "Próximamente",
+      "en": "Coming soon"
     }
   },
   "plans": [
@@ -171,6 +176,13 @@
           "label": {
             "es": "Todos los tipos de comprobante (FE, TE, NC, ND, FC, FEX)",
             "en": "All receipt types (FE, TE, NC, ND, FC, FEX)"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Modo contingencia ATV",
+            "en": "ATV contingency mode"
           },
           "enabled": true
         },
@@ -265,13 +277,6 @@
           "label": {
             "es": "Hasta 5 personas en el equipo, con roles",
             "en": "Up to 5 team members, with roles"
-          },
-          "enabled": true
-        },
-        {
-          "label": {
-            "es": "Modo contingencia ATV",
-            "en": "ATV contingency mode"
           },
           "enabled": true
         },
@@ -750,8 +755,8 @@
         },
         "values": {
           "semilla": {
-            "es": "No incluido",
-            "en": "Not included"
+            "es": "Incluido",
+            "en": "Included"
           },
           "cosecha": {
             "es": "Incluido",

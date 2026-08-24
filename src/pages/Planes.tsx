@@ -60,11 +60,14 @@ function PlanCard({
   cycle,
   lang,
   labels,
+  comingSoon,
 }: {
   plan: (typeof plans.plans)[number];
   cycle: "monthly" | "annual";
   lang: Lang;
   labels: typeof plans.planLabels;
+  /** Plans aren't purchasable yet — render the CTA inert. */
+  comingSoon: boolean;
 }) {
   const pick = (f: Bi) => f[lang] ?? f.es;
   const Icon = PLAN_ICONS[plan.iconName] ?? Sprout;
@@ -81,6 +84,12 @@ function PlanCard({
 
   const badge = pick(plan.badge);
   const isInternalCta = plan.ctaHref.startsWith("/");
+
+  const ctaClass = `w-full rounded-full ${
+    plan.highlighted
+      ? "bg-primary text-primary-foreground hover:bg-primary/90"
+      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+  }`;
 
   return (
     <div
@@ -135,29 +144,18 @@ function PlanCard({
         {pick(plan.subline)}
       </p>
 
-      {isInternalCta ? (
+      {comingSoon ? (
+        // No link wrapper at all — an inert button, not a navigable control.
+        <Button disabled className="w-full rounded-full" aria-disabled="true">
+          {pick(labels.comingSoon)}
+        </Button>
+      ) : isInternalCta ? (
         <Link href={plan.ctaHref}>
-          <Button
-            className={`w-full rounded-full ${
-              plan.highlighted
-                ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-            }`}
-          >
-            {pick(plan.ctaLabel)}
-          </Button>
+          <Button className={ctaClass}>{pick(plan.ctaLabel)}</Button>
         </Link>
       ) : (
         <a href={plan.ctaHref} target="_blank" rel="noopener noreferrer">
-          <Button
-            className={`w-full rounded-full ${
-              plan.highlighted
-                ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-            }`}
-          >
-            {pick(plan.ctaLabel)}
-          </Button>
+          <Button className={ctaClass}>{pick(plan.ctaLabel)}</Button>
         </a>
       )}
 
@@ -280,6 +278,7 @@ export default function Planes() {
                 cycle={cycle}
                 lang={lang}
                 labels={plans.planLabels}
+                comingSoon={plans.config.ctaComingSoon}
               />
             ))}
           </div>

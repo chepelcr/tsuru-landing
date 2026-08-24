@@ -36,6 +36,9 @@ const STRINGS = {
     draftPricing: "Precios preliminares (muestra el aviso «en revisión»)",
     draftHint:
       "Mientras esté activo, la página muestra un aviso de que los montos pueden cambiar. Desactivalo solo cuando los precios sean definitivos.",
+    ctaComingSoon: "Botones en «Próximamente» (desactiva la compra)",
+    ctaComingSoonHint:
+      "Mientras esté activo, los botones de todos los planes salen desactivados con la etiqueta «Próximamente». Desactivalo cuando el backend de suscripciones esté listo.",
     promise: "Promesa solidaria",
     promiseTitle: "Título de la promesa",
     promisePoints: "Puntos de la promesa",
@@ -54,6 +57,7 @@ const STRINGS = {
     customPrice: "Texto de precio a convenir",
     mostPopular: "Etiqueta «más elegido»",
     draftNotice: "Aviso de precios preliminares",
+    comingSoonLabel: "Etiqueta «Próximamente»",
     plans: "Planes",
     addPlan: "Agregar plan",
     noPlans: "Sin planes",
@@ -117,6 +121,9 @@ const STRINGS = {
     draftPricing: "Preliminary pricing (shows the “under review” notice)",
     draftHint:
       "While this is on, the page shows a notice that amounts may change. Turn it off only once pricing is final.",
+    ctaComingSoon: "CTAs show “Coming soon” (purchase disabled)",
+    ctaComingSoonHint:
+      "While this is on, every plan's button renders disabled with the “Coming soon” label. Turn it off when the subscription backend is ready.",
     promise: "Solidarity promise",
     promiseTitle: "Promise title",
     promisePoints: "Promise points",
@@ -135,6 +142,7 @@ const STRINGS = {
     customPrice: "Custom-price text",
     mostPopular: "“Most chosen” label",
     draftNotice: "Preliminary-pricing notice",
+    comingSoonLabel: "“Coming soon” label",
     plans: "Plans",
     addPlan: "Add plan",
     noPlans: "No plans",
@@ -218,6 +226,8 @@ export default function PlansPage() {
           </div>
           <Toggle label={T.draftPricing} checked={draft.config.draftPricing} onChange={(v) => update((d) => (d.config.draftPricing = v))} />
           <p className="text-xs text-muted-foreground">{T.draftHint}</p>
+          <Toggle label={T.ctaComingSoon} checked={draft.config.ctaComingSoon} onChange={(v) => update((d) => (d.config.ctaComingSoon = v))} />
+          <p className="text-xs text-muted-foreground">{T.ctaComingSoonHint}</p>
         </AdminCard>
 
         <AdminCard title={T.promise}>
@@ -251,6 +261,7 @@ export default function PlansPage() {
           <BilingualField label={T.customPrice} es={draft.planLabels.customPrice.es} en={draft.planLabels.customPrice.en} onChange={(l, v) => update((d) => (d.planLabels.customPrice[l] = v))} />
           <BilingualField label={T.mostPopular} es={draft.planLabels.mostPopular.es} en={draft.planLabels.mostPopular.en} onChange={(l, v) => update((d) => (d.planLabels.mostPopular[l] = v))} />
           <BilingualTextArea label={T.draftNotice} es={draft.planLabels.draftNotice.es} en={draft.planLabels.draftNotice.en} onChange={(l, v) => update((d) => (d.planLabels.draftNotice[l] = v))} />
+          <BilingualField label={T.comingSoonLabel} es={draft.planLabels.comingSoon.es} en={draft.planLabels.comingSoon.en} onChange={(l, v) => update((d) => (d.planLabels.comingSoon[l] = v))} />
         </AdminCard>
 
         <RepeatableList
