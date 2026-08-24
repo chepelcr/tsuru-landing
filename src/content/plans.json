@@ -1,6 +1,9 @@
 {
   "page": {
-    "badge": { "es": "Planes y precios", "en": "Plans & pricing" },
+    "badge": {
+      "es": "Planes y precios",
+      "en": "Plans & pricing"
+    },
     "title": {
       "es": "Empezá gratis. {{Crecé a tu ritmo}}.",
       "en": "Start free. {{Grow at your own pace}}."
@@ -10,7 +13,6 @@
       "en": "Four plans that follow a harvest cycle. The first is free forever — not a trial, not a crippled tier that forces you to pay to invoice legally. The rest exist so those who have grown can sustain those just starting."
     }
   },
-
   "config": {
     "currency": "CRC",
     "annualDiscountMonths": 2,
@@ -18,13 +20,15 @@
     "defaultBillingCycle": "annual",
     "draftPricing": true
   },
-
   "promise": {
-    "title": { "es": "Nuestra promesa de economía solidaria", "en": "Our solidarity economy promise" },
+    "title": {
+      "es": "Nuestra promesa de economía solidaria",
+      "en": "Our solidarity economy promise"
+    },
     "points": [
       {
-        "es": "**La facturación electrónica ante Hacienda es gratis en todos los planes, incluido el gratuito.** Formalizarse nunca va a ser una función de pago en Tsuru.",
-        "en": "**Hacienda electronic invoicing is free on every plan, including the free one.** Going formal will never be a paid feature in Tsuru."
+        "es": "**La facturación electrónica ante Hacienda es gratis en todos los planes, incluido el gratuito — y con todos los tipos de comprobante.** Emitir lo que la ley te exige nunca va a ser una función de pago en Tsuru.",
+        "en": "**Hacienda electronic invoicing is free on every plan, including the free one — with every receipt type.** Issuing what the law requires of you will never be a paid feature in Tsuru."
       },
       {
         "es": "**Sin comisiones por venta.** No cobramos un porcentaje de lo que vendés — ni en el plan gratuito ni en los de pago.",
@@ -40,34 +44,58 @@
       }
     ]
   },
-
   "billingToggle": {
-    "monthly": { "es": "Mensual", "en": "Monthly" },
-    "annual": { "es": "Anual", "en": "Annual" },
-    "badge": { "es": "Ahorrá 2 meses", "en": "Save 2 months" },
+    "monthly": {
+      "es": "Mensual",
+      "en": "Monthly"
+    },
+    "annual": {
+      "es": "Anual",
+      "en": "Annual"
+    },
+    "badge": {
+      "es": "Ahorrá 2 meses",
+      "en": "Save 2 months"
+    },
     "savingsNote": {
       "es": "Con el plan anual pagás 10 meses y te regalamos 2.",
       "en": "On the annual plan you pay 10 months and we give you 2."
     }
   },
-
   "planLabels": {
-    "perMonth": { "es": "/ mes", "en": "/ month" },
-    "perYear": { "es": "/ año", "en": "/ year" },
-    "forever": { "es": "/ para siempre", "en": "/ forever" },
-    "customPrice": { "es": "A conversar", "en": "Let's talk" },
-    "mostPopular": { "es": "Más elegido", "en": "Most chosen" },
+    "perMonth": {
+      "es": "/ mes",
+      "en": "/ month"
+    },
+    "perYear": {
+      "es": "/ año",
+      "en": "/ year"
+    },
+    "forever": {
+      "es": "/ para siempre",
+      "en": "/ forever"
+    },
+    "customPrice": {
+      "es": "A conversar",
+      "en": "Let's talk"
+    },
+    "mostPopular": {
+      "es": "Más elegido",
+      "en": "Most chosen"
+    },
     "draftNotice": {
       "es": "Precios en revisión — los montos mostrados son preliminares y pueden cambiar antes del lanzamiento.",
       "en": "Pricing under review — the amounts shown are preliminary and may change before launch."
     }
   },
-
   "plans": [
     {
       "id": "semilla",
       "iconName": "Sprout",
-      "name": { "es": "Semilla", "en": "Semilla" },
+      "name": {
+        "es": "Semilla",
+        "en": "Semilla"
+      },
       "tagline": {
         "es": "Para el negocio que está naciendo. Gratis, de verdad, para siempre.",
         "en": "For the business just being born. Free, genuinely, forever."
@@ -75,33 +103,114 @@
       "priceMonthly": 0,
       "priceAnnual": 0,
       "customPrice": false,
-      "badge": { "es": "Para siempre", "en": "Forever" },
+      "badge": {
+        "es": "Para siempre",
+        "en": "Forever"
+      },
       "highlighted": false,
       "subline": {
         "es": "Sin tarjeta. Sin trial. Sin caducidad.",
         "en": "No card. No trial. No expiry."
       },
-      "ctaLabel": { "es": "Crear mi tienda gratis", "en": "Create my store free" },
+      "ctaLabel": {
+        "es": "Crear mi tienda gratis",
+        "en": "Create my store free"
+      },
       "ctaHref": "https://app.tsuru.jcampos.dev/register",
       "features": [
-        { "label": { "es": "Facturación electrónica v4.4 ante Hacienda", "en": "v4.4 Hacienda electronic invoicing" }, "enabled": true },
-        { "label": { "es": "30 comprobantes electrónicos / mes", "en": "30 electronic receipts / month" }, "enabled": true },
-        { "label": { "es": "Hasta 50 productos y 30 clientes", "en": "Up to 50 products and 30 customers" }, "enabled": true },
-        { "label": { "es": "1 sucursal · 1 terminal", "en": "1 branch · 1 terminal" }, "enabled": true },
-        { "label": { "es": "Tienda en tu subdominio {{tunegocio}}.tsuru.jcampos.dev", "en": "Store on your {{yourshop}}.tsuru.jcampos.dev subdomain" }, "enabled": true },
-        { "label": { "es": "Catálogo con QR y pedidos por WhatsApp", "en": "QR catalog and WhatsApp orders" }, "enabled": true },
-        { "label": { "es": "Venta sin conexión con sincronización automática", "en": "Offline selling with automatic sync" }, "enabled": true },
-        { "label": { "es": "Tiquete, factura y notas de crédito/débito", "en": "Tickets, invoices, and credit/debit notes" }, "enabled": true },
-        { "label": { "es": "Reportes básicos de ventas", "en": "Basic sales reports" }, "enabled": true },
-        { "label": { "es": "Soporte por correo", "en": "Email support" }, "enabled": true },
-        { "label": { "es": "Dominio propio", "en": "Custom domain" }, "enabled": false },
-        { "label": { "es": "Multi-sucursal", "en": "Multi-branch" }, "enabled": false }
+        {
+          "label": {
+            "es": "Facturación electrónica v4.4 ante Hacienda",
+            "en": "v4.4 Hacienda electronic invoicing"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "30 comprobantes electrónicos / mes",
+            "en": "30 electronic receipts / month"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Hasta 50 productos y 30 clientes",
+            "en": "Up to 50 products and 30 customers"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "1 sucursal · 1 terminal",
+            "en": "1 branch · 1 terminal"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Tienda en tu subdominio {{tunegocio}}.tsuru.jcampos.dev",
+            "en": "Store on your {{yourshop}}.tsuru.jcampos.dev subdomain"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Catálogo con QR y pedidos por WhatsApp",
+            "en": "QR catalog and WhatsApp orders"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Venta sin conexión con sincronización automática",
+            "en": "Offline selling with automatic sync"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Todos los tipos de comprobante (FE, TE, NC, ND, FC, FEX)",
+            "en": "All receipt types (FE, TE, NC, ND, FC, FEX)"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Reportes básicos de ventas",
+            "en": "Basic sales reports"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Soporte por correo",
+            "en": "Email support"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Dominio propio",
+            "en": "Custom domain"
+          },
+          "enabled": false
+        },
+        {
+          "label": {
+            "es": "Multi-sucursal",
+            "en": "Multi-branch"
+          },
+          "enabled": false
+        }
       ]
     },
     {
       "id": "cosecha",
       "iconName": "Wheat",
-      "name": { "es": "Cosecha", "en": "Cosecha" },
+      "name": {
+        "es": "Cosecha",
+        "en": "Cosecha"
+      },
       "tagline": {
         "es": "Para el negocio que ya vende y necesita su propia cara en línea.",
         "en": "For the business already selling that needs its own face online."
@@ -109,33 +218,107 @@
       "priceMonthly": 20000,
       "priceAnnual": 200000,
       "customPrice": false,
-      "badge": { "es": "Más elegido", "en": "Most chosen" },
+      "badge": {
+        "es": "Más elegido",
+        "en": "Most chosen"
+      },
       "highlighted": true,
       "subline": {
         "es": "Pagás 10 meses, te regalamos 2.",
         "en": "Pay 10 months, we give you 2."
       },
-      "ctaLabel": { "es": "Empezar con Cosecha", "en": "Start with Cosecha" },
+      "ctaLabel": {
+        "es": "Empezar con Cosecha",
+        "en": "Start with Cosecha"
+      },
       "ctaHref": "https://app.tsuru.jcampos.dev/register",
       "features": [
-        { "label": { "es": "Todo lo del plan Semilla", "en": "Everything in Semilla" }, "enabled": true },
-        { "label": { "es": "Comprobantes electrónicos ilimitados", "en": "Unlimited electronic receipts" }, "enabled": true },
-        { "label": { "es": "Productos y clientes ilimitados", "en": "Unlimited products and customers" }, "enabled": true },
-        { "label": { "es": "Tu propio dominio (tunegocio.com)", "en": "Your own domain (yourshop.com)" }, "enabled": true },
-        { "label": { "es": "Hasta 5 personas en el equipo, con roles", "en": "Up to 5 team members, with roles" }, "enabled": true },
-        { "label": { "es": "Todos los tipos de documento (FE, TE, NC, ND, FC, FEX)", "en": "All document types (FE, TE, NC, ND, FC, FEX)" }, "enabled": true },
-        { "label": { "es": "Modo contingencia ATV", "en": "ATV contingency mode" }, "enabled": true },
-        { "label": { "es": "Aceptación de documentos recibidos", "en": "Acceptance of received documents" }, "enabled": true },
-        { "label": { "es": "Reportes avanzados y exportación", "en": "Advanced reports and export" }, "enabled": true },
-        { "label": { "es": "Plantillas de tienda premium", "en": "Premium store templates" }, "enabled": true },
-        { "label": { "es": "Soporte prioritario por WhatsApp", "en": "Priority WhatsApp support" }, "enabled": true },
-        { "label": { "es": "Multi-sucursal", "en": "Multi-branch" }, "enabled": false }
+        {
+          "label": {
+            "es": "Todo lo del plan Semilla",
+            "en": "Everything in Semilla"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Comprobantes electrónicos ilimitados",
+            "en": "Unlimited electronic receipts"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Productos y clientes ilimitados",
+            "en": "Unlimited products and customers"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Tu propio dominio (tunegocio.com)",
+            "en": "Your own domain (yourshop.com)"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Hasta 5 personas en el equipo, con roles",
+            "en": "Up to 5 team members, with roles"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Modo contingencia ATV",
+            "en": "ATV contingency mode"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Aceptación de documentos recibidos",
+            "en": "Acceptance of received documents"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Reportes avanzados y exportación",
+            "en": "Advanced reports and export"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Plantillas de tienda premium",
+            "en": "Premium store templates"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Soporte prioritario por WhatsApp",
+            "en": "Priority WhatsApp support"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Multi-sucursal",
+            "en": "Multi-branch"
+          },
+          "enabled": false
+        }
       ]
     },
     {
       "id": "cooperativa",
       "iconName": "Users",
-      "name": { "es": "Cooperativa", "en": "Cooperativa" },
+      "name": {
+        "es": "Cooperativa",
+        "en": "Cooperativa"
+      },
       "tagline": {
         "es": "Para varios puntos de venta, varias manos y una sola contabilidad.",
         "en": "For several points of sale, many hands, and one set of books."
@@ -143,29 +326,86 @@
       "priceMonthly": 45000,
       "priceAnnual": 450000,
       "customPrice": false,
-      "badge": { "es": "", "en": "" },
+      "badge": {
+        "es": "",
+        "en": ""
+      },
       "highlighted": false,
       "subline": {
         "es": "Pensado para negocios familiares y cooperativas con varias sucursales.",
         "en": "Built for family businesses and co-ops running several branches."
       },
-      "ctaLabel": { "es": "Empezar con Cooperativa", "en": "Start with Cooperativa" },
+      "ctaLabel": {
+        "es": "Empezar con Cooperativa",
+        "en": "Start with Cooperativa"
+      },
       "ctaHref": "https://app.tsuru.jcampos.dev/register",
       "features": [
-        { "label": { "es": "Todo lo del plan Cosecha", "en": "Everything in Cosecha" }, "enabled": true },
-        { "label": { "es": "Sucursales y terminales ilimitadas", "en": "Unlimited branches and terminals" }, "enabled": true },
-        { "label": { "es": "Equipo ilimitado con roles y permisos finos (RBAC)", "en": "Unlimited team with fine-grained roles and permissions (RBAC)" }, "enabled": true },
-        { "label": { "es": "Inventario y traslados entre sucursales", "en": "Inventory and transfers between branches" }, "enabled": true },
-        { "label": { "es": "Reportes consolidados por sucursal", "en": "Consolidated per-branch reports" }, "enabled": true },
-        { "label": { "es": "Cierres de caja por turno y por puesto", "en": "Cash closeouts by shift and by station" }, "enabled": true },
-        { "label": { "es": "Migración asistida desde tu sistema actual", "en": "Assisted migration from your current system" }, "enabled": true },
-        { "label": { "es": "Soporte prioritario con persona asignada", "en": "Priority support with a named contact" }, "enabled": true }
+        {
+          "label": {
+            "es": "Todo lo del plan Cosecha",
+            "en": "Everything in Cosecha"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Sucursales y terminales ilimitadas",
+            "en": "Unlimited branches and terminals"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Equipo ilimitado con roles y permisos finos (RBAC)",
+            "en": "Unlimited team with fine-grained roles and permissions (RBAC)"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Inventario y traslados entre sucursales",
+            "en": "Inventory and transfers between branches"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Reportes consolidados por sucursal",
+            "en": "Consolidated per-branch reports"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Cierres de caja por turno y por puesto",
+            "en": "Cash closeouts by shift and by station"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Migración asistida desde tu sistema actual",
+            "en": "Assisted migration from your current system"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Soporte prioritario con persona asignada",
+            "en": "Priority support with a named contact"
+          },
+          "enabled": true
+        }
       ]
     },
     {
       "id": "feria",
       "iconName": "Tent",
-      "name": { "es": "Feria", "en": "Feria" },
+      "name": {
+        "es": "Feria",
+        "en": "Feria"
+      },
       "tagline": {
         "es": "Para quien organiza a otros: ferias, redes de trueque y proyectos comunitarios.",
         "en": "For those who organize others: fairs, barter networks, and community projects."
@@ -173,29 +413,74 @@
       "priceMonthly": 0,
       "priceAnnual": 0,
       "customPrice": true,
-      "badge": { "es": "A la medida", "en": "Tailored" },
+      "badge": {
+        "es": "A la medida",
+        "en": "Tailored"
+      },
       "highlighted": false,
       "subline": {
         "es": "El precio se conversa según el proyecto — y para muchas organizaciones comunitarias es cero.",
         "en": "Pricing is a conversation about the project — and for many community organizations it's zero."
       },
-      "ctaLabel": { "es": "Conversemos", "en": "Let's talk" },
+      "ctaLabel": {
+        "es": "Conversemos",
+        "en": "Let's talk"
+      },
       "ctaHref": "/contacto",
       "features": [
-        { "label": { "es": "Todo lo del plan Cooperativa", "en": "Everything in Cooperativa" }, "enabled": true },
-        { "label": { "es": "Varias organizaciones bajo una misma feria", "en": "Multiple organizations under one fair" }, "enabled": true },
-        { "label": { "es": "Directorio público de puestos y vendedores", "en": "Public directory of stalls and sellers" }, "enabled": true },
-        { "label": { "es": "Trueque y redes de apoyo mutuo", "en": "Barter and mutual-support networks" }, "enabled": true, "roadmap": true },
-        { "label": { "es": "Acompañamiento para formalizar a tus vendedores", "en": "Onboarding support to help your sellers go formal" }, "enabled": true },
-        { "label": { "es": "Tarifa solidaria o exoneración para proyectos comunitarios", "en": "Solidarity rate or waiver for community projects" }, "enabled": true }
+        {
+          "label": {
+            "es": "Todo lo del plan Cooperativa",
+            "en": "Everything in Cooperativa"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Varias organizaciones bajo una misma feria",
+            "en": "Multiple organizations under one fair"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Directorio público de puestos y vendedores",
+            "en": "Public directory of stalls and sellers"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Trueque y redes de apoyo mutuo",
+            "en": "Barter and mutual-support networks"
+          },
+          "enabled": true,
+          "roadmap": true
+        },
+        {
+          "label": {
+            "es": "Acompañamiento para formalizar a tus vendedores",
+            "en": "Onboarding support to help your sellers go formal"
+          },
+          "enabled": true
+        },
+        {
+          "label": {
+            "es": "Tarifa solidaria o exoneración para proyectos comunitarios",
+            "en": "Solidarity rate or waiver for community projects"
+          },
+          "enabled": true
+        }
       ]
     }
   ],
-
   "addons": [
     {
       "iconName": "Building2",
-      "title": { "es": "Sucursal extra", "en": "Extra branch" },
+      "title": {
+        "es": "Sucursal extra",
+        "en": "Extra branch"
+      },
       "description": {
         "es": "¿Solo necesitás una sucursal más y no todo el plan Cooperativa? Agregala por una tarifa mensual accesible.",
         "en": "Need just one more branch rather than the whole Cooperativa plan? Add it for an affordable monthly fee."
@@ -203,7 +488,10 @@
     },
     {
       "iconName": "Cloud",
-      "title": { "es": "Migración asistida", "en": "Assisted migration" },
+      "title": {
+        "es": "Migración asistida",
+        "en": "Assisted migration"
+      },
       "description": {
         "es": "Te ayudamos a traer tus productos, clientes y saldos desde tu sistema actual o desde una hoja de Excel.",
         "en": "We help you bring your products, customers, and balances over from your current system or a spreadsheet."
@@ -211,183 +499,433 @@
     },
     {
       "iconName": "GraduationCap",
-      "title": { "es": "Capacitación para tu equipo", "en": "Training for your team" },
+      "title": {
+        "es": "Capacitación para tu equipo",
+        "en": "Training for your team"
+      },
       "description": {
         "es": "Sesiones en vivo, en español, para que cajeros y colaboradores usen el punto de venta sin miedo.",
         "en": "Live sessions, in Spanish, so cashiers and collaborators use the POS without fear."
       }
     }
   ],
-
   "comparison": {
-    "title": { "es": "Comparación detallada", "en": "Detailed comparison" },
+    "title": {
+      "es": "Comparación detallada",
+      "en": "Detailed comparison"
+    },
     "subtitle": {
       "es": "Todo lo que hace Tsuru, plan por plan.",
       "en": "Everything Tsuru does, plan by plan."
     },
-    "yes": { "es": "Incluido", "en": "Included" },
-    "no": { "es": "No incluido", "en": "Not included" },
+    "yes": {
+      "es": "Incluido",
+      "en": "Included"
+    },
+    "no": {
+      "es": "No incluido",
+      "en": "Not included"
+    },
     "rows": [
       {
-        "label": { "es": "Facturación electrónica ante Hacienda", "en": "Hacienda electronic invoicing" },
+        "label": {
+          "es": "Facturación electrónica ante Hacienda",
+          "en": "Hacienda electronic invoicing"
+        },
         "values": {
-          "semilla": { "es": "30 / mes", "en": "30 / month" },
-          "cosecha": { "es": "Ilimitada", "en": "Unlimited" },
-          "cooperativa": { "es": "Ilimitada", "en": "Unlimited" },
-          "feria": { "es": "Ilimitada", "en": "Unlimited" }
+          "semilla": {
+            "es": "30 / mes",
+            "en": "30 / month"
+          },
+          "cosecha": {
+            "es": "Ilimitada",
+            "en": "Unlimited"
+          },
+          "cooperativa": {
+            "es": "Ilimitada",
+            "en": "Unlimited"
+          },
+          "feria": {
+            "es": "Ilimitada",
+            "en": "Unlimited"
+          }
         }
       },
       {
-        "label": { "es": "Productos", "en": "Products" },
+        "label": {
+          "es": "Tipos de comprobante (FE, TE, NC, ND, FC, FEX)",
+          "en": "Receipt types (FE, TE, NC, ND, FC, FEX)"
+        },
         "values": {
-          "semilla": { "es": "50", "en": "50" },
-          "cosecha": { "es": "Ilimitados", "en": "Unlimited" },
-          "cooperativa": { "es": "Ilimitados", "en": "Unlimited" },
-          "feria": { "es": "Ilimitados", "en": "Unlimited" }
+          "semilla": {
+            "es": "Todos",
+            "en": "All"
+          },
+          "cosecha": {
+            "es": "Todos",
+            "en": "All"
+          },
+          "cooperativa": {
+            "es": "Todos",
+            "en": "All"
+          },
+          "feria": {
+            "es": "Todos",
+            "en": "All"
+          }
         }
       },
       {
-        "label": { "es": "Clientes", "en": "Customers" },
+        "label": {
+          "es": "Productos",
+          "en": "Products"
+        },
         "values": {
-          "semilla": { "es": "30", "en": "30" },
-          "cosecha": { "es": "Ilimitados", "en": "Unlimited" },
-          "cooperativa": { "es": "Ilimitados", "en": "Unlimited" },
-          "feria": { "es": "Ilimitados", "en": "Unlimited" }
+          "semilla": {
+            "es": "50",
+            "en": "50"
+          },
+          "cosecha": {
+            "es": "Ilimitados",
+            "en": "Unlimited"
+          },
+          "cooperativa": {
+            "es": "Ilimitados",
+            "en": "Unlimited"
+          },
+          "feria": {
+            "es": "Ilimitados",
+            "en": "Unlimited"
+          }
         }
       },
       {
-        "label": { "es": "Sucursales y terminales", "en": "Branches and terminals" },
+        "label": {
+          "es": "Clientes",
+          "en": "Customers"
+        },
         "values": {
-          "semilla": { "es": "1 · 1", "en": "1 · 1" },
-          "cosecha": { "es": "1 · 3", "en": "1 · 3" },
-          "cooperativa": { "es": "Ilimitadas", "en": "Unlimited" },
-          "feria": { "es": "Ilimitadas", "en": "Unlimited" }
+          "semilla": {
+            "es": "30",
+            "en": "30"
+          },
+          "cosecha": {
+            "es": "Ilimitados",
+            "en": "Unlimited"
+          },
+          "cooperativa": {
+            "es": "Ilimitados",
+            "en": "Unlimited"
+          },
+          "feria": {
+            "es": "Ilimitados",
+            "en": "Unlimited"
+          }
         }
       },
       {
-        "label": { "es": "Personas en el equipo", "en": "Team members" },
+        "label": {
+          "es": "Sucursales y terminales",
+          "en": "Branches and terminals"
+        },
         "values": {
-          "semilla": { "es": "1", "en": "1" },
-          "cosecha": { "es": "5", "en": "5" },
-          "cooperativa": { "es": "Ilimitadas", "en": "Unlimited" },
-          "feria": { "es": "Ilimitadas", "en": "Unlimited" }
+          "semilla": {
+            "es": "1 · 1",
+            "en": "1 · 1"
+          },
+          "cosecha": {
+            "es": "1 · 3",
+            "en": "1 · 3"
+          },
+          "cooperativa": {
+            "es": "Ilimitadas",
+            "en": "Unlimited"
+          },
+          "feria": {
+            "es": "Ilimitadas",
+            "en": "Unlimited"
+          }
         }
       },
       {
-        "label": { "es": "Tienda en línea", "en": "Online store" },
+        "label": {
+          "es": "Personas en el equipo",
+          "en": "Team members"
+        },
         "values": {
-          "semilla": { "es": "Subdominio", "en": "Subdomain" },
-          "cosecha": { "es": "Dominio propio", "en": "Custom domain" },
-          "cooperativa": { "es": "Dominio propio", "en": "Custom domain" },
-          "feria": { "es": "Dominio propio", "en": "Custom domain" }
+          "semilla": {
+            "es": "1",
+            "en": "1"
+          },
+          "cosecha": {
+            "es": "5",
+            "en": "5"
+          },
+          "cooperativa": {
+            "es": "Ilimitadas",
+            "en": "Unlimited"
+          },
+          "feria": {
+            "es": "Ilimitadas",
+            "en": "Unlimited"
+          }
         }
       },
       {
-        "label": { "es": "Catálogo con QR y WhatsApp", "en": "QR and WhatsApp catalog" },
+        "label": {
+          "es": "Tienda en línea",
+          "en": "Online store"
+        },
         "values": {
-          "semilla": { "es": "Incluido", "en": "Included" },
-          "cosecha": { "es": "Incluido", "en": "Included" },
-          "cooperativa": { "es": "Incluido", "en": "Included" },
-          "feria": { "es": "Incluido", "en": "Included" }
+          "semilla": {
+            "es": "Subdominio",
+            "en": "Subdomain"
+          },
+          "cosecha": {
+            "es": "Dominio propio",
+            "en": "Custom domain"
+          },
+          "cooperativa": {
+            "es": "Dominio propio",
+            "en": "Custom domain"
+          },
+          "feria": {
+            "es": "Dominio propio",
+            "en": "Custom domain"
+          }
         }
       },
       {
-        "label": { "es": "Venta sin conexión", "en": "Offline selling" },
+        "label": {
+          "es": "Catálogo con QR y WhatsApp",
+          "en": "QR and WhatsApp catalog"
+        },
         "values": {
-          "semilla": { "es": "Incluida", "en": "Included" },
-          "cosecha": { "es": "Incluida", "en": "Included" },
-          "cooperativa": { "es": "Incluida", "en": "Included" },
-          "feria": { "es": "Incluida", "en": "Included" }
+          "semilla": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "cosecha": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "cooperativa": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "feria": {
+            "es": "Incluido",
+            "en": "Included"
+          }
         }
       },
       {
-        "label": { "es": "Modo contingencia ATV", "en": "ATV contingency mode" },
+        "label": {
+          "es": "Venta sin conexión",
+          "en": "Offline selling"
+        },
         "values": {
-          "semilla": { "es": "No incluido", "en": "Not included" },
-          "cosecha": { "es": "Incluido", "en": "Included" },
-          "cooperativa": { "es": "Incluido", "en": "Included" },
-          "feria": { "es": "Incluido", "en": "Included" }
+          "semilla": {
+            "es": "Incluida",
+            "en": "Included"
+          },
+          "cosecha": {
+            "es": "Incluida",
+            "en": "Included"
+          },
+          "cooperativa": {
+            "es": "Incluida",
+            "en": "Included"
+          },
+          "feria": {
+            "es": "Incluida",
+            "en": "Included"
+          }
         }
       },
       {
-        "label": { "es": "Reportes", "en": "Reports" },
+        "label": {
+          "es": "Modo contingencia ATV",
+          "en": "ATV contingency mode"
+        },
         "values": {
-          "semilla": { "es": "Básicos", "en": "Basic" },
-          "cosecha": { "es": "Avanzados", "en": "Advanced" },
-          "cooperativa": { "es": "Consolidados por sucursal", "en": "Consolidated per branch" },
-          "feria": { "es": "Consolidados por organización", "en": "Consolidated per organization" }
+          "semilla": {
+            "es": "No incluido",
+            "en": "Not included"
+          },
+          "cosecha": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "cooperativa": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "feria": {
+            "es": "Incluido",
+            "en": "Included"
+          }
         }
       },
       {
-        "label": { "es": "Exportar tus datos", "en": "Export your data" },
+        "label": {
+          "es": "Reportes",
+          "en": "Reports"
+        },
         "values": {
-          "semilla": { "es": "Incluido", "en": "Included" },
-          "cosecha": { "es": "Incluido", "en": "Included" },
-          "cooperativa": { "es": "Incluido", "en": "Included" },
-          "feria": { "es": "Incluido", "en": "Included" }
+          "semilla": {
+            "es": "Básicos",
+            "en": "Basic"
+          },
+          "cosecha": {
+            "es": "Avanzados",
+            "en": "Advanced"
+          },
+          "cooperativa": {
+            "es": "Consolidados por sucursal",
+            "en": "Consolidated per branch"
+          },
+          "feria": {
+            "es": "Consolidados por organización",
+            "en": "Consolidated per organization"
+          }
         }
       },
       {
-        "label": { "es": "Comisión por venta", "en": "Commission on sales" },
+        "label": {
+          "es": "Exportar tus datos",
+          "en": "Export your data"
+        },
         "values": {
-          "semilla": { "es": "Ninguna", "en": "None" },
-          "cosecha": { "es": "Ninguna", "en": "None" },
-          "cooperativa": { "es": "Ninguna", "en": "None" },
-          "feria": { "es": "Ninguna", "en": "None" }
+          "semilla": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "cosecha": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "cooperativa": {
+            "es": "Incluido",
+            "en": "Included"
+          },
+          "feria": {
+            "es": "Incluido",
+            "en": "Included"
+          }
         }
       },
       {
-        "label": { "es": "Soporte", "en": "Support" },
+        "label": {
+          "es": "Comisión por venta",
+          "en": "Commission on sales"
+        },
         "values": {
-          "semilla": { "es": "Correo", "en": "Email" },
-          "cosecha": { "es": "WhatsApp prioritario", "en": "Priority WhatsApp" },
-          "cooperativa": { "es": "Persona asignada", "en": "Named contact" },
-          "feria": { "es": "Acompañamiento del proyecto", "en": "Project accompaniment" }
+          "semilla": {
+            "es": "Ninguna",
+            "en": "None"
+          },
+          "cosecha": {
+            "es": "Ninguna",
+            "en": "None"
+          },
+          "cooperativa": {
+            "es": "Ninguna",
+            "en": "None"
+          },
+          "feria": {
+            "es": "Ninguna",
+            "en": "None"
+          }
+        }
+      },
+      {
+        "label": {
+          "es": "Soporte",
+          "en": "Support"
+        },
+        "values": {
+          "semilla": {
+            "es": "Correo",
+            "en": "Email"
+          },
+          "cosecha": {
+            "es": "WhatsApp prioritario",
+            "en": "Priority WhatsApp"
+          },
+          "cooperativa": {
+            "es": "Persona asignada",
+            "en": "Named contact"
+          },
+          "feria": {
+            "es": "Acompañamiento del proyecto",
+            "en": "Project accompaniment"
+          }
         }
       }
     ]
   },
-
   "faq": {
-    "title": { "es": "Preguntas sobre los planes", "en": "Questions about the plans" },
+    "title": {
+      "es": "Preguntas sobre los planes",
+      "en": "Questions about the plans"
+    },
     "items": [
       {
-        "question": { "es": "¿El plan gratuito es un trial?", "en": "Is the free plan a trial?" },
+        "question": {
+          "es": "¿El plan gratuito es un trial?",
+          "en": "Is the free plan a trial?"
+        },
         "answer": {
           "es": "No. Semilla no caduca, no pide tarjeta y no se convierte en plan de pago. Nació porque creemos que el negocio más pequeño tiene derecho a facturar legal sin pagar.",
           "en": "No. Semilla never expires, asks for no card, and does not convert into a paid plan. It exists because we believe the smallest business has the right to invoice legally without paying."
         }
       },
       {
-        "question": { "es": "¿Me van a cobrar un porcentaje de mis ventas?", "en": "Will you charge a percentage of my sales?" },
+        "question": {
+          "es": "¿Me van a cobrar un porcentaje de mis ventas?",
+          "en": "Will you charge a percentage of my sales?"
+        },
         "answer": {
           "es": "Nunca. Tsuru no cobra comisión por venta en ningún plan. Lo que ganás es tuyo.",
           "en": "Never. Tsuru charges no commission on sales on any plan. What you earn is yours."
         }
       },
       {
-        "question": { "es": "¿Qué pasa si dejo de pagar un plan de pago?", "en": "What happens if I stop paying a paid plan?" },
+        "question": {
+          "es": "¿Qué pasa si dejo de pagar un plan de pago?",
+          "en": "What happens if I stop paying a paid plan?"
+        },
         "answer": {
           "es": "Tu cuenta vuelve al plan Semilla. No perdés tus datos ni tus comprobantes emitidos, y podés exportarlo todo cuando querás.",
           "en": "Your account returns to the Semilla plan. You don't lose your data or the receipts you already issued, and you can export everything whenever you want."
         }
       },
       {
-        "question": { "es": "¿Por qué cobran, si dicen ser economía solidaria?", "en": "Why charge at all, if you call yourselves solidarity economy?" },
+        "question": {
+          "es": "¿Por qué cobran, si dicen ser economía solidaria?",
+          "en": "Why charge at all, if you call yourselves solidarity economy?"
+        },
         "answer": {
           "es": "Porque alguien tiene que sostener los servidores, los certificados y el soporte. La lógica solidaria está en quién paga: el negocio que ya creció sostiene el plan gratuito del que apenas empieza. No al revés.",
           "en": "Because someone has to sustain the servers, the certificates, and the support. The solidarity logic is in who pays: the business that has already grown sustains the free plan of the one just starting. Not the other way around."
         }
       },
       {
-        "question": { "es": "¿Puedo cambiar de plan cuando quiera?", "en": "Can I change plans whenever I want?" },
+        "question": {
+          "es": "¿Puedo cambiar de plan cuando quiera?",
+          "en": "Can I change plans whenever I want?"
+        },
         "answer": {
           "es": "Sí, en cualquier momento y desde el panel. Al subir de plan se cobra la diferencia proporcional; al bajar, el cambio aplica al final del período que ya pagaste.",
           "en": "Yes, at any time from the dashboard. Upgrading charges the prorated difference; downgrading applies at the end of the period you already paid for."
         }
       },
       {
-        "question": { "es": "¿Tienen tarifa especial para cooperativas y ferias?", "en": "Do you have a special rate for co-ops and fairs?" },
+        "question": {
+          "es": "¿Tienen tarifa especial para cooperativas y ferias?",
+          "en": "Do you have a special rate for co-ops and fairs?"
+        },
         "answer": {
           "es": "Sí — para eso existe el plan Feria. Escribinos y conversamos según el proyecto; para muchas organizaciones comunitarias la tarifa es cero.",
           "en": "Yes — that's what the Feria plan is for. Write to us and we'll talk it through based on the project; for many community organizations the rate is zero."
@@ -395,14 +933,19 @@
       }
     ]
   },
-
   "cta": {
-    "title": { "es": "¿Todavía con dudas sobre cuál plan te sirve?", "en": "Still unsure which plan fits you?" },
+    "title": {
+      "es": "¿Todavía con dudas sobre cuál plan te sirve?",
+      "en": "Still unsure which plan fits you?"
+    },
     "subtitle": {
       "es": "Escribinos y te ayudamos a elegir — incluso si la respuesta es que te quedés en el plan gratuito.",
       "en": "Write to us and we'll help you choose — even if the answer is that you should stay on the free plan."
     },
-    "button": { "es": "Hablar con alguien de Tsuru", "en": "Talk to someone at Tsuru" },
+    "button": {
+      "es": "Hablar con alguien de Tsuru",
+      "en": "Talk to someone at Tsuru"
+    },
     "buttonHref": "/contacto"
   }
 }
