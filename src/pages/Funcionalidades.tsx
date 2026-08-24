@@ -25,7 +25,7 @@ function FeatureCard({ icon: Icon, title, description, color = 'green', status }
 }) {
   const isEarth = color === 'earth';
   return (
-    <div className={`group flex gap-4 rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
+    <div className={`group flex h-full gap-4 rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
       isEarth ? 'bg-accent/5 border-accent/20 hover:border-accent/40' : 'bg-card border-border hover:border-primary/30'
     }`}>
       <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
@@ -73,6 +73,14 @@ export default function Funcionalidades() {
   const { language: lang } = useLanguage();
   const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
 
+  // A 3-wide grid leaves the 7th card orphaned on its own row. When the card
+  // count leaves a remainder of 1, the last four cards drop to 2-per-row, so
+  // 7 lays out as 3 / 2 / 2. Derived from the count because the cards are
+  // admin-editable and the total can change.
+  const cardCount = features.featureCards.length;
+  const pairFrom =
+    cardCount >= 4 && cardCount % 3 === 1 ? cardCount - 4 : cardCount;
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -95,18 +103,22 @@ export default function Funcionalidades() {
       {/* Features grid */}
       <section className="py-16 bg-muted/20 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
             {features.featureCards.map((card, i) => {
               const status = (card as { status?: { es: string; en: string } }).status;
               return (
-                <FeatureCard
+                <div
                   key={i}
-                  icon={FEATURE_ICONS[i]}
-                  title={pick(card.title)}
-                  description={pick(card.description)}
-                  color={card.color as 'green' | 'earth'}
-                  status={status ? pick(status) : undefined}
-                />
+                  className={i < pairFrom ? 'lg:col-span-2' : 'lg:col-span-3'}
+                >
+                  <FeatureCard
+                    icon={FEATURE_ICONS[i]}
+                    title={pick(card.title)}
+                    description={pick(card.description)}
+                    color={card.color as 'green' | 'earth'}
+                    status={status ? pick(status) : undefined}
+                  />
+                </div>
               );
             })}
           </div>

@@ -21,6 +21,7 @@ import blogData from "@/content/blog.json";
 import seoData from "@/content/seo.json";
 import landingData from "@/content/landing.json";
 import billingData from "@/content/billing.json";
+import plansData from "@/content/plans.json";
 import featuresData from "@/content/features.json";
 import fairsData from "@/content/fairs.json";
 import communityData from "@/content/community.json";
@@ -45,6 +46,7 @@ type Blog = typeof blogData;
 type Seo = typeof seoData;
 type Landing = typeof landingData;
 type Billing = typeof billingData;
+type Plans = typeof plansData;
 type Features = typeof featuresData;
 type Fairs = typeof fairsData;
 type Community = typeof communityData;
@@ -70,6 +72,7 @@ interface AdminState {
   seo: Seo;
   landing: Landing;
   billing: Billing;
+  plans: Plans;
   features: Features;
   fairs: Fairs;
   community: Community;
@@ -94,6 +97,7 @@ interface AdminState {
   setSeo: (v: Seo) => void;
   setLanding: (v: Landing) => void;
   setBilling: (v: Billing) => void;
+  setPlans: (v: Plans) => void;
   setFeatures: (v: Features) => void;
   setFairs: (v: Fairs) => void;
   setCommunity: (v: Community) => void;
@@ -125,6 +129,7 @@ const ENTITY_BY_FILE: Record<string, keyof AdminState> = {
   "seo.json": "seo",
   "landing.json": "landing",
   "billing.json": "billing",
+  "plans.json": "plans",
   "features.json": "features",
   "fairs.json": "fairs",
   "community.json": "community",
@@ -151,6 +156,7 @@ const INITIAL: Record<string, unknown> = {
   "seo.json": seoData,
   "landing.json": landingData,
   "billing.json": billingData,
+  "plans.json": plansData,
   "features.json": featuresData,
   "fairs.json": fairsData,
   "community.json": communityData,
@@ -181,6 +187,7 @@ export const useAdminStore = create<AdminState>((set) => ({
   seo: seoData,
   landing: landingData,
   billing: billingData,
+  plans: plansData,
   features: featuresData,
   fairs: fairsData,
   community: communityData,
@@ -205,6 +212,7 @@ export const useAdminStore = create<AdminState>((set) => ({
   setSeo: (v) => set({ seo: v }),
   setLanding: (v) => set({ landing: v }),
   setBilling: (v) => set({ billing: v }),
+  setPlans: (v) => set({ plans: v }),
   setFeatures: (v) => set({ features: v }),
   setFairs: (v) => set({ fairs: v }),
   setCommunity: (v) => set({ community: v }),

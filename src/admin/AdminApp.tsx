@@ -23,6 +23,7 @@ const DiagnosticsPage = lazy(() => import("@/admin/pages/DiagnosticsPage"));
 // Per-page content editors.
 const LandingPage = lazy(() => import("@/admin/pages/LandingPage"));
 const BillingPage = lazy(() => import("@/admin/pages/BillingPage"));
+const PlansPage = lazy(() => import("@/admin/pages/PlansPage"));
 const FeaturesPage = lazy(() => import("@/admin/pages/FeaturesPage"));
 const FairsPage = lazy(() => import("@/admin/pages/FairsPage"));
 const CommunityPage = lazy(() => import("@/admin/pages/CommunityPage"));
@@ -63,6 +64,7 @@ export default function AdminApp() {
           {/* Pages */}
           <Route path="/admin/landing" component={LandingPage} />
           <Route path="/admin/billing" component={BillingPage} />
+          <Route path="/admin/plans" component={PlansPage} />
           <Route path="/admin/features" component={FeaturesPage} />
           <Route path="/admin/fairs" component={FairsPage} />
           <Route path="/admin/community" component={CommunityPage} />

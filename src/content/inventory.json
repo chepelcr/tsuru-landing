@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-06-21T02:18:17.122Z",
+  "generatedAt": "2026-08-24T01:52:52.955Z",
   "counts": {
-    "content": 25,
+    "content": 26,
     "repository": 2,
     "service": 2,
     "lib": 22,
     "hook": 4,
-    "component": 28,
-    "admin": 38,
-    "page": 13
+    "component": 29,
+    "admin": 39,
+    "page": 14
   },
   "nodes": [
     {
@@ -112,6 +112,12 @@
       "label": "navigation",
       "type": "content",
       "path": "src/content/navigation.json"
+    },
+    {
+      "id": "content/plans",
+      "label": "plans",
+      "type": "content",
+      "path": "src/content/plans.json"
     },
     {
       "id": "content/privacy",
@@ -390,6 +396,12 @@
       "path": "src/components/layout/auth-navbar.tsx"
     },
     {
+      "id": "components/layout/brand-logo",
+      "label": "brand-logo",
+      "type": "component",
+      "path": "src/components/layout/brand-logo.tsx"
+    },
+    {
       "id": "components/layout/footer",
       "label": "footer",
       "type": "component",
@@ -648,6 +660,12 @@
       "path": "src/admin/pages/NavigationPage.tsx"
     },
     {
+      "id": "admin/pages/PlansPage",
+      "label": "PlansPage",
+      "type": "admin",
+      "path": "src/admin/pages/PlansPage.tsx"
+    },
+    {
       "id": "admin/pages/PrivacyPage",
       "label": "PrivacyPage",
       "type": "admin",
@@ -802,6 +820,12 @@
       "label": "NotFound",
       "type": "page",
       "path": "src/pages/NotFound.tsx"
+    },
+    {
+      "id": "pages/Planes",
+      "label": "Planes",
+      "type": "page",
+      "path": "src/pages/Planes.tsx"
     },
     {
       "id": "pages/Privacy",
@@ -1413,6 +1437,36 @@
       "kind": "imports"
     },
     {
+      "from": "admin/pages/PlansPage",
+      "to": "admin/useSingletonDraft",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PlansPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PlansPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PlansPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PlansPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "admin/pages/PlansPage",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
       "from": "admin/pages/PrivacyPage",
       "to": "admin/pages/LegalEditor",
       "kind": "imports"
@@ -1923,6 +1977,16 @@
       "kind": "imports"
     },
     {
+      "from": "components/layout/brand-logo",
+      "to": "content/branding",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/footer",
+      "to": "components/layout/brand-logo",
+      "kind": "imports"
+    },
+    {
       "from": "components/layout/footer",
       "to": "content/footer",
       "kind": "imports"
@@ -1935,6 +1999,11 @@
     {
       "from": "components/layout/navbar",
       "to": "components/language-switcher",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/navbar",
+      "to": "components/layout/brand-logo",
       "kind": "imports"
     },
     {
@@ -2194,6 +2263,11 @@
     },
     {
       "from": "lib/admin-store",
+      "to": "content/plans",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
       "to": "content/privacy",
       "kind": "imports"
     },
@@ -2323,6 +2397,11 @@
       "kind": "imports"
     },
     {
+      "from": "pages/About",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
       "from": "pages/Blog",
       "to": "components/ui/button",
       "kind": "imports"
@@ -2335,6 +2414,11 @@
     {
       "from": "pages/Blog",
       "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Blog",
+      "to": "lib/rich-text",
       "kind": "imports"
     },
     {
@@ -2383,6 +2467,11 @@
       "kind": "imports"
     },
     {
+      "from": "pages/Comunidad",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
       "from": "pages/Contact",
       "to": "components/ui/button",
       "kind": "imports"
@@ -2398,6 +2487,11 @@
       "kind": "imports"
     },
     {
+      "from": "pages/Contact",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
       "from": "pages/Cookies",
       "to": "content/cookies",
       "kind": "imports"
@@ -2405,6 +2499,11 @@
     {
       "from": "pages/Cookies",
       "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Cookies",
+      "to": "lib/rich-text",
       "kind": "imports"
     },
     {
@@ -2438,6 +2537,11 @@
       "kind": "imports"
     },
     {
+      "from": "pages/Ferias",
+      "to": "lib/rich-text",
+      "kind": "imports"
+    },
+    {
       "from": "pages/Funcionalidades",
       "to": "components/ui/button",
       "kind": "imports"
@@ -2450,6 +2554,11 @@
     {
       "from": "pages/Funcionalidades",
       "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Funcionalidades",
+      "to": "lib/rich-text",
       "kind": "imports"
     },
     {
@@ -2469,7 +2578,17 @@
     },
     {
       "from": "pages/Landing",
+      "to": "content/plans",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Landing",
       "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Landing",
+      "to": "lib/rich-text",
       "kind": "imports"
     },
     {
@@ -2495,6 +2614,26 @@
     {
       "from": "pages/NotFound",
       "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Planes",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Planes",
+      "to": "content/plans",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Planes",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Planes",
+      "to": "lib/rich-text",
       "kind": "imports"
     },
     {

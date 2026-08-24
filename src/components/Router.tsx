@@ -9,6 +9,7 @@ const Landing = lazy(() => import("@/pages/Landing"));
 const Examples = lazy(() => import("@/pages/Examples"));
 const About = lazy(() => import("@/pages/About"));
 const Funcionalidades = lazy(() => import("@/pages/Funcionalidades"));
+const Planes = lazy(() => import("@/pages/Planes"));
 const Ferias = lazy(() => import("@/pages/Ferias"));
 const Comunidad = lazy(() => import("@/pages/Comunidad"));
 const Blog = lazy(() => import("@/pages/Blog"));
@@ -46,6 +47,8 @@ export function Router({ displayLocation }: RouterProps) {
             the home page that contains it. */}
         <Route path="/facturacion" component={Landing} />
         <Route path="/funcionalidades" component={Funcionalidades} />
+        <Route path="/planes" component={Planes} />
+        <Route path="/pricing" component={Planes} />
         <Route path="/ferias" component={Ferias} />
         <Route path="/comunidad" component={Comunidad} />
         <Route path="/quienes-somos" component={About} />

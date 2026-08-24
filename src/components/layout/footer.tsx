@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import { Leaf } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import footer from "@/content/footer.json";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 export default function LandingFooter() {
   const { language: lang } = useLanguage();
@@ -15,12 +15,7 @@ export default function LandingFooter() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
-              <div className="flex items-center justify-center w-7 h-7 rounded-full bg-primary/10">
-                <Leaf className="h-4 w-4 text-primary" />
-              </div>
-              <span className="font-serif text-xl font-bold text-foreground">
-                {pick(footer.brand)}
-              </span>
+              <BrandLogo label={pick(footer.brand)} size={28} />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {pick(footer.description)}
@@ -32,6 +27,7 @@ export default function LandingFooter() {
             <h3 className="font-semibold text-sm mb-3 text-foreground">{pick(footer.groups.product)}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/funcionalidades" className="hover:text-primary transition-colors">{pick(footer.links.features)}</Link></li>
+              <li><Link href="/planes" className="hover:text-primary transition-colors">{pick(footer.links.plans)}</Link></li>
               <li><Link href="/ferias" className="hover:text-primary transition-colors">{pick(footer.links.fairs)}</Link></li>
               <li><Link href="/comunidad" className="hover:text-primary transition-colors">{pick(footer.links.community)}</Link></li>
               <li><Link href="/ejemplos" className="hover:text-primary transition-colors">{pick(footer.links.examples)}</Link></li>

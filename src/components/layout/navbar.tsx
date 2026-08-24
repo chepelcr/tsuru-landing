@@ -3,9 +3,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { Leaf, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef } from "react";
 import navbar from "@/content/navbar.json";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 interface LandingNavbarProps {
   transitionStage?: string;
@@ -17,7 +18,9 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [nosotrosDropdownOpen, setNosotrosDropdownOpen] = useState(false);
   const [location] = useLocation();
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  // ReturnType<typeof setTimeout> rather than NodeJS.Timeout: this is browser
+  // code and the repo has no @types/node, so the NodeJS namespace isn't declared.
+  const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isActive = (href: string, aliases: string[] = []) =>
     location === href || aliases.includes(location);
@@ -56,17 +59,13 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
-              <Leaf className="h-4 w-4 text-primary" />
-            </div>
-            <span className="font-serif text-xl font-bold text-foreground">
-              {pick(navbar.brand)}
-            </span>
+            <BrandLogo label={pick(navbar.brand)} size={32} />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 relative">
             <NavLink href="/funcionalidades" label={pick(navbar.links.features)} />
+            <NavLink href="/planes" label={pick(navbar.links.plans)} aliases={["/pricing"]} />
             <NavLink href="/ferias" label={pick(navbar.links.fairs)} />
             <NavLink href="/comunidad" label={pick(navbar.links.community)} />
             <NavLink href="/ejemplos" label={pick(navbar.links.examples)} aliases={["/examples"]} />
@@ -163,6 +162,12 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
               <NavLink
                 href="/funcionalidades"
                 label={pick(navbar.links.features)}
+                onClick={() => setMobileMenuOpen(false)}
+              />
+              <NavLink
+                href="/planes"
+                label={pick(navbar.links.plans)}
+                aliases={["/pricing"]}
                 onClick={() => setMobileMenuOpen(false)}
               />
               <NavLink

@@ -27,6 +27,8 @@ const STATIC_ROUTES = [
   "/",
   "/facturacion",
   "/funcionalidades",
+  "/planes",
+  "/pricing",
   "/ferias",
   "/comunidad",
   "/quienes-somos",

@@ -4,6 +4,7 @@ import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import landing from "@/content/landing.json";
 import billing from "@/content/billing.json";
+import plans from "@/content/plans.json";
 import {
   UserPlus,
   Package,
@@ -18,6 +19,7 @@ import {
   Store,
   Users,
   Check,
+  Minus,
 } from "lucide-react";
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -236,6 +238,93 @@ export default function Landing() {
               ))}
             </ul>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════ PLANES (teaser) */}
+      {/* Compact tier strip. Full detail — comparison table, add-ons, FAQ —
+          lives on /planes; this only has to make the tiers legible and get the
+          visitor there. Amounts come from the same plans.json the page uses. */}
+      <section id="planes" className="py-20 lg:py-28 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-12 max-w-2xl mx-auto">
+            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+              {pick(plans.page.badge)}
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mt-2 mb-4">
+              <RichText>{pick(plans.page.title)}</RichText>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              <RichText>{pick(plans.page.subtitle)}</RichText>
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {plans.plans.map((plan) => {
+              const isFree =
+                !plan.customPrice && plan.priceMonthly === 0 && plan.priceAnnual === 0;
+              const price = plan.customPrice
+                ? pick(plans.planLabels.customPrice)
+                : `₡${plan.priceMonthly.toLocaleString("es-CR", { maximumFractionDigits: 0 })}`;
+              const suffix = plan.customPrice
+                ? ""
+                : isFree
+                  ? pick(plans.planLabels.forever)
+                  : pick(plans.planLabels.perMonth);
+
+              return (
+                <div
+                  key={plan.id}
+                  className={`flex flex-col rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
+                    plan.highlighted
+                      ? 'bg-primary/5 border-primary/40 ring-1 ring-primary/20'
+                      : 'bg-card border-border hover:border-primary/30'
+                  }`}
+                >
+                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
+                    {pick(plan.name)}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4 min-h-[3.75rem]">
+                    {pick(plan.tagline)}
+                  </p>
+
+                  <div className="flex items-baseline gap-1.5 mb-5 min-h-[2.25rem]">
+                    <span className="font-serif text-2xl font-bold text-foreground">{price}</span>
+                    {suffix && <span className="text-xs text-muted-foreground">{suffix}</span>}
+                  </div>
+
+                  {/* First four features are enough to differentiate the tiers here. */}
+                  <ul className="space-y-2 text-sm">
+                    {plan.features.slice(0, 4).map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        {feature.enabled ? (
+                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                        ) : (
+                          <Minus className="h-4 w-4 text-muted-foreground/40 flex-shrink-0 mt-0.5" />
+                        )}
+                        <span className="text-muted-foreground leading-snug">
+                          {pick(feature.label)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link href="/planes">
+              <Button
+                size="lg"
+                className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8"
+              >
+                {pick(plans.cta.button)}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

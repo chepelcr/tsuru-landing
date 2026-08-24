@@ -31,7 +31,7 @@ co-located with what uses it (there is **no** global Translations page):
 
 - `src/content/*.json` — one entity per page or shared component, with bilingual
   fields (`{ es, en }`). Page copy: `landing.json`, `features.json`, `fairs.json`,
-  `community.json`, `about.json`, `contact.json`, `terms.json`, `privacy.json`,
+  `community.json`, `about.json`, `contact.json`, `plans.json`, `terms.json`, `privacy.json`,
   `cookies.json`, `blog.json` (+ `blog-chrome.json`). Chrome/components:
   `navbar.json`, `footer.json`, `ui.json`, `cta-security.json`, `navigation.json`.
   Site identity / config: `branding.json`, `themes.json`, `media.json`,
@@ -47,6 +47,30 @@ co-located with what uses it (there is **no** global Translations page):
 `src/content/<page>.json` entity and read it in the component — never introduce a
 global key table. Templates are fetched live from the API (not a content entity);
 the admin shows them read-only.
+
+## Monetization surface (`plans.json` — TSR-084)
+
+`src/content/plans.json` is the **pricing model**, rendered by `src/pages/Planes.tsx`
+at `/planes` (alias `/pricing`) plus a compact teaser section on the home page. It is
+a normal content entity — all four pieces are wired (`/admin/plans` editor, manifest
+row, route, versions row).
+
+Four solidarity tiers, seeded from `fe/pos-landing`'s real POS pricing:
+**Semilla** (₡0 forever) · **Cosecha** · **Cooperativa** · **Feria** (`customPrice`).
+
+Two rules that are load-bearing for the brand, not cosmetic:
+
+- **The free tier is a promise, not a funnel.** `promise.points` states that Hacienda
+  e-invoicing is free on *every* tier, that there is no commission on sales, that data
+  export is free, and that Semilla never expires. The site says "gratis" in four other
+  places; changing a tier so any of those stops being true breaks a published promise
+  (roadmap R6). Re-read TSR-084 before touching it.
+- **`config.draftPricing` gates the amounts.** While `true`, the page renders an
+  "under review" notice so preliminary numbers can never read as final. Flip it to
+  `false` (in the admin, no code change) only when pricing is confirmed.
+
+Tier `id`s are the keys of every `comparison.rows[].values` object — renaming an `id`
+means updating those rows too, or the comparison column renders empty.
 
 ## No-hardcoded-text rule
 
@@ -81,6 +105,15 @@ context+localStorage language as the public site. There is **no URL language
 prefix** anywhere; language is React context + `localStorage`, never part of the
 URL. Public routes are plain (`/funcionalidades`, `/features`, `/blog`, …; see
 `src/components/Router.tsx`). **Do not introduce URL-prefixed i18n routing.**
+
+## Brand logo slot
+
+`src/components/layout/brand-logo.tsx` is the reserved slot for the Tsuru wordmark
+(still in production — see `docs/roadmap/tsuru_brand_asset_guide.md` §2, L1/L2). It
+renders `branding.logoUrl` / `logoUrlDark` when set and the botanical placeholder at
+the identical footprint when not, so dropping the artwork in causes **no layout
+shift**. Navbar uses 32px, footer 28px. Going live needs no code change: upload via
+the admin Media library, then set the URLs on the Site identity page.
 
 ## Rich-text module
 

@@ -85,6 +85,13 @@ export const PAGES: ContentPage[] = [
     group: "pages",
   },
   {
+    file: "plans.json",
+    label: { es: "Planes y precios", en: "Plans & pricing" },
+    route: "/admin/plans",
+    icon: "scale",
+    group: "pages",
+  },
+  {
     file: "features.json",
     label: { es: "Funcionalidades", en: "Features" },
     route: "/admin/features",

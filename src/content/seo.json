@@ -29,6 +29,26 @@
         "title": "Free electronic invoicing — Tsuru",
         "description": "Tsuru signs and submits your v4.4 e-invoices to Hacienda automatically — for free. Invoice legally from your phone, even offline."
       }
+    },
+    "planes": {
+      "es": {
+        "title": "Planes y precios — Tsuru",
+        "description": "Cuatro planes de economía solidaria: Semilla gratis para siempre con facturación electrónica incluida, Cosecha, Cooperativa y Feria. Sin comisiones por venta y tus datos siempre exportables."
+      },
+      "en": {
+        "title": "Plans & pricing — Tsuru",
+        "description": "Four solidarity-economy plans: Semilla free forever with electronic invoicing included, plus Cosecha, Cooperativa, and Feria. No commission on sales and your data always exportable."
+      }
+    },
+    "pricing": {
+      "es": {
+        "title": "Planes y precios — Tsuru",
+        "description": "Cuatro planes de economía solidaria: Semilla gratis para siempre con facturación electrónica incluida, Cosecha, Cooperativa y Feria. Sin comisiones por venta y tus datos siempre exportables."
+      },
+      "en": {
+        "title": "Plans & pricing — Tsuru",
+        "description": "Four solidarity-economy plans: Semilla free forever with electronic invoicing included, plus Cosecha, Cooperativa, and Feria. No commission on sales and your data always exportable."
+      }
     }
   }
 }

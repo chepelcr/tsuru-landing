@@ -1,15 +1,52 @@
 {
-  "brand": { "es": "Tsuru", "en": "Tsuru" },
-  "links": {
-    "features": { "es": "Funcionalidades", "en": "Features" },
-    "fairs": { "es": "Ferias", "en": "Fairs" },
-    "community": { "es": "Comunidad", "en": "Community" },
-    "examples": { "es": "Ejemplos", "en": "Examples" },
-    "nosotros": { "es": "Nosotros", "en": "About us" },
-    "about": { "es": "Quiénes somos", "en": "Who we are" },
-    "contact": { "es": "Contacto", "en": "Contact" },
-    "blog": { "es": "Blog", "en": "Blog" }
+  "brand": {
+    "es": "Tsuru",
+    "en": "Tsuru"
   },
-  "login": { "es": "Iniciar sesión", "en": "Sign in" },
-  "register": { "es": "Únete a la comunidad", "en": "Join the community" }
+  "links": {
+    "features": {
+      "es": "Funcionalidades",
+      "en": "Features"
+    },
+    "fairs": {
+      "es": "Ferias",
+      "en": "Fairs"
+    },
+    "community": {
+      "es": "Comunidad",
+      "en": "Community"
+    },
+    "examples": {
+      "es": "Ejemplos",
+      "en": "Examples"
+    },
+    "nosotros": {
+      "es": "Nosotros",
+      "en": "About us"
+    },
+    "about": {
+      "es": "Quiénes somos",
+      "en": "Who we are"
+    },
+    "contact": {
+      "es": "Contacto",
+      "en": "Contact"
+    },
+    "blog": {
+      "es": "Blog",
+      "en": "Blog"
+    },
+    "plans": {
+      "es": "Planes",
+      "en": "Pricing"
+    }
+  },
+  "login": {
+    "es": "Iniciar sesión",
+    "en": "Sign in"
+  },
+  "register": {
+    "es": "Únete a la comunidad",
+    "en": "Join the community"
+  }
 }
