@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T01:52:52.955Z",
+  "generatedAt": "2026-08-24T13:58:42.869Z",
   "counts": {
     "content": 26,
     "repository": 2,
@@ -1994,6 +1994,11 @@
     {
       "from": "components/layout/footer",
       "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/footer",
+      "to": "lib/media",
       "kind": "imports"
     },
     {

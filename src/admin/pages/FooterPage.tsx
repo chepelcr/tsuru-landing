@@ -4,7 +4,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAdminStore } from "@/lib/admin-store";
 import { PageHeader } from "@/components/admin/PageHeader";
-import { AdminCard, BilingualField, BilingualTextArea } from "@/components/admin/AdminUI";
+import { AdminCard, BilingualField, BilingualTextArea, TextField } from "@/components/admin/AdminUI";
 import { RICH_TEXT_HINT } from "@/lib/rich-text";
 import { useSingletonDraft } from "@/admin/useSingletonDraft";
 
@@ -32,6 +32,11 @@ const STRINGS = {
     cookies: "Cookies",
     copyrightCard: "Copyright",
     copyright: "Texto de copyright",
+    madeByCard: "Atribución del estudio",
+    madeByLabel: "Etiqueta (p. ej. «Un producto de»)",
+    madeByName: "Nombre del estudio",
+    madeByUrl: "Enlace del estudio",
+    madeByLogo: "Logo (ruta en /media o URL)",
   },
   en: {
     title: "Footer",
@@ -56,6 +61,11 @@ const STRINGS = {
     cookies: "Cookies",
     copyrightCard: "Copyright",
     copyright: "Copyright text",
+    madeByCard: "Studio attribution",
+    madeByLabel: "Label (e.g. “A product of”)",
+    madeByName: "Studio name",
+    madeByUrl: "Studio link",
+    madeByLogo: "Logo (/media path or URL)",
   },
 } as const;
 
@@ -97,6 +107,13 @@ export default function FooterPage() {
 
         <AdminCard title={T.copyrightCard}>
           <BilingualField label={T.copyright} es={draft.copyright.es} en={draft.copyright.en} onChange={(l, v) => update((d) => (d.copyright[l] = v))} />
+        </AdminCard>
+
+        <AdminCard title={T.madeByCard}>
+          <BilingualField label={T.madeByLabel} es={draft.madeBy.label.es} en={draft.madeBy.label.en} onChange={(l, v) => update((d) => (d.madeBy.label[l] = v))} />
+          <TextField label={T.madeByName} value={draft.madeBy.name} onChange={(v) => update((d) => (d.madeBy.name = v))} />
+          <TextField label={T.madeByUrl} value={draft.madeBy.url} onChange={(v) => update((d) => (d.madeBy.url = v))} />
+          <TextField label={T.madeByLogo} value={draft.madeBy.logoUrl} onChange={(v) => update((d) => (d.madeBy.logoUrl = v))} />
         </AdminCard>
       </div>
     </div>

@@ -70,5 +70,14 @@
   "copyright": {
     "es": "© 2026 Tsuru. Todos los derechos reservados.",
     "en": "© 2026 Tsuru. All rights reserved."
+  },
+  "madeBy": {
+    "label": {
+      "es": "Un producto de",
+      "en": "A product of"
+    },
+    "name": "Pacific Code Labs",
+    "url": "https://pacific-code-labs.jcampos.dev",
+    "logoUrl": "/media/pacific-code-labs.png"
   }
 }

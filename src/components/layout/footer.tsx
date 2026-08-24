@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import footer from "@/content/footer.json";
 import { BrandLogo } from "@/components/layout/brand-logo";
+import { resolveAssetUrl } from "@/lib/media";
 
 export default function LandingFooter() {
   const { language: lang } = useLanguage();
@@ -55,8 +56,28 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
+        <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>{pick(footer.copyright).replace('© 2026', `© ${currentYear}`)}</p>
+
+          {/* Studio attribution — the logo already ships with alpha, so it sits
+              on both themes without a plate behind it. */}
+          <a
+            href={footer.madeBy.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-primary transition-colors group"
+          >
+            <span>{pick(footer.madeBy.label)}</span>
+            <img
+              src={resolveAssetUrl(footer.madeBy.logoUrl)}
+              alt={footer.madeBy.name}
+              className="h-7 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+              loading="lazy"
+            />
+            <span className="font-medium text-foreground/80 group-hover:text-primary transition-colors">
+              {footer.madeBy.name}
+            </span>
+          </a>
         </div>
       </div>
     </footer>
