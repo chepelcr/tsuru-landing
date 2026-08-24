@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import landing from "@/content/landing.json";
 import billing from "@/content/billing.json";
 import plans from "@/content/plans.json";
+import { formatCRC } from "@/lib/currency";
 import {
   UserPlus,
   Package,
@@ -267,7 +268,7 @@ export default function Landing() {
                 !plan.customPrice && plan.priceMonthly === 0 && plan.priceAnnual === 0;
               const price = plan.customPrice
                 ? pick(plans.planLabels.customPrice)
-                : `₡${plan.priceMonthly.toLocaleString("es-CR", { maximumFractionDigits: 0 })}`;
+                : formatCRC(plan.priceMonthly);
               const suffix = plan.customPrice
                 ? ""
                 : isFree

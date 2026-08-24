@@ -12,6 +12,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import plans from "@/content/plans.json";
+import { formatCRC } from "@/lib/currency";
 import {
   Sprout,
   Wheat,
@@ -47,11 +48,6 @@ const ADDON_ICONS: Record<string, React.ElementType> = {
 
 const TIER_IDS = ["semilla", "cosecha", "cooperativa", "feria"] as const;
 type TierId = (typeof TIER_IDS)[number];
-
-/** ₡20,000 → "₡20.000" (CRC, no decimals, CR thousands separator). */
-function formatCRC(amount: number): string {
-  return `₡${amount.toLocaleString("es-CR", { maximumFractionDigits: 0 })}`;
-}
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 

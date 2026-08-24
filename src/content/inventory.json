@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-24T13:58:42.869Z",
+  "generatedAt": "2026-08-24T14:21:46.176Z",
   "counts": {
     "content": 26,
     "repository": 2,
     "service": 2,
-    "lib": 22,
+    "lib": 23,
     "hook": 4,
     "component": 29,
     "admin": 39,
@@ -250,6 +250,12 @@
       "label": "brand-theme",
       "type": "lib",
       "path": "src/lib/brand-theme.ts"
+    },
+    {
+      "id": "lib/currency",
+      "label": "currency",
+      "type": "lib",
+      "path": "src/lib/currency.ts"
     },
     {
       "id": "lib/icons",
@@ -2593,6 +2599,11 @@
     },
     {
       "from": "pages/Landing",
+      "to": "lib/currency",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Landing",
       "to": "lib/rich-text",
       "kind": "imports"
     },
@@ -2634,6 +2645,11 @@
     {
       "from": "pages/Planes",
       "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Planes",
+      "to": "lib/currency",
       "kind": "imports"
     },
     {

@@ -15,7 +15,7 @@
   },
   "config": {
     "currency": "CRC",
-    "annualDiscountMonths": 2,
+    "annualDiscountMonths": 3,
     "moneyBackDays": 30,
     "defaultBillingCycle": "annual",
     "draftPricing": true,
@@ -55,12 +55,12 @@
       "en": "Annual"
     },
     "badge": {
-      "es": "Ahorrá 2 meses",
-      "en": "Save 2 months"
+      "es": "Ahorrá 3 meses",
+      "en": "Save 3 months"
     },
     "savingsNote": {
-      "es": "Con el plan anual pagás 10 meses y te regalamos 2.",
-      "en": "On the annual plan you pay 10 months and we give you 2."
+      "es": "Con el plan anual pagás 9 meses y te regalamos 3.",
+      "en": "On the annual plan you pay 9 months and we give you 3."
     }
   },
   "planLabels": {
@@ -228,7 +228,7 @@
         "en": "For the business already selling that needs its own face online."
       },
       "priceMonthly": 20000,
-      "priceAnnual": 200000,
+      "priceAnnual": 180000,
       "customPrice": false,
       "badge": {
         "es": "Más elegido",
@@ -236,8 +236,8 @@
       },
       "highlighted": true,
       "subline": {
-        "es": "Pagás 10 meses, te regalamos 2.",
-        "en": "Pay 10 months, we give you 2."
+        "es": "Pagás 9 meses, te regalamos 3.",
+        "en": "Pay 9 months, we give you 3."
       },
       "ctaLabel": {
         "es": "Empezar con Cosecha",
@@ -328,8 +328,8 @@
         "es": "Para varios puntos de venta, varias manos y una sola contabilidad.",
         "en": "For several points of sale, many hands, and one set of books."
       },
-      "priceMonthly": 45000,
-      "priceAnnual": 450000,
+      "priceMonthly": 35000,
+      "priceAnnual": 315000,
       "customPrice": false,
       "badge": {
         "es": "",
