@@ -251,8 +251,15 @@ export default function Planes() {
             </div>
           </div>
 
-          <p className="mb-8 text-center text-sm text-muted-foreground">
+          <p className="mb-2 text-center text-sm text-muted-foreground">
             {pick(plans.billingToggle.savingsNote)}
+          </p>
+
+          {/* Stated next to the amounts, not buried in the FAQ — "sin cargos
+              ocultos" only holds if the tax treatment is visible where the
+              price is. */}
+          <p className="mb-8 text-center text-sm text-muted-foreground">
+            <RichText>{pick(plans.planLabels.taxNote)}</RichText>
           </p>
 
           {/* Preliminary-pricing notice — hidden once draftPricing is false */}

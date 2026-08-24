@@ -58,6 +58,7 @@ const STRINGS = {
     mostPopular: "Etiqueta «más elegido»",
     draftNotice: "Aviso de precios preliminares",
     comingSoonLabel: "Etiqueta «Próximamente»",
+    taxNote: "Nota de impuestos (IVA)",
     plans: "Planes",
     addPlan: "Agregar plan",
     noPlans: "Sin planes",
@@ -143,6 +144,7 @@ const STRINGS = {
     mostPopular: "“Most chosen” label",
     draftNotice: "Preliminary-pricing notice",
     comingSoonLabel: "“Coming soon” label",
+    taxNote: "Tax note (IVA)",
     plans: "Plans",
     addPlan: "Add plan",
     noPlans: "No plans",
@@ -262,6 +264,7 @@ export default function PlansPage() {
           <BilingualField label={T.mostPopular} es={draft.planLabels.mostPopular.es} en={draft.planLabels.mostPopular.en} onChange={(l, v) => update((d) => (d.planLabels.mostPopular[l] = v))} />
           <BilingualTextArea label={T.draftNotice} es={draft.planLabels.draftNotice.es} en={draft.planLabels.draftNotice.en} onChange={(l, v) => update((d) => (d.planLabels.draftNotice[l] = v))} />
           <BilingualField label={T.comingSoonLabel} es={draft.planLabels.comingSoon.es} en={draft.planLabels.comingSoon.en} onChange={(l, v) => update((d) => (d.planLabels.comingSoon[l] = v))} />
+          <BilingualTextArea label={T.taxNote} es={draft.planLabels.taxNote.es} en={draft.planLabels.taxNote.en} onChange={(l, v) => update((d) => (d.planLabels.taxNote[l] = v))} hint={RICH_TEXT_HINT} />
         </AdminCard>
 
         <RepeatableList

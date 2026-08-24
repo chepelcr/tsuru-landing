@@ -91,6 +91,10 @@
     "comingSoon": {
       "es": "Próximamente",
       "en": "Coming soon"
+    },
+    "taxNote": {
+      "es": "Todos los precios están en colones e **incluyen IVA**. El precio que ves es el precio final.",
+      "en": "All prices are in colones and **include IVA**. The price you see is the final price."
     }
   },
   "plans": [
@@ -894,6 +898,16 @@
         "answer": {
           "es": "Nunca. Tsuru no cobra comisión por venta en ningún plan. Lo que ganás es tuyo.",
           "en": "Never. Tsuru charges no commission on sales on any plan. What you earn is yours."
+        }
+      },
+      {
+        "question": {
+          "es": "¿Los precios incluyen IVA?",
+          "en": "Do the prices include IVA?"
+        },
+        "answer": {
+          "es": "Sí. Todos los montos que ves ya incluyen el IVA — no hay un 13% que aparece después. El precio que ves es el precio que pagás.",
+          "en": "Yes. Every amount shown already includes IVA — there is no 13% appearing later. The price you see is the price you pay."
         }
       },
       {
