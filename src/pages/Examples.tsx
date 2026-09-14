@@ -19,13 +19,13 @@ import {
 interface Template {
   id: string;
   name: string;
-  displayName: string;
+  display_name: string;
   description: string;
   category: string;
-  thumbnailUrl?: string;
-  previewUrl?: string;
-  isActive: boolean;
-  sortOrder: number;
+  thumbnail_url?: string;
+  preview_url?: string;
+  is_active: boolean;
+  sort_order: number;
 }
 
 interface ExampleStore {
@@ -130,15 +130,15 @@ export default function Examples() {
   const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
   const { data: templates, isLoading, isError, error } = useQuery<Template[]>({
-    queryKey: [`${API_BASE_URL}/api/templates?activeOnly=true`],
+    queryKey: [`${API_BASE_URL}/api/templates?active_only=true`],
   });
 
   const exampleStores: ExampleStore[] = (templates || []).map((template) => ({
     id: template.id,
-    displayName: template.displayName,
+    displayName: template.display_name,
     description: template.description,
     category: template.category,
-    url: template.previewUrl ?? `https://${template.name}.examples.tsuru.jcampos.dev`,
+    url: template.preview_url ?? `https://${template.name}.examples.tsuru.jcampos.dev`,
     icon: getCategoryIcon(template.category),
     featured: featuredTemplateNames.includes(template.name),
   }));

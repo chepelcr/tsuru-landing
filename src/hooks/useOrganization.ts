@@ -8,9 +8,9 @@ export interface Organization {
   name: string;
   slug: string;
   subdomain?: string;
-  ownerId: string;
-  createdAt: string;
-  updatedAt: string;
+  owner_id: string;
+  created_at: string;
+  updated_at: string;
 }
 
 async function authenticatedRequest(
@@ -113,10 +113,11 @@ export function useOrganization() {
   // Create organization mutation (Step 1 - draft)
   const createOrganization = useMutation({
     mutationFn: async (data: CreateOrganizationData) => {
+      const { ownerId, ...body } = data;
       const response = await authenticatedRequest(
         'POST',
-        buildUserApiUrl(data.ownerId, '/organizations'),
-        data
+        buildUserApiUrl(ownerId, '/organizations'),
+        body
       );
       if (!response.ok) {
         const error = await response.json();
@@ -156,7 +157,7 @@ export function useOrganization() {
       const response = await authenticatedRequest(
         'POST',
         buildUserApiUrl(userId, `/organizations/${organizationId}/onboarding/step3`),
-        { templateId, includeCategories }
+        { template_id: templateId, include_categories: includeCategories }
       );
       if (!response.ok) {
         const error = await response.json();

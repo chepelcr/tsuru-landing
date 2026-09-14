@@ -45,7 +45,7 @@ function OrganizationsList() {
     pageSize: PAGE_SIZE,
   });
 
-  const totalPages = data ? Math.max(1, Math.ceil(data.total / data.pageSize)) : 1;
+  const totalPages = data ? Math.max(1, Math.ceil(data.total / data.page_size)) : 1;
 
   const openOrg = (org: AdminOrgListItem) => {
     // Hand the row to the detail page so it can show the org name without a
@@ -113,10 +113,10 @@ function OrganizationsList() {
                   >
                     <td className="px-5 py-3 font-medium text-foreground">
                       {org.name}
-                      {org.onboardingStep !== null && org.onboardingStep < 3 && (
+                      {org.onboarding_step !== null && org.onboarding_step < 3 && (
                         <span className="ml-2 align-middle">
                           <StateBadge tone="warn">
-                            {t("admin.rbac.orgs.onboarding")} {org.onboardingStep}/3
+                            {t("admin.rbac.orgs.onboarding")} {org.onboarding_step}/3
                           </StateBadge>
                         </span>
                       )}
@@ -127,15 +127,15 @@ function OrganizationsList() {
                     <td className="px-5 py-3 text-muted-foreground">{org.subdomain ?? "—"}</td>
                     <td className="px-5 py-3 capitalize text-muted-foreground">{org.plan ?? "—"}</td>
                     <td className="px-5 py-3">
-                      <StateBadge tone={org.isActive ? "ok" : "muted"}>
-                        {org.isActive ? t("admin.rbac.orgs.active") : t("admin.rbac.orgs.inactive")}
+                      <StateBadge tone={org.is_active ? "ok" : "muted"}>
+                        {org.is_active ? t("admin.rbac.orgs.active") : t("admin.rbac.orgs.inactive")}
                       </StateBadge>
                     </td>
                     <td className="px-5 py-3 text-right font-medium text-foreground">
-                      {org.moduleCount}
+                      {org.module_count}
                     </td>
                     <td className="px-5 py-3 text-muted-foreground">
-                      {new Date(org.createdAt).toLocaleDateString()}
+                      {new Date(org.created_at).toLocaleDateString()}
                     </td>
                   </tr>
                 ))}

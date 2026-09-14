@@ -8,27 +8,27 @@
 export interface RbacModule {
   id: string;
   name: string;
-  displayName: string;
+  display_name: string;
   description: string | null;
   icon: string | null;
-  isActive: boolean;
-  sortOrder: number | null;
+  is_active: boolean;
+  sort_order: number | null;
 }
 
 export interface RbacSubmodule {
   id: string;
-  moduleId: string;
+  module_id: string;
   name: string;
-  displayName: string;
+  display_name: string;
   description: string | null;
-  isActive: boolean;
-  sortOrder: number | null;
+  is_active: boolean;
+  sort_order: number | null;
 }
 
 export interface RbacAction {
   id: string;
   name: string;
-  displayName: string;
+  display_name: string;
   description: string | null;
 }
 
@@ -48,23 +48,23 @@ export interface AdminOrgListItem {
   slug: string;
   subdomain: string | null;
   plan: string | null;
-  isActive: boolean;
-  onboardingStep: number | null;
-  createdAt: string;
-  moduleCount: number;
+  is_active: boolean;
+  onboarding_step: number | null;
+  created_at: string;
+  module_count: number;
 }
 
 export interface AdminOrgListResponse {
   items: AdminOrgListItem[];
   total: number;
   page: number;
-  pageSize: number;
+  page_size: number;
 }
 
 export interface OrgSubmoduleState {
   submodule: RbacSubmodule;
   /** V1 effective availability as computed by the backend. */
-  effectiveEnabled: boolean;
+  effective_enabled: boolean;
   /** Raw organization_submodules.is_enabled, or null when no override row (inherit). */
   override: boolean | null;
 }
@@ -72,9 +72,9 @@ export interface OrgSubmoduleState {
 export interface OrgModuleState {
   module: RbacModule;
   assigned: boolean;
-  isEnabled: boolean;
-  assignedBy: string | null;
-  assignedAt: string | null;
+  is_enabled: boolean;
+  assigned_by: string | null;
+  assigned_at: string | null;
   submodules: OrgSubmoduleState[];
 }
 
@@ -82,24 +82,24 @@ export interface OrgModuleState {
 
 export interface ModuleUpsertBody {
   name: string;
-  displayName: string;
+  display_name: string;
   description?: string;
   icon?: string;
-  isActive?: boolean;
-  sortOrder?: number;
+  is_active?: boolean;
+  sort_order?: number;
 }
 
 export interface SubmoduleUpsertBody {
   name: string;
-  displayName: string;
+  display_name: string;
   description?: string;
-  isActive?: boolean;
-  sortOrder?: number;
+  is_active?: boolean;
+  sort_order?: number;
 }
 
 export interface ActionUpsertBody {
   name: string;
-  displayName: string;
+  display_name: string;
   description?: string;
 }
 
@@ -118,8 +118,8 @@ export interface PlatformUserProfile {
   id: string;
   username: string;
   email: string;
-  firstName?: string;
-  lastName?: string;
+  first_name?: string;
+  last_name?: string;
   role: string;
-  isActive?: boolean;
+  is_active?: boolean;
 }

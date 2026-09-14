@@ -11,12 +11,12 @@ import { PageHeader } from "@/components/admin/PageHeader";
 interface Template {
   id: string;
   name: string;
-  displayName: string;
+  display_name: string;
   description: string;
   category: string;
-  thumbnailUrl?: string;
-  isActive: boolean;
-  sortOrder: number;
+  thumbnail_url?: string;
+  is_active: boolean;
+  sort_order: number;
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "";
@@ -25,12 +25,12 @@ export default function TemplatesPage() {
   const { t } = useLanguage();
 
   const { data: templates, isLoading, isError, error } = useQuery<Template[]>({
-    queryKey: [`${API_BASE_URL}/api/templates?activeOnly=true`],
+    queryKey: [`${API_BASE_URL}/api/templates?active_only=true`],
   });
 
   const rows = (templates || [])
     .slice()
-    .sort((a, b) => a.sortOrder - b.sortOrder);
+    .sort((a, b) => a.sort_order - b.sort_order);
 
   return (
     <div>
@@ -88,7 +88,7 @@ export default function TemplatesPage() {
                 const url = `https://${tpl.name}.examples.tsuru.jcampos.dev`;
                 return (
                   <tr key={tpl.id} className="hover:bg-muted/40">
-                    <td className="px-5 py-3 font-medium text-foreground">{tpl.displayName}</td>
+                    <td className="px-5 py-3 font-medium text-foreground">{tpl.display_name}</td>
                     <td className="px-5 py-3 capitalize text-muted-foreground">{tpl.category}</td>
                     <td className="px-5 py-3">
                       <code className="text-xs text-muted-foreground">{tpl.name}</code>
@@ -96,12 +96,12 @@ export default function TemplatesPage() {
                     <td className="px-5 py-3">
                       <span
                         className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
-                          tpl.isActive
+                          tpl.is_active
                             ? "bg-emerald-500/15 text-emerald-600"
                             : "bg-muted text-muted-foreground"
                         }`}
                       >
-                        {tpl.isActive
+                        {tpl.is_active
                           ? t("admin.templates.active")
                           : t("admin.templates.inactive")}
                       </span>

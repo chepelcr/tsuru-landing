@@ -52,7 +52,7 @@ export function useAdminOrganizations(params: {
       repo.listOrganizations({
         search: params.search || undefined,
         page: params.page,
-        pageSize: params.pageSize,
+        page_size: params.pageSize,
       }),
     placeholderData: keepPreviousData,
   });
@@ -73,7 +73,7 @@ export function useSetOrgModule(orgId: string) {
     mutationFn: (vars: { moduleId: string; assigned: boolean; isEnabled?: boolean }) =>
       repo.setOrgModule(orgId, vars.moduleId, {
         assigned: vars.assigned,
-        isEnabled: vars.isEnabled,
+        is_enabled: vars.isEnabled,
       }),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: rbacAdminKeys.orgModules(orgId) });

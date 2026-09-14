@@ -43,10 +43,10 @@ interface UserProfile {
   id: string;
   username: string;
   email: string;
-  firstName?: string;
-  lastName?: string;
+  first_name?: string;
+  last_name?: string;
   role: string;
-  isActive?: boolean;
+  is_active?: boolean;
 }
 
 async function authenticatedRequest(
@@ -224,13 +224,8 @@ export function useAuth() {
     }) => {
       const response = await authenticatedRequest(
         'POST',
-        buildUserApiUrl(data.userId, '/profile/verify-email-complete'),
-        {
-          email: data.email,
-          username: data.username,
-          firstName: data.firstName,
-          lastName: data.lastName,
-        }
+        buildUserApiUrl(data.userId, '/verify-email-complete'),
+        {}
       );
 
       if (!response.ok) {

@@ -76,7 +76,7 @@ function CatalogScreen() {
 
   const modules = (catalog ?? [])
     .slice()
-    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+    .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
 
   return (
     <div>
@@ -133,11 +133,11 @@ function CatalogScreen() {
                       expanded[mod.id] ? "" : "-rotate-90"
                     }`}
                   />
-                  {mod.displayName}
+                  {mod.display_name}
                   <code className="text-xs font-normal text-muted-foreground">{mod.name}</code>
                 </button>
-                <StateBadge tone={mod.isActive ? "ok" : "muted"}>
-                  {mod.isActive ? t("admin.rbac.common.active") : t("admin.rbac.common.inactive")}
+                <StateBadge tone={mod.is_active ? "ok" : "muted"}>
+                  {mod.is_active ? t("admin.rbac.common.active") : t("admin.rbac.common.inactive")}
                 </StateBadge>
                 <span className="text-xs text-muted-foreground">
                   {mod.submodules.length} {t("admin.rbac.catalog.submodulesCount")}
@@ -147,12 +147,12 @@ function CatalogScreen() {
                   <div className="mr-2 flex items-center gap-2 text-xs text-muted-foreground">
                     <span>{t("admin.rbac.common.active")}</span>
                     <Toggle
-                      checked={mod.isActive}
+                      checked={mod.is_active}
                       disabled={busy}
                       label={t("admin.rbac.common.active")}
                       onChange={(isActive) =>
                         void run(() =>
-                          updateModule.mutateAsync({ moduleId: mod.id, body: { isActive } }),
+                          updateModule.mutateAsync({ moduleId: mod.id, body: { is_active: isActive } }),
                         )
                       }
                     />
@@ -203,7 +203,7 @@ function CatalogScreen() {
                     <div className="space-y-2">
                       {mod.submodules
                         .slice()
-                        .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+                        .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0))
                         .map((sub) => (
                           <div
                             key={sub.id}
@@ -211,12 +211,12 @@ function CatalogScreen() {
                           >
                             <div className="min-w-[160px]">
                               <span className="text-sm font-medium text-foreground">
-                                {sub.displayName}
+                                {sub.display_name}
                               </span>{" "}
                               <code className="text-xs text-muted-foreground">{sub.name}</code>
                             </div>
-                            <StateBadge tone={sub.isActive ? "ok" : "muted"}>
-                              {sub.isActive
+                            <StateBadge tone={sub.is_active ? "ok" : "muted"}>
+                              {sub.is_active
                                 ? t("admin.rbac.common.active")
                                 : t("admin.rbac.common.inactive")}
                             </StateBadge>
@@ -326,21 +326,21 @@ function ModuleFormModal({
   const { t } = useLanguage();
   const editing = state.mode === "edit" ? state.module : null;
   const [name, setName] = useState(editing?.name ?? "");
-  const [displayName, setDisplayName] = useState(editing?.displayName ?? "");
+  const [displayName, setDisplayName] = useState(editing?.display_name ?? "");
   const [description, setDescription] = useState(editing?.description ?? "");
   const [icon, setIcon] = useState(editing?.icon ?? "");
-  const [isActive, setIsActive] = useState(editing?.isActive ?? true);
-  const [sortOrder, setSortOrder] = useState(String(editing?.sortOrder ?? 0));
+  const [isActive, setIsActive] = useState(editing?.is_active ?? true);
+  const [sortOrder, setSortOrder] = useState(String(editing?.sort_order ?? 0));
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     void onSubmit({
       name: name.trim(),
-      displayName: displayName.trim(),
+      display_name: displayName.trim(),
       description: description.trim() || undefined,
       icon: icon.trim() || undefined,
-      isActive,
-      sortOrder: Number(sortOrder) || 0,
+      is_active: isActive,
+      sort_order: Number(sortOrder) || 0,
     });
   };
 
@@ -410,19 +410,19 @@ function SubmoduleFormModal({
   const { t } = useLanguage();
   const editing = state.mode === "edit" ? state.submodule : null;
   const [name, setName] = useState(editing?.name ?? "");
-  const [displayName, setDisplayName] = useState(editing?.displayName ?? "");
+  const [displayName, setDisplayName] = useState(editing?.display_name ?? "");
   const [description, setDescription] = useState(editing?.description ?? "");
-  const [isActive, setIsActive] = useState(editing?.isActive ?? true);
-  const [sortOrder, setSortOrder] = useState(String(editing?.sortOrder ?? 0));
+  const [isActive, setIsActive] = useState(editing?.is_active ?? true);
+  const [sortOrder, setSortOrder] = useState(String(editing?.sort_order ?? 0));
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     void onSubmit({
       name: name.trim(),
-      displayName: displayName.trim(),
+      display_name: displayName.trim(),
       description: description.trim() || undefined,
-      isActive,
-      sortOrder: Number(sortOrder) || 0,
+      is_active: isActive,
+      sort_order: Number(sortOrder) || 0,
     });
   };
 

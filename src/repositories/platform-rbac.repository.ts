@@ -31,8 +31,8 @@ export function getUserProfile(userId: string): Promise<PlatformUserProfile> {
 export function listOrganizations(params: {
   search?: string;
   page?: number;
-  pageSize?: number;
-  isActive?: boolean;
+  page_size?: number;
+  is_active?: boolean;
 }): Promise<AdminOrgListResponse> {
   return adminRequest("GET", `/api/admin/organizations${toQuery(params)}`);
 }
@@ -44,7 +44,7 @@ export function getOrgModules(orgId: string): Promise<OrgModuleState[]> {
 export function setOrgModule(
   orgId: string,
   moduleId: string,
-  body: { assigned: boolean; isEnabled?: boolean },
+  body: { assigned: boolean; is_enabled?: boolean },
 ): Promise<OrgModuleState> {
   return adminRequest("PUT", `/api/admin/organizations/${orgId}/modules/${moduleId}`, body);
 }
@@ -55,7 +55,7 @@ export function setOrgSubmoduleOverride(
   isEnabled: boolean | null,
 ): Promise<OrgSubmoduleState> {
   return adminRequest("PUT", `/api/admin/organizations/${orgId}/submodules/${submoduleId}`, {
-    isEnabled,
+    is_enabled: isEnabled,
   });
 }
 
@@ -66,7 +66,7 @@ export function applyDefaultModules(orgId: string): Promise<ApplyDefaultsRespons
 // ---- Catalog: modules (P6-P9) ----
 
 export function getModuleCatalog(includeInactive = true): Promise<CatalogModule[]> {
-  return adminRequest("GET", `/api/admin/rbac/modules${toQuery({ includeInactive })}`);
+  return adminRequest("GET", `/api/admin/rbac/modules${toQuery({ include_inactive: includeInactive })}`);
 }
 
 export function createModule(body: ModuleUpsertBody): Promise<RbacModule> {
@@ -129,5 +129,7 @@ export function setSubmoduleActions(
   submoduleId: string,
   actionIds: string[],
 ): Promise<{ message: string; count: number }> {
-  return adminRequest("PUT", `/api/admin/rbac/submodules/${submoduleId}/actions`, { actionIds });
+  return adminRequest("PUT", `/api/admin/rbac/submodules/${submoduleId}/actions`, {
+    action_ids: actionIds,
+  });
 }

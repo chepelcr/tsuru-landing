@@ -105,7 +105,7 @@ function MatrixScreen() {
   const actions = (actionsQuery.data ?? []).slice().sort((a, b) => a.name.localeCompare(b.name));
   const modules = (catalogQuery.data ?? [])
     .slice()
-    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+    .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
 
   return (
     <div>
@@ -161,7 +161,7 @@ function MatrixScreen() {
           {modules.map((mod) => (
             <div key={mod.id} className="overflow-x-auto rounded-2xl border border-border bg-card">
               <div className="border-b border-border px-5 py-3">
-                <span className="text-sm font-semibold text-foreground">{mod.displayName}</span>{" "}
+                <span className="text-sm font-semibold text-foreground">{mod.display_name}</span>{" "}
                 <code className="text-xs text-muted-foreground">{mod.name}</code>
               </div>
               <table className="w-full text-sm">
@@ -169,7 +169,7 @@ function MatrixScreen() {
                   <tr className="border-b border-border text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                     <th className="px-5 py-2.5">{t("admin.rbac.matrix.colSubmodule")}</th>
                     {actions.map((action) => (
-                      <th key={action.id} className="px-3 py-2.5 text-center" title={action.displayName}>
+                      <th key={action.id} className="px-3 py-2.5 text-center" title={action.display_name}>
                         {action.name}
                       </th>
                     ))}
@@ -178,14 +178,14 @@ function MatrixScreen() {
                 <tbody className="divide-y divide-border">
                   {mod.submodules
                     .slice()
-                    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+                    .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0))
                     .map((sub) => {
                       const selected = currentSet(sub.id);
                       const dirty = isDirty(sub.id);
                       return (
                         <tr key={sub.id} className={dirty ? "bg-amber-500/5" : "hover:bg-muted/40"}>
                           <td className="px-5 py-2.5">
-                            <span className="font-medium text-foreground">{sub.displayName}</span>
+                            <span className="font-medium text-foreground">{sub.display_name}</span>
                             {dirty && (
                               <span
                                 className="ml-2 inline-block h-2 w-2 rounded-full bg-amber-500 align-middle"

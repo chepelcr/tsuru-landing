@@ -103,7 +103,7 @@ function ActionsScreen() {
                   <td className="px-5 py-3">
                     <code className="text-xs text-foreground">{action.name}</code>
                   </td>
-                  <td className="px-5 py-3 font-medium text-foreground">{action.displayName}</td>
+                  <td className="px-5 py-3 font-medium text-foreground">{action.display_name}</td>
                   <td className="px-5 py-3 text-muted-foreground">{action.description ?? "—"}</td>
                   <td className="px-5 py-3 text-right">
                     <div className="inline-flex items-center gap-2">
@@ -169,14 +169,14 @@ function ActionFormModal({
   const { t } = useLanguage();
   const editing = state.mode === "edit" ? state.action : null;
   const [name, setName] = useState(editing?.name ?? "");
-  const [displayName, setDisplayName] = useState(editing?.displayName ?? "");
+  const [displayName, setDisplayName] = useState(editing?.display_name ?? "");
   const [description, setDescription] = useState(editing?.description ?? "");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     void onSubmit({
       name: name.trim(),
-      displayName: displayName.trim(),
+      display_name: displayName.trim(),
       description: description.trim() || undefined,
     });
   };

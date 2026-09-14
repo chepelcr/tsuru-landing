@@ -1,7 +1,7 @@
 // RBAC / Platform — per-organization module assignment (contract P2-P5).
 // Toggle assigned/enabled per module; expand a module to override submodules.
 // Effective availability (V1) is shown per submodule:
-//   module.isActive AND assigned AND isEnabled AND COALESCE(override, true).
+//   module.is_active AND assigned AND is_enabled AND COALESCE(override, true).
 
 import { useState } from "react";
 import { useLocation, useParams } from "wouter";
@@ -163,7 +163,7 @@ function ModuleCard({
   onSetOverride: (submoduleId: string, isEnabled: boolean | null) => void;
 }) {
   const { t } = useLanguage();
-  const moduleAvailable = row.module.isActive && row.assigned && row.isEnabled;
+  const moduleAvailable = row.module.is_active && row.assigned && row.is_enabled;
 
   return (
     <div className="rounded-2xl border border-border bg-card">
@@ -176,11 +176,11 @@ function ModuleCard({
           <ChevronDown
             className={`h-4 w-4 text-muted-foreground transition-transform ${expanded ? "" : "-rotate-90"}`}
           />
-          {row.module.displayName}
+          {row.module.display_name}
           <code className="text-xs font-normal text-muted-foreground">{row.module.name}</code>
         </button>
 
-        {!row.module.isActive && (
+        {!row.module.is_active && (
           <StateBadge tone="warn">{t("admin.rbac.orgDetail.inactiveCatalog")}</StateBadge>
         )}
         <StateBadge tone={moduleAvailable ? "ok" : "off"}>
@@ -202,7 +202,7 @@ function ModuleCard({
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <span>{t("admin.rbac.orgDetail.enabled")}</span>
             <Toggle
-              checked={row.assigned && row.isEnabled}
+              checked={row.assigned && row.is_enabled}
               disabled={busy || !row.assigned}
               onChange={onSetEnabled}
               label={t("admin.rbac.orgDetail.enabled")}
@@ -211,13 +211,13 @@ function ModuleCard({
         </div>
       </div>
 
-      {row.assigned && row.assignedAt && (
+      {row.assigned && row.assigned_at && (
         <div className="border-t border-border px-5 py-2 text-xs text-muted-foreground">
-          {t("admin.rbac.orgDetail.assignedAt")}: {new Date(row.assignedAt).toLocaleString()}
-          {row.assignedBy && (
+          {t("admin.rbac.orgDetail.assignedAt")}: {new Date(row.assigned_at).toLocaleString()}
+          {row.assigned_by && (
             <>
               {" · "}
-              {t("admin.rbac.orgDetail.assignedBy")}: <code>{row.assignedBy}</code>
+              {t("admin.rbac.orgDetail.assignedBy")}: <code>{row.assigned_by}</code>
             </>
           )}
         </div>
@@ -238,7 +238,7 @@ function ModuleCard({
           ) : (
             <div className="space-y-2">
               {row.submodules.map((sub) => {
-                const effective = moduleAvailable && sub.effectiveEnabled;
+                const effective = moduleAvailable && sub.effective_enabled;
                 const overrideValue =
                   sub.override === null ? "inherit" : sub.override ? "on" : "off";
                 return (
@@ -248,7 +248,7 @@ function ModuleCard({
                   >
                     <div className="min-w-[160px]">
                       <span className="text-sm font-medium text-foreground">
-                        {sub.submodule.displayName}
+                        {sub.submodule.display_name}
                       </span>{" "}
                       <code className="text-xs text-muted-foreground">{sub.submodule.name}</code>
                     </div>

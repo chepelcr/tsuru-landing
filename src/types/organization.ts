@@ -6,19 +6,19 @@ export interface CreateOrganizationData {
   ownerId: string;
 
   // Contact settings (Step 2 & 3)
-  contactSettings?: {
+  contact_settings?: {
     phone: string;
-    whatsappNumber?: string;
-    businessHours: string;
+    whatsapp_number?: string;
+    business_hours: string;
     address: string;
     country: string;
     state: string;
     city: string;
-    postalCode: string;
+    postal_code: string;
   };
 
   // Template selection (Step 4)
-  templateId?: string;
+  template_id?: string;
 }
 
 export interface OrganizationFormData {
@@ -47,11 +47,11 @@ export interface OrganizationFormData {
 export interface Template {
   id: string;
   name: string;
-  displayName: string;
+  display_name: string;
   description: string;
   category: string;
-  thumbnailUrl?: string;
-  previewUrl?: string;
-  isActive: boolean;
-  sortOrder: number;
+  thumbnail_url?: string;
+  preview_url?: string;
+  is_active: boolean;
+  sort_order: number;
 }
