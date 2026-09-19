@@ -52,7 +52,7 @@ const getCategoryIcon = (category: string): React.ReactNode => {
   return iconMap[category] || <Store className="h-6 w-6" />;
 };
 
-const featuredTemplateNames = ['jmarkets-demo', 'artisan-crafts', 'gourmet-foods'];
+const featuredTemplateNames = ['tsuru-demo', 'artisan-crafts', 'gourmet-foods'];
 
 // ─── ExampleCard ─────────────────────────────────────────────────────────────
 

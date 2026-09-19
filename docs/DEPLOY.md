@@ -68,8 +68,8 @@ Seeded from the monorepo's `buildspec-frontend-landing.yml` / SSM. Set via
 | Secret | Value | Required? |
 |---|---|---|
 | `VITE_API_URL` | `https://markets-api.jcampos.dev` | yes (templates API) |
-| `VITE_APP_URL` | `https://j-markets.jcampos.dev` | yes (display/links) |
-| `VITE_BASE_DOMAIN` | `j-markets.jcampos.dev` | yes (display) |
+| `VITE_APP_URL` | `https://app.tsuru.jcampos.dev` | yes (display/links) |
+| `VITE_BASE_DOMAIN` | `tsuru.jcampos.dev` | yes (display) |
 | `VITE_AWS_REGION` | `us-east-1` | yes |
 | `VITE_AWS_COGNITO_USER_POOL_ID` | from SSM `/jcampos/dev/jmarkets/cognito/user-pool-id` | optional* |
 | `VITE_AWS_COGNITO_CLIENT_ID` | from SSM `/jcampos/dev/jmarkets/cognito/client-id` | optional* |
@@ -101,7 +101,7 @@ the SPA deep-link fallback — no manual `index.html`→`404.html` copy needed.
 
 This repo was split from the BeautyMarket monorepo, which deployed the landing via
 `deploys/setup-template-bucket.js` / `buildspec-frontend-landing.yml` to
-**`j-markets.jcampos.dev`** (S3 + CloudFront + Route53). To use that path instead,
+**`tsuru.jcampos.dev`** (S3 + CloudFront + Route53). To use that path instead,
 build with `BASE_PATH=/`, upload `dist/landing/` to the bucket (HTML `no-cache`,
 images/fonts `max-age=31536000`, other assets `max-age=86400`), keep `404.html`
 `noindex`, and invalidate CloudFront.
