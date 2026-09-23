@@ -108,12 +108,12 @@ URL. Public routes are plain (`/funcionalidades`, `/features`, `/blog`, …; see
 
 ## Brand logo slot
 
-`src/components/layout/brand-logo.tsx` is the reserved slot for the Tsuru wordmark
-(still in production — see `docs/roadmap/tsuru_brand_asset_guide.md` §2, L1/L2). It
-renders `branding.logoUrl` / `logoUrlDark` when set and the botanical placeholder at
-the identical footprint when not, so dropping the artwork in causes **no layout
-shift**. Navbar uses 32px, footer 28px. Going live needs no code change: upload via
-the admin Media library, then set the URLs on the Site identity page.
+`src/components/layout/brand-logo.tsx` renders the supplied light/reverse
+wordmarks from `branding.logoUrl` / `logoUrlDark` in the navbar and footer. The
+PNG padding is cropped in CSS; the source files stay untouched. The Site Identity
+page also edits `faviconUrl` / `faviconUrlDark`, and `ThemeContext` swaps the
+active browser icon with the color mode. Assets live under `public/brand/`; the
+leaf placeholder remains only as a fallback if both wordmark URLs are cleared.
 
 ## Rich-text module
 

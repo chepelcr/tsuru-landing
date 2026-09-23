@@ -59,7 +59,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <BrandLogo label={pick(navbar.brand)} size={32} />
+            <BrandLogo label={pick(navbar.brand)} size={40} />
           </Link>
 
           {/* Desktop Navigation */}

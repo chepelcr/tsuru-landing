@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { applyFavicon } from '@/lib/brand-theme';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -23,8 +24,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const root = window.document.documentElement;
     const body = window.document.body;
+    let applyTimer: number;
+    let transitionTimer: number;
 
     const applyTheme = (newTheme: Theme) => {
+      window.clearTimeout(applyTimer);
+      window.clearTimeout(transitionTimer);
       let resolved: 'light' | 'dark';
 
       if (newTheme === 'system') {
@@ -39,14 +44,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       body.classList.add("theme-transitioning");
 
       // Change theme smoothly with slight delay
-      setTimeout(() => {
+      applyTimer = window.setTimeout(() => {
         root.classList.remove('light', 'dark');
         root.classList.add(resolved);
         setResolvedTheme(resolved);
+        applyFavicon(resolved);
       }, 200);
 
       // Remove transitioning class after smooth transition
-      setTimeout(() => {
+      transitionTimer = window.setTimeout(() => {
         body.classList.remove("theme-transitioning");
       }, 800);
     };
@@ -62,7 +68,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     };
 
     mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+      window.clearTimeout(applyTimer);
+      window.clearTimeout(transitionTimer);
+      body.classList.remove('theme-transitioning');
+    };
   }, [theme]);
 
   const setTheme = (newTheme: Theme) => {

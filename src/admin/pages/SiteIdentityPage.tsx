@@ -155,6 +155,11 @@ export default function SiteIdentityPage() {
             value={bDraft.faviconUrl}
             onChange={(v) => setBranding((b) => (b.faviconUrl = v))}
           />
+          <MediaPicker
+            label={t("admin.identity.faviconDark")}
+            value={bDraft.faviconUrlDark}
+            onChange={(v) => setBranding((b) => (b.faviconUrlDark = v))}
+          />
           <TextField
             label={t("admin.identity.adminLoginUrl")}
             value={bDraft.adminLoginUrl}

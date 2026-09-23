@@ -1,16 +1,9 @@
-// BrandLogo — the reserved slot for the incoming Tsuru logo.
-//
-// The wordmark logo is still being produced (see docs/roadmap/
-// tsuru_brand_asset_guide.md §2: L1 wordmark + L2 dark-mode variant). Until the
-// files exist, this renders the botanical placeholder mark at exactly the size
-// the real logo will occupy, so dropping the asset in causes no layout shift.
-//
-// To go live: upload the artwork through the admin Media library and set
-// `logoUrl` / `logoUrlDark` on the Site identity page (writes branding.json).
-// No code change needed — this component switches over on its own.
+// The image replaces both the placeholder symbol and its text. Site Identity
+// controls the light/dark URLs; the fallback stays for incomplete brand config.
 
 import { Leaf } from "lucide-react";
 import branding from "@/content/branding.json";
+import { resolveAssetUrl } from "@/lib/media";
 
 interface BrandLogoProps {
   /** Wordmark text rendered beside the mark. */
@@ -29,24 +22,30 @@ export function BrandLogo({
   const light = branding.logoUrl?.trim();
   const dark = branding.logoUrlDark?.trim() || light;
 
-  // Once artwork is set, the image replaces the whole lockup (mark + wordmark),
-  // since the L1/L4 assets already contain the "Tsuru" wordmark themselves.
+  // The supplied PNGs have generous transparent margins and a tiny tagline.
+  // Crop those margins at display size so the wordmark stays readable in chrome.
+  const wordmarkStyle = {
+    height: size * 1.5,
+    maxWidth: "none",
+    marginLeft: -size * 0.825,
+    marginTop: -size * 0.15,
+  };
   if (light) {
     return (
-      <>
+      <span className="relative block shrink-0 overflow-hidden" style={{ width: size * 3, height: size }}>
         <img
-          src={light}
+          src={resolveAssetUrl(light)}
           alt={label}
-          style={{ height: size }}
-          className="w-auto dark:hidden"
+          style={wordmarkStyle}
+          className="block w-auto dark:hidden"
         />
         <img
-          src={dark}
+          src={resolveAssetUrl(dark)}
           alt={label}
-          style={{ height: size }}
+          style={wordmarkStyle}
           className="hidden w-auto dark:block"
         />
-      </>
+      </span>
     );
   }
 

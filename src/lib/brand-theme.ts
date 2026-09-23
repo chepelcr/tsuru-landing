@@ -1,12 +1,12 @@
 // Theme applier — distinct from ThemeContext (which owns the .dark class + the
 // "theme" localStorage key). This reads the active theme from themes.json and
-// the favicon from branding.json, and writes them into the DOM:
+// the light/dark favicons from branding.json, and writes them into the DOM:
 //
 //  - a single managed <style id="brand-theme"> element so it never fights inline
 //    styles. It sets brand tokens (--brand-*) on :root and the SEMANTIC light-mode
 //    tokens (--primary, --accent, ...) scoped to :root:not(.dark), so the .dark
 //    palette (a more-specific .dark class selector) keeps precedence.
-//  - the <link rel="icon"> from branding.faviconUrl (no-op when empty).
+//  - the <link rel="icon"> for the active color mode.
 //
 // The seeded "default" theme mirrors the current :root light palette, so calling
 // initBrand() at boot is a visual no-op.
@@ -94,10 +94,13 @@ export function applyBrandTheme(theme: Theme): void {
   el.textContent = buildCss(theme.colors);
 }
 
-export function applyFavicon(ref?: string | null): void {
+export function applyFavicon(mode: "light" | "dark"): void {
   if (typeof document === "undefined") return;
+  const ref = mode === "dark"
+    ? brandingData.faviconUrlDark || brandingData.faviconUrl
+    : brandingData.faviconUrl;
   const href = resolveAssetUrl(ref);
-  if (!href) return; // no-op when branding.faviconUrl is empty
+  if (!href) return;
   let link = document.querySelector<HTMLLinkElement>("link[rel='icon']");
   if (!link) {
     link = document.createElement("link");
@@ -105,11 +108,19 @@ export function applyFavicon(ref?: string | null): void {
     document.head.appendChild(link);
   }
   link.href = href;
+  link.type = href.endsWith(".svg") ? "image/svg+xml" : "image/png";
 }
 
 export function initBrand(): void {
   const themes = themesData as Theme[];
   const active = themes.find((t) => t.isActive) ?? themes[0];
   if (active) applyBrandTheme(active);
-  applyFavicon(brandingData.faviconUrl);
+  let saved: string | null = null;
+  try {
+    saved = localStorage.getItem("theme");
+  } catch {
+    // Storage can be unavailable; the system preference still gives a first icon.
+  }
+  const dark = saved === "dark" || (saved !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  applyFavicon(dark ? "dark" : "light");
 }

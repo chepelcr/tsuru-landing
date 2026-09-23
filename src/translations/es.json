@@ -181,6 +181,7 @@
   "admin.identity.logo": "Logo",
   "admin.identity.logoDark": "Logo oscuro",
   "admin.identity.favicon": "Favicon",
+  "admin.identity.faviconDark": "Favicon oscuro",
   "admin.identity.adminLoginUrl": "URL de acceso admin",
   "admin.identity.adminRegisterUrl": "URL de registro admin",
   "admin.identity.newTheme": "Nuevo tema",
