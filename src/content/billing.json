@@ -1,21 +1,21 @@
 {
   "badge": { "es": "Facturación electrónica", "en": "Electronic invoicing" },
   "title": {
-    "es": "Factura legal ante Hacienda — gratis, de verdad",
-    "en": "Legal Hacienda invoicing — genuinely free"
+    "es": "Del pedido entregado a la factura, sin empezar de cero.",
+    "en": "From delivered order to invoice, without starting over."
   },
   "subtitle": {
-    "es": "Formalizarse no debería costar. Tsuru firma y envía tus comprobantes electrónicos a Hacienda automáticamente, para que el negocio más pequeño pueda vender legal desde el primer día.",
-    "en": "Going formal shouldn't cost money. Tsuru signs and submits your e-invoices to Hacienda automatically, so even the smallest business can sell legally from day one."
+    "es": "Si tu negocio tiene la configuración fiscal necesaria, podés facturar un pedido entregado sin volver a cargar sus productos. Revisás el comprobante, lo emitís ante Hacienda y Tsuru lo vincula automáticamente con el pedido. La facturación electrónica sigue siendo gratuita en todos los planes.",
+    "en": "With the required fiscal setup, you can invoice a delivered order without re-entering its products. Review the document, issue it to Hacienda, and Tsuru automatically links it to the order. Electronic invoicing remains free on every plan."
   },
   "points": [
     { "es": "Comprobantes v4.4 firmados digitalmente (XAdES)", "en": "Digitally signed v4.4 receipts (XAdES)" },
     { "es": "Envío y validación automática ante Hacienda (ATV)", "en": "Automatic submission and validation with Hacienda (ATV)" },
     { "es": "PDF y correo al cliente, sin pasos extra", "en": "PDF and customer email, no extra steps" },
-    { "es": "Funciona desde el celular, incluso sin conexión", "en": "Works from your phone, even offline" }
+    { "es": "Prepará ventas desde el celular; sin conexión, quedan pendientes de envío", "en": "Prepare sales from your phone; offline entries wait to sync" }
   ],
   "note": {
-    "es": "Para nosotros, que el vendedor más pequeño pueda facturar legal es economía solidaria en la práctica.",
-    "en": "To us, letting the smallest seller invoice legally is solidarity economy in practice."
+    "es": "La emisión la iniciás vos después de la entrega. El comprobante se prepara con los productos del pedido para que revisés sus datos antes de emitirlo.",
+    "en": "You start invoicing after delivery. The document is prepared from the order's products so you can review its details before issuing it."
   }
 }

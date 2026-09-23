@@ -1,12 +1,12 @@
 {
   "siteUrl": "https://tsuru.jcampos.dev",
   "defaultTitle": {
-    "es": "Tsuru — Vende legal, vende fácil",
-    "en": "Tsuru — Sell legally, sell easily"
+    "es": "Tsuru — Llevá tus pedidos en orden",
+    "en": "Tsuru — Keep every order organized"
   },
   "defaultDescription": {
-    "es": "Tsuru es el punto de venta gratuito con facturación electrónica de Hacienda para los emprendedores más pequeños de Costa Rica. Crea tu catálogo, recibe pedidos por WhatsApp y emite facturas legales — sin pagar nada.",
-    "en": "Tsuru is the free point of sale with Hacienda electronic invoicing for Costa Rica's smallest entrepreneurs. Build your catalog, take orders over WhatsApp, and issue legal invoices — at no cost."
+    "es": "Organizá productos, clientes y pedidos en Tsuru. Compartí tu tienda en línea y, con la configuración fiscal necesaria, facturá gratis ante Hacienda cuando te corresponda.",
+    "en": "Organize products, customers, and orders in Tsuru. Share your online store and, with the required fiscal setup, invoice through Hacienda for free when it applies."
   },
   "ogImage": "/brand/social-card.png",
   "pages": {
@@ -33,21 +33,21 @@
     "planes": {
       "es": {
         "title": "Planes y precios — Tsuru",
-        "description": "Cuatro planes de economía solidaria: Semilla gratis para siempre con facturación electrónica incluida, Cosecha, Cooperativa y Feria. Sin comisiones por venta y tus datos siempre exportables."
+        "description": "Semilla es gratis para organizar pedidos. Con la configuración fiscal necesaria, la facturación electrónica también es gratis en todos los planes. Sin comisiones por venta."
       },
       "en": {
         "title": "Plans & pricing — Tsuru",
-        "description": "Four solidarity-economy plans: Semilla free forever with electronic invoicing included, plus Cosecha, Cooperativa, and Feria. No commission on sales and your data always exportable."
+        "description": "Semilla is free for organizing orders. With the required fiscal setup, electronic invoicing is free on every plan too. No commission on sales."
       }
     },
     "pricing": {
       "es": {
         "title": "Planes y precios — Tsuru",
-        "description": "Cuatro planes de economía solidaria: Semilla gratis para siempre con facturación electrónica incluida, Cosecha, Cooperativa y Feria. Sin comisiones por venta y tus datos siempre exportables."
+        "description": "Semilla es gratis para organizar pedidos. Con la configuración fiscal necesaria, la facturación electrónica también es gratis en todos los planes. Sin comisiones por venta."
       },
       "en": {
         "title": "Plans & pricing — Tsuru",
-        "description": "Four solidarity-economy plans: Semilla free forever with electronic invoicing included, plus Cosecha, Cooperativa, and Feria. No commission on sales and your data always exportable."
+        "description": "Semilla is free for organizing orders. With the required fiscal setup, electronic invoicing is free on every plan too. No commission on sales."
       }
     }
   }

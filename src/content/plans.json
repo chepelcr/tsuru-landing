@@ -9,8 +9,8 @@
       "en": "Start free. {{Grow at your own pace}}."
     },
     "subtitle": {
-      "es": "Cuatro planes que siguen el ciclo de una cosecha. El primero es gratis para siempre — no un trial, no una versión recortada que te obliga a pagar para facturar legal. Los demás existen para que quien ya creció sostenga a quien está empezando.",
-      "en": "Four plans that follow a harvest cycle. The first is free forever — not a trial, not a crippled tier that forces you to pay to invoice legally. The rest exist so those who have grown can sustain those just starting."
+      "es": "Cuatro planes que siguen el ciclo de una cosecha. Empezá gratis con tus pedidos en Semilla; cuando te corresponda facturar y tengas la configuración fiscal necesaria, los comprobantes electrónicos también son gratis en todos los planes. Los demás existen para que quien ya creció sostenga a quien está empezando.",
+      "en": "Four plans that follow a harvest cycle. Start free with orders on Semilla; when invoicing applies to you and the required fiscal setup is in place, electronic documents are free on every plan too. The others let growing businesses support those just starting."
     }
   },
   "config": {
@@ -106,8 +106,8 @@
         "en": "Semilla"
       },
       "tagline": {
-        "es": "Para el negocio que está naciendo. Gratis, de verdad, para siempre.",
-        "en": "For the business just being born. Free, genuinely, forever."
+        "es": "Empezá con tus pedidos. Sumá facturación electrónica cuando te corresponda. Gratis para siempre.",
+        "en": "Start with orders. Add electronic invoicing when it applies to you. Free forever."
       },
       "priceMonthly": 0,
       "priceAnnual": 0,
@@ -127,6 +127,13 @@
       },
       "ctaHref": "https://app.tsuru.jcampos.dev/register",
       "features": [
+        {
+          "label": {
+            "es": "Pedidos manuales y seguimiento",
+            "en": "Manual orders and tracking"
+          },
+          "enabled": true
+        },
         {
           "label": {
             "es": "Facturación electrónica v4.4 ante Hacienda",
@@ -272,8 +279,8 @@
         },
         {
           "label": {
-            "es": "Tu propio dominio (tunegocio.com)",
-            "en": "Your own domain (yourshop.com)"
+            "es": "Conectá un dominio que compraste (con verificación DNS)",
+            "en": "Connect a domain you purchased (with DNS verification)"
           },
           "enabled": true
         },
@@ -691,16 +698,16 @@
             "en": "Subdomain"
           },
           "cosecha": {
-            "es": "Dominio propio",
-            "en": "Custom domain"
+            "es": "Dominio comprado por vos",
+            "en": "Your purchased domain"
           },
           "cooperativa": {
-            "es": "Dominio propio",
-            "en": "Custom domain"
+            "es": "Dominio comprado por vos",
+            "en": "Your purchased domain"
           },
           "feria": {
-            "es": "Dominio propio",
-            "en": "Custom domain"
+            "es": "Dominio comprado por vos",
+            "en": "Your purchased domain"
           }
         }
       },
@@ -908,6 +915,16 @@
         "answer": {
           "es": "Sí. Todos los montos que ves ya incluyen el IVA — no hay un 13% que aparece después. El precio que ves es el precio que pagás.",
           "en": "Yes. Every amount shown already includes IVA — there is no 13% appearing later. The price you see is the price you pay."
+        }
+      },
+      {
+        "question": {
+          "es": "¿Cosecha incluye la compra de un dominio?",
+          "en": "Does Cosecha include buying a domain?"
+        },
+        "answer": {
+          "es": "No. Comprás y renovás el dominio con el proveedor que elijás. Cuando la conexión de dominios esté disponible en Tsuru, podrás configurarlo desde la app: agregarás los registros DNS indicados y se verificará que controlás el dominio antes de usarlo en tu tienda. La compra del dominio se paga por separado a tu proveedor.",
+          "en": "No. You buy and renew the domain with a provider of your choice. When domain connection is available in Tsuru, you will set it up in the app: add the indicated DNS records and verify that you control the domain before using it for your store. You pay your provider separately for the domain."
         }
       },
       {

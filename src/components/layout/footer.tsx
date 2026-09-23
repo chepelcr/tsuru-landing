@@ -18,7 +18,7 @@ export default function LandingFooter() {
             <Link href="/" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
               <BrandLogo label={pick(footer.brand)} size={36} />
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed text-justify">
               {pick(footer.description)}
             </p>
           </div>

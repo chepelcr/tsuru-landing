@@ -82,7 +82,7 @@ function ExampleCard({ store }: { store: ExampleStore }) {
         <span className="inline-block text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full capitalize border border-border whitespace-nowrap mb-3">
           {store.category}
         </span>
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{store.description}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 text-justify">{store.description}</p>
       </div>
 
       {/* Action */}

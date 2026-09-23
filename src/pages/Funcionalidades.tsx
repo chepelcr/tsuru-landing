@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import features from "@/content/features.json";
 import {
   Palette,
-  MessageCircle,
-  Package,
+  FileCheck,
+  WifiOff,
   QrCode,
   ClipboardList,
   Globe,
@@ -42,7 +42,7 @@ function FeatureCard({ icon: Icon, title, description, color = 'green', status }
             </span>
           )}
         </div>
-        <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
+        <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -60,13 +60,22 @@ function UseCaseCard({ icon: Icon, title, description }: {
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-1">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
+        <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
 }
 
-const FEATURE_ICONS = [Palette, MessageCircle, Package, QrCode, ClipboardList, Globe, ArrowLeftRight];
+const FEATURE_ICONS: Record<string, React.ElementType> = {
+  ClipboardList,
+  FileCheck,
+  WifiOff,
+  Palette,
+  QrCode,
+  Globe,
+  Users,
+  ArrowLeftRight,
+};
 const USE_CASE_ICONS = [Hammer, UtensilsCrossed, Users];
 
 export default function Funcionalidades() {
@@ -112,7 +121,7 @@ export default function Funcionalidades() {
                   className={i < pairFrom ? 'lg:col-span-2' : 'lg:col-span-3'}
                 >
                   <FeatureCard
-                    icon={FEATURE_ICONS[i]}
+                    icon={FEATURE_ICONS[card.iconName] ?? ClipboardList}
                     title={pick(card.title)}
                     description={pick(card.description)}
                     color={card.color as 'green' | 'earth'}

@@ -9,12 +9,21 @@
   },
   "featureCards": [
     {
+      "iconName": "ClipboardList",
+      "color": "green",
+      "title": { "es": "Pedidos para vender con orden", "en": "Orders that keep work organized" },
+      "description": {
+        "es": "Registrá lo que te piden, a quién se entrega y cuándo; seguí el avance desde la lista de pedidos. Podés empezar aunque todavía no usés facturación electrónica.",
+        "en": "Record what was requested, who receives it, and when; follow progress from your order list. You can start even if you are not using electronic invoicing yet."
+      }
+    },
+    {
       "iconName": "FileCheck",
       "color": "green",
       "title": { "es": "Facturación electrónica gratis", "en": "Free electronic invoicing" },
       "description": {
-        "es": "Emite comprobantes electrónicos v4.4 firmados y enviados a Hacienda automáticamente. Lo que otros cobran caro, aquí es gratis.",
-        "en": "Issue v4.4 e-invoices, digitally signed and submitted to Hacienda automatically. What others charge dearly for, here is free."
+        "es": "Con la configuración fiscal necesaria, emití comprobantes electrónicos v4.4 firmados y enviados a Hacienda. Un pedido entregado se puede facturar sin volver a cargar sus productos.",
+        "en": "With the required fiscal setup, issue signed v4.4 electronic documents to Hacienda. You can invoice a delivered order without re-entering its products."
       }
     },
     {
@@ -22,8 +31,8 @@
       "color": "green",
       "title": { "es": "Vende aunque no haya internet", "en": "Sell even with no internet" },
       "description": {
-        "es": "Registra ventas sin conexión; cuando vuelve la señal, todo se sincroniza y factura solo.",
-        "en": "Record sales offline; when the signal returns, everything syncs and invoices itself."
+        "es": "Registrá pedidos y ventas sin conexión. Cuando vuelve la señal, se envían los datos pendientes; emitir una factura sigue siendo un paso aparte cuando corresponde.",
+        "en": "Record orders and sales offline. When the connection returns, pending data syncs; issuing an invoice remains a separate step when applicable."
       }
     },
     {
@@ -76,7 +85,7 @@
   ],
   "useCasesSection": {
     "title": { "es": "¿Quién usa Tsuru?", "en": "Who uses Tsuru?" },
-    "subtitle": { "es": "Emprendedores reales, historias reales", "en": "Real entrepreneurs, real stories" }
+    "subtitle": { "es": "Situaciones cotidianas de pequeños negocios", "en": "Everyday needs of small businesses" }
   },
   "useCases": [
     {
@@ -107,9 +116,9 @@
   "cta": {
     "title": { "es": "Empieza a construir tu espacio hoy", "en": "Start building your space today" },
     "subtitle": {
-      "es": "Nacido de un proyecto comunitario de la UCR — construido para vender con propósito.",
-      "en": "Born from a UCR community project — built for selling with purpose."
+      "es": "Empezá por organizar lo que vendés y cada pedido que recibís. Sumá otras herramientas a tu ritmo.",
+      "en": "Start by organizing what you sell and every order you receive. Add more tools at your own pace."
     },
-    "button": { "es": "Crear tu tienda gratis", "en": "Create your store for free" }
+    "button": { "es": "Empezar gratis", "en": "Start for free" }
   }
 }

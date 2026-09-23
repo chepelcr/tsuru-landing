@@ -27,7 +27,7 @@ function ValuePill({ icon: Icon, title, description }: {
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-1">{title}</h3>
-        <p className="text-sm text-muted-foreground"><RichText>{description}</RichText></p>
+        <p className="text-sm text-muted-foreground text-justify"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -143,7 +143,7 @@ export default function Comunidad() {
                   </span>
                 )}
               </div>
-              <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+              <p className="text-muted-foreground leading-relaxed text-lg mb-6 text-justify">
                 <RichText>{pick(community.barter.description)}</RichText>
               </p>
               <div className="flex flex-col gap-3">
@@ -205,7 +205,7 @@ export default function Comunidad() {
                   </span>
                 )}
               </div>
-              <p className="text-muted-foreground leading-relaxed text-lg">
+              <p className="text-muted-foreground leading-relaxed text-lg md:text-justify">
                 <RichText>{pick(community.mutual.description)}</RichText>
               </p>
             </div>

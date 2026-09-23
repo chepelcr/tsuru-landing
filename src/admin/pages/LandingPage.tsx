@@ -1,5 +1,5 @@
 // Landing — singleton editor for landing.json: hero, "how it works" (+ steps),
-// values (+ items), and the final CTA. Steps and value items are reorderable
+// orders, storefront, values (+ items), and the final CTA. Steps and value items are reorderable
 // repeatable lists. Chrome is bilingual via a per-page T dict.
 
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -18,7 +18,7 @@ import { useSingletonDraft, moveItem } from "@/admin/useSingletonDraft";
 const STRINGS = {
   es: {
     title: "Inicio",
-    subtitle: "Sección principal, cómo funciona, principios y llamado final",
+    subtitle: "Sección principal, pedidos, tienda, principios y llamado final",
     hero: "Hero",
     badge: "Insignia",
     heroTitle: "Título",
@@ -32,6 +32,20 @@ const STRINGS = {
     steps: "Pasos",
     addStep: "Agregar paso",
     noSteps: "Sin pasos",
+    orders: "Pedidos · ejemplo ilustrativo",
+    storefront: "Tienda en línea · hoy y próximamente",
+    body: "Texto principal",
+    exampleLabel: "Etiqueta del ejemplo",
+    exampleMessage: "Mensaje del cliente",
+    exampleOrder: "Pedido preparado",
+    exampleFollowUp: "Seguimiento y entrega",
+    exampleInvoice: "Factura, si corresponde",
+    exampleSteps: "Etiquetas de la secuencia",
+    currentTitle: "Título de lo disponible hoy",
+    currentBody: "Descripción de lo disponible hoy",
+    futureStatus: "Estado del plan",
+    futureTitle: "Título del plan",
+    futureBody: "Descripción del plan",
     itemTitle: "Título",
     itemDesc: "Descripción",
     values: "Principios",
@@ -50,7 +64,7 @@ const STRINGS = {
   },
   en: {
     title: "Home",
-    subtitle: "Hero, how it works, principles, and the final call to action",
+    subtitle: "Hero, orders, store, principles, and the final call to action",
     hero: "Hero",
     badge: "Badge",
     heroTitle: "Title",
@@ -64,6 +78,20 @@ const STRINGS = {
     steps: "Steps",
     addStep: "Add step",
     noSteps: "No steps",
+    orders: "Orders · illustrative example",
+    storefront: "Online store · today and coming soon",
+    body: "Main copy",
+    exampleLabel: "Example label",
+    exampleMessage: "Customer message",
+    exampleOrder: "Prepared order",
+    exampleFollowUp: "Tracking and delivery",
+    exampleInvoice: "Invoice, if applicable",
+    exampleSteps: "Sequence labels",
+    currentTitle: "Available today title",
+    currentBody: "Available today description",
+    futureStatus: "Planned status",
+    futureTitle: "Planned title",
+    futureBody: "Planned description",
     itemTitle: "Title",
     itemDesc: "Description",
     values: "Principles",
@@ -123,6 +151,41 @@ export default function LandingPage() {
             </>
           )}
         />
+
+        <AdminCard title={T.orders}>
+          <BilingualField label={T.badge} es={draft.orders.badge.es} en={draft.orders.badge.en} onChange={(l, v) => update((d) => (d.orders.badge[l] = v))} />
+          <BilingualField label={T.sectionTitle} es={draft.orders.title.es} en={draft.orders.title.en} onChange={(l, v) => update((d) => (d.orders.title[l] = v))} />
+          <BilingualTextArea label={T.body} es={draft.orders.body.es} en={draft.orders.body.en} onChange={(l, v) => update((d) => (d.orders.body[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualField label={T.exampleLabel} es={draft.orders.exampleLabel.es} en={draft.orders.exampleLabel.en} onChange={(l, v) => update((d) => (d.orders.exampleLabel[l] = v))} />
+          <BilingualTextArea label={T.exampleMessage} es={draft.orders.exampleMessage.es} en={draft.orders.exampleMessage.en} onChange={(l, v) => update((d) => (d.orders.exampleMessage[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualTextArea label={T.exampleOrder} es={draft.orders.exampleOrder.es} en={draft.orders.exampleOrder.en} onChange={(l, v) => update((d) => (d.orders.exampleOrder[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualTextArea label={T.exampleFollowUp} es={draft.orders.exampleFollowUp.es} en={draft.orders.exampleFollowUp.en} onChange={(l, v) => update((d) => (d.orders.exampleFollowUp[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualTextArea label={T.exampleInvoice} es={draft.orders.exampleInvoice.es} en={draft.orders.exampleInvoice.en} onChange={(l, v) => update((d) => (d.orders.exampleInvoice[l] = v))} hint={RICH_TEXT_HINT} />
+        </AdminCard>
+
+        <RepeatableList
+          title={T.exampleSteps}
+          items={draft.orders.exampleSteps}
+          addLabel={T.addStep}
+          emptyLabel={T.noSteps}
+          onAdd={() => update((d) => d.orders.exampleSteps.push({ es: "", en: "" }))}
+          onRemove={(i) => update((d) => d.orders.exampleSteps.splice(i, 1))}
+          onMove={(i, dir) => update((d) => moveItem(d.orders.exampleSteps, i, dir))}
+          renderItem={(step, i) => (
+            <BilingualField label={T.itemTitle} es={step.es} en={step.en} onChange={(l, v) => update((d) => (d.orders.exampleSteps[i][l] = v))} />
+          )}
+        />
+
+        <AdminCard title={T.storefront}>
+          <BilingualField label={T.badge} es={draft.storefront.badge.es} en={draft.storefront.badge.en} onChange={(l, v) => update((d) => (d.storefront.badge[l] = v))} />
+          <BilingualField label={T.sectionTitle} es={draft.storefront.title.es} en={draft.storefront.title.en} onChange={(l, v) => update((d) => (d.storefront.title[l] = v))} />
+          <BilingualTextArea label={T.body} es={draft.storefront.body.es} en={draft.storefront.body.en} onChange={(l, v) => update((d) => (d.storefront.body[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualField label={T.currentTitle} es={draft.storefront.currentTitle.es} en={draft.storefront.currentTitle.en} onChange={(l, v) => update((d) => (d.storefront.currentTitle[l] = v))} />
+          <BilingualTextArea label={T.currentBody} es={draft.storefront.currentBody.es} en={draft.storefront.currentBody.en} onChange={(l, v) => update((d) => (d.storefront.currentBody[l] = v))} hint={RICH_TEXT_HINT} />
+          <BilingualField label={T.futureStatus} es={draft.storefront.futureStatus.es} en={draft.storefront.futureStatus.en} onChange={(l, v) => update((d) => (d.storefront.futureStatus[l] = v))} />
+          <BilingualField label={T.futureTitle} es={draft.storefront.futureTitle.es} en={draft.storefront.futureTitle.en} onChange={(l, v) => update((d) => (d.storefront.futureTitle[l] = v))} />
+          <BilingualTextArea label={T.futureBody} es={draft.storefront.futureBody.es} en={draft.storefront.futureBody.en} onChange={(l, v) => update((d) => (d.storefront.futureBody[l] = v))} hint={RICH_TEXT_HINT} />
+        </AdminCard>
 
         <AdminCard title={T.values}>
           <BilingualField label={T.sectionTitle} es={draft.values.title.es} en={draft.values.title.en} onChange={(l, v) => update((d) => (d.values.title[l] = v))} />

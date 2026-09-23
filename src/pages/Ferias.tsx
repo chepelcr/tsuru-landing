@@ -35,7 +35,7 @@ function FairTypeCard({ icon: Icon, title, status, description, accent }: {
             </span>
           )}
         </div>
-        <p className="text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
+        <p className="text-muted-foreground leading-relaxed text-justify"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -78,7 +78,7 @@ export default function Ferias() {
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 {pick(fairs.what.title)}
               </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg">
+              <p className="text-muted-foreground leading-relaxed text-lg text-justify">
                 <RichText>{pick(fairs.what.description)}</RichText>
               </p>
             </div>

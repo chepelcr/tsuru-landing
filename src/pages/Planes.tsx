@@ -118,7 +118,7 @@ function PlanCard({
         <h3 className="font-serif text-2xl font-bold text-foreground">{pick(plan.name)}</h3>
       </div>
 
-      <p className="mb-5 min-h-[4.5rem] text-sm leading-relaxed text-muted-foreground">
+      <p className="mb-5 min-h-[4.5rem] text-sm leading-relaxed text-muted-foreground text-justify">
         <RichText>{pick(plan.tagline)}</RichText>
       </p>
 
@@ -136,7 +136,7 @@ function PlanCard({
           </>
         )}
       </div>
-      <p className="mb-6 min-h-[4rem] text-xs leading-relaxed text-muted-foreground">
+      <p className="mb-6 min-h-[4rem] text-xs leading-relaxed text-muted-foreground text-justify">
         {pick(plan.subline)}
       </p>
 
@@ -266,7 +266,7 @@ export default function Planes() {
           {plans.config.draftPricing && (
             <div className="mx-auto mb-10 flex max-w-2xl items-start gap-2.5 rounded-xl border border-accent/30 bg-accent/5 px-4 py-3">
               <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-sm leading-relaxed text-muted-foreground text-justify">
                 {pick(plans.planLabels.draftNotice)}
               </p>
             </div>
@@ -305,7 +305,7 @@ export default function Planes() {
                 className="flex gap-3 rounded-2xl border border-border bg-card p-5"
               >
                 <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground text-justify">
                   <RichText>{pick(point)}</RichText>
                 </p>
               </div>
@@ -330,7 +330,7 @@ export default function Planes() {
                   </div>
                   <div>
                     <h3 className="mb-1.5 font-semibold text-foreground">{pick(addon.title)}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
+                    <p className="text-sm leading-relaxed text-muted-foreground text-justify">
                       <RichText>{pick(addon.description)}</RichText>
                     </p>
                   </div>
@@ -422,7 +422,7 @@ export default function Planes() {
                   {pick(item.question)}
                   <ArrowRight className="h-4 w-4 flex-shrink-0 text-primary transition-transform group-open:rotate-90" />
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-justify">
                   <RichText>{pick(item.answer)}</RichText>
                 </p>
               </details>

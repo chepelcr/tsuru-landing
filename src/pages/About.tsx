@@ -50,7 +50,7 @@ export default function About() {
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-4">
                 {pick(about.queEs.title)}
               </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+              <p className="text-muted-foreground leading-relaxed text-lg mb-6 text-justify">
                 <RichText>{pick(about.queEs.description)}</RichText>
               </p>
               <ul className="flex flex-col gap-3">
@@ -152,7 +152,7 @@ export default function About() {
           </h2>
           <div className="flex flex-col gap-6">
             {about.story.paras.map((para, i) => (
-              <p key={i} className="text-muted-foreground leading-relaxed text-lg">
+              <p key={i} className="text-muted-foreground leading-relaxed text-lg text-justify">
                 <RichText>{pick(para)}</RichText>
               </p>
             ))}
@@ -177,7 +177,7 @@ export default function About() {
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{pick(value.title)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{pick(value.description)}</RichText></p>
+                  <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{pick(value.description)}</RichText></p>
                 </div>
               );
             })}

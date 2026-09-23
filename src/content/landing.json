@@ -1,48 +1,78 @@
 {
   "hero": {
     "badge": { "es": "Hecho en Costa Rica · Economía Social Solidaria", "en": "Made in Costa Rica · Social Solidarity Economy" },
-    "title": { "es": "Vende legal. Vende fácil. Vende en comunidad.", "en": "Sell legally. Sell easily. Sell in community." },
+    "title": { "es": "Vendé a tu ritmo. Llevá tus pedidos en orden.", "en": "Sell at your pace. Keep every order organized." },
     "subtitle": {
-      "es": "Tsuru reúne tres cosas para el emprendedor más pequeño de Costa Rica: un punto de venta con facturación electrónica de Hacienda gratis, tu tienda en línea para vender por WhatsApp, y una comunidad de ferias y trueque que estamos construyendo. Hoy facturas y vendes; muy pronto, te conectas.",
-      "en": "Tsuru brings three things together for Costa Rica's smallest entrepreneurs: a point of sale with free Hacienda electronic invoicing, your online store to sell over WhatsApp, and a community of fairs and barter we're building. Today you invoice and sell; very soon, you connect."
+      "es": "Tsuru reúne tus productos, clientes y pedidos en un solo lugar, y te da una tienda en línea para mostrar lo que vendés. Empezá por organizar pedidos aunque todavía no usés facturación electrónica; cuando te corresponda, facturá gratis ante Hacienda.",
+      "en": "Tsuru brings your products, customers, and orders together and gives you an online store to show what you sell. Start by organizing orders even if you are not using electronic invoicing yet; when it applies to you, invoice through Hacienda for free."
     },
     "cta": { "es": "Crear mi cuenta gratis", "en": "Create my free account" },
     "secondary": { "es": "Ver ejemplos", "en": "See examples" }
   },
   "howItWorks": {
     "title": { "es": "¿Cómo funciona?", "en": "How does it work?" },
-    "subtitle": { "es": "Tres pasos simples para unirte al movimiento", "en": "Three simple steps to join the movement" },
+    "subtitle": { "es": "Empezá con tus pedidos; sumá tu tienda y la facturación cuando te corresponda", "en": "Start with orders; add your store and invoicing when it applies" },
     "learnMore": { "es": "Ver todas las funcionalidades", "en": "Learn more about features" },
     "steps": [
       {
-        "title": { "es": "Crea tu perfil", "en": "Create your profile" },
+        "title": { "es": "Creá tu cuenta", "en": "Create your account" },
         "description": {
-          "es": "Regístrate y configura tu tienda en minutos con una plantilla que se adapte a tu estilo y negocio.",
-          "en": "Register and set up your store in minutes with a template that fits your style and business."
+          "es": "Registrate y prepará tu espacio de trabajo para llevar tus ventas y pedidos.",
+          "en": "Register and prepare your workspace to manage sales and orders."
         }
       },
       {
-        "title": { "es": "Publica tus productos", "en": "Publish your products" },
+        "title": { "es": "Agregá productos y clientes", "en": "Add products and customers" },
         "description": {
-          "es": "Sube fotos, descripciones y precios. Gestiona tu catálogo fácilmente desde cualquier lugar.",
-          "en": "Upload photos, descriptions, and prices. Manage your catalog easily from anywhere."
+          "es": "Organizá tu catálogo y guardá los datos que necesitás para preparar cada pedido.",
+          "en": "Organize your catalog and save the details you need for each order."
         }
       },
       {
-        "title": { "es": "Comparte, vende y súmate", "en": "Share, sell and join in" },
+        "title": { "es": "Prepará y seguí pedidos", "en": "Prepare and track orders" },
         "description": {
-          "es": "Comparte tu enlace por WhatsApp y redes, empieza a recibir pedidos — y prepárate para sumarte a las ferias y el trueque de la comunidad, que vienen muy pronto.",
-          "en": "Share your link on WhatsApp and social media, start receiving orders — and get ready to join the community's fairs and barter, coming very soon."
+          "es": "Registrá cada pedido y seguí su estado hasta la entrega. Si tenés la configuración fiscal necesaria, después podés facturar el pedido entregado.",
+          "en": "Record each order and follow its status through delivery. With the required fiscal setup, you can invoice the delivered order afterward."
         }
       }
     ]
+  },
+  "orders": {
+    "badge": { "es": "Pedidos disponibles hoy", "en": "Orders available today" },
+    "title": { "es": "Primero, que ningún pedido se te pierda.", "en": "First, keep every order in sight." },
+    "body": {
+      "es": "Prepará pedidos con productos, cliente, total y entrega; consultá su estado desde un mismo lugar. Un pedido te ayuda a organizar el trabajo: no es un comprobante de Hacienda.",
+      "en": "Prepare orders with products, customer, total, and delivery details; follow their status in one place. An order helps organize the work: it is not a Hacienda receipt."
+    },
+    "exampleLabel": { "es": "Ejemplo ilustrativo · Ana vende pan por encargo", "en": "Illustrative example · Ana sells made-to-order bread" },
+    "exampleMessage": { "es": "Un cliente escribe por WhatsApp para pedir seis productos para el sábado.", "en": "A customer messages on WhatsApp to request six products for Saturday." },
+    "exampleOrder": { "es": "Ana prepara el pedido con el cliente, los productos, el total y la entrega.", "en": "Ana prepares the order with the customer, products, total, and delivery details." },
+    "exampleFollowUp": { "es": "Sigue el estado del pedido hasta que lo entrega.", "en": "She follows the order status until delivery." },
+    "exampleInvoice": { "es": "Si tiene la configuración fiscal necesaria, abre «Facturar pedido», revisa y emite el comprobante. Tsuru lo vincula con el pedido.", "en": "With the required fiscal setup, she opens “Invoice order,” reviews and issues the document. Tsuru links it to the order." },
+    "exampleSteps": [
+      { "es": "Mensaje", "en": "Message" },
+      { "es": "Pedido", "en": "Order" },
+      { "es": "Seguimiento", "en": "Tracking" },
+      { "es": "Entrega", "en": "Delivery" },
+      { "es": "Factura, si corresponde", "en": "Invoice, if applicable" }
+    ]
+  },
+  "storefront": {
+    "badge": { "es": "Tu espacio en línea", "en": "Your online space" },
+    "title": { "es": "Tu tienda muestra lo que vendés.", "en": "Your store shows what you sell." },
+    "body": { "es": "Compartí tu catálogo desde una tienda hecha con una plantilla y conversá con tus clientes por WhatsApp.", "en": "Share your catalog through a template-based store and talk with customers on WhatsApp." },
+    "currentTitle": { "es": "Hoy: catálogo y WhatsApp", "en": "Today: catalog and WhatsApp" },
+    "currentBody": { "es": "Compartí el enlace de tu tienda. Si un cliente te escribe, prepará su pedido en Tsuru.", "en": "Share your store link. When a customer messages you, prepare their order in Tsuru." },
+    "futureStatus": { "es": "Próximamente", "en": "Coming soon" },
+    "futureTitle": { "es": "Pedidos desde tu tienda", "en": "Orders from your store" },
+    "futureBody": { "es": "Los pedidos hechos directamente en la tienda aparecerán automáticamente en Tsuru para que puedas atenderlos.", "en": "Orders placed directly in the store will appear automatically in Tsuru for you to manage." }
   },
   "communitySpotlight": {
     "badge": { "es": "Comunidad · En construcción", "en": "Community · Coming soon" },
     "title": { "es": "Tres pilares, un mismo movimiento", "en": "Three pillars, one movement" },
     "subtitle": {
-      "es": "Tsuru no es solo vender: es vender legal, vender en línea y vender en comunidad. Dos pilares ya funcionan hoy; el tercero lo construimos en público.",
-      "en": "Tsuru isn't only about selling: it's selling legally, selling online, and selling in community. Two pillars already work today; the third we're building in the open."
+      "es": "Organizá pedidos, compartí tu tienda y, con la configuración fiscal necesaria, emití comprobantes ante Hacienda. También construimos espacios de comunidad para crecer juntos.",
+      "en": "Organize orders, share your store, and, with the required fiscal setup, issue documents to Hacienda. We are also building community spaces to grow together."
     },
     "pillars": [
       {
@@ -50,8 +80,8 @@
         "status": { "es": "Disponible hoy", "en": "Available today" },
         "title": { "es": "Punto de venta y facturación gratis", "en": "Free point of sale & invoicing" },
         "description": {
-          "es": "Cobra, lleva tu inventario y emite comprobantes electrónicos legales a Hacienda — sin pagar nada.",
-          "en": "Take payments, track inventory, and issue legal e-invoices to Hacienda — at no cost."
+          "es": "Llevá pedidos y ventas. Cuando tengas la configuración fiscal necesaria, emití comprobantes electrónicos ante Hacienda gratis.",
+          "en": "Manage orders and sales. With the required fiscal setup, issue electronic documents to Hacienda for free."
         }
       },
       {
@@ -113,10 +143,10 @@
     ]
   },
   "finalCta": {
-    "title": { "es": "¿Listo para vender legal y en comunidad?", "en": "Ready to sell legally and in community?" },
+    "title": { "es": "Empezá con tu próximo pedido. Crecé a tu ritmo.", "en": "Start with your next order. Grow at your pace." },
     "subtitle": {
-      "es": "Crea tu cuenta gratis: punto de venta, catálogo y facturación electrónica incluidos. Sin comisiones sobre tus ventas.",
-      "en": "Create your free account: point of sale, catalog, and e-invoicing included. No commissions on your sales."
+      "es": "Creá tu cuenta gratis para organizar pedidos, mostrar tus productos y sumar facturación electrónica cuando te corresponda. Sin comisiones sobre tus ventas.",
+      "en": "Create a free account to organize orders, show your products, and add electronic invoicing when it applies to you. No commissions on your sales."
     },
     "button": { "es": "Empezar gratis", "en": "Start for free" }
   }
