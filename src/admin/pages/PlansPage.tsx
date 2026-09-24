@@ -38,7 +38,7 @@ const STRINGS = {
       "Mientras esté activo, la página muestra un aviso de que los montos pueden cambiar. Desactivalo solo cuando los precios sean definitivos.",
     ctaComingSoon: "Botones en «Próximamente» (desactiva la compra)",
     ctaComingSoonHint:
-      "Mientras esté activo, los botones de todos los planes salen desactivados con la etiqueta «Próximamente». Desactivalo cuando el backend de suscripciones esté listo.",
+      "Mientras esté activo, los botones de los planes salen desactivados con la etiqueta «Próximamente», salvo los marcados como «Disponible ya». Desactivalo cuando el backend de suscripciones esté listo.",
     promise: "Promesa solidaria",
     promiseTitle: "Título de la promesa",
     promisePoints: "Puntos de la promesa",
@@ -74,6 +74,7 @@ const STRINGS = {
     subline: "Línea bajo el precio",
     ctaLabel: "Texto del botón",
     ctaHref: "Enlace del botón",
+    planAvailable: "Disponible ya (ignora «Próximamente»)",
     planFeatures: "Funciones del plan",
     addFeature: "Agregar función",
     noFeatures: "Sin funciones",
@@ -102,6 +103,7 @@ const STRINGS = {
     question: "Pregunta",
     answer: "Respuesta",
     cta: "Llamado a la acción",
+    teaser: "Botón de la sección de planes en Inicio",
     ctaTitle: "Título",
     ctaSubtitle: "Subtítulo",
     button: "Botón",
@@ -124,7 +126,7 @@ const STRINGS = {
       "While this is on, the page shows a notice that amounts may change. Turn it off only once pricing is final.",
     ctaComingSoon: "CTAs show “Coming soon” (purchase disabled)",
     ctaComingSoonHint:
-      "While this is on, every plan's button renders disabled with the “Coming soon” label. Turn it off when the subscription backend is ready.",
+      "While this is on, every plan button renders disabled with the “Coming soon” label, except plans marked “Available now”. Turn it off when the subscription backend is ready.",
     promise: "Solidarity promise",
     promiseTitle: "Promise title",
     promisePoints: "Promise points",
@@ -160,6 +162,7 @@ const STRINGS = {
     subline: "Line under the price",
     ctaLabel: "Button text",
     ctaHref: "Button link",
+    planAvailable: "Available now (ignores “Coming soon”)",
     planFeatures: "Plan features",
     addFeature: "Add feature",
     noFeatures: "No features",
@@ -188,6 +191,7 @@ const STRINGS = {
     question: "Question",
     answer: "Answer",
     cta: "Call to action",
+    teaser: "Home-page plans section button",
     ctaTitle: "Title",
     ctaSubtitle: "Subtitle",
     button: "Button",
@@ -287,6 +291,7 @@ export default function PlansPage() {
                 subline: { es: "", en: "" },
                 ctaLabel: { es: "", en: "" },
                 ctaHref: "",
+                available: false,
                 features: [],
               }),
             )
@@ -313,6 +318,7 @@ export default function PlansPage() {
               <BilingualField label={T.subline} es={plan.subline.es} en={plan.subline.en} onChange={(l, v) => update((d) => (d.plans[i].subline[l] = v))} />
               <BilingualField label={T.ctaLabel} es={plan.ctaLabel.es} en={plan.ctaLabel.en} onChange={(l, v) => update((d) => (d.plans[i].ctaLabel[l] = v))} />
               <TextField label={T.ctaHref} value={plan.ctaHref} onChange={(v) => update((d) => (d.plans[i].ctaHref = v))} />
+              <Toggle label={T.planAvailable} checked={plan.available} onChange={(v) => update((d) => (d.plans[i].available = v))} />
 
               <RepeatableList
                 title={T.planFeatures}
@@ -420,6 +426,11 @@ export default function PlansPage() {
           <BilingualTextArea label={T.ctaSubtitle} es={draft.cta.subtitle.es} en={draft.cta.subtitle.en} onChange={(l, v) => update((d) => (d.cta.subtitle[l] = v))} hint={RICH_TEXT_HINT} />
           <BilingualField label={T.button} es={draft.cta.button.es} en={draft.cta.button.en} onChange={(l, v) => update((d) => (d.cta.button[l] = v))} />
           <TextField label={T.buttonHref} value={draft.cta.buttonHref} onChange={(v) => update((d) => (d.cta.buttonHref = v))} />
+        </AdminCard>
+
+        <AdminCard title={T.teaser}>
+          <BilingualField label={T.button} es={draft.teaser.button.es} en={draft.teaser.button.en} onChange={(l, v) => update((d) => (d.teaser.button[l] = v))} />
+          <TextField label={T.buttonHref} value={draft.teaser.buttonHref} onChange={(v) => update((d) => (d.teaser.buttonHref = v))} />
         </AdminCard>
       </div>
     </div>

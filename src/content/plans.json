@@ -126,6 +126,7 @@
         "en": "Create my store free"
       },
       "ctaHref": "https://app.tsuru.jcampos.dev/register",
+      "available": true,
       "features": [
         {
           "label": {
@@ -255,6 +256,7 @@
         "en": "Start with Cosecha"
       },
       "ctaHref": "https://app.tsuru.jcampos.dev/register",
+      "available": false,
       "features": [
         {
           "label": {
@@ -356,6 +358,7 @@
         "en": "Start with Cooperativa"
       },
       "ctaHref": "https://app.tsuru.jcampos.dev/register",
+      "available": false,
       "features": [
         {
           "label": {
@@ -443,6 +446,7 @@
         "en": "Let's talk"
       },
       "ctaHref": "/contacto",
+      "available": false,
       "features": [
         {
           "label": {
@@ -983,5 +987,12 @@
       "en": "Talk to someone at Tsuru"
     },
     "buttonHref": "/contacto"
+  },
+  "teaser": {
+    "button": {
+      "es": "Empezar gratis",
+      "en": "Get started free"
+    },
+    "buttonHref": "https://app.tsuru.jcampos.dev/register"
   }
 }

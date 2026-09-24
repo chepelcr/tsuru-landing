@@ -62,7 +62,7 @@ function PlanCard({
   cycle: "monthly" | "annual";
   lang: Lang;
   labels: typeof plans.planLabels;
-  /** Plans aren't purchasable yet — render the CTA inert. */
+  /** Plans aren't purchasable yet — render the CTA inert (unless `plan.available`). */
   comingSoon: boolean;
 }) {
   const pick = (f: Bi) => f[lang] ?? f.es;
@@ -79,6 +79,9 @@ function PlanCard({
         : pick(labels.perMonth);
 
   const badge = pick(plan.badge);
+  // A plan that already works in the platform (Semilla) keeps its real CTA
+  // even while the paid tiers are still "coming soon".
+  const ctaDisabled = comingSoon && !plan.available;
   const isInternalCta = plan.ctaHref.startsWith("/");
 
   const ctaClass = `w-full rounded-full ${
@@ -88,8 +91,11 @@ function PlanCard({
   }`;
 
   return (
+    // Subgrid: the card's six rows (header, tagline, price, subline, CTA,
+    // features) share tracks with its siblings, so prices and buttons line
+    // up across cards no matter how long each plan's copy runs.
     <div
-      className={`relative flex flex-col rounded-2xl border p-6 transition-all hover:-translate-y-1 ${
+      className={`relative row-span-6 grid grid-rows-subgrid gap-y-0 rounded-2xl border p-6 transition-all hover:-translate-y-1 ${
         plan.highlighted
           ? "bg-primary/5 border-primary/40 shadow-lg ring-1 ring-primary/20"
           : "bg-card border-border hover:border-primary/30 hover:shadow-md"
@@ -118,11 +124,11 @@ function PlanCard({
         <h3 className="font-serif text-2xl font-bold text-foreground">{pick(plan.name)}</h3>
       </div>
 
-      <p className="mb-5 min-h-[4.5rem] text-sm leading-relaxed text-muted-foreground text-justify">
+      <p className="mb-5 text-sm leading-relaxed text-muted-foreground text-justify">
         <RichText>{pick(plan.tagline)}</RichText>
       </p>
 
-      <div className="mb-1 flex min-h-[2.75rem] items-baseline gap-1.5">
+      <div className="mb-1 flex items-baseline gap-1.5">
         {plan.customPrice ? (
           <span className="font-serif text-3xl font-bold text-foreground">
             {pick(labels.customPrice)}
@@ -136,11 +142,11 @@ function PlanCard({
           </>
         )}
       </div>
-      <p className="mb-6 min-h-[4rem] text-xs leading-relaxed text-muted-foreground text-justify">
+      <p className="mb-6 text-xs leading-relaxed text-muted-foreground text-justify">
         {pick(plan.subline)}
       </p>
 
-      {comingSoon ? (
+      {ctaDisabled ? (
         // No link wrapper at all — an inert button, not a navigable control.
         <Button disabled className="w-full rounded-full" aria-disabled="true">
           {pick(labels.comingSoon)}
@@ -155,7 +161,7 @@ function PlanCard({
         </a>
       )}
 
-      <ul className="mt-6 flex-1 space-y-2.5 border-t border-border pt-6">
+      <ul className="mt-6 space-y-2.5 border-t border-border pt-6">
         {plan.features.map((feature, i) => (
           <li key={i} className="flex items-start gap-2.5 text-sm">
             {feature.enabled ? (

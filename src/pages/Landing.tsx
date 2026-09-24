@@ -367,7 +367,7 @@ export default function Landing() {
               return (
                 <div
                   key={plan.id}
-                  className={`flex flex-col rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
+                  className={`row-span-4 grid grid-rows-subgrid gap-y-0 rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
                     plan.highlighted
                       ? 'bg-primary/5 border-primary/40 ring-1 ring-primary/20'
                       : 'bg-card border-border hover:border-primary/30'
@@ -376,11 +376,11 @@ export default function Landing() {
                   <h3 className="font-serif text-xl font-bold text-foreground mb-1">
                     {pick(plan.name)}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-4 min-h-[3.75rem] text-justify">
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4 text-justify">
                     {pick(plan.tagline)}
                   </p>
 
-                  <div className="flex items-baseline gap-1.5 mb-5 min-h-[2.25rem]">
+                  <div className="flex items-baseline gap-1.5 mb-5">
                     <span className="font-serif text-2xl font-bold text-foreground">{price}</span>
                     {suffix && <span className="text-xs text-muted-foreground">{suffix}</span>}
                   </div>
@@ -406,15 +406,15 @@ export default function Landing() {
           </div>
 
           <div className="text-center mt-10">
-            <Link href="/planes">
+            <a href={plans.teaser.buttonHref} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8"
               >
-                {pick(plans.cta.button)}
+                {pick(plans.teaser.button)}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
