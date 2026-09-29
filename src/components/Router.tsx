@@ -55,7 +55,9 @@ export function Router({ displayLocation }: RouterProps) {
         <Route path="/ejemplos" component={Examples} />
         <Route path="/examples" component={Examples} />
         <Route path="/blog" component={Blog} />
-        <Route path="/blog/:slug" component={BlogDetail} />
+        <Route path="/blog/:slug">
+          {(params) => <BlogDetail slug={params.slug} />}
+        </Route>
         <Route path="/contacto" component={Contact} />
         <Route path="/contact" component={Contact} />
         <Route path="/terminos" component={Terms} />

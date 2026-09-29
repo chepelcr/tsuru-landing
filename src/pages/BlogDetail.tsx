@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useRoute } from "wouter";
+import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, User } from "lucide-react";
@@ -7,13 +7,11 @@ import { getArticleBySlug } from "@/services/blog.service";
 import { RichText } from "@/lib/rich-text";
 import chrome from "@/content/blog-chrome.json";
 
-export default function BlogDetail() {
+export default function BlogDetail({ slug }: { slug: string }) {
   const { language } = useLanguage();
   const lang = language;
   const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
 
-  const [, params] = useRoute("/blog/:slug");
-  const slug = params?.slug ?? "";
   const article = getArticleBySlug(slug);
 
   useEffect(() => {
