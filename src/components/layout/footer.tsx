@@ -11,7 +11,7 @@ export default function LandingFooter() {
 
   return (
     <footer className="bg-muted/40 border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
@@ -56,7 +56,7 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+        <div className="mt-6 pt-5 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>{pick(footer.copyright).replace('© 2026', `© ${currentYear}`)}</p>
 
           {/* Studio attribution — the logo already ships with alpha, so it sits
