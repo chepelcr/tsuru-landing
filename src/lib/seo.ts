@@ -1,3 +1,4 @@
+import { getContent } from "@/repositories/content.repository";
 // SEO resolution from src/content/seo.json. Used by the runtime head-tags hook
 // (src/hooks/useHeadTags.ts) and, via a small adapter, by the build-time
 // prerender (scripts/prerender.mjs reads the same JSON directly).
@@ -5,7 +6,7 @@
 // There is NO URL language prefix on this site — language is context+localStorage.
 // resolveSeo therefore takes the wouter location (path) and the active language.
 
-import seoData from "@/content/seo.json";
+const seoData = getContent<typeof import("@/content/seo.json")>("seo");
 import { absoluteAssetUrl } from "@/lib/media";
 
 export type Lang = "es" | "en";

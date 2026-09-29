@@ -1,6 +1,7 @@
+import { getContent } from "@/repositories/content.repository";
 import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import privacy from "@/content/privacy.json";
+const privacy = getContent<typeof import("@/content/privacy.json")>("privacy");
 import { Shield } from "lucide-react";
 
 export default function Privacy() {

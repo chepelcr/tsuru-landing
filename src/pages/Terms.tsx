@@ -1,6 +1,7 @@
+import { getContent } from "@/repositories/content.repository";
 import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import terms from "@/content/terms.json";
+const terms = getContent<typeof import("@/content/terms.json")>("terms");
 import { FileText } from "lucide-react";
 
 export default function Terms() {

@@ -1,7 +1,8 @@
+import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
-import features from "@/content/features.json";
+const features = getContent<typeof import("@/content/features.json")>("features");
 import {
   Palette,
   FileCheck,

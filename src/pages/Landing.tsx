@@ -1,10 +1,11 @@
+import { getContent } from "@/repositories/content.repository";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
-import landing from "@/content/landing.json";
-import billing from "@/content/billing.json";
-import plans from "@/content/plans.json";
+const landing = getContent<typeof import("@/content/landing.json")>("landing");
+const billing = getContent<typeof import("@/content/billing.json")>("billing");
+const plans = getContent<typeof import("@/content/plans.json")>("plans");
 import { formatCRC } from "@/lib/currency";
 import {
   UserPlus,

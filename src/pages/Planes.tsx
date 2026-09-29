@@ -1,3 +1,4 @@
+import { getContent } from "@/repositories/content.repository";
 // Planes — the monetization surface. Reads plans.json (bilingual content
 // entity) and renders: the solidarity promise, a monthly/annual toggle, the
 // four tier cards, add-ons, a full comparison table, and the plan FAQ.
@@ -11,7 +12,7 @@ import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
-import plans from "@/content/plans.json";
+const plans = getContent<typeof import("@/content/plans.json")>("plans");
 import { formatCRC } from "@/lib/currency";
 import {
   Sprout,

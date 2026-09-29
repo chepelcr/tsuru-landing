@@ -1,10 +1,11 @@
+import { getContent } from "@/repositories/content.repository";
 // Media types + URL resolvers.
 //
 // A media item is either a `local` asset (root-relative `path` into public/media/)
 // or an `external` asset (absolute `url`). Content fields store a single string
 // ref; the public site renders it through these resolvers.
 
-import seoData from "@/content/seo.json";
+const seoData = getContent<typeof import("@/content/seo.json")>("seo");
 
 export type MediaKind = "image" | "video" | "audio";
 

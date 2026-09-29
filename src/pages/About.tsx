@@ -1,7 +1,8 @@
+import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
-import about from "@/content/about.json";
+const about = getContent<typeof import("@/content/about.json")>("about");
 import {
   Scale,
   Leaf,

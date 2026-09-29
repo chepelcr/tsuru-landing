@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import en from '@/translations/en.json';
-import es from '@/translations/es.json';
+import { getContent } from '@/repositories/content.repository';
 
 type Language = 'en' | 'es';
 
@@ -10,11 +9,13 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-const translations = { en, es };
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
+  const translations = {
+    en: getContent<Record<string, string>>('translations-en'),
+    es: getContent<Record<string, string>>('translations-es'),
+  };
   const [language, setLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem('language') as Language;
     if (saved) return saved;

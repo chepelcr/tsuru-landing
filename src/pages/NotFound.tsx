@@ -1,9 +1,10 @@
+import { getContent } from "@/repositories/content.repository";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { resolveIcon } from "@/lib/icons";
-import ui from "@/content/ui.json";
+const ui = getContent<typeof import("@/content/ui.json")>("ui");
 
 const MapPin = resolveIcon("map-pin");
 const HomeIcon = resolveIcon("home");

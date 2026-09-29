@@ -1,8 +1,9 @@
+import { getContent } from "@/repositories/content.repository";
 // The image replaces both the placeholder symbol and its text. Site Identity
 // controls the light/dark URLs; the fallback stays for incomplete brand config.
 
 import { Leaf } from "lucide-react";
-import branding from "@/content/branding.json";
+const branding = getContent<typeof import("@/content/branding.json")>("branding");
 import { resolveAssetUrl } from "@/lib/media";
 
 interface BrandLogoProps {

@@ -1,3 +1,4 @@
+import { getContent } from "@/repositories/content.repository";
 // Theme applier — distinct from ThemeContext (which owns the .dark class + the
 // "theme" localStorage key). This reads the active theme from themes.json and
 // the light/dark favicons from branding.json, and writes them into the DOM:
@@ -11,8 +12,8 @@
 // The seeded "default" theme mirrors the current :root light palette, so calling
 // initBrand() at boot is a visual no-op.
 
-import themesData from "@/content/themes.json";
-import brandingData from "@/content/branding.json";
+const themesData = getContent<typeof import("@/content/themes.json")>("themes");
+const brandingData = getContent<typeof import("@/content/branding.json")>("branding");
 import { resolveAssetUrl } from "@/lib/media";
 
 type ThemeColors = Record<string, string>;

@@ -1,8 +1,9 @@
+import { getContent } from "@/repositories/content.repository";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Heart, Scale, Users, Building2 } from "lucide-react";
-import ctaSecurity from "@/content/cta-security.json";
+const ctaSecurity = getContent<typeof import("@/content/cta-security.json")>("cta-security");
 
 interface CTASecuritySectionProps {
   titleKey: string;

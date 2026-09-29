@@ -1,8 +1,9 @@
+import { getContent } from "@/repositories/content.repository";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
-import contact from "@/content/contact.json";
+const contact = getContent<typeof import("@/content/contact.json")>("contact");
 import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 
 export default function Contact() {

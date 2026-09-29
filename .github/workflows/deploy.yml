@@ -31,8 +31,8 @@ jobs:
       # Served at the custom domain tsuru.jcampos.dev (root), set via public/CNAME
       # + repo Pages config. Overridable via workflow_dispatch input.
       BASE_PATH: ${{ github.event.inputs.base_path || '/' }}
-      # Canonical/sitemap host the prerender emits — matches the custom domain.
-      SITE_URL: 'https://tsuru.jcampos.dev'
+      VITE_PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
+      VITE_PUBLIC_IDENTITY_POOL_ID: ${{ vars.PUBLIC_IDENTITY_POOL_ID }}
       # Public build params (seeded from the monorepo buildspec). Non-sensitive.
       VITE_API_URL: ${{ secrets.VITE_API_URL }}
       VITE_APP_URL: ${{ secrets.VITE_APP_URL }}
@@ -58,7 +58,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build (admin tree-shaken; VITE_ENABLE_ADMIN unset)
-        run: pnpm run build:seo
+        run: pnpm run build
+
+      - name: Verify public code reads API content
+        run: python3 scripts/check-public-imports.py
 
       - name: Verify admin + local-CMS are absent from the bundle
         run: |

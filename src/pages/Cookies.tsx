@@ -1,7 +1,8 @@
+import { getContent } from "@/repositories/content.repository";
 import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
-import cookies from "@/content/cookies.json";
+const cookies = getContent<typeof import("@/content/cookies.json")>("cookies");
 import { Settings } from "lucide-react";
 
 export default function Cookies() {

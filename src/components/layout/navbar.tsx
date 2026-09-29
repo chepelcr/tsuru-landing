@@ -1,3 +1,4 @@
+import { getContent } from "@/repositories/content.repository";
 import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -5,7 +6,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef } from "react";
-import navbar from "@/content/navbar.json";
+const navbar = getContent<typeof import("@/content/navbar.json")>("navbar");
 import { BrandLogo } from "@/components/layout/brand-logo";
 
 interface LandingNavbarProps {
@@ -119,7 +120,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
               </div>
             </div>
 
-            <NavLink href="/blog" label={pick(navbar.links.blog)} />
+            <a href="https://blogs.tsuru.jcampos.dev/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{pick(navbar.links.blog)}</a>
           </nav>
 
           {/* Desktop Actions */}
@@ -221,11 +222,8 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                 )}
               </div>
 
-              <NavLink
-                href="/blog"
-                label={pick(navbar.links.blog)}
-                onClick={() => setMobileMenuOpen(false)}
-              />
+              <a href="https://blogs.tsuru.jcampos.dev/" className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}>{pick(navbar.links.blog)}</a>
 
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <a href="https://app.tsuru.jcampos.dev" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>

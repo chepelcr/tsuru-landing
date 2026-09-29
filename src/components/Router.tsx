@@ -1,8 +1,9 @@
+import { getContent } from "@/repositories/content.repository";
 import { Route, Switch } from "wouter";
 import { Suspense, lazy } from "react";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import ui from "@/content/ui.json";
+const ui = getContent<typeof import("@/content/ui.json")>("ui");
 
 // Lazy load all pages for better code splitting
 const Landing = lazy(() => import("@/pages/Landing"));

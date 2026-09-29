@@ -1,7 +1,8 @@
+import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
-import fairs from "@/content/fairs.json";
+const fairs = getContent<typeof import("@/content/fairs.json")>("fairs");
 import {
   Monitor,
   MapPin,

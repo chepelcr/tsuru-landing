@@ -1,6 +1,7 @@
+import { getContent } from "@/repositories/content.repository";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
-import footer from "@/content/footer.json";
+const footer = getContent<typeof import("@/content/footer.json")>("footer");
 import { BrandLogo } from "@/components/layout/brand-logo";
 import { resolveAssetUrl } from "@/lib/media";
 
@@ -40,7 +41,7 @@ export default function LandingFooter() {
             <h3 className="font-semibold text-sm mb-3 text-foreground">{pick(footer.groups.company)}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/quienes-somos" className="hover:text-primary transition-colors">{pick(footer.links.about)}</Link></li>
-              <li><Link href="/blog" className="hover:text-primary transition-colors">{pick(footer.links.blog)}</Link></li>
+              <li><a href="https://blogs.tsuru.jcampos.dev/" className="hover:text-primary transition-colors">{pick(footer.links.blog)}</a></li>
               <li><Link href="/contacto" className="hover:text-primary transition-colors">{pick(footer.links.contact)}</Link></li>
             </ul>
           </div>

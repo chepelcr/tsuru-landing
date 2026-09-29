@@ -9,8 +9,6 @@
     "build": "vite build",
     "check": "tsc --noEmit",
     "inventory": "node scripts/build-inventory.mjs",
-    "prerender": "node scripts/prerender.mjs",
-    "build:seo": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -22,6 +20,7 @@
     "@radix-ui/react-toast": "^1.2.7",
     "@tanstack/react-query": "^5.60.5",
     "aws-amplify": "^6.15.5",
+    "aws4fetch": "^1.0.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
@@ -45,10 +44,5 @@
     "tailwindcss": "^3.4.17",
     "typescript": "5.6.3",
     "vite": "^5.4.19"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   }
 }

@@ -1,7 +1,8 @@
+import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
-import community from "@/content/community.json";
+const community = getContent<typeof import("@/content/community.json")>("community");
 import {
   Scale,
   MapPin,
