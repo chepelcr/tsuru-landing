@@ -41,6 +41,16 @@ export async function loadPublishedContent(): Promise<void> {
   documents = site.documents;
 }
 
+export async function getPublishedBlogId(slug: string): Promise<string> {
+  if (!pool || !region) throw new Error('Public content identity pool is not configured');
+  const aws = new AwsClient({ ...await guest(), service: 'execute-api', region });
+  const response = await aws.fetch(`${url}/api/public/blog/posts/${encodeURIComponent(slug)}`, { method: 'GET' });
+  if (!response.ok) throw new Error(`Public blog API returned ${response.status}`);
+  const post = await response.json() as { id?: string };
+  if (!post.id) throw new Error('Public blog API returned no post ID');
+  return post.id;
+}
+
 export function getContent<T>(key: string): T {
   if (!documents || !(key in documents)) throw new Error(`Published content unavailable: ${key}`);
   return documents[key] as T;
