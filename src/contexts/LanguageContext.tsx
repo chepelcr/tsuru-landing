@@ -1,10 +1,12 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
 import { getContent } from '@/repositories/content.repository';
+import { transitionLanguage, type LanguageStage } from '@/lib/language-transition';
 
 type Language = 'en' | 'es';
 
 interface LanguageContextType {
   language: Language;
+  languageStage: LanguageStage;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
@@ -23,9 +25,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return browserLang.startsWith('es') ? 'es' : 'en';
   });
 
+  const [languageStage, setLanguageStage] = useState<LanguageStage>('idle');
+  const cancelTransition = useRef<(() => void) | undefined>();
+  useEffect(() => () => cancelTransition.current?.(), []);
+
   const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang);
-    localStorage.setItem('language', lang);
+    cancelTransition.current?.();
+    if (lang === language) { setLanguageStage('idle'); return; }
+    cancelTransition.current = transitionLanguage(() => {
+      setLanguage(lang);
+      localStorage.setItem('language', lang);
+    }, setLanguageStage, window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   };
 
   const t = (key: string): string => {
@@ -33,7 +43,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <LanguageContext.Provider value={{ language, languageStage, setLanguage: handleSetLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

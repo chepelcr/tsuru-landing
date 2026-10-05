@@ -561,3 +561,13 @@ body.theme-transitioning::before {
 /* Local vector flags stay sharp and do not depend on a third-party image host. */
 .locale-flag { display: block; flex-shrink: 0; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1px hsl(var(--foreground) / .12); animation: localeFlagEnter .18s ease-out; }
 @keyframes localeFlagEnter { from { opacity: .45; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+
+/* Keep the same mounted content and scroll position while swapping translations. */
+.language-content { opacity: 1; }
+.language-content.language-exit { animation: languageFadeOut .16s ease-in forwards; }
+.language-content.language-enter { animation: languageFadeIn .22s ease-out forwards; }
+@keyframes languageFadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes languageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .language-content.language-exit, .language-content.language-enter { animation: none; opacity: 1; }
+}

@@ -27,3 +27,8 @@ honor reduced motion. Three scroll-state regression tests cover down/up movement
 shared boundaries and clearing outside mapped sections. Type check, build and
 public-import guard passed. Browser visual verification of this refinement was
 blocked by the browser tool URL policy; the earlier screenshot predates it.
+
+Language switching now runs a full 160ms fade-out, commits the translation while
+hidden, and reveals it over 220ms. Content stays mounted; route and scroll are
+preserved. The control disables during the transition. Regression tests cover
+swap timing, cancellation and immediate reduced-motion updates.

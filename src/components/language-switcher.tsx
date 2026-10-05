@@ -2,9 +2,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 
 export function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+  const { language, languageStage, setLanguage } = useLanguage();
   return <Button variant="ghost" size="icon" onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
     className="nav-control w-11 h-11 rounded-full text-xs font-semibold"
+    disabled={languageStage !== 'idle'}
     aria-label={language === 'es' ? 'Idioma: Español. Cambiar a English' : 'Language: English. Switch to Español'}>
     <svg key={language} className="locale-flag" viewBox="0 0 30 20" width="28" height="20" aria-hidden="true">
       {language === 'es' ? <>
