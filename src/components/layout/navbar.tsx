@@ -84,15 +84,15 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
   return (
     <header className={`marketing-navbar sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border ${transitionStage}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
-        <div data-navbar-bar className="flex h-16 flex-nowrap items-center justify-between gap-3">
+        <div data-navbar-bar className="flex h-16 flex-nowrap items-center justify-between gap-2">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <BrandLogo label={pick(navbar.brand)} size={32} />
+            <BrandLogo label={pick(navbar.brand)} size={40} />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex shrink-0 items-center gap-2 xl:gap-4 relative whitespace-nowrap [&>a]:text-[13px] xl:[&>a]:text-sm [&>div>button]:text-[13px] xl:[&>div>button]:text-sm">
+          <nav className="hidden lg:flex shrink-0 items-center gap-2 xl:gap-6 relative whitespace-nowrap">
             <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/funcionalidades" label={pick(navbar.links.features)} />
             <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/planes" label={pick(navbar.links.plans)} aliases={["/pricing"]} />
             <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/ferias" label={pick(navbar.links.fairs)} />
@@ -159,12 +159,12 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
             <LanguageSwitcher />
             <ThemeToggle />
             <a href="https://app.tsuru.jcampos.dev" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-[13px] xl:text-sm">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-sm">
                 {pick(navbar.login)}
               </Button>
             </a>
             <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-3 xl:px-5 text-[13px] xl:text-sm">
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-3 xl:px-5 text-sm">
                 {pick(navbar.register)}
               </Button>
             </a>
