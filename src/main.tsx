@@ -24,10 +24,13 @@ async function start() {
     root.render(<React.StrictMode><LanguageProvider><QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider></LanguageProvider></React.StrictMode>);
-  } catch {
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : 'Unknown startup error';
+    if (import.meta.env.DEV) console.error('Tsuru startup failed:', detail);
     root.render(<div className="min-h-screen bg-background flex flex-col gap-4 items-center justify-center p-6 text-center">
       <h1 className="font-serif text-3xl">Tsuru</h1>
       <p>No pudimos cargar el contenido. We could not load the site content.</p>
+      {import.meta.env.DEV && <p className="max-w-xl text-sm text-muted-foreground">{detail}</p>}
       <button className="rounded-full bg-primary px-5 py-2 text-primary-foreground" onClick={() => void start()}>
         Reintentar / Retry
       </button>
