@@ -1,7 +1,10 @@
+import { MarketingMotion } from '@/components/marketing/MotionSurface';
+import { CommunityPillars } from '@/components/marketing/CommunityPillars';
 import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
+const landing = getContent<typeof import("@/content/landing.json")>("landing");
 const community = getContent<typeof import("@/content/community.json")>("community");
 import {
   Scale,
@@ -16,19 +19,21 @@ import {
   Clock,
 } from "lucide-react";
 
-function ValuePill({ icon: Icon, title, description }: {
+function ValuePill({ icon: Icon, title, description, extraDescription }: {
   icon: React.ElementType;
   title: string;
   description: string;
+  extraDescription?: string;
 }) {
   return (
-    <div className="flex gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/20 transition-all group">
+    <div className="flex h-full gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/20 transition-all group">
       <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
         <Icon className="h-5 w-5 text-primary" />
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-1">{title}</h3>
-        <p className="text-sm text-muted-foreground text-justify"><RichText>{description}</RichText></p>
+        <p className="text-sm text-muted-foreground leading-relaxed text-left"><RichText>{description}</RichText></p>
+        {extraDescription && <p className="text-sm text-muted-foreground leading-relaxed mt-3"><RichText>{extraDescription}</RichText></p>}
       </div>
     </div>
   );
@@ -40,8 +45,20 @@ export default function Comunidad() {
   const { language: lang } = useLanguage();
   const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
 
+  // Keep both published descriptions when the two content sources share a value.
+  const values = community.values.map((value, i) => ({ ...value, icon: VALUE_ICONS[i] ?? Users,
+    extraDescription: landing.values.items.find(item => item.title.es === value.title.es)?.description,
+  }));
+  for (const value of landing.values.items) {
+    if (!community.values.some(item => item.title.es === value.title.es)) {
+      values.push({ ...value, icon: MapPin, extraDescription: undefined });
+    }
+  }
+  const remainder = values.length % 3;
+  const pairFrom = remainder === 2 ? values.length - 2 : values.length >= 4 && remainder === 1 ? values.length - 4 : values.length;
+
   return (
-    <div className="min-h-screen bg-background">
+    <MarketingMotion><div className="community-page min-h-screen bg-background">
 
       {/* Hero */}
       <section className="relative overflow-hidden py-20 lg:py-28">
@@ -61,18 +78,24 @@ export default function Comunidad() {
         </div>
       </section>
 
+      <CommunityPillars />
+
       {/* Valores */}
       <section className="py-20 bg-muted/20 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <span className="text-accent font-semibold text-sm uppercase tracking-wider">{pick(landing.values.title)}</span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-3">
               {pick(community.valuesTitle)}
             </h2>
             <p className="text-muted-foreground">{pick(community.valuesSubtitle)}</p>
+            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto mt-3"><RichText>{pick(landing.values.subtitle)}</RichText></p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {community.values.map((value, i) => (
-              <ValuePill key={i} icon={VALUE_ICONS[i]} title={pick(value.title)} description={pick(value.description)} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+            {values.map((value, i) => (
+              <div key={i} className={i < pairFrom ? 'lg:col-span-2' : 'lg:col-span-3'}>
+                <ValuePill icon={value.icon} title={pick(value.title)} description={pick(value.description)} extraDescription={value.extraDescription ? pick(value.extraDescription) : undefined} />
+              </div>
             ))}
           </div>
         </div>
@@ -144,7 +167,7 @@ export default function Comunidad() {
                   </span>
                 )}
               </div>
-              <p className="text-muted-foreground leading-relaxed text-lg mb-6 text-justify">
+              <p className="text-muted-foreground leading-relaxed text-lg mb-6 text-left">
                 <RichText>{pick(community.barter.description)}</RichText>
               </p>
               <div className="flex flex-col gap-3">
@@ -206,7 +229,7 @@ export default function Comunidad() {
                   </span>
                 )}
               </div>
-              <p className="text-muted-foreground leading-relaxed text-lg md:text-justify">
+              <p className="text-muted-foreground leading-relaxed text-lg md:text-left">
                 <RichText>{pick(community.mutual.description)}</RichText>
               </p>
             </div>
@@ -228,6 +251,6 @@ export default function Comunidad() {
         </div>
       </section>
 
-    </div>
+    </div></MarketingMotion>
   );
 }

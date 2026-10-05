@@ -647,3 +647,8 @@ body.theme-transitioning::before {
 @media (prefers-reduced-motion: reduce) {
   .feature-modal[open], .feature-modal.is-closing[open], .feature-modal::backdrop, .feature-modal.is-closing::backdrop { animation: none; }
 }
+
+.premium-landing section#community-preview { padding-block: 2.5rem; }
+.community-page h1, .community-page h2 { text-wrap: balance; }
+.community-page p { text-wrap: pretty; }
+.community-page :is(a, button):focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 4px; }
