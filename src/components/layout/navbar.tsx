@@ -66,7 +66,7 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
     setNosotrosDropdownOpen(false);
   }, [location]);
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 768px)');
+    const desktop = window.matchMedia('(min-width: 1024px)');
     const closeOnDesktop = () => { if (desktop.matches) setMobileMenuOpen(false); };
     desktop.addEventListener('change', closeOnDesktop);
     return () => desktop.removeEventListener('change', closeOnDesktop);
@@ -83,16 +83,16 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
 
   return (
     <header className={`marketing-navbar sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border ${transitionStage}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div data-navbar-bar className="flex h-16 items-center justify-between md:grid md:h-auto md:grid-cols-[auto_1fr] md:grid-rows-[4rem_3rem] xl:flex xl:h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
+        <div data-navbar-bar className="flex h-16 flex-nowrap items-center justify-between gap-3">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <BrandLogo label={pick(navbar.brand)} size={40} />
+            <BrandLogo label={pick(navbar.brand)} size={32} />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:col-span-2 md:row-start-2 items-center justify-center gap-4 relative xl:justify-start">
+          <nav className="hidden lg:flex shrink-0 items-center gap-2 xl:gap-4 relative whitespace-nowrap [&>a]:text-[13px] xl:[&>a]:text-sm [&>div>button]:text-[13px] xl:[&>div>button]:text-sm">
             <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/funcionalidades" label={pick(navbar.links.features)} />
             <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/planes" label={pick(navbar.links.plans)} aliases={["/pricing"]} />
             <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/ferias" label={pick(navbar.links.fairs)} />
@@ -155,23 +155,23 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center justify-self-end gap-2">
+          <div className="hidden lg:flex shrink-0 items-center gap-1 xl:gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
             <a href="https://app.tsuru.jcampos.dev" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-[13px] xl:text-sm">
                 {pick(navbar.login)}
               </Button>
             </a>
             <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5">
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-3 xl:px-5 text-[13px] xl:text-sm">
                 {pick(navbar.register)}
               </Button>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
             <button
@@ -192,7 +192,7 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
 
         {/* Mobile Menu */}
         <LazyMotion features={domAnimation} strict><AnimatePresence initial={false}>{mobileMenuOpen && (
-          <m.div id="mobile-navigation" className="md:hidden py-4 border-t border-border max-h-[calc(100dvh-4rem)] overflow-y-auto"
+          <m.div id="mobile-navigation" className="lg:hidden py-4 border-t border-border max-h-[calc(100dvh-4rem)] overflow-y-auto"
             initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : -6 }} animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : -4 }} transition={{ duration: reduced ? 0 : .16 }}>
             <nav className="flex flex-col gap-4">
