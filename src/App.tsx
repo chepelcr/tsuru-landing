@@ -27,6 +27,7 @@ function HeadTags() {
 
 export default function App() {
   const [location] = useLocation();
+  const { language } = useLanguage();
 
   // Admin shell renders full-screen, outside the public navbar/footer chrome.
   if (ADMIN_ENABLED && AdminApp && location.startsWith("/admin")) {
@@ -48,8 +49,9 @@ export default function App() {
         <PageTransition location={location}>
           {(displayLocation, transitionStage, isLayoutSwitch) => (
             <div className="min-h-screen flex flex-col bg-background">
+              <a className="skip-to-content" href="#main-content">{language === "es" ? "Saltar al contenido" : "Skip to content"}</a>
               <LandingNavbar transitionStage={isLayoutSwitch ? transitionStage : ''} />
-              <main className={`flex-grow ${transitionStage}`}>
+              <main id="main-content" tabIndex={-1} className={`flex-grow ${transitionStage}`}>
                 <Router displayLocation={displayLocation} />
               </main>
               <LandingFooter />

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 const navbar = getContent<typeof import("@/content/navbar.json")>("navbar");
 import { BrandLogo } from "@/components/layout/brand-logo";
 
@@ -23,6 +23,16 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
   // code and the repo has no @types/node, so the NodeJS namespace isn't declared.
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setNosotrosDropdownOpen(false);
+  }, [location]);
+  useEffect(() => {
+    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') { setMobileMenuOpen(false); setNosotrosDropdownOpen(false); } };
+    window.addEventListener('keydown', escape);
+    return () => { window.removeEventListener('keydown', escape); if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current); };
+  }, []);
+
   const isActive = (href: string, aliases: string[] = []) =>
     location === href || aliases.includes(location);
 
@@ -38,6 +48,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
     return (
       <Link
         href={href}
+        aria-current={active ? "page" : undefined}
         onClick={onClick}
         className={`relative text-sm transition-colors hover:text-primary ${
           active ? 'text-primary font-medium' : 'text-muted-foreground'
@@ -54,7 +65,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
   };
 
   return (
-    <header className={`sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border ${transitionStage}`}>
+    <header className={`marketing-navbar sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border ${transitionStage}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
 
@@ -64,7 +75,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6 relative">
+          <nav className="hidden xl:flex items-center gap-4 relative">
             <NavLink href="/funcionalidades" label={pick(navbar.links.features)} />
             <NavLink href="/planes" label={pick(navbar.links.plans)} aliases={["/pricing"]} />
             <NavLink href="/ferias" label={pick(navbar.links.fairs)} />
@@ -85,6 +96,9 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
               }}
             >
               <button
+                aria-expanded={nosotrosDropdownOpen}
+                aria-controls="about-navigation"
+                onKeyDown={event => { if (event.key === "Escape") setNosotrosDropdownOpen(false); }}
                 onClick={() => setNosotrosDropdownOpen(!nosotrosDropdownOpen)}
                 className={`text-sm flex items-center gap-1 transition-colors hover:text-primary ${
                   isActive("/quienes-somos") || isActive("/contacto") ? 'text-primary font-medium' : 'text-muted-foreground'
@@ -94,7 +108,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                 <ChevronDown className={`h-4 w-4 transition-transform ${nosotrosDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              <div
+              <div id="about-navigation"
                 className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-max bg-card rounded-lg shadow-lg border border-border py-2 transition-opacity pointer-events-none z-50 ${
                   nosotrosDropdownOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 invisible'
                 }`}
@@ -124,7 +138,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden xl:flex items-center gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
             <a href="https://app.tsuru.jcampos.dev" target="_blank" rel="noopener noreferrer">
@@ -140,11 +154,14 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex xl:hidden items-center gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
             <button
-              className="p-2 text-foreground"
+              className="nav-control inline-flex items-center justify-center text-foreground"
+              aria-label={lang === "es" ? "Menú de navegación" : "Navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -158,7 +175,7 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div id="mobile-navigation" className="xl:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
               <NavLink
                 href="/funcionalidades"

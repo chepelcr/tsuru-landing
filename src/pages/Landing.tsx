@@ -1,3 +1,7 @@
+import { MarketingMotion, ScrollBlock } from '@/components/marketing/MotionSurface';
+import { HeroArt } from '@/components/marketing/HeroArt';
+import { FeatureArt } from '@/components/marketing/FeatureArt';
+import { SetupCard } from '@/components/marketing/SetupCard';
 import { getContent } from "@/repositories/content.repository";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,8 +12,6 @@ const billing = getContent<typeof import("@/content/billing.json")>("billing");
 const plans = getContent<typeof import("@/content/plans.json")>("plans");
 import { formatCRC } from "@/lib/currency";
 import {
-  UserPlus,
-  Package,
   Share2,
   MessageCircle,
   ClipboardList,
@@ -30,28 +32,6 @@ import {
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-function StepCard({ number, icon: Icon, title, description }: {
-  number: number;
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="relative flex flex-col items-center text-center px-6">
-      <div className="relative mb-5">
-        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20">
-          <Icon className="h-7 w-7 text-primary" />
-        </div>
-        <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
-          {number}
-        </span>
-      </div>
-      <h3 className="font-serif text-lg font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{description}</RichText></p>
-    </div>
-  );
-}
-
 function ValueCard({ icon: Icon, title, description, accent }: {
   icon: React.ElementType;
   title: string;
@@ -71,7 +51,7 @@ function ValueCard({ icon: Icon, title, description, accent }: {
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-2">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{description}</RichText></p>
+        <p className="text-sm text-muted-foreground leading-relaxed text-left"><RichText>{description}</RichText></p>
       </div>
     </div>
   );
@@ -79,7 +59,7 @@ function ValueCard({ icon: Icon, title, description, accent }: {
 
 // ─── Main page ────────────────────────────────────────────────────────────────
 
-const STEP_ICONS = [UserPlus, Package, ClipboardList];
+
 const ORDER_ICONS = [MessageCircle, ClipboardList, Truck, FileCheck2];
 const VALUE_ICONS = [Scale, Leaf, MapPin, Eye];
 // Community-spotlight pillar icons, keyed by the iconName in landing.json.
@@ -100,78 +80,31 @@ export default function Landing() {
   const transparencyTitle = pick(values[3].title);
 
   return (
-    <div className="min-h-screen bg-background">
+    <MarketingMotion><div className="premium-landing min-h-screen bg-background">
 
       {/* ═══════════════════════════════════════════════════════════ HERO */}
       <section id="home" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/10 pointer-events-none" />
-        <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-48 h-48 rounded-full bg-secondary/10 blur-2xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 lg:pt-28 lg:pb-32">
-          <div className="max-w-3xl mx-auto text-center">
-
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
-              <Sprout className="h-3.5 w-3.5" />
-              {pick(landing.hero.badge)}
+        <div className="premium-hero max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="hero-copy">
+            <div className="hero-eyebrow"><Sprout size={16} aria-hidden="true" />{pick(landing.hero.badge)}</div>
+            <h1>{pick(landing.hero.title)}</h1>
+            <p className="hero-description"><RichText>{pick(landing.hero.subtitle)}</RichText></p>
+            <div className="hero-actions">
+              <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer" className="marketing-button primary">{pick(landing.hero.cta)}<ArrowRight size={18} aria-hidden="true" /></a>
+              <Link href="/ejemplos" className="marketing-button secondary">{pick(landing.hero.secondary)}<Eye size={18} aria-hidden="true" /></Link>
             </div>
-
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight mb-6">
-              {pick(landing.hero.title)}
-            </h1>
-
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-              <RichText>{pick(landing.hero.subtitle)}</RichText>
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://app.tsuru.jcampos.dev/register"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 text-base font-semibold gap-2 shadow-lg shadow-primary/20"
-                >
-                  {pick(landing.hero.cta)}
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </a>
-              <Link href="/ejemplos">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="rounded-full px-8 py-6 text-base border-border text-foreground hover:bg-muted/50"
-                >
-                  {pick(landing.hero.secondary)}
-                </Button>
-              </Link>
-            </div>
-
-            <div className="mt-14 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                {fairTradeTitle}
-              </span>
-              <span className="text-border">·</span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                {localTitle}
-              </span>
-              <span className="text-border">·</span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                {transparencyTitle}
-              </span>
-            </div>
-
+            <div className="hero-principles">{[fairTradeTitle,localTitle,transparencyTitle].map(title=><span key={title}><Check size={14} aria-hidden="true"/>{title}</span>)}</div>
+          </div>
+          <div className="hero-visual">
+            <div className="hero-visual-heading"><span>{pick(landing.storefront.currentTitle)}</span><span aria-hidden="true">↗</span></div>
+            <HeroArt />
+            <div className="hero-visual-caption"><span>{pick(landing.orders.exampleLabel)}</span><span className="hero-caption-mark" aria-hidden="true"><Leaf size={18}/></span></div>
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════ CÓMO FUNCIONA */}
-      <section id="como-funciona" className="py-20 lg:py-28 bg-card border-y border-border">
+      <section id="como-funciona" className="premium-section setup-section bg-muted/30 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-14">
@@ -181,26 +114,7 @@ export default function Landing() {
             </h2>
           </div>
 
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-            {landing.howItWorks.steps.map((step, i) => (
-              <StepCard
-                key={i}
-                number={i + 1}
-                icon={STEP_ICONS[i]}
-                title={pick(step.title)}
-                description={pick(step.description)}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/funcionalidades">
-              <Button variant="ghost" className="text-primary hover:text-primary hover:bg-primary/10 gap-2 rounded-full">
-                {pick(landing.howItWorks.learnMore)}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
+          <SetupCard steps={landing.howItWorks.steps} language={lang} label={pick(landing.howItWorks.title)} action={pick(landing.howItWorks.learnMore)} />
 
         </div>
       </section>
@@ -208,7 +122,7 @@ export default function Landing() {
       {/* ══════════════════════════════════════ PEDIDOS */}
       <section id="pedidos" className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
                 <ClipboardList className="h-3.5 w-3.5" />
@@ -217,15 +131,16 @@ export default function Landing() {
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-5">
                 {pick(landing.orders.title)}
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+              <p className="text-lg text-muted-foreground leading-relaxed text-left">
                 <RichText>{pick(landing.orders.body)}</RichText>
               </p>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 shadow-sm">
+            <div className="order-example rounded-3xl border border-border bg-card p-5 sm:p-7 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-5">
                 {pick(landing.orders.exampleLabel)}
               </p>
+              <FeatureArt id="orders" />
               <ol className="space-y-4">
                 {[landing.orders.exampleMessage, landing.orders.exampleOrder, landing.orders.exampleFollowUp, landing.orders.exampleInvoice].map((item, i) => {
                   const Icon = ORDER_ICONS[i];
@@ -234,7 +149,7 @@ export default function Landing() {
                       <span className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl bg-primary/10 text-primary">
                         <Icon className="h-4 w-4" />
                       </span>
-                      <p className="text-sm text-muted-foreground leading-relaxed text-left sm:text-justify pt-1.5">
+                      <p className="text-sm text-muted-foreground leading-relaxed text-left sm:text-left pt-1.5">
                         <RichText>{pick(item)}</RichText>
                       </p>
                     </li>
@@ -249,14 +164,14 @@ export default function Landing() {
                 ))}
               </div>
             </div>
-          </div>
+          </ScrollBlock>
         </div>
       </section>
 
       {/* ══════════════════════════════════════ TIENDA EN LÍNEA */}
       <section id="tienda" className="py-20 lg:py-28 bg-muted/30 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
                 <Store className="h-3.5 w-3.5" />
@@ -265,34 +180,35 @@ export default function Landing() {
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-5">
                 {pick(landing.storefront.title)}
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+              <p className="text-lg text-muted-foreground leading-relaxed text-left">
                 <RichText>{pick(landing.storefront.body)}</RichText>
               </p>
             </div>
-            <div className="space-y-4">
+            <div className="storefront-panels space-y-4">
+              <FeatureArt id="Store" />
               <div className="rounded-2xl bg-card border border-primary/25 p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center"><Share2 className="h-5 w-5" /></span>
                   <h3 className="font-semibold text-foreground">{pick(landing.storefront.currentTitle)}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{pick(landing.storefront.currentBody)}</RichText></p>
+                <p className="text-sm text-muted-foreground leading-relaxed text-left"><RichText>{pick(landing.storefront.currentBody)}</RichText></p>
               </div>
               <div className="rounded-2xl bg-card/60 border border-dashed border-accent/40 p-6">
                 <div className="flex items-center justify-between gap-3 mb-3">
                   <h3 className="font-semibold text-foreground">{pick(landing.storefront.futureTitle)}</h3>
                   <span className="flex-shrink-0 rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">{pick(landing.storefront.futureStatus)}</span>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{pick(landing.storefront.futureBody)}</RichText></p>
+                <p className="text-sm text-muted-foreground leading-relaxed text-left"><RichText>{pick(landing.storefront.futureBody)}</RichText></p>
               </div>
             </div>
-          </div>
+          </ScrollBlock>
         </div>
       </section>
 
       {/* ══════════════════════════════════════ FACTURACIÓN ELECTRÓNICA */}
       <section id="facturacion" className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
@@ -304,11 +220,11 @@ export default function Landing() {
                 {pick(billing.title)}
               </h2>
 
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6 text-justify">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6 text-left">
                 <RichText>{pick(billing.subtitle)}</RichText>
               </p>
 
-              <p className="text-sm text-foreground/80 italic border-l-2 border-accent/40 pl-4 text-justify">
+              <p className="text-sm text-foreground/80 italic border-l-2 border-accent/40 pl-4 text-left">
                 <RichText>{pick(billing.note)}</RichText>
               </p>
             </div>
@@ -329,7 +245,7 @@ export default function Landing() {
               ))}
             </ul>
 
-          </div>
+          </ScrollBlock>
         </div>
       </section>
 
@@ -377,7 +293,7 @@ export default function Landing() {
                   <h3 className="font-serif text-xl font-bold text-foreground mb-1">
                     {pick(plan.name)}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-4 text-justify">
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4 text-left">
                     {pick(plan.tagline)}
                   </p>
 
@@ -464,27 +380,17 @@ export default function Landing() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {landing.communitySpotlight.pillars.map((pillar, i) => {
+            {landing.communitySpotlight.pillars.map((pillar) => {
               const Icon = PILLAR_ICONS[pillar.iconName] ?? Sprout;
               return (
                 <div
-                  key={i}
-                  className="rounded-2xl p-6 bg-background border border-border hover:border-primary/30 transition-all"
+                  key={pillar.iconName}
+                  className="pillar-card rounded-2xl p-6 bg-background border border-border hover:border-primary/30 transition-all"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 flex-shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-start justify-between gap-2 mb-3">
-                        <h3 className="min-w-0 font-semibold text-foreground">{pick(pillar.title)}</h3>
-                        <span className="flex-shrink-0 inline-flex items-center px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
-                          {pick(pillar.status)}
-                        </span>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{pick(pillar.description)}</RichText></p>
-                    </div>
-                  </div>
+                  <span className="pillar-status">{pick(pillar.status)}</span>
+                  <div className="pillar-heading"><Icon size={23} aria-hidden="true"/><h3>{pick(pillar.title)}</h3></div>
+                  <p className="text-sm text-muted-foreground leading-relaxed"><RichText>{pick(pillar.description)}</RichText></p>
+                  <FeatureArt id={pillar.iconName} />
                 </div>
               );
             })}
@@ -503,7 +409,7 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════════ FINAL CTA */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
+      <section className="final-action py-20 bg-gradient-to-br from-primary to-primary/80">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
             {pick(landing.finalCta.title)}
@@ -538,6 +444,6 @@ export default function Landing() {
         </div>
       </section>
 
-    </div>
+    </div></MarketingMotion>
   );
 }
