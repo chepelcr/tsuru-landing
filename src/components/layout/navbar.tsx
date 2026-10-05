@@ -6,19 +6,57 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { useScrollNavigation } from '@/hooks/useScrollNavigation';
+import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react';
 const navbar = getContent<typeof import("@/content/navbar.json")>("navbar");
 import { BrandLogo } from "@/components/layout/brand-logo";
 
 interface LandingNavbarProps {
   transitionStage?: string;
+  displayLocation?: string;
 }
 
-export default function LandingNavbar({ transitionStage = '' }: LandingNavbarProps) {
+interface NavLinkProps {
+  href: string;
+  label: string;
+  aliases?: string[];
+  onClick?: () => void;
+  activeLocation: string | null;
+  sectionNavigation: boolean;
+}
+
+const NavLink = ({ href, label, aliases = [], onClick, activeLocation, sectionNavigation }: NavLinkProps) => {
+  const active = activeLocation === href || (activeLocation !== null && aliases.includes(activeLocation));
+  return (
+    <Link
+      href={href}
+      aria-current={active ? (sectionNavigation ? "location" : "page") : undefined}
+      onClick={onClick}
+      className={`relative text-sm transition-colors hover:text-primary ${
+        active ? 'text-primary font-medium' : 'text-muted-foreground'
+      }`}
+    >
+      {label}
+      <span
+        aria-hidden="true"
+        className={`absolute left-0 -bottom-1 h-0.5 w-full origin-left bg-primary rounded-full transition-transform duration-200 ${
+          active ? 'scale-x-100' : 'scale-x-0'
+        }`}
+      />
+    </Link>
+  );
+};
+
+
+export default function LandingNavbar({ transitionStage = '', displayLocation }: LandingNavbarProps) {
   const { language: lang } = useLanguage();
   const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [nosotrosDropdownOpen, setNosotrosDropdownOpen] = useState(false);
   const [location] = useLocation();
+  const route = displayLocation ?? location;
+  const activeSection = useScrollNavigation(route, mobileMenuOpen, lang);
+  const reduced = useReducedMotion();
   // ReturnType<typeof setTimeout> rather than NodeJS.Timeout: this is browser
   // code and the repo has no @types/node, so the NodeJS namespace isn't declared.
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -28,46 +66,25 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
     setNosotrosDropdownOpen(false);
   }, [location]);
   useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1280px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMobileMenuOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
+  useEffect(() => {
     const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') { setMobileMenuOpen(false); setNosotrosDropdownOpen(false); } };
     window.addEventListener('keydown', escape);
     return () => { window.removeEventListener('keydown', escape); if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current); };
   }, []);
 
   const isActive = (href: string, aliases: string[] = []) =>
-    location === href || aliases.includes(location);
+    route === '/' ? activeSection === href : route === href || aliases.includes(route);
 
-  interface NavLinkProps {
-    href: string;
-    label: string;
-    aliases?: string[];
-    onClick?: () => void;
-  }
-
-  const NavLink = ({ href, label, aliases = [], onClick }: NavLinkProps) => {
-    const active = isActive(href, aliases);
-    return (
-      <Link
-        href={href}
-        aria-current={active ? "page" : undefined}
-        onClick={onClick}
-        className={`relative text-sm transition-colors hover:text-primary ${
-          active ? 'text-primary font-medium' : 'text-muted-foreground'
-        }`}
-      >
-        {label}
-        <span
-          className={`absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full transition-all duration-200 ${
-            active ? 'w-full' : 'w-0'
-          }`}
-        />
-      </Link>
-    );
-  };
 
   return (
     <header className={`marketing-navbar sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border ${transitionStage}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div data-navbar-bar className="flex h-16 items-center justify-between">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
@@ -76,11 +93,11 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-4 relative">
-            <NavLink href="/funcionalidades" label={pick(navbar.links.features)} />
-            <NavLink href="/planes" label={pick(navbar.links.plans)} aliases={["/pricing"]} />
-            <NavLink href="/ferias" label={pick(navbar.links.fairs)} />
-            <NavLink href="/comunidad" label={pick(navbar.links.community)} />
-            <NavLink href="/ejemplos" label={pick(navbar.links.examples)} aliases={["/examples"]} />
+            <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/funcionalidades" label={pick(navbar.links.features)} />
+            <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/planes" label={pick(navbar.links.plans)} aliases={["/pricing"]} />
+            <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/ferias" label={pick(navbar.links.fairs)} />
+            <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/comunidad" label={pick(navbar.links.community)} />
+            <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'} href="/ejemplos" label={pick(navbar.links.examples)} aliases={["/examples"]} />
 
             {/* Nosotros Dropdown */}
             <div
@@ -174,31 +191,33 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div id="mobile-navigation" className="xl:hidden py-4 border-t border-border">
+        <LazyMotion features={domAnimation} strict><AnimatePresence initial={false}>{mobileMenuOpen && (
+          <m.div id="mobile-navigation" className="xl:hidden py-4 border-t border-border max-h-[calc(100dvh-4rem)] overflow-y-auto"
+            initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : -6 }} animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : -4 }} transition={{ duration: reduced ? 0 : .16 }}>
             <nav className="flex flex-col gap-4">
-              <NavLink
+              <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'}
                 href="/funcionalidades"
                 label={pick(navbar.links.features)}
                 onClick={() => setMobileMenuOpen(false)}
               />
-              <NavLink
+              <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'}
                 href="/planes"
                 label={pick(navbar.links.plans)}
                 aliases={["/pricing"]}
                 onClick={() => setMobileMenuOpen(false)}
               />
-              <NavLink
+              <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'}
                 href="/ferias"
                 label={pick(navbar.links.fairs)}
                 onClick={() => setMobileMenuOpen(false)}
               />
-              <NavLink
+              <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'}
                 href="/comunidad"
                 label={pick(navbar.links.community)}
                 onClick={() => setMobileMenuOpen(false)}
               />
-              <NavLink
+              <NavLink activeLocation={route === '/' ? activeSection : route} sectionNavigation={route === '/'}
                 href="/ejemplos"
                 label={pick(navbar.links.examples)}
                 aliases={["/examples"]}
@@ -255,8 +274,8 @@ export default function LandingNavbar({ transitionStage = '' }: LandingNavbarPro
                 </a>
               </div>
             </nav>
-          </div>
-        )}
+          </m.div>
+        )}</AnimatePresence></LazyMotion>
       </div>
     </header>
   );

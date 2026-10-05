@@ -323,13 +323,13 @@
 *,
 *::before,
 *::after {
-  transition: background-color 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-              color 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-              border-color 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-              box-shadow 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-              fill 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-              stroke 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-              background-image 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: background-color 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+              color 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+              border-color 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+              fill 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+              stroke 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+              background-image 0.24s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Language transition effects */
@@ -388,11 +388,11 @@ body.theme-transitioning::before {
 
 /* Page transition effects */
 .page-enter {
-  animation: pageEnter 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: pageEnter 0.22s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .page-exit {
-  animation: pageExit 0.5s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  animation: pageExit 0.16s cubic-bezier(0.4, 0, 0.6, 1) forwards;
 }
 
 /* Flash overlay for smooth transitions - root level */
@@ -439,7 +439,7 @@ body.theme-transitioning::before {
 @keyframes pageEnter {
   0% {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(6px);
   }
   100% {
     opacity: 1;
@@ -454,7 +454,7 @@ body.theme-transitioning::before {
   }
   100% {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(-4px);
   }
 }
 
@@ -557,3 +557,7 @@ body.theme-transitioning::before {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .marketing-button:hover { transform: none; }
 }
+
+/* Local vector flags stay sharp and do not depend on a third-party image host. */
+.locale-flag { display: block; flex-shrink: 0; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1px hsl(var(--foreground) / .12); animation: localeFlagEnter .18s ease-out; }
+@keyframes localeFlagEnter { from { opacity: .45; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }

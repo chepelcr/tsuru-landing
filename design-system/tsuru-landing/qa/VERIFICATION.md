@@ -16,3 +16,14 @@ SSM; no content proxy or bundled editorial fixture is required.
 
 Desktop proof: desktop-light-es.jpg. The warm brown/cream palette comes from the
 published light-theme brand configuration. No website deployment was performed.
+
+## Navigation refinement
+
+Flag-only language control uses local Costa Rica/UK vectors and localized
+accessible labels. Home sections mark their corresponding navigation links via
+a header-aware reading line; direct routes retain page highlighting. Scroll
+tracking never modifies the URL. Language, theme, page and mobile-menu transitions
+honor reduced motion. Three scroll-state regression tests cover down/up movement,
+shared boundaries and clearing outside mapped sections. Type check, build and
+public-import guard passed. Browser visual verification of this refinement was
+blocked by the browser tool URL policy; the earlier screenshot predates it.

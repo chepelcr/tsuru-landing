@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,7 +9,6 @@ import LandingFooter from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { PageTransition } from "@/components/PageTransition";
 import { Router } from "@/components/Router";
-import { TransitionOverlay } from "@/components/TransitionOverlay";
 import { ADMIN_ENABLED } from "@/lib/admin-enabled";
 
 // Lazy + gated: the admin chunk is only ever imported when ADMIN_ENABLED is
@@ -28,6 +27,15 @@ function HeadTags() {
 export default function App() {
   const [location] = useLocation();
   const { language } = useLanguage();
+  const contentRef = useRef<HTMLElement>(null);
+  const previousLanguage = useRef(language);
+  useEffect(() => {
+    if (previousLanguage.current === language) return;
+    previousLanguage.current = language;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const animation = contentRef.current?.animate([{ opacity: .65 }, { opacity: 1 }], { duration: 180, easing: 'ease-out' });
+    return () => animation?.cancel();
+  }, [language]);
 
   // Admin shell renders full-screen, outside the public navbar/footer chrome.
   if (ADMIN_ENABLED && AdminApp && location.startsWith("/admin")) {
@@ -44,14 +52,17 @@ export default function App() {
   return (
     <>
       <HeadTags />
-      <TransitionOverlay />
       <ThemeProvider>
         <PageTransition location={location}>
           {(displayLocation, transitionStage, isLayoutSwitch) => (
             <div className="min-h-screen flex flex-col bg-background">
-              <a className="skip-to-content" href="#main-content">{language === "es" ? "Saltar al contenido" : "Skip to content"}</a>
-              <LandingNavbar transitionStage={isLayoutSwitch ? transitionStage : ''} />
-              <main id="main-content" tabIndex={-1} className={`flex-grow ${transitionStage}`}>
+              <a className="skip-to-content" href="#main-content" onClick={event => {
+                event.preventDefault();
+                contentRef.current?.focus({ preventScroll: true });
+                contentRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+              }}>{language === "es" ? "Saltar al contenido" : "Skip to content"}</a>
+              <LandingNavbar displayLocation={displayLocation} transitionStage={isLayoutSwitch ? transitionStage : ''} />
+              <main ref={contentRef} id="main-content" tabIndex={-1} className={`flex-grow ${transitionStage}`}>
                 <Router displayLocation={displayLocation} />
               </main>
               <LandingFooter />

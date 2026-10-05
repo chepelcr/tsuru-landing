@@ -120,7 +120,7 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════ PEDIDOS */}
-      <section id="pedidos" className="py-20 lg:py-28 bg-background">
+      <section id="pedidos" data-nav-href="/funcionalidades" className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
@@ -169,7 +169,7 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════ TIENDA EN LÍNEA */}
-      <section id="tienda" className="py-20 lg:py-28 bg-muted/30 border-y border-border">
+      <section id="tienda" data-nav-href="/funcionalidades" className="py-20 lg:py-28 bg-muted/30 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
@@ -206,7 +206,7 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════ FACTURACIÓN ELECTRÓNICA */}
-      <section id="facturacion" className="py-20 lg:py-28 bg-background">
+      <section id="facturacion" data-nav-href="/funcionalidades" className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -253,7 +253,7 @@ export default function Landing() {
       {/* Compact tier strip. Full detail — comparison table, add-ons, FAQ —
           lives on /planes; this only has to make the tiers legible and get the
           visitor there. Amounts come from the same plans.json the page uses. */}
-      <section id="planes" className="py-20 lg:py-28 bg-background">
+      <section id="planes" data-nav-href="/planes" className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-12 max-w-2xl mx-auto">
@@ -337,7 +337,7 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════════════ VALORES */}
-      <section id="valores" className="py-20 lg:py-28 bg-muted/30">
+      <section id="valores" data-nav-href="/comunidad" className="py-20 lg:py-28 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-14">
@@ -363,7 +363,7 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════ COMUNIDAD (3 PILARES) */}
-      <section id="comunidad-spotlight" className="py-20 lg:py-28 bg-card border-y border-border">
+      <section id="comunidad-spotlight" data-nav-href="/comunidad" className="py-20 lg:py-28 bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-14 max-w-2xl mx-auto">
