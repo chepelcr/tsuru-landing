@@ -603,3 +603,47 @@ body.theme-transitioning::before {
   .feature-modal-header { padding: 1rem; }
   .feature-modal .premium-landing section > div { padding-inline: 1rem; }
 }
+
+/* Compact details fit in the viewport; short screens use discrete panels. */
+.feature-modal { width: min(72rem, calc(100% - 2rem)); }
+.feature-modal-header { padding-block: .75rem; }
+.feature-modal-body { overflow: visible; }
+.feature-modal .premium-landing section { padding-block: 1.5rem; }
+.feature-modal .premium-landing section > div > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.feature-modal .premium-landing h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+.feature-modal .premium-landing .text-lg { font-size: 1rem; line-height: 1.6; }
+.feature-modal .premium-landing .mb-6 { margin-bottom: 1rem; }
+.feature-modal .order-example, .feature-modal .storefront-panels { padding: 1rem; }
+.feature-modal .order-example > .feature-art, .feature-modal .storefront-panels > .feature-art { height: 4rem; margin-bottom: .5rem; }
+.feature-modal .order-example ol > li + li, .feature-modal .storefront-panels > div + div, .feature-modal #facturacion ul > li + li { margin-top: .5rem; }
+.feature-modal .order-example li { padding-bottom: 0; }
+.feature-modal .order-example > .mt-6 { margin-top: .75rem; padding-top: .75rem; }
+.feature-modal .storefront-panels > div { padding: 1rem; }
+.feature-modal #facturacion li { padding: 1rem; }
+.feature-detail-panels { padding: 1.25rem; }
+.feature-panel-art { border-radius: 1rem; background: hsl(var(--primary) / .05); border: 1px solid hsl(var(--primary) / .12); margin-bottom: 1rem; }
+.feature-panel-art .feature-art { height: 5rem; padding: .5rem; }
+.feature-panel-controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; }
+.feature-panel-controls button { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid hsl(var(--border)); color: hsl(var(--foreground)); background: hsl(var(--card)); cursor: pointer; }
+.feature-panel-controls button:disabled { opacity: .35; cursor: default; }
+.feature-panel-controls button:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 3px; }
+.feature-modal.is-closing[open] { animation: feature-modal-exit 160ms ease-in forwards; pointer-events: none; }
+.feature-modal::backdrop { animation: feature-backdrop-enter 200ms ease-out; }
+.feature-modal.is-closing::backdrop { animation: feature-backdrop-exit 160ms ease-in forwards; }
+@keyframes feature-modal-exit { to { opacity: 0; transform: translateY(8px) scale(.985); } }
+@keyframes feature-backdrop-enter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes feature-backdrop-exit { to { opacity: 0; } }
+@media (max-height: 599px) {
+  .feature-detail-panel { display: grid; grid-template-columns: minmax(0, 1fr) 3fr; gap: 1rem; align-items: center; }
+  .feature-panel-art { margin-bottom: 0; }
+  .feature-modal-summary { grid-template-columns: 1fr 2fr; }
+  .feature-modal-summary > div:first-child { order: 1; }
+  .feature-modal-summary > div:last-child { padding: .5rem; }
+  .feature-modal-summary p { font-size: .875rem; line-height: 1.5; }
+  .feature-modal-summary .feature-art { height: 4rem; }
+  .feature-detail-panels { padding: .75rem 1rem; }
+  .feature-panel-controls { margin-top: .75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feature-modal[open], .feature-modal.is-closing[open], .feature-modal::backdrop, .feature-modal.is-closing::backdrop { animation: none; }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { RichText } from '@/lib/rich-text';
@@ -15,6 +15,20 @@ const ART: Record<string, string> = { WifiOff: 'orders', Users: 'Users', ArrowLe
 export function FeatureModal({ card, onClose }: { card: Feature; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
+  const [closing, setClosing] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const closingRef = useRef(false);
+  const requestClose = () => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      onClose();
+      return;
+    }
+    setClosing(true);
+    closeTimer.current = setTimeout(onClose, 180);
+  };
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
   const { language } = useLanguage();
   const pick = (field: { es: string; en: string }) => field[language] ?? field.es;
   const detail = DETAILS[card.iconName];
@@ -34,23 +48,23 @@ export function FeatureModal({ card, onClose }: { card: Feature; onClose: () => 
   }, []);
 
   return (
-    <dialog ref={dialogRef} className="feature-modal" aria-labelledby={titleId}
-      onCancel={event => { event.preventDefault(); onClose(); }}
+    <dialog ref={dialogRef} className={`feature-modal${closing ? ' is-closing' : ''}`} aria-labelledby={titleId}
+      onCancel={event => { event.preventDefault(); requestClose(); }}
       onClick={event => {
         if (event.target !== event.currentTarget) return;
         const rect = event.currentTarget.getBoundingClientRect();
-        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) onClose();
+        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) requestClose();
       }}>
       <header className="feature-modal-header">
         <h2 id={titleId} className="font-serif text-xl sm:text-2xl font-semibold text-foreground">{pick(card.title)}</h2>
-        <button autoFocus type="button" onClick={onClose} className="feature-modal-close"
+        <button autoFocus type="button" onClick={requestClose} className="feature-modal-close"
           aria-label={language === 'es' ? 'Cerrar detalles' : 'Close details'}>
           <X size={20} aria-hidden="true" />
         </button>
       </header>
       <div className="feature-modal-body">
         {detail ? <FeatureDetails detail={detail} /> : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 sm:p-10">
+          <div className="feature-modal-summary grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-5 sm:p-7">
             <div>
               {status && <span className="inline-flex mb-5 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-sm text-accent">{pick(status)}</span>}
               <p className="text-lg text-muted-foreground leading-relaxed"><RichText>{pick(card.description)}</RichText></p>

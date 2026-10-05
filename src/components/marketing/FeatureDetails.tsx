@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { FeatureDetailPanels } from './FeatureDetailPanels';
 import { FeatureArt } from '@/components/marketing/FeatureArt';
 import { getContent } from '@/repositories/content.repository';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -9,8 +11,17 @@ const billing = getContent<typeof import('@/content/billing.json')>('billing');
 const ORDER_ICONS = [MessageCircle, ClipboardList, Truck, FileCheck2];
 
 export function FeatureDetails({ detail }: { detail: 'orders' | 'store' | 'billing' }) {
+  const [compact, setCompact] = useState(() => window.matchMedia('(max-width: 899px), (max-height: 759px)').matches);
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 899px), (max-height: 759px)');
+    const update = () => setCompact(query.matches);
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
   const { language: lang } = useLanguage();
   const pick = (field: { es: string; en: string }) => field[lang] ?? field.es;
+
+  if (compact) return <FeatureDetailPanels detail={detail} />;
 
   return (
     <div className="premium-landing">
