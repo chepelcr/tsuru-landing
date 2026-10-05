@@ -1,3 +1,5 @@
+import { MarketingMotion } from '@/components/marketing/MotionSurface';
+import { FeatureDetails } from '@/components/marketing/FeatureDetails';
 import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
@@ -83,16 +85,16 @@ export default function Funcionalidades() {
   const { language: lang } = useLanguage();
   const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
 
-  // A 3-wide grid leaves the 7th card orphaned on its own row. When the card
-  // count leaves a remainder of 1, the last four cards drop to 2-per-row, so
-  // 7 lays out as 3 / 2 / 2. Derived from the count because the cards are
-  // admin-editable and the total can change.
+  // Use full-width pairs at the end instead of leaving an empty desktop column.
+  // For an orphaned single card, rebalance the last four into two pairs.
   const cardCount = features.featureCards.length;
-  const pairFrom =
-    cardCount >= 4 && cardCount % 3 === 1 ? cardCount - 4 : cardCount;
+  const remainder = cardCount % 3;
+  const pairFrom = remainder === 2
+    ? cardCount - 2
+    : cardCount >= 4 && remainder === 1 ? cardCount - 4 : cardCount;
 
   return (
-    <div className="min-h-screen bg-background">
+    <MarketingMotion><div className="min-h-screen bg-background">
 
       {/* Hero */}
       <section className="relative overflow-hidden py-20 lg:py-28">
@@ -119,7 +121,7 @@ export default function Funcionalidades() {
               return (
                 <div
                   key={i}
-                  className={i < pairFrom ? 'lg:col-span-2' : 'lg:col-span-3'}
+                  className={`${cardCount % 2 === 1 && i === cardCount - 1 ? 'sm:col-span-2' : ''} ${cardCount === 1 ? 'lg:col-span-6' : i < pairFrom ? 'lg:col-span-2' : 'lg:col-span-3'}`}
                 >
                   <FeatureCard
                     icon={FEATURE_ICONS[card.iconName] ?? ClipboardList}
@@ -134,6 +136,8 @@ export default function Funcionalidades() {
           </div>
         </div>
       </section>
+
+      <FeatureDetails />
 
       {/* Use cases */}
       <section className="py-20 lg:py-24">
@@ -166,6 +170,6 @@ export default function Funcionalidades() {
         </div>
       </section>
 
-    </div>
+    </div></MarketingMotion>
   );
 }

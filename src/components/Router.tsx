@@ -43,10 +43,8 @@ export function Router({ displayLocation }: RouterProps) {
     <Suspense fallback={<LoadingFallback />}>
       <Switch location={displayLocation}>
         <Route path="/" component={Landing} />
-        {/* Billing pillar lives as a section on the home page (#facturacion);
-            this alias makes the prerendered /facturacion deep link hydrate to
-            the home page that contains it. */}
-        <Route path="/facturacion" component={Landing} />
+        {/* Preserve existing billing links alongside the consolidated features. */}
+        <Route path="/facturacion" component={Funcionalidades} />
         <Route path="/funcionalidades" component={Funcionalidades} />
         <Route path="/planes" component={Planes} />
         <Route path="/pricing" component={Planes} />
