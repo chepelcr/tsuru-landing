@@ -1,5 +1,6 @@
 import { MarketingMotion } from '@/components/marketing/MotionSurface';
-import { FeatureDetails } from '@/components/marketing/FeatureDetails';
+import { FeatureModal } from '@/components/marketing/FeatureModal';
+import { useState } from 'react';
 import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
@@ -19,35 +20,37 @@ import {
   Users,
 } from "lucide-react";
 
-function FeatureCard({ icon: Icon, title, description, color = 'green', status }: {
+function FeatureCard({ icon: Icon, title, description, color = 'green', status, onClick }: {
   icon: React.ElementType;
   title: string;
   description: string;
   color?: 'green' | 'earth';
   status?: string;
+  onClick: () => void;
 }) {
   const isEarth = color === 'earth';
   return (
-    <div className={`group flex h-full gap-4 rounded-2xl p-6 border transition-all hover:-translate-y-1 hover:shadow-md ${
+    <button type="button" onClick={onClick} aria-haspopup="dialog" aria-label={title} className={`group relative flex w-full h-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring cursor-pointer gap-4 rounded-2xl p-6 pr-9 border transition-all hover:-translate-y-1 hover:shadow-md ${
       isEarth ? 'bg-accent/5 border-accent/20 hover:border-accent/40' : 'bg-card border-border hover:border-primary/30'
     }`}>
-      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
+      <span className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
         isEarth ? 'bg-accent/10' : 'bg-primary/10'
       }`}>
         <Icon className={`h-6 w-6 ${isEarth ? 'text-accent' : 'text-primary'}`} />
-      </div>
-      <div>
-        <div className="flex items-center gap-2 mb-2 flex-wrap">
-          <h3 className="font-semibold text-foreground text-lg">{title}</h3>
+      </span>
+      <span>
+        <span className="flex items-center gap-2 mb-2 flex-wrap">
+          <span className="font-semibold text-foreground text-lg">{title}</span>
           {status && (
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
               {status}
             </span>
           )}
-        </div>
-        <p className="text-sm text-muted-foreground leading-relaxed text-justify"><RichText>{description}</RichText></p>
-      </div>
-    </div>
+        </span>
+        <span className="block text-sm text-muted-foreground leading-relaxed text-left"><RichText>{description}</RichText></span>
+      </span>
+      <ArrowRight className="absolute right-4 top-4 h-4 w-4 text-primary opacity-60 group-hover:opacity-100" aria-hidden="true" />
+    </button>
   );
 }
 
@@ -82,6 +85,7 @@ const FEATURE_ICONS: Record<string, React.ElementType> = {
 const USE_CASE_ICONS = [Hammer, UtensilsCrossed, Users];
 
 export default function Funcionalidades() {
+  const [selectedCard, setSelectedCard] = useState<(typeof features.featureCards)[number] | null>(null);
   const { language: lang } = useLanguage();
   const pick = (f: { es: string; en: string }) => f[lang] ?? f.es;
 
@@ -124,6 +128,7 @@ export default function Funcionalidades() {
                   className={`${cardCount % 2 === 1 && i === cardCount - 1 ? 'sm:col-span-2' : ''} ${cardCount === 1 ? 'lg:col-span-6' : i < pairFrom ? 'lg:col-span-2' : 'lg:col-span-3'}`}
                 >
                   <FeatureCard
+                    onClick={() => setSelectedCard(card)}
                     icon={FEATURE_ICONS[card.iconName] ?? ClipboardList}
                     title={pick(card.title)}
                     description={pick(card.description)}
@@ -137,7 +142,7 @@ export default function Funcionalidades() {
         </div>
       </section>
 
-      <FeatureDetails />
+      {selectedCard && <FeatureModal card={selectedCard} onClose={() => setSelectedCard(null)} />}
 
       {/* Use cases */}
       <section className="py-20 lg:py-24">

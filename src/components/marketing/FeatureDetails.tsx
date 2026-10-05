@@ -1,4 +1,3 @@
-import { ScrollBlock } from '@/components/marketing/MotionSurface';
 import { FeatureArt } from '@/components/marketing/FeatureArt';
 import { getContent } from '@/repositories/content.repository';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -9,16 +8,16 @@ const landing = getContent<typeof import('@/content/landing.json')>('landing');
 const billing = getContent<typeof import('@/content/billing.json')>('billing');
 const ORDER_ICONS = [MessageCircle, ClipboardList, Truck, FileCheck2];
 
-export function FeatureDetails() {
+export function FeatureDetails({ detail }: { detail: 'orders' | 'store' | 'billing' }) {
   const { language: lang } = useLanguage();
   const pick = (field: { es: string; en: string }) => field[lang] ?? field.es;
 
   return (
     <div className="premium-landing">
       {/* ══════════════════════════════════════ PEDIDOS */}
-      <section id="pedidos" data-nav-href="/funcionalidades" className="py-20 lg:py-28 bg-background">
+      {detail === 'orders' && <section id="pedidos" className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
                 <ClipboardList className="h-3.5 w-3.5" />
@@ -60,14 +59,14 @@ export function FeatureDetails() {
                 ))}
               </div>
             </div>
-          </ScrollBlock>
+          </div>
         </div>
-      </section>
+      </section>}
 
       {/* ══════════════════════════════════════ TIENDA EN LÍNEA */}
-      <section id="tienda" data-nav-href="/funcionalidades" className="py-20 lg:py-28 bg-muted/30 border-y border-border">
+      {detail === 'store' && <section id="tienda" className="py-20 lg:py-28 bg-muted/30 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
                 <Store className="h-3.5 w-3.5" />
@@ -97,14 +96,14 @@ export function FeatureDetails() {
                 <p className="text-sm text-muted-foreground leading-relaxed text-left"><RichText>{pick(landing.storefront.futureBody)}</RichText></p>
               </div>
             </div>
-          </ScrollBlock>
+          </div>
         </div>
-      </section>
+      </section>}
 
       {/* ══════════════════════════════════════ FACTURACIÓN ELECTRÓNICA */}
-      <section id="facturacion" data-nav-href="/funcionalidades" className="py-20 lg:py-28 bg-background">
+      {detail === 'billing' && <section id="facturacion" className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollBlock className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
@@ -141,9 +140,9 @@ export function FeatureDetails() {
               ))}
             </ul>
 
-          </ScrollBlock>
+          </div>
         </div>
-      </section>
+      </section>}
 
     </div>
   );
