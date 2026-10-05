@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { CTASecuritySection } from "@/components/sections/cta-security-section";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuery } from "@tanstack/react-query";
+import { getPublicJson } from "@/repositories/content.repository";
 import {
   ExternalLink,
   Store,
@@ -127,10 +128,13 @@ function ExampleCardSkeleton() {
 
 export default function Examples() {
   const { t } = useLanguage();
-  const API_BASE_URL = import.meta.env.VITE_API_URL || '';
-
   const { data: templates, isLoading, isError, error } = useQuery<Template[]>({
-    queryKey: [`${API_BASE_URL}/api/templates?active_only=true`],
+    queryKey: ['public-templates', 'active'],
+    queryFn: async () => {
+      const templates = await getPublicJson<Template[]>('/api/templates?active_only=true');
+      if (!Array.isArray(templates)) throw new Error('Public API returned an invalid template list');
+      return templates;
+    },
   });
 
   const exampleStores: ExampleStore[] = (templates || []).map((template) => ({

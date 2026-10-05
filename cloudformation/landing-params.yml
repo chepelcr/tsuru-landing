@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Public build configuration for the Tsuru landing.
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, stag, prod]
+Resources:
+  AwsRegion:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/tsuru/${Environment}/landing/aws/region"
+      Type: String
+      Value:
+        Fn::ImportValue: !Sub "tsuru-${Environment}-public-Region"
+  PublicApiUrl:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/tsuru/${Environment}/landing/api/public-url"
+      Type: String
+      Value:
+        Fn::ImportValue: !Sub "tsuru-${Environment}-public-api-Endpoint"
+  PublicIdentityPoolId:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/tsuru/${Environment}/landing/cognito/public-identity-pool-id"
+      Type: String
+      Value:
+        Fn::ImportValue: !Sub "tsuru-${Environment}-public-IdentityPoolId"

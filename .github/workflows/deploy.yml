@@ -57,6 +57,11 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Verify types and SSM environment loader
+        run: |
+          pnpm check
+          bash scripts/test-load-env-from-ssm.sh
+
       - name: Build (admin tree-shaken; VITE_ENABLE_ADMIN unset)
         run: pnpm run build
 

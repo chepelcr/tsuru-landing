@@ -9,7 +9,8 @@
     "build": "vite build",
     "check": "tsc --noEmit",
     "inventory": "node scripts/build-inventory.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "env:ssm": "bash scripts/load-env-from-ssm.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -29,6 +29,14 @@ async function guest() {
   return credentials;
 }
 
+export async function getPublicJson<T>(path: string): Promise<T> {
+  if (!pool || !region) throw new Error('Public API identity pool is not configured');
+  const aws = new AwsClient({ ...await guest(), service: 'execute-api', region });
+  const response = await aws.fetch(`${url}${path}`, { method: 'GET' });
+  if (!response.ok) throw new Error(`Public API returned ${response.status}`);
+  return response.json() as Promise<T>;
+}
+
 export async function loadPublishedContent(): Promise<void> {
   if (!pool || !region) throw new Error('Public content identity pool is not configured');
   const aws = new AwsClient({ ...await guest(), service: 'execute-api', region });
