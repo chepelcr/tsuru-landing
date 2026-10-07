@@ -40,5 +40,21 @@ export function useHeadTags(seo: ResolvedSeo) {
     upsertMeta("property", "og:title", seo.ogTitle);
     upsertMeta("property", "og:description", seo.ogDescription);
     upsertMeta("property", "og:image", seo.ogImage);
+    upsertMeta("property", "og:url", seo.canonical);
+    upsertMeta("property", "og:type", "website");
+    upsertMeta("property", "og:locale", seo.lang === "en" ? "en_US" : "es_CR");
+    upsertMeta("name", "twitter:card", "summary_large_image");
+    upsertMeta("name", "twitter:title", seo.title);
+    upsertMeta("name", "twitter:description", seo.description);
+    upsertMeta("name", "twitter:image", seo.ogImage);
+    upsertMeta("name", "robots", "index,follow");
+    for (const alternate of seo.alternates) {
+      let link = document.head.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${alternate.lang}"]`);
+      if (!link) { link = document.createElement("link"); link.rel = "alternate"; link.hreflang = alternate.lang; document.head.appendChild(link); }
+      link.href = alternate.href;
+    }
+    let schema = document.getElementById("site-page-schema") as HTMLScriptElement | null;
+    if (!schema) { schema = document.createElement("script"); schema.id = "site-page-schema"; schema.type = "application/ld+json"; document.head.appendChild(schema); }
+    schema.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: seo.title, description: seo.description, url: seo.canonical, inLanguage: seo.lang }).replace(/</g, "\\u003c");
   }, [seo.title, seo.description, seo.canonical, seo.ogTitle, seo.ogDescription, seo.ogImage, seo.lang]);
 }

@@ -6,11 +6,12 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "vite",
-    "build": "vite build",
+    "build": "pnpm check && vite build && node scripts/prerender.mjs && pnpm check:static",
     "check": "tsc --noEmit",
     "inventory": "node scripts/build-inventory.mjs",
     "preview": "vite preview",
-    "env:ssm": "bash scripts/load-env-from-ssm.sh"
+    "env:ssm": "bash scripts/load-env-from-ssm.sh",
+    "check:static": "node scripts/check-static.mjs ../dist/landing"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -42,6 +43,7 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
+    "playwright": "1.62.1",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.17",
     "typescript": "5.6.3",

@@ -57,6 +57,9 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Install static-rendering browser
+        run: pnpm exec playwright install --with-deps chromium
+
       - name: Verify types and SSM environment loader
         run: |
           pnpm check

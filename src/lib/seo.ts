@@ -1,13 +1,10 @@
 import { getContent } from "@/repositories/content.repository";
-// SEO resolution from src/content/seo.json. Used by the runtime head-tags hook
-// (src/hooks/useHeadTags.ts) and, via a small adapter, by the build-time
-// prerender (scripts/prerender.mjs reads the same JSON directly).
-//
-// There is NO URL language prefix on this site — language is context+localStorage.
-// resolveSeo therefore takes the wouter location (path) and the active language.
+// Published SEO is shared by the browser and build-time browser renderer.
+// Spanish retains the established root URLs; English uses /en.
 
 const seoData = getContent<typeof import("@/content/seo.json")>("seo");
 import { absoluteAssetUrl } from "@/lib/media";
+import { legalContent, type LegalKey } from "@/legal/LegalBody";
 
 export type Lang = "es" | "en";
 
@@ -47,6 +44,7 @@ export interface ResolvedSeo {
   ogDescription: string;
   ogImage: string;
   lang: Lang;
+  alternates: { lang: string; href: string }[];
 }
 
 const baseNoSlash = (): string => {
@@ -59,13 +57,25 @@ const baseNoSlash = (): string => {
 export function resolveSeo(pathname: string, lang: Lang): ResolvedSeo {
   const key = routeKey(pathname);
   const override = seo.pages?.[key];
-  const title = override?.[lang]?.title || seo.defaultTitle[lang] || seo.defaultTitle.es;
+  const legalKeys: Record<string, LegalKey> = { privacidad: "privacy", terminos: "terms", cookies: "cookies", contacto: "contact" };
+  const legal = legalKeys[key] ? legalContent.pages[legalKeys[key]] : undefined;
+  const pageNames: Record<string, BiText> = {
+    funcionalidades: { es: "Funcionalidades", en: "Features" },
+    planes: { es: "Planes y precios", en: "Plans and pricing" },
+    ferias: { es: "Ferias", en: "Fairs" },
+    comunidad: { es: "Comunidad", en: "Community" },
+    "quienes-somos": { es: "Quiénes somos", en: "About us" },
+    ejemplos: { es: "Ejemplos", en: "Examples" },
+  };
+  const name = pageNames[key]?.[lang];
+  const title = legal ? `${legal.title[lang]} — Tsuru` : override?.[lang]?.title || (name ? `${name} — Tsuru` : seo.defaultTitle[lang] || seo.defaultTitle.es);
   const description =
-    override?.[lang]?.description || seo.defaultDescription[lang] || seo.defaultDescription.es;
+    legal?.description[lang] || override?.[lang]?.description || (name ? `${name}. ${seo.defaultDescription[lang]}` : seo.defaultDescription[lang] || seo.defaultDescription.es);
   const ogImageRef = override?.ogImage || seo.ogImage || "";
   const site = (seo.siteUrl ?? "").replace(/\/$/, "");
   const slug = key === "home" ? "" : `/${key}`;
-  const canonical = site + baseNoSlash() + (slug || "/");
+  const urlFor = (language: Lang) => site + baseNoSlash() + (language === "en" ? `/en${slug}` : slug || "/");
+  const canonical = urlFor(lang);
   return {
     title,
     description,
@@ -74,5 +84,6 @@ export function resolveSeo(pathname: string, lang: Lang): ResolvedSeo {
     ogDescription: description,
     ogImage: ogImageRef ? absoluteAssetUrl(ogImageRef) : "",
     lang,
+    alternates: [{ lang: "es", href: urlFor("es") }, { lang: "en", href: urlFor("en") }, { lang: "x-default", href: urlFor("es") }],
   };
 }

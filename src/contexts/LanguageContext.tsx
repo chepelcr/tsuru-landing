@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { getContent } from '@/repositories/content.repository';
-import { transitionLanguage, type LanguageStage } from '@/lib/language-transition';
+import { type LanguageStage } from '@/lib/language-transition';
 
 type Language = 'en' | 'es';
 
@@ -18,24 +18,20 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     en: getContent<Record<string, string>>('translations-en'),
     es: getContent<Record<string, string>>('translations-es'),
   };
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('language') as Language;
-    if (saved) return saved;
-    const browserLang = navigator.language.toLowerCase();
-    return browserLang.startsWith('es') ? 'es' : 'en';
+  const [language] = useState<Language>(() => {
+    // Stable URLs determine the public language, independent of browser/storage.
+    const siteBase = import.meta.env.BASE_URL.replace(/\/$/, '');
+    return /^\/en(?:\/|$)/.test(window.location.pathname.slice(siteBase.length)) ? 'en' : 'es';
   });
 
-  const [languageStage, setLanguageStage] = useState<LanguageStage>('idle');
-  const cancelTransition = useRef<(() => void) | undefined>();
-  useEffect(() => () => cancelTransition.current?.(), []);
+  const languageStage: LanguageStage = 'idle';
 
   const handleSetLanguage = (lang: Language) => {
-    cancelTransition.current?.();
-    if (lang === language) { setLanguageStage('idle'); return; }
-    cancelTransition.current = transitionLanguage(() => {
-      setLanguage(lang);
-      localStorage.setItem('language', lang);
-    }, setLanguageStage, window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (lang === language) return;
+    const siteBase = import.meta.env.BASE_URL.replace(/\/$/, '');
+    const rest = window.location.pathname.slice(siteBase.length).replace(/^\/(en|es)(?=\/|$)/, '') || '/';
+    const target = lang === 'en' ? '/en' + (rest === '/' ? '' : rest) : rest;
+    window.location.assign(siteBase + target + window.location.search + window.location.hash);
   };
 
   const t = (key: string): string => {

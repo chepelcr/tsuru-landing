@@ -1,5 +1,5 @@
 import { getContent } from "@/repositories/content.repository";
-import { Route, Switch } from "wouter";
+import { Redirect, Route, Switch } from "wouter";
 import { Suspense, lazy } from "react";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -44,25 +44,25 @@ export function Router({ displayLocation }: RouterProps) {
       <Switch location={displayLocation}>
         <Route path="/" component={Landing} />
         {/* Preserve existing billing links alongside the consolidated features. */}
-        <Route path="/facturacion" component={Funcionalidades} />
+        <Route path="/facturacion"><Redirect to="/funcionalidades" replace /></Route>
         <Route path="/funcionalidades" component={Funcionalidades} />
         <Route path="/planes" component={Planes} />
-        <Route path="/pricing" component={Planes} />
+        <Route path="/pricing"><Redirect to="/planes" replace /></Route>
         <Route path="/ferias" component={Ferias} />
         <Route path="/comunidad" component={Comunidad} />
         <Route path="/quienes-somos" component={About} />
         <Route path="/ejemplos" component={Examples} />
-        <Route path="/examples" component={Examples} />
+        <Route path="/examples"><Redirect to="/ejemplos" replace /></Route>
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug">
           {(params) => <BlogDetail slug={params.slug} />}
         </Route>
         <Route path="/contacto" component={Contact} />
-        <Route path="/contact" component={Contact} />
+        <Route path="/contact"><Redirect to="/contacto" replace /></Route>
         <Route path="/terminos" component={Terms} />
-        <Route path="/terms" component={Terms} />
+        <Route path="/terms"><Redirect to="/terminos" replace /></Route>
         <Route path="/privacidad" component={Privacy} />
-        <Route path="/privacy" component={Privacy} />
+        <Route path="/privacy"><Redirect to="/privacidad" replace /></Route>
         <Route path="/cookies" component={Cookies} />
         <Route><NotFound /></Route>
       </Switch>

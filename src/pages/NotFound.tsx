@@ -1,4 +1,5 @@
 import { getContent } from "@/repositories/content.repository";
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,6 +12,10 @@ const HomeIcon = resolveIcon("home");
 
 export default function NotFound() {
   const { language: lang } = useLanguage();
+  useEffect(() => {
+    const tag = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (tag) tag.content = "noindex,follow";
+  }, []);
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4">
