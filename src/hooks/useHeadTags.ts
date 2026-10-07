@@ -40,6 +40,19 @@ export function useHeadTags(seo: ResolvedSeo) {
     upsertMeta("property", "og:title", seo.ogTitle);
     upsertMeta("property", "og:description", seo.ogDescription);
     upsertMeta("property", "og:image", seo.ogImage);
+    const isBrandCard = new URL(seo.ogImage || "/", seo.canonical).pathname === "/brand/social-card.png";
+    const imageAlt = seo.lang === "en" ? "Tsuru — Sell at your own pace." : "Tsuru — Vendé a tu ritmo.";
+    if (isBrandCard) {
+      upsertMeta("property", "og:image:type", "image/png");
+      upsertMeta("property", "og:image:width", "1200");
+      upsertMeta("property", "og:image:height", "630");
+      upsertMeta("property", "og:image:alt", imageAlt);
+      upsertMeta("name", "twitter:image:alt", imageAlt);
+    } else {
+      for (const key of ["og:image:type", "og:image:width", "og:image:height", "og:image:alt", "twitter:image:alt"]) {
+        document.head.querySelector(`meta[property="${key}"], meta[name="${key}"]`)?.remove();
+      }
+    }
     upsertMeta("property", "og:url", seo.canonical);
     upsertMeta("property", "og:type", "website");
     upsertMeta("property", "og:locale", seo.lang === "en" ? "en_US" : "es_CR");
