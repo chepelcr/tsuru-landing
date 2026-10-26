@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const footer = getContent<typeof import("@/content/footer.json")>("footer");
 import { BrandLogo } from "@/components/layout/brand-logo";
 import { resolveAssetUrl } from "@/lib/media";
+import { BLOG_SITE_URL } from "@/lib/site-links";
 
 export default function LandingFooter() {
   const { language: lang } = useLanguage();
@@ -41,7 +42,7 @@ export default function LandingFooter() {
             <h3 className="font-semibold text-sm mb-3 text-foreground">{pick(footer.groups.company)}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/quienes-somos" className="hover:text-primary transition-colors">{pick(footer.links.about)}</Link></li>
-              <li><a href="https://blogs.tsuru.jcampos.dev/" className="hover:text-primary transition-colors">{pick(footer.links.blog)}</a></li>
+              <li><a href={`${BLOG_SITE_URL}/`} className="hover:text-primary transition-colors">{pick(footer.links.blog)}</a></li>
               <li><Link href="/contacto" className="hover:text-primary transition-colors">{pick(footer.links.contact)}</Link></li>
             </ul>
           </div>

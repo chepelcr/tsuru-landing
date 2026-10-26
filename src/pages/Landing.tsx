@@ -15,6 +15,7 @@ import {
   Users,
   Check,
 } from "lucide-react";
+import { REGISTER_URL } from "@/lib/site-links";
 
 export default function Landing() {
   const { language: lang } = useLanguage();
@@ -37,7 +38,7 @@ export default function Landing() {
             <h1>{pick(landing.hero.title)}</h1>
             <p className="hero-description"><RichText>{pick(landing.hero.subtitle)}</RichText></p>
             <div className="hero-actions">
-              <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer" className="marketing-button primary">{pick(landing.hero.cta)}<ArrowRight size={18} aria-hidden="true" /></a>
+              <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="marketing-button primary">{pick(landing.hero.cta)}<ArrowRight size={18} aria-hidden="true" /></a>
               <Link href="/ejemplos" className="marketing-button secondary">{pick(landing.hero.secondary)}<Eye size={18} aria-hidden="true" /></Link>
             </div>
             <div className="hero-principles">{[fairTradeTitle,localTitle,transparencyTitle].map(title=><span key={title}><Check size={14} aria-hidden="true"/>{title}</span>)}</div>
@@ -90,7 +91,7 @@ export default function Landing() {
             <RichText>{pick(landing.finalCta.subtitle)}</RichText>
           </p>
           <a
-            href="https://app.tsuru.jcampos.dev/register"
+            href={REGISTER_URL}
             target="_blank"
             rel="noopener noreferrer"
           >

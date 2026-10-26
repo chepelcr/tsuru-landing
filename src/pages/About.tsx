@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   Clock,
 } from "lucide-react";
+import { REGISTER_URL } from "@/lib/site-links";
 
 const VALUE_ICONS = [Scale, Leaf, MapPin, Eye];
 
@@ -195,7 +196,7 @@ export default function About() {
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
             <RichText>{pick(about.team.description)}</RichText>
           </p>
-          <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
+          <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2">
               {pick(about.team.button)}
               <ArrowRight className="h-4 w-4" />

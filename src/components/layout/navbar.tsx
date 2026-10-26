@@ -10,6 +10,7 @@ import { useScrollNavigation } from '@/hooks/useScrollNavigation';
 import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react';
 const navbar = getContent<typeof import("@/content/navbar.json")>("navbar");
 import { BrandLogo } from "@/components/layout/brand-logo";
+import { APP_URL, BLOG_SITE_URL, REGISTER_URL } from "@/lib/site-links";
 
 interface LandingNavbarProps {
   transitionStage?: string;
@@ -151,19 +152,19 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
               </div>
             </div>
 
-            <a href="https://blogs.tsuru.jcampos.dev/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{pick(navbar.links.blog)}</a>
+            <a href={`${BLOG_SITE_URL}/`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{pick(navbar.links.blog)}</a>
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex shrink-0 items-center gap-1 xl:gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
-            <a href="https://app.tsuru.jcampos.dev" target="_blank" rel="noopener noreferrer">
+            <a href={APP_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-sm">
                 {pick(navbar.login)}
               </Button>
             </a>
-            <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
+            <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-3 xl:px-5 text-sm">
                 {pick(navbar.register)}
               </Button>
@@ -258,16 +259,16 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
                 )}
               </div>
 
-              <a href="https://blogs.tsuru.jcampos.dev/" className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              <a href={`${BLOG_SITE_URL}/`} className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}>{pick(navbar.links.blog)}</a>
 
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <a href="https://app.tsuru.jcampos.dev" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
                     {pick(navbar.login)}
                   </Button>
                 </a>
-                <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
+                <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                     {pick(navbar.register)}
                   </Button>

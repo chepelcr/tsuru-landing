@@ -16,6 +16,7 @@ import {
   AlertCircle,
   Palette,
 } from "lucide-react";
+import { REGISTER_URL } from "@/lib/site-links";
 
 interface Template {
   id: string;
@@ -215,7 +216,7 @@ export default function Examples() {
         titleKey="examples.cta.title"
         subtitleKey="examples.cta.subtitle"
         buttonTextKey="examples.cta.button"
-        onClick={() => window.open('https://app.tsuru.jcampos.dev/register', '_blank', 'noopener,noreferrer')}
+        onClick={() => window.open(REGISTER_URL, '_blank', 'noopener,noreferrer')}
         buttonIcon={null}
         variant="light"
       />

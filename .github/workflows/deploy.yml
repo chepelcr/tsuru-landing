@@ -1,12 +1,14 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
-# Builds the static landing site and deploys it to GitHub Pages.
+# Builds the static landing site for the branch's environment:
+#   develop -> dev  -> GitHub Pages at tsuru.jcampos.dev
+#   main    -> prod -> S3 + CloudFront at tsuru.lat (+ www redirect; cloudformation/hosting.yml)
 # The dev-only admin CMS is tree-shaken out because VITE_ENABLE_ADMIN is left
 # UNSET here (never set it to "true" in CI).
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   workflow_dispatch:
     inputs:
       base_path:
@@ -21,7 +23,7 @@ permissions:
 
 # Allow one concurrent deployment; don't cancel an in-progress production deploy.
 concurrency:
-  group: pages
+  group: deploy-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -31,19 +33,39 @@ jobs:
       # Served at the custom domain tsuru.jcampos.dev (root), set via public/CNAME
       # + repo Pages config. Overridable via workflow_dispatch input.
       BASE_PATH: ${{ github.event.inputs.base_path || '/' }}
-      VITE_PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
-      VITE_PUBLIC_IDENTITY_POOL_ID: ${{ vars.PUBLIC_IDENTITY_POOL_ID }}
-      # Public build params (seeded from the monorepo buildspec). Non-sensitive.
-      VITE_API_URL: ${{ secrets.VITE_API_URL }}
-      VITE_APP_URL: ${{ secrets.VITE_APP_URL }}
-      VITE_BASE_DOMAIN: ${{ secrets.VITE_BASE_DOMAIN }}
-      VITE_AWS_REGION: ${{ secrets.VITE_AWS_REGION }}
+      ENVIRONMENT: ${{ github.ref_name == 'main' && 'prod' || 'dev' }}
+      # VITE_PUBLIC_API_URL / VITE_PUBLIC_IDENTITY_POOL_ID are set by the
+      # "Resolve build configuration" steps (dev: repo variables, prod: SSM).
+      # Public build params. Non-sensitive.
+      VITE_API_URL: ${{ github.ref_name == 'main' && 'https://api.tsuru.lat' || secrets.VITE_API_URL }}
+      VITE_APP_URL: ${{ github.ref_name == 'main' && 'https://app.tsuru.lat' || secrets.VITE_APP_URL }}
+      VITE_BASE_DOMAIN: ${{ github.ref_name == 'main' && 'tsuru.lat' || secrets.VITE_BASE_DOMAIN }}
+      VITE_SITE_URL: ${{ github.ref_name == 'main' && 'https://tsuru.lat' || 'https://tsuru.jcampos.dev' }}
+      VITE_BLOG_SITE_URL: ${{ github.ref_name == 'main' && 'https://blogs.tsuru.lat' || 'https://blogs.tsuru.jcampos.dev' }}
+      VITE_AWS_REGION: ${{ github.ref_name == 'main' && 'us-east-1' || secrets.VITE_AWS_REGION }}
       # Optional — only needed if the landing ever uses Cognito auth. Absent →
       # amplify.ts skips configure (see src/lib/amplify.ts).
-      VITE_AWS_COGNITO_USER_POOL_ID: ${{ secrets.VITE_AWS_COGNITO_USER_POOL_ID }}
-      VITE_AWS_COGNITO_CLIENT_ID: ${{ secrets.VITE_AWS_COGNITO_CLIENT_ID }}
+      VITE_AWS_COGNITO_USER_POOL_ID: ${{ github.ref_name != 'main' && secrets.VITE_AWS_COGNITO_USER_POOL_ID || '' }}
+      VITE_AWS_COGNITO_CLIENT_ID: ${{ github.ref_name != 'main' && secrets.VITE_AWS_COGNITO_CLIENT_ID || '' }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC, prod only)
+        if: env.ENVIRONMENT == 'prod'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_PROD_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Resolve build configuration from SSM (prod only)
+        if: env.ENVIRONMENT == 'prod'
+        run: bash scripts/load-env-from-ssm.sh prod - --github-env
+
+      - name: Resolve build configuration from repo variables (dev only)
+        if: env.ENVIRONMENT == 'dev'
+        run: |
+          echo "VITE_PUBLIC_API_URL=${{ vars.PUBLIC_API_URL }}" >> "$GITHUB_ENV"
+          echo "VITE_PUBLIC_IDENTITY_POOL_ID=${{ vars.PUBLIC_IDENTITY_POOL_ID }}" >> "$GITHUB_ENV"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -80,11 +102,25 @@ jobs:
           echo "ok: no /__local in dist"
 
       - name: Upload Pages artifact
+        if: env.ENVIRONMENT == 'dev'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ../dist/landing
 
+      # prod: bucket and distribution are outputs of the tsuru-prod-landing-hosting
+      # stack (SiteBucketName / SiteDistributionId), stored as repo variables.
+      # Hashed assets are cached for a year; everything else revalidates.
+      - name: Publish to S3 + invalidate CloudFront
+        if: env.ENVIRONMENT == 'prod'
+        run: |
+          set -euo pipefail
+          bucket="s3://${{ vars.PROD_SITE_BUCKET }}"
+          aws s3 sync ../dist/landing "$bucket" --delete --exclude "assets/*" --cache-control "no-cache"
+          aws s3 sync ../dist/landing/assets "$bucket/assets" --delete --cache-control "public,max-age=31536000,immutable"
+          aws cloudfront create-invalidation --distribution-id "${{ vars.PROD_DISTRIBUTION_ID }}" --paths "/*" >/dev/null
+
   deploy:
+    if: github.ref_name == 'develop'
     needs: build
     runs-on: ubuntu-latest
     environment:

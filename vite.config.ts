@@ -8,11 +8,19 @@ import { localCms } from "./plugins/local-cms";
 // pipelines that don't set it keep working.
 const base = process.env.BASE_PATH || "/";
 
+// index.html's social tags are authored against dev's origin; a build for
+// another environment sets VITE_SITE_URL (prod: https://tsuru.lat).
+const siteUrl = process.env.VITE_SITE_URL?.replace(/\/+$/, "");
+const siteOrigin = {
+  name: "tsuru-site-origin",
+  transformIndexHtml: (html: string) => (siteUrl ? html.replaceAll("https://tsuru.jcampos.dev", siteUrl) : html),
+};
+
 export default defineConfig({
   base,
   // localCms() is apply:"serve" — it attaches only to the dev server and is
   // never included in `vite build` output.
-  plugins: [react(), localCms()],
+  plugins: [react(), localCms(), siteOrigin],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

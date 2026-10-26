@@ -19,6 +19,7 @@ import {
   UtensilsCrossed,
   Users,
 } from "lucide-react";
+import { REGISTER_URL } from "@/lib/site-links";
 
 function FeatureCard({ icon: Icon, title, description, color = 'green', status, onClick }: {
   icon: React.ElementType;
@@ -166,7 +167,7 @@ export default function Funcionalidades() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl font-bold text-white mb-4">{pick(features.cta.title)}</h2>
           <p className="text-white/80 mb-8"><RichText>{pick(features.cta.subtitle)}</RichText></p>
-          <a href="https://app.tsuru.jcampos.dev/register" target="_blank" rel="noopener noreferrer">
+          <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold">
               {pick(features.cta.button)}
               <ArrowRight className="ml-2 h-4 w-4" />
