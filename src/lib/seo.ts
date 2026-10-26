@@ -72,7 +72,9 @@ export function resolveSeo(pathname: string, lang: Lang): ResolvedSeo {
   const description =
     legal?.description[lang] || override?.[lang]?.description || (name ? `${name}. ${seo.defaultDescription[lang]}` : seo.defaultDescription[lang] || seo.defaultDescription.es);
   const ogImageRef = override?.ogImage || seo.ogImage || "";
-  const site = (seo.siteUrl ?? "").replace(/\/$/, "");
+  // The deployed origin belongs to the environment, not the content: one
+  // database can serve several environments' sites (prod sets VITE_SITE_URL).
+  const site = (import.meta.env.VITE_SITE_URL || seo.siteUrl || "").replace(/\/$/, "");
   const slug = key === "home" ? "" : `/${key}`;
   const urlFor = (language: Lang) => site + baseNoSlash() + (language === "en" ? `/en${slug}` : slug || "/");
   const canonical = urlFor(lang);

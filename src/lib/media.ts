@@ -50,12 +50,13 @@ export const mediaRef = (i: MediaItem): string =>
   (i.source === "external" ? i.url : i.path) ?? i.url ?? i.path ?? "";
 
 /**
- * Absolute URL for OG/Twitter/sitemap/JSON-LD — joins seo.json siteUrl + base + path.
+ * Absolute URL for OG/Twitter/sitemap/JSON-LD — joins the site origin (VITE_SITE_URL,
+ * else seo.json siteUrl) + base + path.
  * Absolute/data URLs pass through unchanged.
  */
 export function absoluteAssetUrl(ref?: string | null): string {
   if (!ref) return "";
   if (/^https?:\/\//i.test(ref) || ref.startsWith("data:")) return ref;
-  const site = (seoData.siteUrl ?? "").replace(/\/$/, "");
+  const site = (import.meta.env.VITE_SITE_URL || seoData.siteUrl || "").replace(/\/$/, "");
   return site + basePrefix() + (ref.startsWith("/") ? ref : `/${ref}`);
 }
