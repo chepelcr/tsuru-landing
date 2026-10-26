@@ -2,7 +2,7 @@ name: Deploy
 
 # Builds the static landing site for the branch's environment:
 #   develop -> dev  -> GitHub Pages at tsuru.jcampos.dev
-#   main    -> prod -> S3 + CloudFront at tsuru.lat (+ www redirect; cloudformation/hosting.yml)
+#   main    -> prod -> S3 + CloudFront at www.tsuru.lat (apex redirects; cloudformation/hosting.yml)
 # The dev-only admin CMS is tree-shaken out because VITE_ENABLE_ADMIN is left
 # UNSET here (never set it to "true" in CI).
 
@@ -40,7 +40,7 @@ jobs:
       VITE_API_URL: ${{ github.ref_name == 'main' && 'https://api.tsuru.lat' || secrets.VITE_API_URL }}
       VITE_APP_URL: ${{ github.ref_name == 'main' && 'https://app.tsuru.lat' || secrets.VITE_APP_URL }}
       VITE_BASE_DOMAIN: ${{ github.ref_name == 'main' && 'tsuru.lat' || secrets.VITE_BASE_DOMAIN }}
-      VITE_SITE_URL: ${{ github.ref_name == 'main' && 'https://tsuru.lat' || 'https://tsuru.jcampos.dev' }}
+      VITE_SITE_URL: ${{ github.ref_name == 'main' && 'https://www.tsuru.lat' || 'https://tsuru.jcampos.dev' }}
       VITE_BLOG_SITE_URL: ${{ github.ref_name == 'main' && 'https://blogs.tsuru.lat' || 'https://blogs.tsuru.jcampos.dev' }}
       VITE_AWS_REGION: ${{ github.ref_name == 'main' && 'us-east-1' || secrets.VITE_AWS_REGION }}
       # Optional — only needed if the landing ever uses Cognito auth. Absent →
