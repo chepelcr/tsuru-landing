@@ -55,9 +55,9 @@ export default function App() {
               }}>{language === "es" ? "Saltar al contenido" : "Skip to content"}</a>
               <LandingNavbar displayLocation={displayLocation} transitionStage={isLayoutSwitch ? transitionStage : ''} />
               <main ref={contentRef} id="main-content" tabIndex={-1} aria-busy={languageStage !== 'idle'} className={`flex-grow ${transitionStage}`}>
-                <div className={`language-content language-${languageStage}`}><Router displayLocation={displayLocation} /></div>
+                <Router displayLocation={displayLocation} />
               </main>
-              <div className={`language-content language-${languageStage}`}><LandingFooter /></div>
+              <LandingFooter />
             </div>
           )}
         </PageTransition>

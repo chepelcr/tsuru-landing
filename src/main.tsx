@@ -5,7 +5,6 @@ import { queryClient } from './lib/queryClient';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { loadPublishedContent } from './repositories/content.repository';
 import './index.css';
-import { Router as LocationRouter } from 'wouter';
 
 // Initialize Amplify
 import './lib/amplify';
@@ -22,12 +21,10 @@ async function start() {
     await loadPublishedContent();
     const [{ default: App }, { initBrand }] = await Promise.all([import('./App'), import('./lib/brand-theme')]);
     initBrand();
-    const siteBase = import.meta.env.BASE_URL.replace(/\/$/, '');
-    const routePath = window.location.pathname.slice(siteBase.length);
-    const languageBase = /^\/(en|es)(?=\/|$)/.exec(routePath)?.[0] || '';
-    root.render(<React.StrictMode><LocationRouter base={siteBase + languageBase}><LanguageProvider><QueryClientProvider client={queryClient}>
+    // LanguageProvider owns the router: its base follows the language (/en).
+    root.render(<React.StrictMode><LanguageProvider><QueryClientProvider client={queryClient}>
       <App />
-    </QueryClientProvider></LanguageProvider></LocationRouter></React.StrictMode>);
+    </QueryClientProvider></LanguageProvider></React.StrictMode>);
   } catch (error) {
     const detail = error instanceof Error ? error.message : 'Unknown startup error';
     if (import.meta.env.DEV) console.error('Tsuru startup failed:', detail);

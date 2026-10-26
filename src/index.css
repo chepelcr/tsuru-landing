@@ -562,14 +562,17 @@ body.theme-transitioning::before {
 .locale-flag { display: block; flex-shrink: 0; width: 24px; height: 16px; border-radius: 0; overflow: hidden; box-shadow: 0 0 0 1px hsl(var(--foreground) / .12); animation: localeFlagEnter .18s ease-out; }
 @keyframes localeFlagEnter { from { opacity: .45; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
 
-/* Keep the same mounted content and scroll position while swapping translations. */
-.language-content { opacity: 1; }
-.language-content.language-exit { animation: languageFadeOut .16s ease-in forwards; }
-.language-content.language-enter { animation: languageFadeIn .22s ease-out forwards; }
-@keyframes languageFadeOut { from { opacity: 1; } to { opacity: 0; } }
-@keyframes languageFadeIn { from { opacity: 0; } to { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) {
-  .language-content.language-exit, .language-content.language-enter { animation: none; opacity: 1; }
+/* Language switch — same motion as the POS (src/lib/language-transition.ts):
+   the page slides out, the language swaps in place, and it slides back in. */
+.language-transitioning { animation: langSlideOut .3s cubic-bezier(.4, 0, .6, 1) forwards; }
+.language-slide-in { animation: langSlideIn .3s cubic-bezier(.4, 0, .2, 1) forwards; }
+@keyframes langSlideOut {
+  0%   { opacity: 1; transform: translateX(0) scale(1); filter: blur(0); }
+  100% { opacity: 0; transform: translateX(50px) scale(.95); filter: blur(2px); }
+}
+@keyframes langSlideIn {
+  0%   { opacity: 0; transform: translateX(-50px) scale(.95); filter: blur(2px); }
+  100% { opacity: 1; transform: translateX(0) scale(1); filter: blur(0); }
 }
 
 /* Feature details stay within the modal instead of extending the page. */
