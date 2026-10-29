@@ -1,7 +1,6 @@
 import { getContent } from "@/repositories/content.repository";
 import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -11,6 +10,8 @@ import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from '
 const navbar = getContent<typeof import("@/content/navbar.json")>("navbar");
 import { BrandLogo } from "@/components/layout/brand-logo";
 import { APP_URL, BLOG_SITE_URL, REGISTER_URL } from "@/lib/site-links";
+import { AppAccessButton } from "@/components/AppAccessButton";
+import { IS_STAGING } from "@/lib/environment";
 
 interface LandingNavbarProps {
   transitionStage?: string;
@@ -90,6 +91,7 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <BrandLogo label={pick(navbar.brand)} size={40} />
+            {IS_STAGING && <span className="shrink-0 rounded-full border border-warning/40 bg-warning px-2 py-0.5 text-xs font-semibold text-warning-foreground">STAG</span>}
           </Link>
 
           {/* Desktop Navigation */}
@@ -159,16 +161,12 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
           <div className="hidden lg:flex shrink-0 items-center gap-1 xl:gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
-            <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-sm">
-                {pick(navbar.login)}
-              </Button>
-            </a>
-            <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-3 xl:px-5 text-sm">
-                {pick(navbar.register)}
-              </Button>
-            </a>
+            <AppAccessButton href={APP_URL} variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-sm">
+              {pick(navbar.login)}
+            </AppAccessButton>
+            <AppAccessButton href={REGISTER_URL} size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-3 xl:px-5 text-sm">
+              {pick(navbar.register)}
+            </AppAccessButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -263,16 +261,12 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
                 onClick={() => setMobileMenuOpen(false)}>{pick(navbar.links.blog)}</a>
 
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <a href={APP_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
-                    {pick(navbar.login)}
-                  </Button>
-                </a>
-                <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    {pick(navbar.register)}
-                  </Button>
-                </a>
+                <AppAccessButton href={APP_URL} onClick={() => setMobileMenuOpen(false)} variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
+                  {pick(navbar.login)}
+                </AppAccessButton>
+                <AppAccessButton href={REGISTER_URL} onClick={() => setMobileMenuOpen(false)} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  {pick(navbar.register)}
+                </AppAccessButton>
               </div>
             </nav>
           </m.div>

@@ -1,7 +1,6 @@
 import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
-import { Button } from "@/components/ui/button";
 const about = getContent<typeof import("@/content/about.json")>("about");
 import {
   Scale,
@@ -13,7 +12,7 @@ import {
   CheckCircle2,
   Clock,
 } from "lucide-react";
-import { REGISTER_URL } from "@/lib/site-links";
+import { AppAccessButton } from "@/components/AppAccessButton";
 
 const VALUE_ICONS = [Scale, Leaf, MapPin, Eye];
 
@@ -196,12 +195,10 @@ export default function About() {
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
             <RichText>{pick(about.team.description)}</RichText>
           </p>
-          <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2">
-              {pick(about.team.button)}
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </a>
+          <AppAccessButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2">
+            {pick(about.team.button)}
+            <ArrowRight className="h-4 w-4" />
+          </AppAccessButton>
         </div>
       </section>
 

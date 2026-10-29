@@ -3,7 +3,6 @@ import { CommunityPillars } from '@/components/marketing/CommunityPillars';
 import { getContent } from "@/repositories/content.repository";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
-import { Button } from "@/components/ui/button";
 const landing = getContent<typeof import("@/content/landing.json")>("landing");
 const community = getContent<typeof import("@/content/community.json")>("community");
 import {
@@ -18,7 +17,7 @@ import {
   Check,
   Clock,
 } from "lucide-react";
-import { REGISTER_URL } from "@/lib/site-links";
+import { AppAccessButton } from "@/components/AppAccessButton";
 
 function ValuePill({ icon: Icon, title, description, extraDescription }: {
   icon: React.ElementType;
@@ -243,12 +242,10 @@ export default function Comunidad() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl font-bold text-white mb-4">{pick(community.cta.title)}</h2>
           <p className="text-white/80 mb-8"><RichText>{pick(community.cta.subtitle)}</RichText></p>
-          <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold">
-              {pick(community.cta.button)}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </a>
+          <AppAccessButton size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold">
+            {pick(community.cta.button)}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </AppAccessButton>
         </div>
       </section>
 

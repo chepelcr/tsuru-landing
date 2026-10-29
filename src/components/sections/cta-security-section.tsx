@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Heart, Scale, Users, Building2 } from "lucide-react";
+import { AppAccessButton } from "@/components/AppAccessButton";
 const ctaSecurity = getContent<typeof import("@/content/cta-security.json")>("cta-security");
 
 interface CTASecuritySectionProps {
@@ -10,6 +11,7 @@ interface CTASecuritySectionProps {
   subtitleKey: string;
   buttonTextKey: string;
   buttonLink?: string;
+  appAccessHref?: string;
   buttonIcon?: React.ReactNode | null;
   onClick?: () => void;
   variant?: 'gradient' | 'light';
@@ -20,6 +22,7 @@ export function CTASecuritySection({
   subtitleKey,
   buttonTextKey,
   buttonLink,
+  appAccessHref,
   buttonIcon,
   onClick,
   variant = 'gradient'
@@ -74,7 +77,12 @@ export function CTASecuritySection({
           <p className={subtitleClasses}>
             {t(subtitleKey)}
           </p>
-          {buttonLink ? (
+          {appAccessHref ? (
+            <AppAccessButton href={appAccessHref} size="lg" className="border border-primary text-primary hover:bg-primary/10 bg-primary/5">
+              {defaultIcon}
+              {t(buttonTextKey)}
+            </AppAccessButton>
+          ) : buttonLink ? (
             <Link href={buttonLink}>
               {buttonElement}
             </Link>

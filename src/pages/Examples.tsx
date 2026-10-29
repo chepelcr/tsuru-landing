@@ -216,7 +216,7 @@ export default function Examples() {
         titleKey="examples.cta.title"
         subtitleKey="examples.cta.subtitle"
         buttonTextKey="examples.cta.button"
-        onClick={() => window.open(REGISTER_URL, '_blank', 'noopener,noreferrer')}
+        appAccessHref={REGISTER_URL}
         buttonIcon={null}
         variant="light"
       />

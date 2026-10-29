@@ -12,6 +12,9 @@ import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
+import { AppAccessButton } from "@/components/AppAccessButton";
+import { IS_PRELAUNCH } from "@/lib/environment";
+import { isAppAccessUrl } from "@/lib/site-links";
 const plans = getContent<typeof import("@/content/plans.json")>("plans");
 import { formatCRC } from "@/lib/currency";
 import {
@@ -80,9 +83,8 @@ function PlanCard({
         : pick(labels.perMonth);
 
   const badge = pick(plan.badge);
-  // A plan that already works in the platform (Semilla) keeps its real CTA
-  // even while the paid tiers are still "coming soon".
-  const ctaDisabled = comingSoon && !plan.available;
+  // Available plans keep their real CTA in staging while paid tiers are coming soon.
+  const ctaDisabled = (comingSoon && !plan.available) || (IS_PRELAUNCH && isAppAccessUrl(plan.ctaHref));
   const isInternalCta = plan.ctaHref.startsWith("/");
 
   const ctaClass = `w-full rounded-full ${
@@ -447,7 +449,12 @@ export default function Planes() {
           <p className="mb-8 text-lg text-muted-foreground">
             <RichText>{pick(plans.cta.subtitle)}</RichText>
           </p>
-          <Link href={plans.cta.buttonHref}>
+          {isAppAccessUrl(plans.cta.buttonHref) ? (
+            <AppAccessButton href={plans.cta.buttonHref} size="lg" className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
+              {pick(plans.cta.button)}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </AppAccessButton>
+          ) : <Link href={plans.cta.buttonHref}>
             <Button
               size="lg"
               className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90"
@@ -455,7 +462,7 @@ export default function Planes() {
               {pick(plans.cta.button)}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </Link>}
         </div>
       </section>
     </div>

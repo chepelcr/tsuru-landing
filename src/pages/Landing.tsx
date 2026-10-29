@@ -5,7 +5,6 @@ import { getContent } from "@/repositories/content.repository";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
-import { Button } from "@/components/ui/button";
 const landing = getContent<typeof import("@/content/landing.json")>("landing");
 import {
   Leaf,
@@ -15,7 +14,7 @@ import {
   Users,
   Check,
 } from "lucide-react";
-import { REGISTER_URL } from "@/lib/site-links";
+import { AppAccessButton } from "@/components/AppAccessButton";
 
 export default function Landing() {
   const { language: lang } = useLanguage();
@@ -38,7 +37,7 @@ export default function Landing() {
             <h1>{pick(landing.hero.title)}</h1>
             <p className="hero-description"><RichText>{pick(landing.hero.subtitle)}</RichText></p>
             <div className="hero-actions">
-              <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="marketing-button primary">{pick(landing.hero.cta)}<ArrowRight size={18} aria-hidden="true" /></a>
+              <AppAccessButton className="marketing-button primary">{pick(landing.hero.cta)}<ArrowRight size={18} aria-hidden="true" /></AppAccessButton>
               <Link href="/ejemplos" className="marketing-button secondary">{pick(landing.hero.secondary)}<Eye size={18} aria-hidden="true" /></Link>
             </div>
             <div className="hero-principles">{[fairTradeTitle,localTitle,transparencyTitle].map(title=><span key={title}><Check size={14} aria-hidden="true"/>{title}</span>)}</div>
@@ -90,19 +89,13 @@ export default function Landing() {
           <p className="text-lg text-white/80 mb-8">
             <RichText>{pick(landing.finalCta.subtitle)}</RichText>
           </p>
-          <a
-            href={REGISTER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <AppAccessButton
+            size="lg"
+            className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold shadow-lg"
           >
-            <Button
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 rounded-full px-10 py-6 text-base font-semibold shadow-lg"
-            >
-              {pick(landing.finalCta.button)}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </a>
+            {pick(landing.finalCta.button)}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </AppAccessButton>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             {[transparencyTitle, fairTradeTitle, localTitle].map((label) => (
