@@ -13,10 +13,14 @@ import {
   Dumbbell,
   PawPrint,
   Sparkles,
+  Croissant,
+  Wrench,
+  Drumstick,
   AlertCircle,
   Palette,
 } from "lucide-react";
 import { REGISTER_URL } from "@/lib/site-links";
+import { localizeTemplate, type TemplateTranslation } from "@/lib/localize-template";
 
 interface Template {
   id: string;
@@ -28,11 +32,13 @@ interface Template {
   preview_url?: string;
   is_active: boolean;
   sort_order: number;
+  translations?: Partial<Record<string, TemplateTranslation>> | null;
 }
 
 interface ExampleStore {
   id: string;
   displayName: string;
+  tagline: string | null;
   description: string;
   category: string;
   url: string;
@@ -44,12 +50,17 @@ const getCategoryIcon = (category: string): React.ReactNode => {
   const iconMap: Record<string, React.ReactNode> = {
     demo: <Store className="h-6 w-6" />,
     electronics: <Smartphone className="h-6 w-6" />,
+    technology: <Smartphone className="h-6 w-6" />,
     fashion: <Shirt className="h-6 w-6" />,
     crafts: <Paintbrush className="h-6 w-6" />,
     food: <UtensilsCrossed className="h-6 w-6" />,
     sports: <Dumbbell className="h-6 w-6" />,
+    fitness: <Dumbbell className="h-6 w-6" />,
     pets: <PawPrint className="h-6 w-6" />,
     beauty: <Sparkles className="h-6 w-6" />,
+    bakery: <Croissant className="h-6 w-6" />,
+    hardware: <Wrench className="h-6 w-6" />,
+    restaurant: <Drumstick className="h-6 w-6" />,
   };
   return iconMap[category] || <Store className="h-6 w-6" />;
 };
@@ -81,10 +92,11 @@ function ExampleCard({ store }: { store: ExampleStore }) {
           </div>
           <h3 className="font-serif text-lg font-bold text-foreground leading-tight">{store.displayName}</h3>
         </div>
-        <span className="inline-block text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full capitalize border border-border whitespace-nowrap mb-3">
+        <span className="inline-block text-xs font-medium text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full border border-border whitespace-nowrap mb-3">
           {store.category}
         </span>
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 text-justify">{store.description}</p>
+        {store.tagline && <p className="text-sm font-medium text-foreground leading-snug mb-1.5">{store.tagline}</p>}
+        <p className="text-sm text-muted-foreground leading-relaxed text-pretty">{store.description}</p>
       </div>
 
       {/* Action */}
@@ -128,7 +140,7 @@ function ExampleCardSkeleton() {
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function Examples() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { data: templates, isLoading, isError, error } = useQuery<Template[]>({
     queryKey: ['public-templates', 'active'],
     queryFn: async () => {
@@ -138,15 +150,19 @@ export default function Examples() {
     },
   });
 
-  const exampleStores: ExampleStore[] = (templates || []).map((template) => ({
-    id: template.id,
-    displayName: template.display_name,
-    description: template.description,
-    category: template.category,
-    url: template.preview_url ?? `https://${template.name}.examples.tsuru.jcampos.dev`,
-    icon: getCategoryIcon(template.category),
-    featured: featuredTemplateNames.includes(template.name),
-  }));
+  const exampleStores: ExampleStore[] = (templates || []).map((template) => {
+    const copy = localizeTemplate(template, language);
+    return {
+      id: template.id,
+      displayName: copy.displayName,
+      tagline: copy.tagline,
+      description: copy.description,
+      category: copy.categoryLabel,
+      url: template.preview_url ?? `https://${template.name}.examples.tsuru.jcampos.dev`,
+      icon: getCategoryIcon(template.category),
+      featured: featuredTemplateNames.includes(template.name),
+    };
+  });
 
   return (
     <div className="min-h-screen bg-background">
