@@ -1,10 +1,12 @@
+import { useState } from "react";
+import { ExampleSiteModal } from "@/components/marketing/ExampleSiteModal";
 import { Button } from "@/components/ui/button";
 import { CTASecuritySection } from "@/components/sections/cta-security-section";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuery } from "@tanstack/react-query";
 import { getPublicJson } from "@/repositories/content.repository";
 import {
-  ExternalLink,
+  Eye,
   Store,
   Smartphone,
   Shirt,
@@ -69,7 +71,7 @@ const featuredTemplateNames = ['tsuru-demo', 'artisan-crafts', 'gourmet-foods'];
 
 // ─── ExampleCard ─────────────────────────────────────────────────────────────
 
-function ExampleCard({ store }: { store: ExampleStore }) {
+function ExampleCard({ store, onPreview }: { store: ExampleStore; onPreview: (store: ExampleStore) => void }) {
   const { t } = useLanguage();
 
   return (
@@ -102,11 +104,11 @@ function ExampleCard({ store }: { store: ExampleStore }) {
       {/* Action */}
       <div className="p-6 pt-4 mt-auto">
         <Button
-          onClick={() => window.open(store.url, '_blank', 'noopener,noreferrer')}
+          onClick={() => onPreview(store)}
           className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl gap-2"
         >
           {t('examples.viewStore')}
-          <ExternalLink className="h-4 w-4" />
+          <Eye className="h-4 w-4" aria-hidden="true" />
         </Button>
       </div>
     </div>
@@ -140,6 +142,7 @@ function ExampleCardSkeleton() {
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function Examples() {
+  const [preview, setPreview] = useState<ExampleStore | null>(null);
   const { t, language } = useLanguage();
   const { data: templates, isLoading, isError, error } = useQuery<Template[]>({
     queryKey: ['public-templates', 'active'],
@@ -158,7 +161,7 @@ export default function Examples() {
       tagline: copy.tagline,
       description: copy.description,
       category: copy.categoryLabel,
-      url: template.preview_url ?? `https://${template.name}.examples.tsuru.jcampos.dev`,
+      url: template.preview_url ?? `https://${template.name}.examples.${import.meta.env.VITE_BASE_DOMAIN || "tsuru.jcampos.dev"}`,
       icon: getCategoryIcon(template.category),
       featured: featuredTemplateNames.includes(template.name),
     };
@@ -210,7 +213,7 @@ export default function Examples() {
           {!isLoading && !isError && exampleStores.length > 0 && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {exampleStores.map((store) => (
-                <ExampleCard key={store.id} store={store} />
+                <ExampleCard key={store.id} store={store} onPreview={setPreview} />
               ))}
             </div>
           )}
@@ -226,6 +229,8 @@ export default function Examples() {
 
         </div>
       </section>
+
+      {preview && <ExampleSiteModal title={preview.displayName} url={preview.url} onClose={() => setPreview(null)} />}
 
       {/* CTA */}
       <CTASecuritySection
