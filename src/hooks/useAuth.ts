@@ -46,7 +46,7 @@ interface UserProfile {
   first_name?: string;
   last_name?: string;
   role: string;
-  is_active?: boolean;
+  status?: number; // 1 active · 2 inactive · 3 deleted
 }
 
 async function authenticatedRequest(

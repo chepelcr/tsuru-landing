@@ -32,7 +32,7 @@ export function listOrganizations(params: {
   search?: string;
   page?: number;
   page_size?: number;
-  is_active?: boolean;
+  status?: number; // 1 active · 2 inactive · 3 deleted
 }): Promise<AdminOrgListResponse> {
   return adminRequest("GET", `/api/admin/organizations${toQuery(params)}`);
 }

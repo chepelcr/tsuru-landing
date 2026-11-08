@@ -11,7 +11,7 @@ export interface RbacModule {
   display_name: string;
   description: string | null;
   icon: string | null;
-  is_active: boolean;
+  status: number; // 1 active · 2 inactive · 3 deleted
   sort_order: number | null;
 }
 
@@ -21,7 +21,7 @@ export interface RbacSubmodule {
   name: string;
   display_name: string;
   description: string | null;
-  is_active: boolean;
+  status: number; // 1 active · 2 inactive · 3 deleted
   sort_order: number | null;
 }
 
@@ -48,7 +48,7 @@ export interface AdminOrgListItem {
   slug: string;
   subdomain: string | null;
   plan: string | null;
-  is_active: boolean;
+  status: number; // 1 active · 2 inactive · 3 deleted
   onboarding_step: number | null;
   created_at: string;
   module_count: number;
@@ -85,7 +85,7 @@ export interface ModuleUpsertBody {
   display_name: string;
   description?: string;
   icon?: string;
-  is_active?: boolean;
+  status?: number; // 1 active · 2 inactive · 3 deleted
   sort_order?: number;
 }
 
@@ -93,7 +93,7 @@ export interface SubmoduleUpsertBody {
   name: string;
   display_name: string;
   description?: string;
-  is_active?: boolean;
+  status?: number; // 1 active · 2 inactive · 3 deleted
   sort_order?: number;
 }
 
@@ -121,5 +121,5 @@ export interface PlatformUserProfile {
   first_name?: string;
   last_name?: string;
   role: string;
-  is_active?: boolean;
+  status?: number; // 1 active · 2 inactive · 3 deleted
 }

@@ -1,7 +1,7 @@
 // RBAC / Platform — per-organization module assignment (contract P2-P5).
 // Toggle assigned/enabled per module; expand a module to override submodules.
 // Effective availability (V1) is shown per submodule:
-//   module.is_active AND assigned AND is_enabled AND COALESCE(override, true).
+//   module.status = 1 AND assigned AND is_enabled AND COALESCE(override, true).
 
 import { useState } from "react";
 import { useLocation, useParams } from "wouter";
@@ -163,7 +163,7 @@ function ModuleCard({
   onSetOverride: (submoduleId: string, isEnabled: boolean | null) => void;
 }) {
   const { t } = useLanguage();
-  const moduleAvailable = row.module.is_active && row.assigned && row.is_enabled;
+  const moduleAvailable = (row.module.status === 1) && row.assigned && row.is_enabled;
 
   return (
     <div className="rounded-2xl border border-border bg-card">
@@ -180,7 +180,7 @@ function ModuleCard({
           <code className="text-xs font-normal text-muted-foreground">{row.module.name}</code>
         </button>
 
-        {!row.module.is_active && (
+        {!(row.module.status === 1) && (
           <StateBadge tone="warn">{t("admin.rbac.orgDetail.inactiveCatalog")}</StateBadge>
         )}
         <StateBadge tone={moduleAvailable ? "ok" : "off"}>

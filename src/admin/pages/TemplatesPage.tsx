@@ -15,7 +15,7 @@ interface Template {
   description: string;
   category: string;
   thumbnail_url?: string;
-  is_active: boolean;
+  status: number; // 1 active · 2 inactive · 3 deleted
   sort_order: number;
 }
 
@@ -96,12 +96,12 @@ export default function TemplatesPage() {
                     <td className="px-5 py-3">
                       <span
                         className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
-                          tpl.is_active
+                          (tpl.status === 1)
                             ? "bg-emerald-500/15 text-emerald-600"
                             : "bg-muted text-muted-foreground"
                         }`}
                       >
-                        {tpl.is_active
+                        {(tpl.status === 1)
                           ? t("admin.templates.active")
                           : t("admin.templates.inactive")}
                       </span>

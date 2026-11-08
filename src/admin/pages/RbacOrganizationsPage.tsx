@@ -127,8 +127,8 @@ function OrganizationsList() {
                     <td className="px-5 py-3 text-muted-foreground">{org.subdomain ?? "—"}</td>
                     <td className="px-5 py-3 capitalize text-muted-foreground">{org.plan ?? "—"}</td>
                     <td className="px-5 py-3">
-                      <StateBadge tone={org.is_active ? "ok" : "muted"}>
-                        {org.is_active ? t("admin.rbac.orgs.active") : t("admin.rbac.orgs.inactive")}
+                      <StateBadge tone={(org.status === 1) ? "ok" : "muted"}>
+                        {(org.status === 1) ? t("admin.rbac.orgs.active") : t("admin.rbac.orgs.inactive")}
                       </StateBadge>
                     </td>
                     <td className="px-5 py-3 text-right font-medium text-foreground">

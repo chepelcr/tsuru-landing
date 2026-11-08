@@ -136,8 +136,8 @@ function CatalogScreen() {
                   {mod.display_name}
                   <code className="text-xs font-normal text-muted-foreground">{mod.name}</code>
                 </button>
-                <StateBadge tone={mod.is_active ? "ok" : "muted"}>
-                  {mod.is_active ? t("admin.rbac.common.active") : t("admin.rbac.common.inactive")}
+                <StateBadge tone={(mod.status === 1) ? "ok" : "muted"}>
+                  {(mod.status === 1) ? t("admin.rbac.common.active") : t("admin.rbac.common.inactive")}
                 </StateBadge>
                 <span className="text-xs text-muted-foreground">
                   {mod.submodules.length} {t("admin.rbac.catalog.submodulesCount")}
@@ -147,12 +147,12 @@ function CatalogScreen() {
                   <div className="mr-2 flex items-center gap-2 text-xs text-muted-foreground">
                     <span>{t("admin.rbac.common.active")}</span>
                     <Toggle
-                      checked={mod.is_active}
+                      checked={(mod.status === 1)}
                       disabled={busy}
                       label={t("admin.rbac.common.active")}
                       onChange={(isActive) =>
                         void run(() =>
-                          updateModule.mutateAsync({ moduleId: mod.id, body: { is_active: isActive } }),
+                          updateModule.mutateAsync({ moduleId: mod.id, body: { status: isActive ? 1 : 2 } }),
                         )
                       }
                     />
@@ -215,8 +215,8 @@ function CatalogScreen() {
                               </span>{" "}
                               <code className="text-xs text-muted-foreground">{sub.name}</code>
                             </div>
-                            <StateBadge tone={sub.is_active ? "ok" : "muted"}>
-                              {sub.is_active
+                            <StateBadge tone={(sub.status === 1) ? "ok" : "muted"}>
+                              {(sub.status === 1)
                                 ? t("admin.rbac.common.active")
                                 : t("admin.rbac.common.inactive")}
                             </StateBadge>
@@ -329,7 +329,7 @@ function ModuleFormModal({
   const [displayName, setDisplayName] = useState(editing?.display_name ?? "");
   const [description, setDescription] = useState(editing?.description ?? "");
   const [icon, setIcon] = useState(editing?.icon ?? "");
-  const [isActive, setIsActive] = useState(editing?.is_active ?? true);
+  const [isActive, setIsActive] = useState((editing?.status ?? 1) === 1);
   const [sortOrder, setSortOrder] = useState(String(editing?.sort_order ?? 0));
 
   const handleSubmit = (e: FormEvent) => {
@@ -339,7 +339,7 @@ function ModuleFormModal({
       display_name: displayName.trim(),
       description: description.trim() || undefined,
       icon: icon.trim() || undefined,
-      is_active: isActive,
+      status: isActive ? 1 : 2,
       sort_order: Number(sortOrder) || 0,
     });
   };
@@ -412,7 +412,7 @@ function SubmoduleFormModal({
   const [name, setName] = useState(editing?.name ?? "");
   const [displayName, setDisplayName] = useState(editing?.display_name ?? "");
   const [description, setDescription] = useState(editing?.description ?? "");
-  const [isActive, setIsActive] = useState(editing?.is_active ?? true);
+  const [isActive, setIsActive] = useState((editing?.status ?? 1) === 1);
   const [sortOrder, setSortOrder] = useState(String(editing?.sort_order ?? 0));
 
   const handleSubmit = (e: FormEvent) => {
@@ -421,7 +421,7 @@ function SubmoduleFormModal({
       name: name.trim(),
       display_name: displayName.trim(),
       description: description.trim() || undefined,
-      is_active: isActive,
+      status: isActive ? 1 : 2,
       sort_order: Number(sortOrder) || 0,
     });
   };
