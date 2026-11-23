@@ -13,8 +13,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { RichText } from "@/lib/rich-text";
 import { Button } from "@/components/ui/button";
 import { AppAccessButton } from "@/components/AppAccessButton";
-import { IS_PRELAUNCH } from "@/lib/environment";
-import { isAppAccessUrl } from "@/lib/site-links";
+import { resolveAppAccessUrl } from "@/lib/site-links";
 const plans = getContent<typeof import("@/content/plans.json")>("plans");
 import { formatCRC } from "@/lib/currency";
 import {
@@ -83,8 +82,8 @@ function PlanCard({
         : pick(labels.perMonth);
 
   const badge = pick(plan.badge);
-  // Available plans keep their real CTA in staging while paid tiers are coming soon.
-  const ctaDisabled = (comingSoon && !plan.available) || (IS_PRELAUNCH && isAppAccessUrl(plan.ctaHref));
+  const ctaDisabled = comingSoon && !plan.available;
+  const appCtaHref = resolveAppAccessUrl(plan.ctaHref);
   const isInternalCta = plan.ctaHref.startsWith("/");
 
   const ctaClass = `w-full rounded-full ${
@@ -154,14 +153,16 @@ function PlanCard({
         <Button disabled className="w-full rounded-full" aria-disabled="true">
           {pick(labels.comingSoon)}
         </Button>
+      ) : appCtaHref ? (
+        <AppAccessButton href={appCtaHref} className={ctaClass}>{pick(plan.ctaLabel)}</AppAccessButton>
       ) : isInternalCta ? (
-        <Link href={plan.ctaHref}>
-          <Button className={ctaClass}>{pick(plan.ctaLabel)}</Button>
-        </Link>
+        <Button className={ctaClass} asChild>
+          <Link href={plan.ctaHref}>{pick(plan.ctaLabel)}</Link>
+        </Button>
       ) : (
-        <a href={plan.ctaHref} target="_blank" rel="noopener noreferrer">
-          <Button className={ctaClass}>{pick(plan.ctaLabel)}</Button>
-        </a>
+        <Button className={ctaClass} asChild>
+          <a href={plan.ctaHref} target="_blank" rel="noopener noreferrer">{pick(plan.ctaLabel)}</a>
+        </Button>
       )}
 
       <ul className="mt-6 space-y-2.5 border-t border-border pt-6">
@@ -192,6 +193,7 @@ export default function Planes() {
   const { language } = useLanguage();
   const lang = language as Lang;
   const pick = (f: Bi) => f[lang] ?? f.es;
+  const appCtaHref = resolveAppAccessUrl(plans.cta.buttonHref);
 
   const [cycle, setCycle] = useState<"monthly" | "annual">(
     plans.config.defaultBillingCycle === "monthly" ? "monthly" : "annual",
@@ -449,8 +451,8 @@ export default function Planes() {
           <p className="mb-8 text-lg text-muted-foreground">
             <RichText>{pick(plans.cta.subtitle)}</RichText>
           </p>
-          {isAppAccessUrl(plans.cta.buttonHref) ? (
-            <AppAccessButton href={plans.cta.buttonHref} size="lg" className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
+          {appCtaHref ? (
+            <AppAccessButton href={appCtaHref} size="lg" className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
               {pick(plans.cta.button)}
               <ArrowRight className="ml-2 h-4 w-4" />
             </AppAccessButton>

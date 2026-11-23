@@ -6,4 +6,3 @@ const siteHostname = isLocal
   : hostname;
 
 export const IS_STAGING = siteHostname === "tsuru.jcampos.dev" || siteHostname.endsWith(".tsuru.jcampos.dev");
-export const IS_PRELAUNCH = siteHostname === "tsuru.lat" || siteHostname === "www.tsuru.lat";

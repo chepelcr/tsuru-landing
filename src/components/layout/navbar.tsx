@@ -9,7 +9,7 @@ import { useScrollNavigation } from '@/hooks/useScrollNavigation';
 import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react';
 const navbar = getContent<typeof import("@/content/navbar.json")>("navbar");
 import { BrandLogo } from "@/components/layout/brand-logo";
-import { APP_URL, BLOG_SITE_URL, REGISTER_URL } from "@/lib/site-links";
+import { BLOG_SITE_URL, LOGIN_URL, REGISTER_URL } from "@/lib/site-links";
 import { AppAccessButton } from "@/components/AppAccessButton";
 import { IS_STAGING } from "@/lib/environment";
 
@@ -161,7 +161,7 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
           <div className="hidden lg:flex shrink-0 items-center gap-1 xl:gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
-            <AppAccessButton href={APP_URL} variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-sm">
+            <AppAccessButton href={LOGIN_URL} variant="ghost" size="sm" className="text-muted-foreground hover:text-primary px-2 xl:px-3 text-sm">
               {pick(navbar.login)}
             </AppAccessButton>
             <AppAccessButton href={REGISTER_URL} size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-3 xl:px-5 text-sm">
@@ -261,7 +261,7 @@ export default function LandingNavbar({ transitionStage = '', displayLocation }:
                 onClick={() => setMobileMenuOpen(false)}>{pick(navbar.links.blog)}</a>
 
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <AppAccessButton href={APP_URL} onClick={() => setMobileMenuOpen(false)} variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
+                <AppAccessButton href={LOGIN_URL} onClick={() => setMobileMenuOpen(false)} variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
                   {pick(navbar.login)}
                 </AppAccessButton>
                 <AppAccessButton href={REGISTER_URL} onClick={() => setMobileMenuOpen(false)} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">

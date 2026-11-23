@@ -1,7 +1,12 @@
 # Tsuru landing
 
-This is the public React/Vite landing at https://tsuru.jcampos.dev. Use pnpm.
-The build output is ../dist/landing and BASE_PATH is / on the custom domain.
+Production is live at https://www.tsuru.lat through S3 and CloudFront. The apex
+https://tsuru.lat redirects there. The `main` build links visitors to sign in or
+register at https://app.tsuru.lat.
+
+The `develop` build runs at https://tsuru.jcampos.dev through GitHub Pages and
+links to https://app.tsuru.jcampos.dev. Use pnpm. The build output is
+`../dist/landing` and `BASE_PATH` is `/` on both custom domains.
 
 ## Public content contract
 
